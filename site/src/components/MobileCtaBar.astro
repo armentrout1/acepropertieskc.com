@@ -1,0 +1,74 @@
+---
+const phone = "555-555-5555"; // TODO: Replace with actual phone number
+const phoneHref = phone.replace(/-/g, "");
+---
+
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-primary md:hidden">
+  <div class="flex items-center justify-around py-3 px-2">
+    <!-- Call -->
+    <a
+      href={`tel:${phoneHref}`}
+      class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+      <span class="text-xs font-medium">Call</span>
+    </a>
+
+    <!-- Text -->
+    <a
+      href={`sms:${phoneHref}`}
+      class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+      <span class="text-xs font-medium">Text</span>
+    </a>
+
+    <!-- Get Offer -->
+    <a
+      href="#get-offer"
+      class="flex flex-col items-center gap-1 px-4 py-2 bg-accent text-primary rounded-lg hover:bg-amber-400 transition-colors"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+      <span class="text-xs font-bold">Get Offer</span>
+    </a>
+  </div>
+</div>
+
+<!-- Spacer to prevent content from being hidden behind fixed bar on mobile -->
+<div class="h-20 md:hidden" aria-hidden="true"></div>

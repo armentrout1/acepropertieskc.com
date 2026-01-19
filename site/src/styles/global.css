@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0B2440;
+  --color-secondary: #0F766E;
+  --color-accent: #F59E0B;
+  --color-text: #111827;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-soft: #F3F4F6;
+
+  --font-heading: "Poppins", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --c-primary: #0B2440;
+  --c-secondary: #0F766E;
+  --c-accent: #F59E0B;
+  --c-text: #111827;
+  --c-muted: #6B7280;
+  --c-border: #E5E7EB;
+  --c-soft: #F3F4F6;
+}
+
+/* Base typography */
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--c-text);
+  background: #fff;
+  line-height: 1.55;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--c-primary);
+  line-height: 1.15;
+}
