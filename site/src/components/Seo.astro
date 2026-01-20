@@ -1,0 +1,53 @@
+---
+import { SITE } from "../lib/siteConfig";
+import { buildCanonicalUrl } from "../lib/seo";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: object[];
+}
+
+const {
+  title = SITE.defaultTitle,
+  description = SITE.defaultDescription,
+  canonicalPath,
+  ogImage = "/og-default.svg",
+  noindex = false,
+  jsonLd = [],
+} = Astro.props;
+
+const canonicalUrl = canonicalPath
+  ? buildCanonicalUrl(canonicalPath)
+  : buildCanonicalUrl(Astro.url.pathname);
+
+const ogImageUrl = ogImage.startsWith("http")
+  ? ogImage
+  : `${SITE.baseUrl}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={ogImageUrl} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+{jsonLd.map((obj) => (
+  <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+))}

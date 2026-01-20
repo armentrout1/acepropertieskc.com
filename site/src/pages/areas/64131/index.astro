@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const faqs = [
   {
@@ -19,11 +20,19 @@ const faqs = [
     answer: "Once title is clear, cash closings can happen in about two weeks. Creative structures follow whatever schedule we agree on."
   }
 ];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((f) => ({ q: f.question, a: f.answer }))),
+];
 ---
 
 <Layout
   title="Sell Your 64131 House As-Is | ACE Properties KC"
   description="Local Kansas City metro home buyers focused on 64131. Sell as-is for cash or explore creative options with transparent next steps."
+  canonicalPath="/areas/64131/"
+  jsonLd={jsonLd}
 >
   <section class="space-y-4">
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Kansas City, MO</p>

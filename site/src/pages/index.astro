@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import OfferForm from "../components/OfferForm.astro";
 import { SITE } from "../lib/siteConfig";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
 
 const trustPoints = [
   "Local to the KC metro",
@@ -57,11 +58,19 @@ const faqs = [
     answer: "Absolutely. Every conversation starts with questions, not paperwork, so you stay in control."
   }
 ];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((f) => ({ q: f.question, a: f.answer }))),
+];
 ---
 
 <Layout
   title="Sell Your Kansas City House | ACE Properties KC"
   description="Local Kansas City home buyer offering cash and creative solutions. Sell as-is, avoid repairs, and stay in control of your timeline."
+  canonicalPath="/"
+  jsonLd={jsonLd}
 >
   <section class="rounded-3xl bg-gradient-to-b from-soft to-white px-5 py-10 shadow-sm">
     <div class="space-y-6">

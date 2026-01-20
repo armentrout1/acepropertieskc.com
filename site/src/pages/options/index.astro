@@ -1,5 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../lib/seo";
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
 
 const fitItems = [
   "You prefer a sure cash price without inspections or financing delays",
@@ -12,6 +15,8 @@ const fitItems = [
 <Layout
   title="Cash & Creative Home Selling Options | ACE Properties KC"
   description="Compare cash offers with creative structures for your Kansas City house. Transparent timelines, no repairs, and clear next steps."
+  canonicalPath="/options/"
+  jsonLd={jsonLd}
 >
   <section class="space-y-4">
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Your options</p>
