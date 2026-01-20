@@ -1,0 +1,93 @@
+=== BUILD FAILURE LOG ===
+Command: npm run build
+Date: January 19, 2026 21:32:29
+
+> site@0.0.1 build
+21:32:29 [content] Syncing content
+21:32:29 [content] Synced content
+21:32:29 [types] Generated 24ms
+21:32:29 [build] output: "static"
+21:32:29 [build] mode: "static"
+21:32:29 [build] directory: C:\Users\aaron\AcePropertiesKC\site\dist\
+21:32:29 [build] Collecting build info...
+21:32:29 [build] ✓ Completed in 36ms.
+21:32:29 [build] Building static entrypoints...
+panic: hpanic: interface conversion: string is not error: missing method
+goroutine 8 [running]:                                                  main.mai./astro-wasm.go:335 +0x5)
+panic({0x17940, 0x7b460})
+        runtime/panic.go:770 +0x1a
+github.com/withastro/compiler/internal.(*parser).setOriginalIM(...)
+        github.com/withastro/compiler/internal/parser.go:545
+github.com/withastro/compiler/internal.inBodyIM(0x14565a0)
+        github.com/withastro/compiler/internal/parser.go:1106 +0x41a
+github.com/withastro/compiler/internal.(*parser).parseCurrentToken(0x145
+65a0)                                                                           github.com/withastro/compiler/internal/parser.go:3009 +0x12
+github.com/withastro/compiler/internal.(*parser).parse(0x14565a0)
+        github.com/withastro/compiler/internal/parser.go:3036 +0x3
+github.com/withastro/compiler/internal.ParseWithOptions({0x7bca8, 0x1434
+240}, {0x14b9e20, 0x1, 0x1})                                                    github.com/withastro/compiler/internal/parser.go:3100 +0x13
+main.main.Transform.func1.1.1()
+        ./astro-wasm.go:340 +0x4
+created by main.main.Transform.func1.1 in goroutine 6
+        ./astro-wasm.go:331 +0x7
+exit code: 2
+21:32:30 [ERROR] [vite] ✗ Build failed in 211ms
+[UnknownCompilerError] [astro:build] Cannot read properties of undefined
+ (reading 'exports')                                                    file: C:/Users/aaron/AcePropertiesKC/site/src/pages/privacy/index.astro:
+undefined:undefined                                                       Hint:
+    This is almost always a problem with the Astro compiler, not your co
+de. Please open an issue at https://astro.build/issues/compiler.          Error reference:
+    https://docs.astro.build/en/reference/errors/unknown-compiler-error/
+  Location:
+    C:/Users/aaron/AcePropertiesKC/site/src/pages/privacy/index.astro:0:
+0                                                                         Stack trace:
+    at syscall/js.valueNew (file:///C:/Users/aaron/AcePropertiesKC/site/
+node_modules/@astrojs/compiler/dist/chunk-W5DTLHV4.js:1:4526)               at wasm://wasm/01398f46:wasm-function[1567]:0x168afa
+    at wasm://wasm/01398f46:wasm-function[1543]:0x164bec
+    at wasm://wasm/01398f46:wasm-function[1169]:0xfaaf6
+    at Object.transform (file:///C:/Users/aaron/AcePropertiesKC/site/nod
+e_modules/@astrojs/compiler/dist/chunk-W5DTLHV4.js:1:6575)
+
+=== VERBOSE BUILD LOG ===
+Command: npx astro build --verbose
+Date: January 19, 2026 21:32:36
+
+panic: html: bad parser state: originalIM was set twice [recovered]
+        panic: interface conversion: string is not error: missing method
+ Error                                                                  
+goroutine 7 [running]:
+main.main.Transform.func1.1.1.1()
+        ./astro-wasm.go:335 +0x5
+panic({0x17940, 0x7b460})
+        runtime/panic.go:770 +0x1a
+github.com/withastro/compiler/internal.(*parser).setOriginalIM(...)
+        github.com/withastro/compiler/internal/parser.go:545
+github.com/withastro/compiler/internal.inBodyIM(0x1456360)
+        github.com/withastro/compiler/internal/parser.go:1106 +0x41a
+github.com/withastro/compiler/internal.(*parser).parseCurrentToken(0x145
+6360)                                                                           github.com/withastro/compiler/internal/parser.go:3009 +0x12
+github.com/withastro/compiler/internal.(*parser).parse(0x1456360)
+        github.com/withastro/compiler/internal/parser.go:3036 +0x3
+github.com/withastro/compiler/internal.ParseWithOptions({0x7bca8, 0x1434
+100}, {0x1445e20, 0x1, 0x1})                                                    github.com/withastro/compiler/internal/parser.go:3100 +0x13
+main.main.Transform.func1.1.1()
+        ./astro-wasm.go:340 +0x4
+created by main.main.Transform.func1.1 in goroutine 6
+        ./astro-wasm.go:331 +0x7
+exit code: 2
+21:32:36 [ERROR] [vite] ✗ Build failed in 200ms
+[UnknownCompilerError] [astro:build] Cannot read properties of undefined
+ (reading 'exports')                                                    file: C:/Users/aaron/AcePropertiesKC/site/src/pages/privacy/index.astro:
+undefined:undefined                                                       Hint:
+    This is almost always a problem with the Astro compiler, not your co
+de. Please open an issue at https://astro.build/issues/compiler.          Error reference:
+    https://docs.astro.build/en/reference/errors/unknown-compiler-error/
+  Location:
+    C:/Users/aaron/AcePropertiesKC/site/src/pages/privacy/index.astro:0:
+0                                                                         Stack trace:
+    at syscall/js.valueNew (file:///C:/Users/aaron/AcePropertiesKC/site/
+node_modules/@astrojs/compiler/dist/chunk-W5DTLHV4.js:1:4526)               at wasm://wasm/01398f46:wasm-function[1567]:0x168afa
+    at wasm://wasm/01398f46:wasm-function[1163]:0xfaa2b
+    at d._resume (file:///C:/Users/aaron/AcePropertiesKC/site/node_modul
+es/@astrojs/compiler/dist/chunk-W5DTLHV4.js:1:6412)                         at file:///C:/Users/aaron/AcePropertiesKC/site/node_modules/@astrojs
+/compiler/dist/node/index.js:1:830
