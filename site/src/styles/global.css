@@ -23,18 +23,70 @@
   --c-soft: #F3F4F6;
 }
 
-/* Base typography */
-html, body { height: 100%; }
-body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--c-text);
-  background: #fff;
-  line-height: 1.55;
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-body, Inter), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--c-text);
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading, Poppins), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--c-primary);
+    line-height: 1.15;
+  }
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--c-primary);
-  line-height: 1.15;
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  .section-alt {
+    @apply rounded-3xl bg-soft/70 py-12 md:py-16;
+  }
+
+  .card {
+    @apply rounded-3xl border border-border/70 bg-white/95 p-6 shadow-sm backdrop-blur;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply bg-secondary text-white hover:bg-secondary/90 focus-visible:ring-secondary;
+  }
+
+  .btn-secondary {
+    @apply bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary;
+  }
+
+  .btn-ghost {
+    @apply border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 focus-visible:ring-primary/60;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-white/80 px-4 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-secondary;
+  }
+
+  .cta-safe-area {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+  }
 }

@@ -1,0 +1,10 @@
+<svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="96" rx="24" fill="#F9FAFB"/>
+  <g transform="translate(28 20)">
+    <path d="M16 56L56 0L96 56" stroke="#0B2440" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M32 40H80" stroke="#0F766E" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="56" cy="16" r="7" fill="#F59E0B"/>
+  </g>
+  <text x="140" y="58" fill="#0B2440" font-family="'Poppins', 'Segoe UI', sans-serif" font-size="34" font-weight="600" letter-spacing="0.02em">ACE</text>
+  <text x="230" y="58" fill="#0F766E" font-family="'Poppins', 'Segoe UI', sans-serif" font-size="28" font-weight="500">Properties KC</text>
+</svg>

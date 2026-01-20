@@ -2,27 +2,42 @@
 import { SITE } from "../lib/siteConfig";
 ---
 
-<footer class="border-t border-border/60 bg-soft py-10 text-sm text-muted">
-  <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 md:flex-row md:items-start md:justify-between">
-    <div class="space-y-3 text-primary">
-      <p class="text-base font-semibold">Always local to the KC metro.</p>
-      <p>
-        We buy houses as-is, keep the process transparent, and let you decide the pace—no pressure.
+<footer class="border-t border-border/60 bg-soft py-12 text-sm text-muted">
+  <div class="container-shell space-y-10">
+    <div class="flex flex-col gap-6 rounded-3xl bg-white/80 p-6 text-primary shadow-sm md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-4">
+        <img src="/brand/ace-mark.svg" alt={`${SITE.name} mark`} class="h-12 w-12" loading="lazy" decoding="async" />
+        <div>
+          <p class="text-lg font-semibold text-primary">{SITE.name}</p>
+          <p class="text-muted text-sm">Creative Kansas City home buyer</p>
+        </div>
+      </div>
+      <p class="max-w-2xl text-sm text-muted">
+        Quiet, local support for sellers across {SITE.serviceArea}. We keep your options transparent and your timeline in focus—no pressure, no surprises.
       </p>
-      <p class="font-medium">Service area: {SITE.serviceArea}</p>
     </div>
 
-    <div class="space-y-2 text-primary">
-      <p class="text-base font-semibold">Quick Links</p>
-      <nav class="flex flex-col gap-2">
-        <a href="/privacy/" class="transition-colors hover:text-secondary">Privacy Policy</a>
-        <a href="/terms/" class="transition-colors hover:text-secondary">Terms</a>
-        <a href="/contact/" class="transition-colors hover:text-secondary">Contact</a>
-      </nav>
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="space-y-3 text-primary">
+        <p class="text-base font-semibold">Always local to the KC metro.</p>
+        <p>
+          We buy houses as-is, stay communicative during title and escrow, and let you decide the pace.
+        </p>
+        <p class="font-medium">Service area: {SITE.serviceArea}</p>
+      </div>
+
+      <div class="space-y-2 text-primary">
+        <p class="text-base font-semibold">Quick Links</p>
+        <nav class="flex flex-col gap-2">
+          <a href="/privacy/" class="transition-colors hover:text-secondary">Privacy Policy</a>
+          <a href="/terms/" class="transition-colors hover:text-secondary">Terms</a>
+          <a href="/contact/" class="transition-colors hover:text-secondary">Contact</a>
+        </nav>
+      </div>
     </div>
   </div>
 
-  <div class="mx-auto mt-8 max-w-6xl px-4 text-xs text-muted">
+  <div class="container-shell mt-10 border-t border-border/60 pt-4 text-xs text-muted">
     <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
   </div>
 </footer>

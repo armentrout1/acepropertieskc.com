@@ -9,7 +9,7 @@ import { SITE } from "../../lib/siteConfig";
   description="Talk with the ACE Properties KC team about selling your Kansas City house as-is for cash or creative options."
   canonicalPath="/contact/"
 >
-  <section class="space-y-4">
+  <section class="section space-y-4">
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Talk with a real person</p>
     <h1 class="text-4xl font-semibold text-primary">Contact ACE Properties KC</h1>
     <p class="text-muted">
@@ -17,34 +17,42 @@ import { SITE } from "../../lib/siteConfig";
     </p>
   </section>
 
-  <section class="mt-8 grid gap-8 rounded-3xl border border-border/70 bg-white p-6 md:grid-cols-2">
-    <div class="space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">Reach us</h2>
-      <div class="space-y-3 text-sm text-primary">
-        <div class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-          <div>
-            <p class="font-semibold">Call or text</p>
-            <a href={`tel:${SITE.phoneTel}`} class="text-secondary hover:underline">{SITE.phoneDisplay}</a>
+  <section class="section">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="card space-y-4">
+        <h2 class="text-2xl font-semibold text-primary">Reach us</h2>
+        <div class="space-y-3 text-sm text-primary">
+          <div class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <div>
+              <p class="font-semibold">Call or text</p>
+              <a href={`tel:${SITE.phoneTel}`} class="text-secondary hover:underline">{SITE.phoneDisplay}</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <div>
+              <p class="font-semibold">Email</p>
+              <a href={`mailto:${SITE.email}`} class="text-secondary hover:underline">{SITE.email}</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <div>
+              <p class="font-semibold">Service area</p>
+              <p>Kansas City metro, including ZIP 64131.</p>
+            </div>
           </div>
         </div>
-        <div class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-          <div>
-            <p class="font-semibold">Email</p>
-            <a href={`mailto:${SITE.email}`} class="text-secondary hover:underline">{SITE.email}</a>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-          <div>
-            <p class="font-semibold">Service area</p>
-            <p>Kansas City metro, including ZIP 64131.</p>
-          </div>
+        <p class="text-sm text-muted">We respond during standard business hours and check messages after-hours for urgent updates.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+          <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base">Call us now</a>
         </div>
       </div>
-      <p class="text-sm text-muted">We respond during standard business hours and check messages after-hours for urgent updates.</p>
+      <div class="card p-4 sm:p-6">
+        <OfferForm heading="Request a call or walkthrough" subheading="Share the address and how you'd like us to follow up." formId="contact-offer-form" />
+      </div>
     </div>
-    <OfferForm heading="Request a call or walkthrough" subheading="Share the address and how you'd like us to follow up." formId="contact-offer-form" />
   </section>
 </Layout>

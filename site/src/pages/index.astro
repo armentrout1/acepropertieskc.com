@@ -72,48 +72,50 @@ const jsonLd = [
   canonicalPath="/"
   jsonLd={jsonLd}
 >
-  <section class="rounded-3xl bg-gradient-to-b from-soft to-white px-5 py-10 shadow-sm">
-    <div class="space-y-6">
-      <span class="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-secondary">
-        Creative Home Buyer
-      </span>
-      <div class="space-y-4">
-        <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+  <section class="section pt-4">
+    <div class="rounded-3xl bg-gradient-to-b from-soft to-white/90 px-6 py-10 shadow-sm sm:px-10">
+      <div class="space-y-6">
+        <span class="badge">Creative Home Buyer</span>
+        <div class="space-y-4">
+          <h1 class="text-4xl font-semibold text-primary md:text-5xl">
           Sell Your Kansas City House As-Is — Cash or Creative Options
-        </h1>
-        <p class="text-lg text-muted">
-          Calm, local guidance focused on the Kansas City metro. We listen first, lay out every option clearly, and let you choose how to move forward.
+          </h1>
+          <p class="text-lg text-muted">
+            Calm, local guidance focused on the Kansas City metro. We listen first, lay out every option clearly, and let you choose how to move forward.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="#get-offer" class="btn btn-primary text-base">
+            Get My Offer
+          </a>
+          <a
+            href={`tel:${SITE.phoneTel}`}
+            class="btn btn-ghost text-base"
+          >
+            Call {SITE.phoneDisplay}
+          </a>
+        </div>
+        <p class="text-sm font-medium text-muted">
+          Grounded in neighborhoods from Brookside to ZIP 64131 with transparent communication at every step.
         </p>
       </div>
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a href="#get-offer" class="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white transition hover:bg-secondary/90">
-          Get My Offer
-        </a>
-        <a
-          href={`tel:${SITE.phoneTel}`}
-          class="inline-flex items-center justify-center rounded-full border border-primary/20 px-6 py-3 text-base font-semibold text-primary transition hover:border-primary"
-        >
-          Call {SITE.phoneDisplay}
-        </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <div class="grid gap-4 text-sm font-medium text-primary sm:grid-cols-5">
+        {trustPoints.map((point) => (
+          <div class="flex items-center gap-2" role="listitem">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-secondary">•</span>
+            <span>{point}</span>
+          </div>
+        ))}
       </div>
-      <p class="text-sm font-medium text-muted">
-        Grounded in neighborhoods from Brookside to ZIP 64131 with transparent communication at every step.
-      </p>
     </div>
   </section>
 
-  <section class="mt-10 rounded-2xl border border-border/60 bg-white p-6">
-    <div class="grid gap-4 text-sm font-medium text-primary sm:grid-cols-5">
-      {trustPoints.map((point) => (
-        <div class="flex items-center gap-2" role="listitem">
-          <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-secondary">•</span>
-          <span>{point}</span>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section id="how-it-works" class="mt-16 space-y-6">
+  <section id="how-it-works" class="section space-y-6">
     <div class="space-y-2">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">How it works</p>
       <h2 class="text-3xl font-semibold text-primary">Simple conversations, clear next steps</h2>
@@ -123,7 +125,7 @@ const jsonLd = [
     </div>
     <div class="grid gap-6 md:grid-cols-3">
       {steps.map((step, index) => (
-        <div class="rounded-2xl border border-border/70 bg-white p-5 shadow-sm" aria-label={`Step ${index + 1}`}>
+        <div class="card" aria-label={`Step ${index + 1}`}>
           <p class="text-xs font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
           <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
           <p class="mt-2 text-sm text-muted">{step.body}</p>
@@ -132,7 +134,7 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="mt-16 space-y-6">
+  <section class="section space-y-6">
     <div class="space-y-2">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Options for real situations</p>
       <h2 class="text-3xl font-semibold text-primary">Solutions we walk through every week</h2>
@@ -140,7 +142,7 @@ const jsonLd = [
     </div>
     <div class="grid gap-5 md:grid-cols-3">
       {solutions.map((solution) => (
-        <a href={solution.href} class="rounded-2xl border border-border/70 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60">
+        <a href={solution.href} class="card transition hover:-translate-y-1 hover:border-secondary/60">
           <h3 class="text-xl font-semibold text-primary">{solution.title}</h3>
           <p class="mt-2 text-sm text-muted">{solution.body}</p>
           <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary">
@@ -154,49 +156,51 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="mt-16 grid gap-8 rounded-3xl border border-border/70 bg-soft/70 p-8 md:grid-cols-2">
-    <div class="space-y-4">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Why homeowners choose options</p>
-      <h2 class="text-3xl font-semibold text-primary">Control, transparency, and flexibility</h2>
-      <p class="text-muted">
-        Whether you need a quick closing or want to keep income via a creative structure, we lay out side-by-side comparisons so the decision is yours.
-      </p>
-      <ul class="space-y-3 text-sm text-primary">
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-          Clear pricing backed by written breakdowns before contracts.
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-          Title, escrow, and legal partners who work across Jackson, Johnson, and Clay Counties.
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-          Flexible occupancy so you can stay put while packing or coordinating movers.
-        </li>
-      </ul>
-    </div>
-    <div class="rounded-2xl bg-white p-6 shadow-sm">
-      <p class="text-lg font-semibold text-primary">What you can expect</p>
-      <ul class="mt-4 space-y-3 text-sm text-muted">
-        <li>Weekly updates during title work.</li>
-        <li>Creative deal outlines translated into plain English.</li>
-        <li>Introductions to attorneys or advisors when you want a second opinion.</li>
-      </ul>
-      <a href="#get-offer" class="mt-6 inline-flex items-center justify-center rounded-full bg-secondary px-5 py-2.5 text-sm font-semibold text-white">
-        See your options
-      </a>
+  <section class="section section-alt">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="space-y-4">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Why homeowners choose options</p>
+        <h2 class="text-3xl font-semibold text-primary">Control, transparency, and flexibility</h2>
+        <p class="text-muted">
+          Whether you need a quick closing or want to keep income via a creative structure, we lay out side-by-side comparisons so the decision is yours.
+        </p>
+        <ul class="space-y-3 text-sm text-primary">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            Clear pricing backed by written breakdowns before contracts.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            Title, escrow, and legal partners who work across Jackson, Johnson, and Clay Counties.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            Flexible occupancy so you can stay put while packing or coordinating movers.
+          </li>
+        </ul>
+      </div>
+      <div class="card bg-white/90">
+        <p class="text-lg font-semibold text-primary">What you can expect</p>
+        <ul class="mt-4 space-y-3 text-sm text-muted">
+          <li>Weekly updates during title work.</li>
+          <li>Creative deal outlines translated into plain English.</li>
+          <li>Introductions to attorneys or advisors when you want a second opinion.</li>
+        </ul>
+        <a href="#get-offer" class="btn btn-primary mt-6 w-full sm:w-auto">
+          See your options
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="mt-16 space-y-6">
+  <section class="section space-y-6">
     <div class="space-y-2">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Questions homeowners ask</p>
       <h2 class="text-3xl font-semibold text-primary">FAQ</h2>
     </div>
     <div class="space-y-3">
       {faqs.map((faq) => (
-        <details class="rounded-2xl border border-border/70 bg-white p-4">
+        <details class="card">
           <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
           <p class="mt-2 text-sm text-muted">{faq.answer}</p>
         </details>
@@ -204,12 +208,14 @@ const jsonLd = [
     </div>
   </section>
 
-  <section id="get-offer" class="mt-16 space-y-4">
+  <section id="get-offer" class="section space-y-6">
     <div class="space-y-2 text-center">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Get an offer</p>
       <h2 class="text-3xl font-semibold text-primary">Share the property basics</h2>
       <p class="text-muted">No pressure. We'll confirm details and discuss next steps.</p>
     </div>
-    <OfferForm />
+    <div class="card p-4 sm:p-6">
+      <OfferForm />
+    </div>
   </section>
 </Layout>
