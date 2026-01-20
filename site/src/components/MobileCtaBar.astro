@@ -1,13 +1,17 @@
 ---
-const phone = "555-555-5555"; // TODO: Replace with actual phone number
-const phoneHref = phone.replace(/-/g, "");
+import { SITE } from "../lib/siteConfig";
+
+const phoneDisplay = SITE.phoneDisplay;
+const phoneTel = SITE.phoneTel;
+const smsTel = SITE.smsTel;
 ---
 
 <div class="fixed bottom-0 left-0 right-0 z-50 bg-primary md:hidden">
   <div class="flex items-center justify-around py-3 px-2">
     <!-- Call -->
     <a
-      href={`tel:${phoneHref}`}
+      href={`tel:${phoneTel}`}
+      aria-label={`Call ${phoneDisplay}`}
       class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
     >
       <svg
@@ -28,7 +32,8 @@ const phoneHref = phone.replace(/-/g, "");
 
     <!-- Text -->
     <a
-      href={`sms:${phoneHref}`}
+      href={`sms:${smsTel}`}
+      aria-label={`Text ${phoneDisplay}`}
       class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
     >
       <svg

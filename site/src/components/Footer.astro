@@ -1,0 +1,28 @@
+---
+import { SITE } from "../lib/siteConfig";
+---
+
+<footer class="border-t border-border/60 bg-soft py-10 text-sm text-muted">
+  <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 md:flex-row md:items-start md:justify-between">
+    <div class="space-y-3 text-primary">
+      <p class="text-base font-semibold">Always local to the KC metro.</p>
+      <p>
+        We buy houses as-is, keep the process transparent, and let you decide the paceno pressure.
+      </p>
+      <p class="font-medium">Service area: {SITE.serviceArea}</p>
+    </div>
+
+    <div class="space-y-2 text-primary">
+      <p class="text-base font-semibold">Quick Links</p>
+      <nav class="flex flex-col gap-2">
+        <a href="/privacy/" class="transition-colors hover:text-secondary">Privacy Policy</a>
+        <a href="/terms/" class="transition-colors hover:text-secondary">Terms</a>
+        <a href="/contact/" class="transition-colors hover:text-secondary">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-8 max-w-6xl px-4 text-xs text-muted">
+    <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+  </div>
+</footer>

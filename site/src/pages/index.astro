@@ -1,11 +1,206 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import OfferForm from "../components/OfferForm.astro";
+import { SITE } from "../lib/siteConfig";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const trustPoints = [
+  "Local to the KC metro",
+  "Sell as-is",
+  "No repairs or showings",
+  "No commissions",
+  "Your timeline"
+];
+
+const steps = [
+  {
+    title: "Reach out",
+    body: "Share the property basics and what you need. A real person reviews every inquiry the same day."
+  },
+  {
+    title: "Quick walkthrough",
+    body: "We coordinate a visit or video walkthrough so you can highlight repairs, tenants, or special considerations."
+  },
+  {
+    title: "Choose an option",
+    body: "Pick a straightforward cash price or a creative structure that keeps payments coming to you."
+  }
+];
+
+const solutions = [
+  { title: "As-Is Cash Offer", body: "Close without listing or repairs. Ideal when you want certainty and a clean handoff.", href: "/#get-offer" },
+  { title: "Inherited Home", body: "Coordinate with siblings or estates and keep the process organized and respectful.", href: "/options/" },
+  { title: "Major Repairs", body: "Skip contractors. We handle updates so you don't have to front the cost.", href: "/options/" },
+  { title: "Divorce", body: "Provide neutral timelines and clear paperwork so both parties stay informed.", href: "/#get-offer" },
+  { title: "Tenant-Occupied", body: "Work directly with current renters and keep income flowing until closing.", href: "/options/" },
+  { title: "Behind on Payments", body: "Explore payoffs, subject-to, or novations to protect equity before deadlines.", href: "/#get-offer" }
+];
+
+const faqs = [
+  {
+    question: "Do I need to clean or fix anything first?",
+    answer: "No. We evaluate properties as-is, including dated interiors, unfinished projects, or occupied rentals."
+  },
+  {
+    question: "How fast can we close?",
+    answer: "Most cash offers can close in as little as two weeks once title is clear. Creative options are paced around your goals."
+  },
+  {
+    question: "What if I still owe on the mortgage?",
+    answer: "That's common. We'll verify the payoff with title and structure the option that covers the balance and your proceeds."
+  },
+  {
+    question: "Are there fees or commissions?",
+    answer: "No commissions. Standard closing costs are reviewed with you up front before you sign anything."
+  },
+  {
+    question: "Can I talk with someone before deciding?",
+    answer: "Absolutely. Every conversation starts with questions, not paperwork, so you stay in control."
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Sell Your Kansas City House | ACE Properties KC"
+  description="Local Kansas City home buyer offering cash and creative solutions. Sell as-is, avoid repairs, and stay in control of your timeline."
+>
+  <section class="rounded-3xl bg-gradient-to-b from-soft to-white px-5 py-10 shadow-sm">
+    <div class="space-y-6">
+      <span class="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-secondary">
+        Creative Home Buyer
+      </span>
+      <div class="space-y-4">
+        <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+          Sell Your Kansas City House As-Is — Cash or Creative Options
+        </h1>
+        <p class="text-lg text-muted">
+          Calm, local guidance focused on the Kansas City metro. We listen first, lay out every option clearly, and let you choose how to move forward.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href="#get-offer" class="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white transition hover:bg-secondary/90">
+          Get My Offer
+        </a>
+        <a
+          href={`tel:${SITE.phoneTel}`}
+          class="inline-flex items-center justify-center rounded-full border border-primary/20 px-6 py-3 text-base font-semibold text-primary transition hover:border-primary"
+        >
+          Call {SITE.phoneDisplay}
+        </a>
+      </div>
+      <p class="text-sm font-medium text-muted">
+        Grounded in neighborhoods from Brookside to ZIP 64131 with transparent communication at every step.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-border/60 bg-white p-6">
+    <div class="grid gap-4 text-sm font-medium text-primary sm:grid-cols-5">
+      {trustPoints.map((point) => (
+        <div class="flex items-center gap-2" role="listitem">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-secondary">•</span>
+          <span>{point}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="how-it-works" class="mt-16 space-y-6">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">How it works</p>
+      <h2 class="text-3xl font-semibold text-primary">Simple conversations, clear next steps</h2>
+      <p class="text-muted">
+        We guide you through each phase so you always know what documents are needed, who is handling title work, and when you get paid.
+      </p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="rounded-2xl border border-border/70 bg-white p-5 shadow-sm" aria-label={`Step ${index + 1}`}>
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-16 space-y-6">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Options for real situations</p>
+      <h2 class="text-3xl font-semibold text-primary">Solutions we walk through every week</h2>
+      <p class="text-muted">Choose the path that fits your timing, financing, and comfort level. We outline pros and trade-offs before you sign.</p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-3">
+      {solutions.map((solution) => (
+        <a href={solution.href} class="rounded-2xl border border-border/70 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60">
+          <h3 class="text-xl font-semibold text-primary">{solution.title}</h3>
+          <p class="mt-2 text-sm text-muted">{solution.body}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary">
+            Learn more
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-16 grid gap-8 rounded-3xl border border-border/70 bg-soft/70 p-8 md:grid-cols-2">
+    <div class="space-y-4">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Why homeowners choose options</p>
+      <h2 class="text-3xl font-semibold text-primary">Control, transparency, and flexibility</h2>
+      <p class="text-muted">
+        Whether you need a quick closing or want to keep income via a creative structure, we lay out side-by-side comparisons so the decision is yours.
+      </p>
+      <ul class="space-y-3 text-sm text-primary">
+        <li class="flex items-start gap-3">
+          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+          Clear pricing backed by written breakdowns before contracts.
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+          Title, escrow, and legal partners who work across Jackson, Johnson, and Clay Counties.
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+          Flexible occupancy so you can stay put while packing or coordinating movers.
+        </li>
+      </ul>
+    </div>
+    <div class="rounded-2xl bg-white p-6 shadow-sm">
+      <p class="text-lg font-semibold text-primary">What you can expect</p>
+      <ul class="mt-4 space-y-3 text-sm text-muted">
+        <li>Weekly updates during title work.</li>
+        <li>Creative deal outlines translated into plain English.</li>
+        <li>Introductions to attorneys or advisors when you want a second opinion.</li>
+      </ul>
+      <a href="#get-offer" class="mt-6 inline-flex items-center justify-center rounded-full bg-secondary px-5 py-2.5 text-sm font-semibold text-white">
+        See your options
+      </a>
+    </div>
+  </section>
+
+  <section class="mt-16 space-y-6">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Questions homeowners ask</p>
+      <h2 class="text-3xl font-semibold text-primary">FAQ</h2>
+    </div>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="rounded-2xl border border-border/70 bg-white p-4">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section id="get-offer" class="mt-16 space-y-4">
+    <div class="space-y-2 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Get an offer</p>
+      <h2 class="text-3xl font-semibold text-primary">Share the property basics</h2>
+      <p class="text-muted">No pressure. We'll confirm details and discuss next steps.</p>
+    </div>
+    <OfferForm />
+  </section>
 </Layout>

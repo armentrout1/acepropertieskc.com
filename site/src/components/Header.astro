@@ -1,0 +1,85 @@
+---
+import { SITE } from "../lib/siteConfig";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Options", href: "/options/" },
+  { label: "64131", href: "/areas/64131/" },
+  { label: "Contact", href: "/contact/" }
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-border/60 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+    <a href="/" class="text-lg font-semibold tracking-tight text-primary">
+      {SITE.name}
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium text-primary md:flex">
+      {navLinks.map((link) => (
+        <a href={link.href} class="transition-colors hover:text-secondary">
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={`tel:${SITE.phoneTel}`}
+      class="hidden rounded-full border border-primary/20 px-4 py-1.5 text-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/5 md:inline-flex"
+    >
+      Call {SITE.phoneDisplay}
+    </a>
+
+    <button
+      type="button"
+      class="rounded-full border border-border/80 p-2 text-primary md:hidden"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      data-mobile-menu-toggle
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" x2="21" y1="6" y2="6"></line>
+        <line x1="3" x2="21" y1="12" y2="12"></line>
+        <line x1="3" x2="21" y1="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="md:hidden" data-mobile-menu hidden>
+    <div class="space-y-4 border-t border-border/80 bg-white px-4 py-4 text-sm font-medium text-primary">
+      {navLinks.map((link) => (
+        <a href={link.href} class="block rounded-md px-2 py-2 transition-colors hover:bg-soft" data-mobile-nav-link>
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={`tel:${SITE.phoneTel}`}
+        class="block rounded-md border border-primary/20 px-2 py-2 text-center font-semibold text-primary"
+        data-mobile-nav-link
+      >
+        Call {SITE.phoneDisplay}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const toggle = document.querySelector('[data-mobile-menu-toggle]');
+  const menu = document.querySelector('[data-mobile-menu]');
+
+  if (toggle && menu) {
+    let open = false;
+    const setState = (next) => {
+      open = next;
+      toggle.setAttribute('aria-expanded', String(open));
+      menu.hidden = !open;
+    };
+
+    toggle.addEventListener('click', () => setState(!open));
+
+    menu.querySelectorAll('[data-mobile-nav-link]').forEach((link) => {
+      link.addEventListener('click', () => setState(false));
+    });
+  }
+</script>

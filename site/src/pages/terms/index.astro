@@ -1,0 +1,15 @@
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../lib/siteConfig";
+---
+
+<Layout title="Terms of Use | ACE Properties KC" description="Review the ACE Properties KC terms of use for this website and our home buying services.">
+  <section class="space-y-4">
+    <h1 class="text-4xl font-semibold text-primary">Terms of Use</h1>
+    <p class="text-muted">
+      Using this site means you understand that ACE Properties KC provides general information about selling property in the Kansas City metro. Nothing here is legal, tax, or financial advice, and you should consult licensed professionals before making decisions. Submitting a form or calling us does not obligate you to sell or enter into an agreement.
+    </p>
+    <p class="text-muted">
+      We may update these terms as our services evolve. If you have any questions, please email <a href={`mailto:${SITE.email}`} class="text-secondary hover:underline">{SITE.email}</a>.
+    </p>
+  </section>
+</Layout>

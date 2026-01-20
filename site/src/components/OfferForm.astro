@@ -1,0 +1,171 @@
+---
+type Props = {
+  heading?: string;
+  subheading?: string;
+  formId?: string;
+};
+
+const {
+  heading = "Tell us about the property",
+  subheading = "We'll review the basics and follow up shortly.",
+  formId = "offer-form",
+} = Astro.props as Props;
+---
+
+<section class="w-full rounded-2xl border border-border/70 bg-white p-6 shadow-sm" aria-labelledby={`${formId}-title`}>
+  <div class="space-y-1">
+    <p
+      id={`${formId}-badge`}
+      class="inline-flex rounded-full bg-soft px-3 py-1 text-xs font-semibold uppercase tracking-wide text-secondary"
+    >
+      Get a no-pressure consultation
+    </p>
+    <h3 id={`${formId}-title`} class="text-2xl font-semibold text-primary">{heading}</h3>
+    <p class="text-sm text-muted">{subheading}</p>
+  </div>
+
+  <form id={formId} data-offer-form class="mt-6 space-y-5" novalidate>
+    <div class="space-y-1">
+      <label for={`${formId}-address`} class="text-sm font-medium text-primary">
+        Property address<span class="text-accent">*</span>
+      </label>
+      <input
+        id={`${formId}-address`}
+        name="address"
+        type="text"
+        required
+        placeholder="123 Main St, Kansas City"
+        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+      />
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="space-y-1">
+        <label for={`${formId}-situation`} class="text-sm font-medium text-primary">Situation</label>
+        <select
+          id={`${formId}-situation`}
+          name="situation"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+        >
+          <option value="as-is cash">As-is cash</option>
+          <option value="inherited">Inherited</option>
+          <option value="repairs">Needs repairs</option>
+          <option value="divorce">Divorce</option>
+          <option value="tenants">Tenants in place</option>
+          <option value="behind">Behind on payments</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="space-y-1">
+        <label for={`${formId}-timeline`} class="text-sm font-medium text-primary">Timeline</label>
+        <select
+          id={`${formId}-timeline`}
+          name="timeline"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+        >
+          <option value="asap">ASAP</option>
+          <option value="2-4 weeks">2-4 weeks</option>
+          <option value="1-3 months">1-3 months</option>
+          <option value="flexible">Flexible</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="space-y-1">
+        <label for={`${formId}-name`} class="text-sm font-medium text-primary">Name (optional)</label>
+        <input
+          id={`${formId}-name`}
+          name="name"
+          type="text"
+          placeholder="Your name"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+        />
+      </div>
+
+      <div class="space-y-1">
+        <label for={`${formId}-phone`} class="text-sm font-medium text-primary">Phone</label>
+        <input
+          id={`${formId}-phone`}
+          name="phone"
+          type="tel"
+          inputmode="tel"
+          placeholder="555-555-5555"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-1">
+      <label for={`${formId}-email`} class="text-sm font-medium text-primary">Email</label>
+      <input
+        id={`${formId}-email`}
+        name="email"
+        type="email"
+        placeholder="you@example.com"
+        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+      />
+    </div>
+
+    <label class="flex items-start gap-3 text-sm text-primary">
+      <input id={`${formId}-consent`} name="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-border/80" required />
+      <span>I agree to be contacted about my request.</span>
+    </label>
+
+    <p data-error class="hidden rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600"></p>
+
+    <button
+      type="submit"
+      class="w-full rounded-xl bg-secondary px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-secondary/90"
+    >
+      Start my offer conversation
+    </button>
+  </form>
+</section>
+
+<script is:inline>
+  const form = document.getElementById("${formId}");
+  if (form) {
+    const errorBanner = form.querySelector('[data-error]');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const errors = [];
+
+      const address = (formData.get('address') || '').toString().trim();
+      const phone = (formData.get('phone') || '').toString().trim();
+      const email = (formData.get('email') || '').toString().trim();
+      const consentInput = form.querySelector('input[name="consent"]');
+      const consentChecked = consentInput ? consentInput.checked : false;
+
+      if (!address) {
+        errors.push('Please provide the property address.');
+      }
+
+      if (!consentChecked) {
+        errors.push('Consent is required to continue.');
+      }
+
+      if (!phone && !email) {
+        errors.push('Share at least one way to reach you—phone or email.');
+      }
+
+      if (errors.length > 0) {
+        if (errorBanner) {
+          errorBanner.textContent = errors.join(' ');
+          errorBanner.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (errorBanner) {
+        errorBanner.classList.add('hidden');
+        errorBanner.textContent = '';
+      }
+
+      window.location.href = '/thank-you/';
+    });
+  }
+</script>

@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const fitItems = [
+  "You prefer a sure cash price without inspections or financing delays",
+  "You want to keep collecting payments or equity through a creative agreement",
+  "You need flexibility on move-out because of tenants, travel, or coordinating another purchase",
+  "You would like written breakdowns to share with family, partners, or advisors"
+];
+---
+
+<Layout
+  title="Cash & Creative Home Selling Options | ACE Properties KC"
+  description="Compare cash offers with creative structures for your Kansas City house. Transparent timelines, no repairs, and clear next steps."
+>
+  <section class="space-y-4">
+    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Your options</p>
+    <h1 class="text-4xl font-semibold text-primary">Cash or Creative Options — Choose What Fits</h1>
+    <p class="text-muted">
+      Every property is different, so we show multiple paths and walk you through the paperwork in plain English. Review the highlights below, then decide whether a cash offer or a creative structure lines up with your goals.
+    </p>
+  </section>
+
+  <section class="mt-10 grid gap-8 md:grid-cols-2">
+    <article class="rounded-3xl border border-border/70 bg-white p-6 shadow-sm">
+      <h2 class="text-2xl font-semibold text-primary">Cash Offer (As-Is)</h2>
+      <p class="mt-3 text-muted">
+        Ideal when you want certainty and a quick exit. We purchase the property as-is, cover standard closing costs, and can close in as little as two weeks once title is ready.
+      </p>
+      <ul class="mt-4 space-y-2 text-sm text-primary">
+        <li>One walk-through, no open houses or repairs.</li>
+        <li>Clear HUD/settlement statement before signing.</li>
+        <li>Flexible closing date to match your move.</li>
+      </ul>
+    </article>
+
+    <article class="rounded-3xl border border-border/70 bg-soft/70 p-6 shadow-sm">
+      <h2 class="text-2xl font-semibold text-primary">Creative Options</h2>
+      <p class="mt-3 text-muted">
+        When equity, payments, or specific tax goals matter, we discuss strategies such as subject-to, novations, or installment contracts. Everything is documented with third-party professionals, and we encourage you to involve legal or financial counsel before moving forward.
+      </p>
+      <ul class="mt-4 space-y-2 text-sm text-primary">
+        <li>Potential to keep monthly income or interest.</li>
+        <li>Customized structures for inherited or high-equity homes.</li>
+        <li>Room to solve payoff hurdles without rushing.</li>
+      </ul>
+      <p class="mt-4 text-xs text-muted">
+        Disclosure: Creative agreements can impact taxes, insurance, and mortgage terms. Please consult your attorney or advisor before signing.
+      </p>
+    </article>
+  </section>
+
+  <section class="mt-12 rounded-3xl border border-border/70 bg-white p-6">
+    <h2 class="text-2xl font-semibold text-primary">When this is a fit</h2>
+    <ul class="mt-4 space-y-3 text-sm text-primary">
+      {fitItems.map((item) => (
+        <li class="flex items-start gap-3">
+          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="mt-12 flex flex-wrap gap-4">
+    <a href="/#get-offer" class="inline-flex items-center rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white hover:bg-secondary/90">
+      Start with the offer form
+    </a>
+    <a href="/contact/" class="inline-flex items-center rounded-full border border-primary/20 px-6 py-3 text-base font-semibold text-primary hover:border-primary">
+      Talk with us directly
+    </a>
+  </section>
+</Layout>

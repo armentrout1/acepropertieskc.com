@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../lib/siteConfig";
+---
+
+<Layout title="Thank You | ACE Properties KC" description="Thanks for reaching out to ACE Properties KC. We'll review your request and follow up shortly.">
+  <section class="space-y-4 text-center">
+    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">We received your info</p>
+    <h1 class="text-4xl font-semibold text-primary">Thanks for reaching out</h1>
+    <p class="mx-auto max-w-2xl text-muted">
+      Our team is reviewing the property details you shared. Expect a quick confirmation so we can schedule the walkthrough, answer questions, and outline cash or creative options.
+    </p>
+  </section>
+
+  <section class="mt-10 grid gap-6 rounded-3xl border border-border/70 bg-white p-6 md:grid-cols-2">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What happens next</h2>
+      <ul class="space-y-2 text-sm text-primary">
+        <li>We'll call or email to confirm any missing details.</li>
+        <li>Together we schedule a quick walkthrough (in person or virtual).</li>
+        <li>You review written options and choose how to move forward.</li>
+      </ul>
+    </div>
+    <div class="rounded-2xl bg-soft/60 p-5 text-left">
+      <p class="text-base font-semibold text-primary">Need to update anything?</p>
+      <p class="mt-2 text-sm text-muted">Call or email us if timelines change or you have urgent questions.</p>
+      <div class="mt-4 space-y-2 text-sm">
+        <a href={`tel:${SITE.phoneTel}`} class="inline-flex items-center rounded-full bg-secondary px-5 py-2 text-white">Call {SITE.phoneDisplay}</a>
+        <a href={`mailto:${SITE.email}`} class="block text-secondary hover:underline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10 flex flex-wrap justify-center gap-4">
+    <a href="/" class="inline-flex items-center rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white hover:bg-secondary/90">Back to homepage</a>
+    <a href={`tel:${SITE.phoneTel}`} class="inline-flex items-center rounded-full border border-primary/20 px-6 py-3 text-base font-semibold text-primary hover:border-primary">Call us</a>
+  </section>
+</Layout>

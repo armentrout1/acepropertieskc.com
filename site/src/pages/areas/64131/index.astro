@@ -1,0 +1,84 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+
+const faqs = [
+  {
+    question: "Will you still buy if major repairs are needed?",
+    answer: "Yes. Properties in 64131 often have older roofs, foundations, or HVAC systems, and we buy them as-is."
+  },
+  {
+    question: "What if the house is inherited?",
+    answer: "We coordinate with heirs, probate attorneys, or personal representatives to keep everyone aligned before closing."
+  },
+  {
+    question: "Can I sell with tenants in place?",
+    answer: "Absolutely. We communicate with tenants respectfully and can keep leases in place until you prefer to vacate."
+  },
+  {
+    question: "How soon do I get paid?",
+    answer: "Once title is clear, cash closings can happen in about two weeks. Creative structures follow whatever schedule we agree on."
+  }
+];
+---
+
+<Layout
+  title="Sell Your 64131 House As-Is | ACE Properties KC"
+  description="Local Kansas City metro home buyers focused on 64131. Sell as-is for cash or explore creative options with transparent next steps."
+>
+  <section class="space-y-4">
+    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Kansas City, MO</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in 64131 (Kansas City, MO)</h1>
+    <p class="text-muted">
+      From Waldo and Armour Hills to the blocks closer to Red Bridge Road, we help 64131 homeowners solve repairs, inherited estates, or rental challenges without listing. Our Kansas City metro team keeps communication clear and timelines flexible.
+    </p>
+  </section>
+
+  <section class="mt-10 rounded-3xl border border-border/70 bg-white p-6 shadow-sm">
+    <h2 class="text-2xl font-semibold text-primary">Common scenarios we handle</h2>
+    <ul class="mt-4 space-y-3 text-sm text-primary">
+      <li>Major repairs or unfinished projects you don't want to fund.</li>
+      <li>Inherited homes that need coordination with siblings or probate.</li>
+      <li>Tenant-occupied rentals where you prefer a quiet transition.</li>
+      <li>Payments behind or looming deadlines that require quick clarity.</li>
+    </ul>
+  </section>
+
+  <section class="mt-12 grid gap-6 rounded-3xl border border-border/70 bg-soft/60 p-6 md:grid-cols-3">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step 1</p>
+      <h3 class="text-xl font-semibold text-primary">Tell us about the house</h3>
+      <p class="text-sm text-muted">Share the address, timeline, and anything unique about the property.</p>
+    </div>
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step 2</p>
+      <h3 class="text-xl font-semibold text-primary">Walkthrough</h3>
+      <p class="text-sm text-muted">We schedule a quick visit or video call to confirm repairs, tenants, or access needs.</p>
+    </div>
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step 3</p>
+      <h3 class="text-xl font-semibold text-primary">Pick your option</h3>
+      <p class="text-sm text-muted">Choose between a cash sale or a creative agreement built around your goals.</p>
+    </div>
+  </section>
+
+  <section class="mt-12 space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">64131 FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="rounded-2xl border border-border/70 bg-white p-4">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-12 flex flex-wrap gap-4">
+    <a href="/#get-offer" class="inline-flex items-center rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white hover:bg-secondary/90">
+      Start the offer form
+    </a>
+    <a href="/contact/" class="inline-flex items-center rounded-full border border-primary/20 px-6 py-3 text-base font-semibold text-primary hover:border-primary">
+      Contact us
+    </a>
+  </section>
+</Layout>
