@@ -1,0 +1,159 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const coordinationPoints = [
+  "Decide whether both spouses will be present for walkthroughs or prefer individual conversations.",
+  "Align on the minimum acceptable proceeds and how they will be distributed at closing.",
+  "Share any court dates or mediation sessions so we can match deadlines.",
+  "List outstanding mortgages, HELOCs, or liens the title company must pay off.",
+  "Confirm who remains in the property during the sale and how utilities or insurance are handled in the interim.",
+];
+
+const steps = [
+  {
+    title: "Private consultation",
+    body:
+      "We meet with each party (together or separately) to understand goals, safety considerations, and any court requirements. Everyone receives the same written summary afterward.",
+  },
+  {
+    title: "Property review & paperwork",
+    body:
+      "A short walkthrough or video call documents the home's condition. We coordinate with attorneys or mediators so contracts line up with divorce decrees.",
+  },
+  {
+    title: "Offers & closing plan",
+    body:
+      "We present cash and creative options, outline net proceeds, and schedule closing dates that fit court timelines. Updates are shared simultaneously with both parties.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can you communicate with each spouse separately?",
+    answer:
+      "Yes. Many clients prefer separate calls or emails. We keep a shared log so both parties see identical information and no one is surprised.",
+  },
+  {
+    question: "What documents do you need during a divorce sale?",
+    answer:
+      "Typically we request the petition or decree, payoff statements, and any temporary orders detailing how proceeds should be handled. Title companies in Kansas City are accustomed to these files and coordinate directly with attorneys when authorized.",
+  },
+  {
+    question: "Can one spouse remain in the home after closing?",
+    answer:
+      "If both parties agree, we can structure a short post-closing occupancy agreement that spells out dates, insurance, and utility responsibilities.",
+  },
+  {
+    question: "What if the home needs repairs first?",
+    answer:
+      "No repairs are required. Visit our <a href=\"/solutions/needs-repairs/\" class=\"text-secondary underline\">repairs guide</a> to see how we handle major updates, or use the <a href=\"/options/\" class=\"text-secondary underline\">options page</a> to compare keeping versus selling.",
+  },
+  {
+    question: "Will you talk with the court or mediator?",
+    answer:
+      "We do not provide legal advice, but we coordinate with your attorneys or mediator to supply offer letters, settlement statements, and timeline updates when requested in writing.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+];
+---
+
+<Layout
+  title="Sell a Divorce House in Kansas City"
+  description="Neutral, timeline-driven support for selling a Kansas City house during divorce. Clear communication, written offers, and coordinated closings."
+  canonicalPath="/solutions/divorce/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Calm Guidance During Divorce</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell a Divorce House in Kansas City</h1>
+    <p class="text-muted">
+      Divorce already asks a lot of you. Selling a home on top of court hearings, mediation, and family logistics can feel overwhelming—especially when repairs, equity splits, or safety concerns enter the picture. ACE Properties KC works only within the Kansas City metro, so we know how Jackson, Johnson, Clay, and Wyandotte County title companies handle divorce-related documents. Our role is to keep communication even-handed, supply transparent offers, and respect the timeline set by the court or by mutual agreement.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What to expect</h2>
+      <p class="text-muted">
+        We begin with a confidential intake call to understand your priorities—whether that means a quick cash sale, creative financing that preserves payments, or pausing to evaluate other options. Every major update is documented via email so both parties (and their attorneys) can reference the same information. If safety or privacy is a concern, we tailor walkthroughs and signings accordingly.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Local focus matters</h2>
+      <p class="text-muted">
+        Because we buy in neighborhoods highlighted on our <a href="/areas/" class="text-secondary underline">areas page</a>, we already understand HOA requirements, municipal inspections, and average closing timelines. That familiarity shortens the time between accepting an offer and receiving proceeds, whether you are in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City, MO</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, or nearby suburbs.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Coordination points to discuss early</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {coordinationPoints.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How it works</h2>
+      <p class="text-muted">
+        Our process keeps both parties informed without forcing you into the same room unless you choose. Each step is flexible enough to respect court orders while keeping the sale moving forward.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
+      <p class="text-muted">
+        Title companies typically request the divorce petition or decree, payoff letters, HOA statements, and any temporary orders dictating proceeds. We help gather these documents and coordinate signatures—digital if the court allows, in-person if required. Cash closings often happen within two to three weeks once paperwork is ready; creative agreements may take slightly longer but allow one spouse to remain in the home temporarily.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Support beyond the sale</h2>
+      <p class="text-muted">
+        Need referrals for movers, estate planners, or housing searches? We maintain a vetted list and only recommend partners we trust. Review cash vs. creative pathways on our <a href="/options/" class="text-secondary underline">options page</a> and explore other scenarios in the <a href="/solutions/" class="text-secondary underline">solutions hub</a> before deciding.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Divorce sale FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted" set:html={faq.answer}></p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    <a href="/options/" class="btn btn-outline text-base">Compare options</a>
+  </section>
+</Layout>

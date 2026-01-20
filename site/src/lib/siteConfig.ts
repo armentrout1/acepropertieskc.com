@@ -2,9 +2,9 @@ export const SITE = {
   name: "ACE Properties KC",
   domain: "acepropertieskc.com",
   baseUrl: "https://acepropertieskc.com",
-  phoneDisplay: "555-555-5555", // TODO: replace
-  phoneTel: "+15555555555", // TODO: replace
-  smsTel: "+15555555555", // TODO: replace
+  phoneDisplay: "816-728-7548",
+  phoneTel: "+18167287548",
+  smsTel: "+18167287548",
   email: "info@acepropertieskc.com", // TODO: replace
   serviceArea: "Kansas City metro (including ZIP 64131)",
   defaultTitle: "ACE Properties KC | Cash & Creative Home Buying Solutions",

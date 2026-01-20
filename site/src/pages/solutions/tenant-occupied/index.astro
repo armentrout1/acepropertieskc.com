@@ -1,0 +1,26 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Sell a Tenant-Occupied Property in Kansas City"
+  description="Coming soon: guidance for selling a tenant-occupied Kansas City property while keeping renters informed and protected."
+  canonicalPath="/solutions/tenant-occupied/"
+  noindex={true}
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Guide in progress</p>
+    <h1 class="text-4xl font-semibold text-primary">Tenant-Occupied Property Guide</h1>
+    <p class="text-muted">
+      This page is being finalized. In the meantime, reach out for personalized support on tenant communication, lease transfers, and timelines. We regularly help landlords sell properties while keeping renters respected.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    </div>
+  </section>
+</Layout>

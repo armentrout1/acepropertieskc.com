@@ -1,0 +1,26 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Sell a House Behind on Payments in Kansas City"
+  description="Coming soon: guidance for Kansas City homeowners who are behind on payments and need clear options."
+  canonicalPath="/solutions/behind-on-payments/"
+  noindex={true}
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Guide in progress</p>
+    <h1 class="text-4xl font-semibold text-primary">Behind on Payments Guide</h1>
+    <p class="text-muted">
+      We are wrapping up this resource. Contact us for immediate help exploring cash offers, subject-to setups, or creative agreements that can catch up arrears without the stress of listing.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    </div>
+  </section>
+</Layout>

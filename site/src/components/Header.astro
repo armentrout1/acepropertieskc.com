@@ -5,6 +5,8 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Options", href: "/options/" },
+  { label: "Areas", href: "/areas/" },
+  { label: "Solutions", href: "/solutions/" },
   { label: "64131", href: "/areas/64131/" },
   { label: "Contact", href: "/contact/" }
 ];
@@ -12,11 +14,12 @@ const navLinks = [
 
 <header class="sticky top-0 z-40 border-b border-border/60 bg-white/90 backdrop-blur">
   <div class="container-shell flex h-16 items-center justify-between">
-    <a href="/" class="flex items-center gap-3" aria-label={SITE.name}>
-      <picture class="h-10 w-auto">
-        <img src="/brand/ace-logo.svg" alt={`${SITE.name} logo`} class="h-10 w-auto" loading="eager" decoding="async" />
-      </picture>
-      <span class="sr-only">{SITE.name}</span>
+    <a href="/" class="flex items-center shrink-0">
+      <img
+        src="/brand/ace-logo.svg"
+        alt="ACE Properties KC"
+        class="h-8 w-auto max-w-[180px] md:h-10 md:max-w-none"
+      />
     </a>
 
     <nav class="hidden items-center gap-6 text-sm font-medium text-primary md:flex">

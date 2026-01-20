@@ -1,0 +1,163 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const checklist = [
+  "Confirm every heir, trustee, or personal representative who needs to authorize the sale.",
+  "Gather the death certificate, letters testamentary, or small-estate affidavits that the title company will request.",
+  "Document the property condition with photos so out-of-town family members can weigh in without flying back to Kansas City.",
+  "List out any mortgages, taxes, HOA dues, or utilities that must be settled at closing.",
+  "Decide whether personal belongings stay with the house or need a clean-out crew (we can coordinate either).",
+];
+
+const steps = [
+  {
+    title: "Share the story",
+    body:
+      "We talk through how the property was inherited, who needs to sign, and what timeline the family prefers. Expect calm questions—not pressure." ,
+  },
+  {
+    title: "Walkthrough + paperwork",
+    body:
+      "We schedule a respectful walkthrough (or video), note repairs, photograph contents if helpful, and coordinate with your attorney or probate court so documents stay aligned.",
+  },
+  {
+    title: "Choose the path",
+    body:
+      "You receive a written comparison of a straightforward cash offer and any creative option that could preserve income. Every option includes timelines, net sheets, and next steps.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can you buy before probate is fully complete?",
+    answer:
+      "Often, yes. Many Johnson and Jackson County title companies allow us to sign a contract contingent on final probate orders. We coordinate with your attorney to match the court's timeline.",
+  },
+  {
+    question: "What if siblings disagree on the price?",
+    answer:
+      "Transparency helps. We provide written valuations, contractor bids, and side-by-side options so every heir sees the same information before approving the sale.",
+  },
+  {
+    question: "Do you remove belongings?",
+    answer:
+      "If the family wants to keep certain items, we tag them during the walkthrough. Anything left can be donated or disposed of after closing—we handle the coordination and cost when agreed to in writing.",
+  },
+  {
+    question: "How are taxes and liens handled?",
+    answer:
+      "Title pulls a full payoff report covering mortgages, tax balances, and HOA dues. Those amounts are paid from closing proceeds so heirs receive a clean distribution.",
+  },
+  {
+    question: "Can we compare holding the property as a rental instead?",
+    answer:
+      "Absolutely. We will outline what keeping it as a rental entails and link you to our <a href=\"/options/\" class=\"text-secondary underline\">options page</a> so you can make an informed decision.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+];
+---
+
+<Layout
+  title="Sell an Inherited House in Kansas City"
+  description="Step-by-step support for selling an inherited Kansas City property. Coordinate heirs, paperwork, and timelines without stress."
+  canonicalPath="/solutions/inherited-house/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Estate & Inheritance Support</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell an Inherited House in Kansas City</h1>
+    <p class="text-muted">
+      Estates come with paperwork, family emotions, and logistics. Our Kansas City team focuses on service-area homes, so we already know which title companies, clean-out crews, and attorneys keep things moving. Whether you just received letters testamentary or have been maintaining a vacant bungalow for years, we help you evaluate the property's condition, settle obligations, and either sell for cash or consider a creative structure that preserves income for the heirs.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What to expect from us</h2>
+      <p class="text-muted">
+        You will have one point of contact who provides same-day updates to all heirs you designate. We summarize conversations via email so out-of-state siblings stay informed, and we are happy to host virtual walkthroughs. Expect patience, detailed answers, and written documentation at every step.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Focus on the Kansas City metro</h2>
+      <p class="text-muted">
+        Because we buy throughout the metro, from <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City, MO</a> neighborhoods to <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, we understand local code requirements, transfer taxes, and closing customs. Visit the full <a href="/areas/" class="text-secondary underline">areas page</a> to see where we are active.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Inheritance checklist</h2>
+      <p class="text-muted">Use this list to keep communication clear. We can assist with each item if needed.</p>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {checklist.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How it works</h2>
+      <p class="text-muted">
+        Each family moves at a different pace. Some need immediate relief from taxes and maintenance, while others want to coordinate keepsakes before listing or selling. Our process keeps everyone informed without rushing.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
+      <p class="text-muted">
+        Title companies usually require a death certificate, probate orders, HOA statements, and payoff letters. We create a shared checklist (and can coordinate directly with your attorney) so you know which documents are pending. If probate is still in process, we keep the contract flexible to match court deadlines.
+      </p>
+      <p class="text-muted">
+        Closings typically occur two to four weeks after title receives everything. Need more time to remove belongings? We can schedule closing later or set up a written post-closing occupancy agreement. Everything is documented so every heir stays confident.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Internal referrals and resources</h2>
+      <p class="text-muted">
+        If the family decides to keep the property, we still share renovation estimates, rental analyses, or introductions to property managers. Prefer to sell? We will compare cash versus creative approaches on our <a href="/options/" class="text-secondary underline">options page</a> and point you to <a href="/solutions/" class="text-secondary underline">other solution guides</a> for unique situations.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Inherited home FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted" set:html={faq.answer}></p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    <a href="/areas/" class="btn btn-outline text-base">See areas we buy</a>
+  </section>
+</Layout>

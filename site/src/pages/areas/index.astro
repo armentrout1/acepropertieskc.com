@@ -1,0 +1,136 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../lib/seo";
+
+const areaLinks = [
+  {
+    title: "ZIP 64131",
+    body: "South Kansas City blocks from Waldo to Blue Ridge Boulevard.",
+    href: "/areas/64131/",
+  },
+  {
+    title: "Kansas City, MO",
+    body: "In-town bungalows, Midtown fourplexes, and south side rentals.",
+    href: "/areas/kansas-city-mo/",
+  },
+  {
+    title: "Overland Park, KS",
+    body: "Johnson County homes that need flexible timelines or repairs.",
+    href: "/areas/overland-park-ks/",
+  },
+];
+
+const placeholderCards = [
+  "Independence, MO",
+  "Lee's Summit, MO",
+  "Olathe, KS",
+];
+
+const faqs = [
+  {
+    question: "How far outside Kansas City will you look at a property?",
+    answer:
+      "Most homes within roughly 30 miles of downtown Kansas City are on our radar. If you are a bit farther out, still reach out—we will confirm what travel or partner support looks like before promising anything.",
+  },
+  {
+    question: "Do you focus on certain price points or property types?",
+    answer:
+      "We buy single-family homes, duplexes, and small multifamily buildings. Condition and timeline matter more than list price, and we are upfront when a traditional listing may serve you better.",
+  },
+  {
+    question: "What if my neighborhood is not listed yet?",
+    answer:
+      "This hub is growing. Share the address, and we will let you know if it fits our service area or refer you to a trusted partner nearby.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+];
+---
+
+<Layout
+  title="Areas We Buy in the Kansas City Metro"
+  description="See the Kansas City metro neighborhoods and ZIP codes where ACE Properties KC buys houses as-is."
+  canonicalPath="/areas/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Service area</p>
+    <h1 class="text-4xl font-semibold text-primary">Areas We Buy in the Kansas City Metro</h1>
+    <p class="max-w-3xl text-muted">
+      We keep things local so walkthroughs, title work, and closings stay simple. If you are within
+      about 30 miles of downtown Kansas City—on either side of the state line—we are happy to review the
+      property, outline next steps, and share whether a cash or creative offer makes the most sense.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 md:grid-cols-3">
+      {areaLinks.map((area) => (
+        <a href={area.href} class="card h-full transition-all hover:-translate-y-1 hover:shadow-lg">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Featured area</p>
+          <h2 class="text-2xl font-semibold text-primary">{area.title}</h2>
+          <p class="mt-2 text-sm text-muted">{area.body}</p>
+          <span class="mt-4 inline-flex items-center text-sm font-semibold text-secondary">
+            Explore details →
+          </span>
+        </a>
+      ))}
+
+      {placeholderCards.map((name) => (
+        <div class="card h-full border border-dashed border-border/80 bg-soft/60 text-muted" aria-disabled="true">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Coming soon</p>
+          <h2 class="text-2xl font-semibold text-primary/70">{name}</h2>
+          <p class="mt-2 text-sm">
+            We are compiling recent purchases and insights for this area. Reach out if you need information sooner.
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How we approach each neighborhood</h2>
+      <p class="text-muted">
+        Every block has different permitting rules, HOA nuances, and buyer expectations. We document what we learn so
+        you get clear answers about walkthrough access, closing timelines, and whether we can keep tenants or family
+        members in place for a period after closing.
+      </p>
+    </div>
+    <ul class="grid gap-4 md:grid-cols-3">
+      <li class="card bg-white/90">
+        <h3 class="text-lg font-semibold text-primary">Straight answers</h3>
+        <p class="mt-2 text-sm text-muted">Know when title can clear, what repairs matter, and what paperwork is needed.</p>
+      </li>
+      <li class="card bg-white/90">
+        <h3 class="text-lg font-semibold text-primary">Flexible timelines</h3>
+        <p class="mt-2 text-sm text-muted">Close quickly for vacant homes or pace things to line up with your next move.</p>
+      </li>
+      <li class="card bg-white/90">
+        <h3 class="text-lg font-semibold text-primary">Creative options</h3>
+        <p class="mt-2 text-sm text-muted">Blend cash, subject-to, or seller financing when that keeps more equity in your pocket.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Area FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+  </section>
+</Layout>

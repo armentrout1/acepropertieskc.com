@@ -1,0 +1,169 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const neighborhoods = [
+  {
+    title: "Central Overland Park",
+    body:
+      "Classic Johnson County split-levels and ranch homes near historic downtown. Many need cosmetic updates or better accessibility. We handle both.",
+  },
+  {
+    title: "Blue Valley & South OP",
+    body:
+      "Larger homes where timing is tied to work relocations, school calendars, or coordinating a new build. We tailor closing dates to your next move.",
+  },
+  {
+    title: "North OP & I-35 Corridor",
+    body:
+      "Townhomes and rentals with HOA considerations plus tenants who need respectful communication. We keep notices documented and clear.",
+  },
+];
+
+const situations = [
+  "Inherited homes that sat while families coordinated across states",
+  "Deferred maintenance—roofs, foundations, or HVAC needing cash to fix",
+  "Rental portfolios with long-term tenants you would like to transition smoothly",
+  "Payment pressure from job changes or medical expenses",
+  "Divorce settlements that need neutral, written timelines",
+];
+
+const steps = [
+  {
+    title: "Set expectations",
+    body:
+      "We discuss your timeline, decision-makers, HOA requirements, and whether cash or creative terms sound best.",
+  },
+  {
+    title: "On-site walkthrough",
+    body:
+      "A short visit (or video) to note repairs, tenant status, and any documents title will need. We keep it respectful and efficient.",
+  },
+  {
+    title: "Written offer choices",
+    body:
+      "You receive a side-by-side summary of a straightforward cash offer plus any creative structure that protects equity or income.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Are your offers competitive with listing on the MLS?",
+    answer:
+      "We provide a net sheet comparing a quick, certainty-based sale with the timeline and costs of listing. Many homeowners choose us to avoid repairs, concessions, and double moves, but we will tell you if listing could put more in your pocket.",
+  },
+  {
+    question: "Do you work with HOAs?",
+    answer:
+      "Yes. We review HOA resale packets, dues, and transfer requirements early so nothing delays closing. Any outstanding balances are addressed in the settlement statement.",
+  },
+  {
+    question: "Can you accommodate school-year timelines?",
+    answer:
+      "Absolutely. Families often want to remain in place through the semester. We can schedule closing after a specific date or lease the home back to you temporarily.",
+  },
+  {
+    question: "Will I pay for repairs or commissions?",
+    answer:
+      "No repairs or commissions are required. Standard closing costs are outlined before you sign, and we cover what we commit to in writing.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+];
+---
+
+<Layout
+  title="Sell Your House As-Is in Overland Park, KS"
+  description="Local buyer helping Overland Park homeowners sell as-is without repairs. Calm walkthroughs, flexible timelines, and transparent options."
+  canonicalPath="/areas/overland-park-ks/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Overland Park, Kansas</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Overland Park</h1>
+    <p class="text-muted">
+      Overland Park homeowners value clear communication and predictable timelines. Whether you are relocating for work, handling an estate, or navigating repairs that keep piling up, we provide straight answers and options built around your goals. We live and work in the Kansas City metro, so local lenders, title companies, and contractors already know our process.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Balanced offers, not pressure</h2>
+      <p class="text-muted">
+        Expect a calm phone call, respect for your schedule, and written estimates that spell out closing costs, payoff amounts, and any post-closing arrangements. You will never be rushed to sign paperwork, and we encourage you to loop in trusted advisors.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Focused on Johnson County logistics</h2>
+      <p class="text-muted">
+        From county inspections to HOA transfer certificates, Overland Park sales have specific steps. We coordinate those details, provide checklists, and keep everyone updated so you are not surprised during escrow.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common situations we help with</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {situations.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="grid gap-6 md:grid-cols-3">
+      {neighborhoods.map((spot) => (
+        <div class="card bg-white/90">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
+          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
+          <p class="mt-2 text-sm text-muted">{spot.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How a sale works in Overland Park</h2>
+      <p class="text-muted">
+        You decide whether we move quickly or take time to coordinate with tenants, families, or lenders. Our process is transparent: one point of contact, written updates, and a closing team that understands Johnson County requirements.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Overland Park FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
+    <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
+  </section>
+</Layout>

@@ -1,9 +1,8 @@
-<svg viewBox="0 0 420 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet">
+<svg viewBox="0 0 120 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet">
   <g transform="translate(0 0)">
     <path d="M12 48L40 4L68 48" stroke="#0B2440" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M22 34H58" stroke="#0F766E" stroke-width="5" stroke-linecap="round"/>
     <circle cx="40" cy="12" r="5" fill="#F59E0B"/>
   </g>
   <text x="82" y="38" fill="#0B2440" font-family="'Poppins', 'Segoe UI', sans-serif" font-size="28" font-weight="600" letter-spacing="0.02em">ACE</text>
-  <text x="152" y="38" fill="#0F766E" font-family="'Poppins', 'Segoe UI', sans-serif" font-size="22" font-weight="500">Properties KC</text>
 </svg>

@@ -125,11 +125,10 @@ const {
 </section>
 
 <script is:inline>
-  const form = document.getElementById("${formId}");
-  if (form) {
+  document.querySelectorAll('form[data-offer-form]').forEach(function(form) {
     const errorBanner = form.querySelector('[data-error]');
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', function(event) {
       event.preventDefault();
       const formData = new FormData(form);
       const errors = [];
@@ -167,5 +166,5 @@ const {
 
       window.location.href = '/thank-you/';
     });
-  }
+  });
 </script>

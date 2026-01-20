@@ -1,0 +1,162 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const repairTypes = [
+  "Roof leaks, foundation settling, or structural issues",
+  "Aging HVAC, plumbing, or electrical systems",
+  "Interior updates—flooring, kitchens, and baths that buyers expect",
+  "Exterior concerns like siding, windows, or drainage",
+  "Final inspections and permits left open from past projects",
+];
+
+const steps = [
+  {
+    title: "Walk the property together",
+    body:
+      "A quick walkthrough (or video) helps us understand the full repair list. You do not need to hide problems—we have likely seen worse.",
+  },
+  {
+    title: "Get transparent numbers",
+    body:
+      "We outline a cash offer plus any creative option, both adjusted for renovation costs. You see the math behind each option.",
+  },
+  {
+    title: "Choose your timeline",
+    body:
+      "Need a fast close before winter? Prefer to wait until a new home is lined up? We tailor closing dates and possession to your plans.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do I need to finish repairs before getting an offer?",
+    answer:
+      "No. We buy properties as-is. Highlight outstanding repairs and any bids you have gathered so we can factor them into the offer.",
+  },
+  {
+    question: "Will you handle city inspections or permits?",
+    answer:
+      "Yes. We work with inspectors and licensed contractors to close out permits or provide escrow letters when required.",
+  },
+  {
+    question: "What if contractors already started work?",
+    answer:
+      "We can take over mid-project. We will review your contracts, confirm deposits, and either continue with the same crew or bring our own.",
+  },
+  {
+    question: "Can I stay in the home during repairs?",
+    answer:
+      "If you need extra time, we can structure a post-closing agreement or delayed possession so you are not moving in the middle of construction.",
+  },
+  {
+    question: "Do you buy properties with tenant-caused damage?",
+    answer:
+      "Yes. We coordinate with renters respectfully, document the condition, and can keep leases in place until improvements are finished.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+];
+---
+
+<Layout
+  title="Sell a House That Needs Repairs in Kansas City"
+  description="Skip costly renovations and sell your Kansas City home as-is. We handle major repairs, permits, and timelines so you can move on calmly."
+  canonicalPath="/solutions/needs-repairs/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Major Repairs & Renovations</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell a House That Needs Repairs in Kansas City</h1>
+    <p class="text-muted">
+      When repairs stack up, it can feel like you are stuck choosing between expensive contractors and a discounted sale. ACE Properties KC buys homes across the metro exactly as they sit. We evaluate the true scope, explain what it costs us to fix, and give you clear offers—no lectures about deferred maintenance.
+    </p>
+    <p class="text-muted">
+      We stay nearby, focusing on neighborhoods you will find on the <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a> and <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a> pages. That means we already know which installers are responsive, how quickly inspections can be scheduled, and which title companies can keep closing dates flexible while work finishes.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Straight talk about costs</h2>
+      <p class="text-muted">
+        We break down the major repair items, from roof replacements to structural piers, so you know where the numbers come from. Expect transparent estimates, not vague discounts. If you already have contractor quotes, send them over—we will review them together.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Keep your energy where it matters</h2>
+      <p class="text-muted">
+        Instead of coordinating multiple trades, you can focus on your next home or life event. We handle clean-out crews, dumpster rentals, and permit follow-ups. Visit the <a href="/areas/" class="text-secondary underline">areas page</a> to see where we buy, and check <a href="/options/" class="text-secondary underline">cash vs creative options</a> if you want to keep some equity working for you.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Repairs we commonly take on</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {repairTypes.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How it works when repairs are overwhelming</h2>
+      <p class="text-muted">
+        We have renovated everything from 1920s bungalows to newer homes that suffered water damage. The process is calm, documented, and designed to keep you in control.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
+      <p class="text-muted">
+        Title typically requires payoff statements, insurance claims (if any), and proof that utilities are current. We help gather everything. Cash deals close in about two to three weeks once title clears. Creative agreements may take a bit longer, but they allow you to capture more value while we fund repairs.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay in the loop</h2>
+      <p class="text-muted">
+        Expect regular updates, especially if contractors need access or inspectors want additional documentation. You will always know the status of your sale, and you can reach us by phone, text, or the <a href="/contact/" class="text-secondary underline">contact page</a> at any point.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Repairs FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Share property details</a>
+    <a href="/options/" class="btn btn-outline text-base">Compare sale options</a>
+    <a href="/areas/" class="btn btn-ghost text-base">See areas we buy</a>
+  </section>
+</Layout>

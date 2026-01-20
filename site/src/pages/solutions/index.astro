@@ -1,0 +1,128 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../lib/seo";
+
+const solutions = [
+  {
+    title: "Inherited House",
+    body: "Coordinate siblings, estates, and timelines with calm updates.",
+    href: "/solutions/inherited-house/",
+  },
+  {
+    title: "Needs Repairs",
+    body: "Skip contractors and let us take on major updates.",
+    href: "/solutions/needs-repairs/",
+  },
+  {
+    title: "Divorce",
+    body: "Neutral timelines and written agreements for both parties.",
+    href: "/solutions/divorce/",
+  },
+  {
+    title: "Tenant-Occupied",
+    body: "Respect renters while planning a smooth transition.",
+    href: "/solutions/tenant-occupied/",
+    placeholder: true,
+  },
+  {
+    title: "Behind on Payments",
+    body: "Explore payoffs, subject-to, or novations before deadlines.",
+    href: "/solutions/behind-on-payments/",
+    placeholder: true,
+  },
+];
+
+const principles = [
+  {
+    title: "Local perspective",
+    body:
+      "We buy across the Kansas City metro, so we already know the neighborhood nuances, HOA expectations, and title companies best suited for each scenario.",
+  },
+  {
+    title: "Options, not pressure",
+    body:
+      "Every call includes side-by-side looks at a straightforward cash sale and creative approaches. You pick what aligns with your plans.",
+  },
+  {
+    title: "Clear paperwork",
+    body:
+      "You see timelines, net proceeds, and required documents before signing. We encourage you to loop in advisors for added confidence.",
+  },
+];
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Solutions for Selling As-Is"
+  description="Review scenarios ACE Properties KC solves for Kansas City homeowners. From inherited houses to major repairs, see the options available."
+  canonicalPath="/solutions/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Ways we can help</p>
+    <h1 class="text-4xl font-semibold text-primary">Solutions for Selling As-Is</h1>
+    <p class="max-w-3xl text-muted">
+      Every Kansas City homeowner has a different mix of timelines, repairs, and family dynamics. This hub outlines the most common situations we support. Each page explains what to expect, how our process works, and how to move forward without stress.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 md:grid-cols-3">
+      {solutions.map((solution) => (
+        <a
+          href={solution.href}
+          class={`card h-full transition-all ${solution.placeholder ? "opacity-70" : "hover:-translate-y-1 hover:shadow-lg"}`}
+        >
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">{solution.placeholder ? "Preview" : "Explore"}</p>
+          <h2 class="text-2xl font-semibold text-primary">{solution.title}</h2>
+          <p class="mt-2 text-sm text-muted">{solution.body}</p>
+          {solution.placeholder && (
+            <span class="mt-4 inline-flex text-xs uppercase tracking-wide text-primary/70">Full guide coming soon</span>
+          )}
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="grid gap-6 md:grid-cols-3">
+      {principles.map((item) => (
+        <article class="card bg-white/90" aria-label={`Principle: ${item.title}`}>
+          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Cash vs Creative Options</h2>
+      <p class="text-muted">
+        Some sellers want a clean break with guaranteed funds in two to three weeks. Others prefer payments over time or subject-to agreements that preserve financing already in place. Visit our <a href="/options/" class="text-secondary underline">options page</a> for deeper comparisons and disclosures about each approach.
+      </p>
+      <p class="text-muted">
+        Not sure which path to pick? We will draft both so you can review numbers with family, attorneys, or advisors before saying yes.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Need a different scenario?</h2>
+      <p class="text-muted">
+        Even if your situation is not listed yet—tenant buyouts, relocation timelines, or commercial conversions—start a conversation. If we are not the right fit, we can refer you to someone who is.
+      </p>
+      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Ready when you are</h2>
+    <p class="text-muted">
+      Walk through the guides above, explore <a href="/areas/" class="text-secondary underline">areas we buy</a>, or head straight to the offer form. We respond the same day and make sure you understand every step.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Share property details</a>
+      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    </div>
+  </section>
+</Layout>
