@@ -1,0 +1,137 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+
+const steps = [
+  {
+    title: "Assess payoff timeline",
+    body:
+      "We review the county's redemption deadline, outstanding taxes, and any fees so you understand what must be paid at or before closing.",
+  },
+  {
+    title: "Outline sale options",
+    body:
+      "Side-by-side looks at a straightforward cash sale, paying the lien from proceeds, or creative arrangements where we catch up the balance and take over payments.",
+  },
+  {
+    title: "Set closing logistics",
+    body:
+      "We coordinate with the title company, verify lien releases, and keep you and any advisors updated until funds clear.",
+  },
+];
+
+const documents = [
+  "Current tax statements or lien notices",
+  "Any redemption or auction date letters from Jackson, Clay, Johnson, or Wyandotte counties",
+  "Mortgage payoff statements, HOA ledgers, and utility balances",
+  "Attorney or accountant instructions if third parties must approve the sale",
+];
+
+const options = [
+  {
+    title: "Cash sale that retires the lien",
+    body:
+      "We purchase the property as-is, wire payoff funds directly through the title company, and ensure the lien is released at closing. Typical closings take 14–21 days once title is clear.",
+  },
+  {
+    title: "Catch-up & keep financing",
+    body:
+      "If you want to stay in the home briefly, we can structure subject-to or installment agreements where we advance lien payments and take over the mortgage while you relocate.",
+  },
+  {
+    title: "Partnered sale (you list, we backstop)",
+    body:
+      "Some sellers prefer to explore listing while we provide a written fallback offer so the lien is satisfied before the county’s deadline. You choose the route that feels safest.",
+  },
+];
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Resolve a Tax Lien House in Kansas City"
+  description="Guidance for Kansas City homeowners facing tax lien deadlines. Compare cash sales, payoff-at-closing, or creative structures without legal pressure."
+  canonicalPath="/solutions/tax-lien/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Tax Lien Relief</p>
+    <h1 class="text-4xl font-semibold text-primary">Handle a Tax Lien Before the Deadline</h1>
+    <p class="text-muted">
+      County tax liens escalate quickly—interest, redemption deadlines, and auction dates differ between Kansas City, Jackson County, Wyandotte County, and the surrounding suburbs we cover. ACE Properties KC focuses solely on this metro, so we understand how local treasurers and title companies process lien payoffs. We are not attorneys or tax advisors, but we do provide clear sale options and coordinate the paperwork so you can make an informed choice before penalties grow.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What you can expect</h2>
+      <p class="text-muted">
+        Our first call covers the lien balance, any prior payment plans, and whether other liens (HOA, code violations, or utilities) exist. We outline realistic timelines—no promises we cannot keep—and encourage you to run everything past your attorney or accountant. Every offer is provided in writing with estimated net proceeds so you can compare against redemption costs.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Options without pressure</h2>
+      <p class="text-muted">
+        Some owners just need a clean sale that wipes out the lien at closing. Others want us to front the payoff and allow a short stay while planning the next move. We walkthrough each scenario, explain risks, and respect whatever decision you make—sell, refinance, or keep the property.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Common paths forward</h2>
+      <p class="text-muted">Blend the solution that matches your equity, deadline, and comfort level. Every route goes through a licensed title company.</p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {options.map((option) => (
+        <article class="card bg-white/90">
+          <h3 class="text-lg font-semibold text-primary">{option.title}</h3>
+          <p class="mt-2 text-sm text-muted">{option.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">How the process works</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+    <p class="text-xs text-muted">
+      Nothing here should be taken as legal or tax advice. Always confirm payoff figures and redemption rules directly with the county or your legal counsel.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">Documents to gather</h2>
+      <p class="text-muted">Sharing these early helps the title company verify the exact payoff required to clear the lien.</p>
+      <ul class="space-y-3 text-sm text-primary">
+        {documents.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Stay ahead of the auction clock</h2>
+    <p class="text-muted">
+      Tax lien timelines move quickly, but you still have choices. We respond the same day, provide plain-language summaries, and respect any advisors you want looped into the conversation.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call (816) 555-0123</a>
+      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    </div>
+  </section>
+</Layout>
