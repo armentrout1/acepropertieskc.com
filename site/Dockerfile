@@ -14,12 +14,10 @@ RUN npm run seo:preflight
 # Stage 2: Serve static assets with nginx
 FROM nginx:1.27-alpine AS runner
 
-# Copy custom nginx config template so nginx can substitute $PORT at runtime
-COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
+# Copy custom nginx config (hardcoded port 8080)
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Copy built static assets
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-ENV PORT=8080
 
 CMD ["nginx", "-g", "daemon off;"]
