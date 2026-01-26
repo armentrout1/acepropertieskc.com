@@ -8,6 +8,7 @@ export interface Props {
   canonicalPath?: string;
   ogImage?: string;
   noindex?: boolean;
+  robots?: string;
   jsonLd?: object[];
 }
 
@@ -17,6 +18,7 @@ const {
   canonicalPath,
   ogImage = "/og-default.svg",
   noindex = false,
+  robots,
   jsonLd = [],
 } = Astro.props;
 
@@ -27,6 +29,8 @@ const canonicalUrl = canonicalPath
 const ogImageUrl = ogImage.startsWith("http")
   ? ogImage
   : `${SITE.baseUrl}${ogImage.startsWith("/") ? "" : "/"}${ogImage}`;
+
+const robotsContent = robots ?? (noindex ? "noindex, nofollow" : undefined);
 ---
 
 <title>{title}</title>
@@ -46,7 +50,7 @@ const ogImageUrl = ogImage.startsWith("http")
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageUrl} />
 
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+{robotsContent && <meta name="robots" content={robotsContent} />}
 
 {jsonLd.map((obj) => (
   <script type="application/ld+json" set:html={JSON.stringify(obj)} />

@@ -11,6 +11,7 @@ type Props = {
   description?: string;
   canonicalPath?: string;
   noindex?: boolean;
+  robots?: string;
   jsonLd?: object[];
 };
 
@@ -19,6 +20,7 @@ const {
   description = SITE.defaultDescription,
   canonicalPath,
   noindex,
+  robots,
   jsonLd,
 } = Astro.props;
 ---
@@ -35,6 +37,7 @@ const {
 			description={description}
 			canonicalPath={canonicalPath}
 			noindex={noindex}
+			robots={robots}
 			jsonLd={jsonLd}
 		/>
 	</head>

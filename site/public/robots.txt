@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://acepropertieskc.com/sitemap-index.xml
