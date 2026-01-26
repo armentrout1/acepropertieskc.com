@@ -1,0 +1,142 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+
+const steps = [
+  {
+    title: "Understand the timeline",
+    body:
+      "We review your lender letters, grace periods, and when delinquent payments escalate to formal default so you can plan ahead.",
+  },
+  {
+    title: "Compare sale and payoff paths",
+    body:
+      "We outline cash sales, payoff-at-closing scenarios, or subject-to agreements that may fit if the lender allows temporary payment transfers.",
+  },
+  {
+    title: "Coordinate closing logistics",
+    body:
+      "We work with the title company to ensure arrears, fees, and other liens are handled, and we keep your advisors looped in.",
+  },
+];
+
+const options = [
+  {
+    title: "Fast cash sale",
+    body:
+      "Sell the property as-is and use proceeds to bring the mortgage current and satisfy the remaining balance. Closings typically take 14–21 days once title is cleared.",
+  },
+  {
+    title: "Payoff at closing",
+    body:
+      "If you have equity, we can structure an offer where the title company sends payoff funds directly to the lender, covering arrears and fees so you leave with the remainder.",
+  },
+  {
+    title: "Subject-to may be an option",
+    body:
+      "When the lender and your situation allow, we can step in to make payments and cover arrears while the existing loan stays in place temporarily. This requires approvals and careful disclosures.",
+  },
+  {
+    title: "Timeline coordination",
+    body:
+      "We can provide a written backup offer while you evaluate refinancing, loan modifications, or listings, giving you a fallback if other plans stall.",
+  },
+];
+
+const documents = [
+  "Most recent mortgage statement and any delinquency notices",
+  "Reinstatement or forbearance quotes from the lender",
+  "HOA, tax, or utility balance letters that could attach to the property",
+  "Contact info for any attorneys or housing counselors you want copied",
+];
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Late Mortgage Payment Options in Kansas City"
+  description="Explore practical options for handling late mortgage payments in the Kansas City metro, from fast sales to payoff-at-closing and subject-to possibilities."
+  canonicalPath="/solutions/late-payments/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Late Payment Relief</p>
+    <h1 class="text-4xl font-semibold text-primary">Support for Late Mortgage Payments</h1>
+    <p class="text-muted">
+      Falling behind on payments does not automatically mean foreclosure. In the Kansas City metro, lenders often send multiple notices before scheduling a sale, giving you space to weigh realistic options. ACE Properties KC focuses locally, so we understand how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders process reinstatements and payoff requests. We do not provide legal advice or guarantee outcomes, but we do explain each route clearly so you can select the plan that fits your priorities.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What happens on our first call</h2>
+      <p class="text-muted">
+        We gather the details from your lender letters, note any pending deadlines, and discuss whether you want a fast sale, a short runway to move, or a creative structure that may keep payments in place. All follow-ups are sent in writing so you can involve family or advisors.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Options without pressure</h2>
+      <p class="text-muted">
+        Some homeowners simply want certainty and a clean break, while others need flexibility to relocate or finish other obligations. We present multiple approaches with pros, cons, and estimated timelines, then leave the decision to you.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Paths to consider</h2>
+      <p class="text-muted">Every option runs through a licensed title company so arrears, interest, and fees are documented and paid correctly.</p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {options.map((option) => (
+        <article class="card bg-white/90" aria-label={option.title}>
+          <h3 class="text-lg font-semibold text-primary">{option.title}</h3>
+          <p class="mt-2 text-sm text-muted">{option.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">How we keep you on track</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+    <p class="text-xs text-muted">
+      Confirm payoff amounts and deadlines directly with your lender or professional advisors. Our role is to present options and coordinate logistics.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">Documents that speed things up</h2>
+      <p class="text-muted">Sharing these items early helps the title company confirm arrears and clear the path to closing.</p>
+      <ul class="space-y-3 text-sm text-primary">
+        {documents.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Talk through next steps</h2>
+    <p class="text-muted">
+      Whether you are one payment behind or several months out, we can outline timelines today so you know exactly what to expect if you choose to sell. Everything stays confidential and in writing.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call (816) 555-0123</a>
+      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    </div>
+  </section>
+</Layout>
