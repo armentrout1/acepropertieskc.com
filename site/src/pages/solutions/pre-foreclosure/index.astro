@@ -1,0 +1,137 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+
+const steps = [
+  {
+    title: "Listen & outline deadlines",
+    body:
+      "We start with the notice you received, lender communications, and the exact timeline before a sale date is set.",
+  },
+  {
+    title: "Compare offers & payoffs",
+    body:
+      "Cash sale, payoff-at-closing, or subject-to arrangements may be options depending on equity, arrears, and approvals.",
+  },
+  {
+    title: "Coordinate closing details",
+    body:
+      "We work with the title company, your lender, and any advisors you involve so each requirement is documented.",
+  },
+];
+
+const considerations = [
+  "Bring the latest mortgage statements and any reinstatement quotes so payoff numbers stay accurate.",
+  "Share HOA, tax, or utility liens that also need attention at closing.",
+  "Let us know if you prefer private walkthroughs, virtual tours, or after-hours meetings.",
+  "Ask an attorney or housing counselor to review paperwork if you want additional assurance.",
+];
+
+const options = [
+  {
+    title: "Cash offer with payoff at closing",
+    body:
+      "We purchase the property as-is and use closing proceeds to pay the arrears and remaining loan balance. Typical timelines run 14–21 days after clear title.",
+  },
+  {
+    title: "Subject-to or assumption style",
+    body:
+      "If the lender and your situation allow, we may take over payments and fund arrears while the existing loan stays in place temporarily. This path depends on approvals and clear documentation.",
+  },
+  {
+    title: "Timeline coordination",
+    body:
+      "Some sellers keep listing options open while we provide a written backup offer. That way you know the numbers if a listing or refinance does not materialize before deadlines.",
+  },
+];
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Kansas City Pre-Foreclosure Options"
+  description="Review practical steps for handling a pre-foreclosure in the Kansas City metro. Compare cash sales, payoff-at-closing, or subject-to possibilities without pressure."
+  canonicalPath="/solutions/pre-foreclosure/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Pre-Foreclosure Guidance</p>
+    <h1 class="text-4xl font-semibold text-primary">Navigate Pre-Foreclosure with Clarity</h1>
+    <p class="text-muted">
+      Pre-foreclosure notices can feel urgent, but there is still time to weigh options in the Kansas City metro. ACE Properties KC focuses locally, so we know how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders handle reinstatement, short timelines, and payoff communication. We do not provide legal advice and cannot guarantee outcomes, yet we do explain every sale path plainly so you can decide what aligns with your plans.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What we cover on the first call</h2>
+      <p class="text-muted">
+        We review lender letters, auction dates, and any payment plans you have attempted. From there we share timelines for cash purchases, payoff-at-closing, or creative approaches and let you loop in family or advisors before moving forward.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Options tailored to your comfort level</h2>
+      <p class="text-muted">
+        Some sellers want the fastest sale possible while others need breathing room to relocate. We map out multiple paths, document each step, and never pressure you into a choice you are not ready to make.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Common scenarios we discuss</h2>
+      <p class="text-muted">Every option routes through a licensed title company so payoffs, arrears, and releases are handled properly.</p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {options.map((option) => (
+        <article class="card bg-white/90" aria-label={option.title}>
+          <h3 class="text-lg font-semibold text-primary">{option.title}</h3>
+          <p class="mt-2 text-sm text-muted">{option.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">How the process fits your timeline</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+    <p class="text-xs text-muted">
+      Confirm payoff amounts and deadlines directly with your lender or counsel. Our role is to present sale options and logistics clearly.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">What to gather</h2>
+      <p class="text-muted">Sharing these documents early helps the title company and lenders keep the file moving.</p>
+      <ul class="space-y-3 text-sm text-primary">
+        {considerations.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Talk through next steps today</h2>
+    <p class="text-muted">
+      The sooner we review your timeline, the more options you can keep open. We respond the same day, summarize everything in writing, and leave the final call in your hands.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call (816) 555-0123</a>
+      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    </div>
+  </section>
+</Layout>
