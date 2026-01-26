@@ -14,8 +14,8 @@ RUN npm run seo:preflight
 # Stage 2: Serve static assets with nginx
 FROM nginx:1.27-alpine AS runner
 
-# Copy custom nginx config
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+# Copy custom nginx config template so nginx can substitute $PORT at runtime
+COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 
 # Copy built static assets
 COPY --from=builder /app/dist /usr/share/nginx/html
