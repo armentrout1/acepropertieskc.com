@@ -1,0 +1,100 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+---
+
+<Layout
+  title="Facing Foreclosure? Sell Your House Fast in Kansas City"
+  description="ACE Properties KC helps Kansas City homeowners avoid foreclosure with fast cash offers and creative solutions. Subject-to options available. Get your offer today."
+  canonicalPath="/solutions/facing-foreclosure/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Foreclosure Solutions</p>
+    <h1 class="text-4xl font-semibold text-primary">Facing Foreclosure? We Can Help</h1>
+    <p class="max-w-3xl text-muted">
+      When the bank is moving toward foreclosure, time is your most valuable asset. We specialize in fast closings that can stop the foreclosure process and protect your credit. Learn your options without pressure or obligation.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Fast Cash Sale</h2>
+        <p class="text-muted">
+          Close in as little as 7-14 days with a guaranteed cash offer. We pay all closing costs and handle the paperwork. This is the quickest way to stop foreclosure and preserve your credit.
+        </p>
+        <ul class="list-disc list-inside text-sm text-muted space-y-1">
+          <li>No repairs needed – sell as-is</li>
+          <li>No real estate commissions</li>
+          <li>We pay all closing costs</li>
+          <li>Close on your timeline</li>
+        </ul>
+      </article>
+      
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Subject-To Options</h2>
+        <p class="text-muted">
+          We may be able to take over your existing mortgage payments, catching up arrears and stopping foreclosure while you walk away. This creative approach works when you have equity but need time.
+        </p>
+        <ul class="list-disc list-inside text-sm text-muted space-y-1">
+          <li>We catch up missed payments</li>
+          <li>M stays in your name temporarily</li>
+          <li>No new loan needed</li>
+          <li>Protects your credit score</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="card bg-white/90 space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">How We Stop Foreclosure</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="space-y-2">
+          <h3 class="font-semibold text-primary">1. Same-Day Offer</h3>
+          <p class="text-sm text-muted">Submit your property details and receive a no-obligation cash offer within 24 hours.</p>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-semibold text-primary">2. Title Work</h3>
+          <p class="text-sm text-muted">We handle all title searches and paperwork while you review the offer with advisors.</p>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-semibold text-primary">3. Fast Closing</h3>
+          <p class="text-sm text-muted">Close when you're ready. We coordinate with the lender to stop the foreclosure process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Important Considerations</h2>
+      <p class="text-muted">
+        Every foreclosure situation is unique. While we can often provide solutions that stop the process, we cannot guarantee specific outcomes. We encourage you to:
+      </p>
+      <ul class="list-disc list-inside text-sm text-muted space-y-1">
+        <li>Consult with a housing counselor or attorney</li>
+        <li>Review all loan documents carefully</li>
+        <li>Understand tax implications of any sale</li>
+        <li>Consider all alternatives before deciding</li>
+      </ul>
+      <p class="text-sm text-muted">
+        We provide clear, transparent options and help you understand the timeline and consequences of each approach.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Take Action Today</h2>
+    <p class="text-muted">
+      The sooner you contact us, the more options we have to help. Don't wait until the auction date – reach out now for a confidential consultation about your situation.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/#get-offer" class="btn btn-primary text-base">Get Your Cash Offer</a>
+      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call Now: (816) 555-0123</a>
+    </div>
+  </section>
+</Layout>
