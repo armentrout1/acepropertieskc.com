@@ -1,23 +1,34 @@
-# Stage 1: Build Astro site and run SEO preflight gate
-FROM node:20-bookworm-slim AS builder
+# Stage 1: Build Astro site and run SEO preflight
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-ENV NODE_ENV=production
+# Copy package files
+COPY package*.json ./
 
-COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund
+# Install dependencies
+RUN npm ci
 
+# Copy source code
 COPY . .
-RUN npm run seo:preflight
 
-# Stage 2: Serve static assets with nginx
-FROM nginx:1.27-alpine AS runner
+# Build the application
+RUN npm run build
 
-# Copy custom nginx config (hardcoded port 8080)
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+# Production stage
+FROM node:20-alpine AS runner
 
-# Copy built static assets
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /app
 
-CMD ["nginx", "-g", "daemon off;"]
+# Copy built application
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
+
+# Install only production dependencies
+RUN npm ci --only=production
+
+# Expose port
+EXPOSE 4321
+
+# Start the server
+CMD ["node", "dist/server/entry.mjs"]
