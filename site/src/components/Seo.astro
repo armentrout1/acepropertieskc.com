@@ -22,6 +22,26 @@ const {
   jsonLd = [],
 } = Astro.props;
 
+const normalizedJsonLd = (Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])
+  .filter((payload) => payload !== undefined && payload !== null)
+  .map((payload, index) => {
+    if (typeof payload === "string") {
+      const trimmed = payload.trim();
+      try {
+        JSON.parse(trimmed);
+        return trimmed;
+      } catch (error) {
+        throw new Error(`Invalid JSON-LD string at index ${index}: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    }
+
+    try {
+      return JSON.stringify(payload);
+    } catch (error) {
+      throw new Error(`Unable to serialize JSON-LD payload at index ${index}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  });
+
 const canonicalUrl = canonicalPath
   ? buildCanonicalUrl(canonicalPath)
   : buildCanonicalUrl(Astro.url.pathname);
@@ -52,6 +72,6 @@ const robotsContent = robots ?? (noindex ? "noindex, nofollow" : undefined);
 
 {robotsContent && <meta name="robots" content={robotsContent} />}
 
-{jsonLd.map((obj) => (
-  <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+{normalizedJsonLd.map((payload) => (
+  <script type="application/ld+json" set:html={payload} />
 ))}

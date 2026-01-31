@@ -113,6 +113,19 @@ const {
       <span>I agree to be contacted about my request.</span>
     </label>
 
+    <div aria-hidden="true" class="sr-only">
+      <label for={`${formId}-website`}>Website</label>
+      <input
+        id={`${formId}-website`}
+        name="website"
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
+    <input type="hidden" name="form_started_at" value="" />
+
     <p data-error class="hidden rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600"></p>
 
     <button
@@ -127,6 +140,11 @@ const {
 <script is:inline>
   document.querySelectorAll('form[data-offer-form]').forEach(function(form) {
     const errorBanner = form.querySelector('[data-error]');
+    const startField = form.querySelector('input[name="form_started_at"]');
+
+    if (startField) {
+      startField.value = Date.now().toString();
+    }
 
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -164,11 +182,26 @@ const {
         errorBanner.textContent = '';
       }
 
+      const payload = {};
+      formData.forEach((value, key) => {
+        if (typeof value === 'string') {
+          payload[key] = value;
+        }
+      });
+
+      payload.consent = consentChecked;
+      if (startField && typeof payload.form_started_at !== 'string') {
+        payload.form_started_at = startField.value;
+      }
+
       // Submit form to API
       try {
         const response = await fetch('/api/send-email/', {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
         });
 
         if (response.ok) {

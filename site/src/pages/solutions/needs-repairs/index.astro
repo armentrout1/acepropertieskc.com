@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
 const repairTypes = [
   "Roof leaks, foundation settling, or structural issues",
@@ -59,7 +59,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
-  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+  buildFaqPageJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Sell a House That Needs Repairs in Kansas City", item: "/solutions/needs-repairs/" },
+  ]),
 ];
 ---
 

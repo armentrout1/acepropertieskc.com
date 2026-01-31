@@ -1,8 +1,16 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
-const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Facing Foreclosure? Sell Your House Fast in Kansas City", item: "/solutions/facing-foreclosure/" },
+  ]),
+];
 ---
 
 <Layout

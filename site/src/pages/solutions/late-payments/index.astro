@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd } from "../../../lib/seo";
+import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
 const steps = [
   {
@@ -50,7 +50,15 @@ const documents = [
   "Contact info for any attorneys or housing counselors you want copied",
 ];
 
-const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Late Mortgage Payment Options in Kansas City", item: "/solutions/late-payments/" },
+  ]),
+];
 ---
 
 <Layout

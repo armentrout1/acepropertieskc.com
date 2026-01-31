@@ -78,3 +78,23 @@ export function faqJsonLd(faqs: { q: string; a: string }[]): object {
     })),
   };
 }
+
+/**
+ * Build FAQPage JSON-LD schema (alias for faqJsonLd)
+ */
+export function buildFaqPageJsonLd(faqs: { q: string; a: string }[]): object {
+  return faqJsonLd(faqs);
+}
+
+export function buildBreadcrumbList(items: { name: string; item: string }[]): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: entry.name,
+      item: buildCanonicalUrl(entry.item),
+    })),
+  };
+}

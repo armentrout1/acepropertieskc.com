@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
 const checklist = [
   "Confirm every heir, trustee, or personal representative who needs to authorize the sale.",
@@ -59,7 +59,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
-  faqJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildFaqPageJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Sell an Inherited House in Kansas City", item: "/solutions/inherited-house/" },
+  ]),
 ];
 ---
 
