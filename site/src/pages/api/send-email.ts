@@ -1,11 +1,19 @@
 import type { APIRoute } from 'astro';
 import sgMail from '@sendgrid/mail';
 
-// Set the API key
-sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
-
 export const POST: APIRoute = async ({ request }) => {
   try {
+    // Check if SendGrid API key is available
+    if (!process.env.SENDGRID_API_KEY) {
+      return new Response(
+        JSON.stringify({ error: 'SendGrid API key is not configured' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Set the API key at runtime (not build time)
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
     const formData = await request.formData();
     
     // Extract form data
@@ -25,6 +33,14 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // Validate consent is explicitly "on"
+    if (consent !== 'on') {
+      return new Response(
+        JSON.stringify({ error: 'Consent is required' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     if (!phone && !email) {
       return new Response(
         JSON.stringify({ error: 'Please provide either phone or email' }),
@@ -32,10 +48,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Create email message
+    // Create email message with configurable env vars
     const msg = {
-      to: 'aaron@aprkc.com', // Your personal email
-      from: 'info@acepropertieskc.com', // Website email (verified sender)
+      to: process.env.TO_EMAIL || 'aaron@aprkc.com',
+      from: process.env.FROM_EMAIL || 'info@acepropertieskc.com',
       subject: `New Contact Form Submission - ${address}`,
       text: `
 New contact form submission from ACE Properties KC website:

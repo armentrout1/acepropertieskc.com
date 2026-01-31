@@ -29,6 +29,7 @@ RUN npm ci --only=production
 
 # Ensure server binds to Railway's PORT
 ENV HOST=0.0.0.0
+ENV PORT=3000
 
 # Start the Node SSR server
 CMD ["npm", "start"]
