@@ -1,5 +1,7 @@
 # Astro Starter Kit: Basics
 
+> Railway SSR deployment - Node.js runtime (not nginx)
+
 ```sh
 npm create astro@latest -- --template basics
 ```
