@@ -29,7 +29,7 @@ RUN npm ci --only=production
 
 # Ensure server binds to Railway's PORT
 ENV HOST=0.0.0.0
-ENV PORT=3000
+ENV PORT=8080
 
 # Start the Node SSR server with PORT from environment
-CMD ["sh", "-c", "PORT=${PORT:-3000} node dist/server/entry.mjs"]
+CMD ["sh", "-c", "PORT=${PORT:-8080} node dist/server/entry.mjs"]
