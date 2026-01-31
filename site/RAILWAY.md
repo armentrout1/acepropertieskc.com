@@ -1,8 +1,19 @@
 # Railway Deployment Notes
 
 - **Root directory:** `site`
-- **Build & deploy:** set Railway to use the provided `Dockerfile` (disable Nixpacks auto-detect). The Docker build runs `npm ci`, `npm run seo:preflight`, and publishes the `dist/` bundle into the nginx image.
-- **Start command:** handled automatically by nginx (`CMD ["nginx", "-g", "daemon off;"]`). No custom start command needed in Railway.
-- **Health check:** `/robots.txt` is a reliable static asset that ships with each build, so configure Railway's health check to hit `https://acepropertieskc.com/robots.txt` (or `/` if a root check is preferred).
+- **Build & deploy:** Use Dockerfile (Node SSR). The Docker build runs `npm ci`, `npm run build`, and starts the Node server.
+- **Start command:** `npm start` (runs `node dist/server/entry.mjs`)
+- **Health check:** `/robots.txt` or `/` - both work with SSR
+- **Environment variables:** `SENDGRID_API_KEY` (required for email API)
 
-This setup serves the Astro-generated static site directly from nginx with canonical domain and trailing-slash redirects baked into `nginx/default.conf`.
+## Node SSR Configuration
+
+The app now runs as a Node.js server using Astro's Node adapter:
+- SSR mode enabled (`output: 'server'`)
+- API routes work at `/api/*` endpoints
+- Server automatically binds to Railway's PORT environment variable
+
+## Legacy nginx Configuration
+
+The `nginx/default.conf` file is **legacy** and no longer used in deployment.
+It remains for reference but the Dockerfile now runs a pure Node.js server.

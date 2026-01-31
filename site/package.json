@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "node dist/server/entry.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "seo:preflight": "npm run build && node scripts/seo-preflight.mjs"
@@ -15,6 +16,7 @@
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
+    "@sendgrid/mail": "^8.1.4",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.11",
     "clsx": "^2.1.1",

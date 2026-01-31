@@ -1,4 +1,4 @@
-# Stage 1: Build Astro site and run SEO preflight
+# Build Astro SSR application
 FROM node:20-alpine AS builder
 
 WORKDIR /app
@@ -15,7 +15,7 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Production stage
+# Production stage - Node SSR server
 FROM node:20-alpine AS runner
 
 WORKDIR /app
@@ -27,8 +27,8 @@ COPY --from=builder /app/package*.json ./
 # Install only production dependencies
 RUN npm ci --only=production
 
-# Expose port
-EXPOSE 4321
+# Ensure server binds to Railway's PORT
+ENV HOST=0.0.0.0
 
-# Start the server
-CMD ["node", "dist/server/entry.mjs"]
+# Start the Node SSR server
+CMD ["npm", "start"]
