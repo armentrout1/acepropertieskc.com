@@ -16,3 +16,7 @@ dist
 # Env
 .env
 .env.*
+
+#sendgrid
+sendgrid.json
+sendgrid.env

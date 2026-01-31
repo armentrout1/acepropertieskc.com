@@ -164,7 +164,28 @@ const {
         errorBanner.textContent = '';
       }
 
-      window.location.href = '/thank-you/';
+      // Submit form to API
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to send message');
+        }
+
+        // Success - redirect to thank you page
+        window.location.href = '/thank-you/';
+      } catch (error) {
+        console.error('Form submission error:', error);
+        if (errorBanner) {
+          errorBanner.textContent = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
+          errorBanner.classList.remove('hidden');
+        }
+      }
     });
   });
 </script>
