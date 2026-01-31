@@ -128,7 +128,7 @@ const {
   document.querySelectorAll('form[data-offer-form]').forEach(function(form) {
     const errorBanner = form.querySelector('[data-error]');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', async function(event) {
       event.preventDefault();
       const formData = new FormData(form);
       const errors = [];
