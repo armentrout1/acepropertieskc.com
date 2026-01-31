@@ -171,14 +171,16 @@ const {
           body: formData,
         });
 
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw new Error(result.error || 'Failed to send message');
+        if (response.ok) {
+          const result = await response.json();
+          // Success - redirect to thank you page
+          window.location.href = '/thank-you/';
+        } else {
+          // Handle non-OK responses safely
+          const errorText = await response.text();
+          console.error('Form submit failed', response.status, errorText);
+          throw new Error('Something went wrong. Please try again.');
         }
-
-        // Success - redirect to thank you page
-        window.location.href = '/thank-you/';
       } catch (error) {
         console.error('Form submission error:', error);
         if (errorBanner) {
