@@ -31,5 +31,5 @@ RUN npm ci --only=production
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
-# Start the Node SSR server
-CMD ["npm", "start"]
+# Start the Node SSR server with PORT from environment
+CMD ["sh", "-c", "PORT=${PORT:-3000} node dist/server/entry.mjs"]
