@@ -12,7 +12,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Set the API key at runtime (not build time)
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const apiKey = process.env.SENDGRID_API_KEY;
+    if (!apiKey) {
+      return new Response(
+        JSON.stringify({ error: 'SENDGRID_API_KEY is not configured' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+    sgMail.setApiKey(apiKey);
 
     const formData = await request.formData();
     
@@ -49,9 +56,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Create email message with configurable env vars
+    const toEmail = process.env.CONTACT_TO_EMAIL || "aaron@aprkc.com";
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || "info@acepropertieskc.com";
+    const replyToEmail = process.env.CONTACT_REPLY_TO_EMAIL || "aaron@aprkc.com";
+
     const msg = {
-      to: process.env.TO_EMAIL || 'aaron@aprkc.com',
-      from: process.env.FROM_EMAIL || 'info@acepropertieskc.com',
+      to: toEmail,
+      from: fromEmail,
+      replyTo: replyToEmail,
       subject: `New Contact Form Submission - ${address}`,
       text: `
 New contact form submission from ACE Properties KC website:
