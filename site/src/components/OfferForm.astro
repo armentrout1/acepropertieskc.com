@@ -24,7 +24,7 @@ const {
     <p class="text-sm text-muted">{subheading}</p>
   </div>
 
-  <form id={formId} data-offer-form method="post" action="/api/send-email" class="mt-6 space-y-5" novalidate>
+  <form id={formId} data-offer-form method="post" action="/api/send-email/" class="mt-6 space-y-5" novalidate>
     <div class="space-y-1">
       <label for={`${formId}-address`} class="text-sm font-medium text-primary">
         Property address<span class="text-accent">*</span>
@@ -166,7 +166,7 @@ const {
 
       // Submit form to API
       try {
-        const response = await fetch('/api/send-email', {
+        const response = await fetch('/api/send-email/', {
           method: 'POST',
           body: formData,
         });
