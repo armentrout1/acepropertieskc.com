@@ -1,10 +1,78 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
+import {
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+} from "../../../lib/seo";
+
+const checklist = [
+  "Lease type (month-to-month, fixed term, Section 8, etc.)",
+  "Current rent amount, payment method, and whether rent is current",
+  "Security deposit status and where funds are held",
+  "Any notices served (renewal, non-renewal, cure-or-quit, eviction)",
+  "Tenant cooperation level for walkthroughs or photos",
+  "Maintenance issues or property condition highlights",
+  "Utilities responsibility (tenant vs. owner)",
+  "Timeline goals for closing and tenant move-out, if applicable",
+];
+
+const steps = [
+  {
+    title: "Understand the lease + goals",
+    body:
+      "We review lease terms, rent status, and whether you want to keep tenants in place or transfer the home vacant.",
+  },
+  {
+    title: "Outline respectful options",
+    body:
+      "We compare cash sales, extended timelines, or agreements that give tenants notice and incentives without drama.",
+  },
+  {
+    title: "Coordinate a calm closing",
+    body:
+      "We work with the title company, tenants, and your property manager to handle access, deposits, and move logistics.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do I have to evict first?",
+    answer:
+      "Not necessarily. We often buy with leases in place and handle notices or incentives after closing, per the contract.",
+  },
+  {
+    question: "What if the tenant will not allow showings?",
+    answer:
+      "We can schedule discreet walkthroughs, use prior photos, or wait until we hold the contract before requesting access.",
+  },
+  {
+    question: "Can you buy with a lease in place?",
+    answer:
+      "Yes. We honor existing leases or create addendums that outline how and when possession transfers.",
+  },
+  {
+    question: "What if rent is behind?",
+    answer:
+      "We factor arrears into the offer and can structure closings that settle balances or provide written payment plans.",
+  },
+  {
+    question: "Will the tenant have to move?",
+    answer:
+      "Only if that is part of your plan. Some owners want the tenant to stay; others want a clean handoff. We match your preference.",
+  },
+  {
+    question: "How do you handle deposits, keys, and utilities?",
+    answer:
+      "Deposits transfer through the settlement statement, keys are exchanged at closing or walkthrough, and we document utility cutovers in writing.",
+  },
+];
 
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
@@ -15,20 +83,96 @@ const jsonLd = [
 
 <Layout
   title="Sell a Tenant-Occupied Property in Kansas City"
-  description="Coming soon: guidance for selling a tenant-occupied Kansas City property while keeping renters informed and protected."
+  description="Respectful, local support for landlords selling a Kansas City rental with tenants still in place."
   canonicalPath="/solutions/tenant-occupied/"
-  noindex={true}
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Guide in progress</p>
-    <h1 class="text-4xl font-semibold text-primary">Tenant-Occupied Property Guide</h1>
+  <section class="section space-y-5">
+    <p class="badge">Tenant-Focused Sale Support</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell a Tenant-Occupied Property in Kansas City</h1>
     <p class="text-muted">
-      This page is being finalized. In the meantime, reach out for personalized support on tenant communication, lease transfers, and timelines. We regularly help landlords sell properties while keeping renters respected.
+      Selling a rental becomes more complex when good tenants are still in place—or when rent is overdue and communication has slowed. ACE Properties KC buys within the metro only, so we understand local notice requirements, Section 8 paperwork, and how to coordinate timelines that respect renters. Our focus is keeping the process calm for you and the household inside the home.
     </p>
-    <div class="flex flex-wrap gap-4">
-      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
-      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What to expect on the first call</h2>
+      <p class="text-muted">
+        We walk through the lease terms, rent history, and any communication challenges. You tell us if you prefer a quiet transition, a rapid close, or backup plans while other options are explored. We keep everything confidential and follow up in writing so property managers or co-owners stay aligned.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Paths we can talk through</h2>
+      <p class="text-muted">
+        Options include cash sales with tenants in place, closings timed to lease expirations, incentive programs that encourage smooth move-outs, or subject-to arrangements where we continue payments while the tenant stays. None are promised—we simply outline what each would take.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">What we’ll ask about</h2>
+      <p class="text-muted">Having these details ready keeps conversations short and helps us prep the title company faster.</p>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {checklist.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How the process stays steady</h2>
+      <p class="text-muted">
+        We use the same framework on every tenant-occupied purchase so nothing feels rushed or confusing.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
+      <p class="text-muted">
+        Title companies usually request the signed lease, ledger, deposit records, and any notices already served. Once those are in, cash closings often land within two to four weeks. If you need more time for tenant coordination, we simply write that into the contract.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Keeping everyone informed</h2>
+      <p class="text-muted">
+        We confirm every commitment in writing: access schedules, key handoffs, prorated rent, utilities, and move dates. Tenants get a direct contact number so they can ask questions without guessing.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Tenant-occupied FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
   </section>
 </Layout>

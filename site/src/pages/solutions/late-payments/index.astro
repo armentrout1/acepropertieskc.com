@@ -1,6 +1,12 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
+import { SITE } from "../../../lib/siteConfig";
+import {
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+} from "../../../lib/seo";
 
 const steps = [
   {
@@ -50,9 +56,37 @@ const documents = [
   "Contact info for any attorneys or housing counselors you want copied",
 ];
 
+const faqs = [
+  {
+    q: "Is a late payment the same as default?",
+    a: "No. Lenders usually send reminders and late notices before declaring a formal default, which helps you review options first.",
+  },
+  {
+    q: "Can you still sell if you’re behind?",
+    a: "Yes. Proceeds can be used to catch up arrears and pay off the loan at closing as long as equity and timelines allow.",
+  },
+  {
+    q: "Will this affect my credit if I sell?",
+    a: "Late marks may remain, but closing before foreclosure often prevents additional damage like a completed foreclosure entry.",
+  },
+  {
+    q: "What documents should I have ready?",
+    a: "Bring the latest statement, payoff or reinstatement quotes, HOA or tax letters, and contact info for anyone you want copied.",
+  },
+  {
+    q: "How fast can this move?",
+    a: "Cash sales commonly wrap in two to three weeks once title is clear, though we can write longer timelines if you need them.",
+  },
+  {
+    q: "What if I’m working with my lender already?",
+    a: "We can provide a written backup offer while you pursue a modification or refinance so you have options if those fall through.",
+  },
+];
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
@@ -137,14 +171,27 @@ const jsonLd = [
   </section>
 
   <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Late-payment FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.q}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Talk through next steps</h2>
     <p class="text-muted">
       Whether you are one payment behind or several months out, we can outline timelines today so you know exactly what to expect if you choose to sell. Everything stays confidential and in writing.
     </p>
     <div class="flex flex-wrap gap-4">
       <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
-      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call (816) 555-0123</a>
+      <a href={`tel:${SITE.phoneTel}`} class="btn btn-secondary text-base">Call {SITE.phoneDisplay}</a>
       <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+      <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
     </div>
   </section>
 </Layout>

@@ -1,6 +1,12 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
+import { SITE } from "../../../lib/siteConfig";
+import {
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+} from "../../../lib/seo";
 
 const steps = [
   {
@@ -45,9 +51,37 @@ const options = [
   },
 ];
 
+const faqs = [
+  {
+    q: "What happens if I miss a tax lien deadline?",
+    a: "Penalties escalate and counties can finalize an auction, but acting early gives you more room to sell or pay off the balance first.",
+  },
+  {
+    q: "Can I sell a house with a tax lien?",
+    a: "Yes. The lien is paid from sale proceeds at closing so the buyer receives clear title.",
+  },
+  {
+    q: "How do you confirm the payoff amount?",
+    a: "We request written payoff letters from the county treasurer or title company and confirm amounts again just before closing.",
+  },
+  {
+    q: "What if there are multiple liens?",
+    a: "Title pulls a full report so we can stack mortgage, HOA, utility, and tax payoffs and ensure all are covered at settlement.",
+  },
+  {
+    q: "How quickly can this move before an auction?",
+    a: "Cash deals commonly close in two to three weeks once title is ready, and we can aim faster if the county accepts proof of funds.",
+  },
+  {
+    q: "What documents should I gather?",
+    a: "Bring recent tax statements, redemption letters, any payoff quotes, and contact info for advisors who should be copied.",
+  },
+];
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
@@ -132,14 +166,27 @@ const jsonLd = [
   </section>
 
   <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Tax lien FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.q}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Stay ahead of the auction clock</h2>
     <p class="text-muted">
       Tax lien timelines move quickly, but you still have choices. We respond the same day, provide plain-language summaries, and respect any advisors you want looped into the conversation.
     </p>
     <div class="flex flex-wrap gap-4">
       <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
-      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call (816) 555-0123</a>
+      <a href={`tel:${SITE.phoneTel}`} class="btn btn-secondary text-base">Call {SITE.phoneDisplay}</a>
       <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+      <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
     </div>
   </section>
 </Layout>

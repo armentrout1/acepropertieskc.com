@@ -1,10 +1,44 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
+import { SITE } from "../../../lib/siteConfig";
+import {
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+} from "../../../lib/seo";
+
+const faqs = [
+  {
+    q: "Is foreclosure guaranteed once it starts?",
+    a: "Not always. Lenders follow set timelines, but sales can pause if arrears are cured or a sale closes before the auction.",
+  },
+  {
+    q: "Can I still sell if I’m in foreclosure?",
+    a: "Yes. We work through licensed title companies to pay arrears and liens from sale proceeds before the lender finalizes the process.",
+  },
+  {
+    q: "What if I already have a sale date?",
+    a: "Share the date and lender contact. We can coordinate to see if there is time for a closing or a written backup plan.",
+  },
+  {
+    q: "Can you work with my lender or attorney?",
+    a: "With written authorization we provide updates, payoff requests, and closing statements directly to lenders or legal counsel.",
+  },
+  {
+    q: "How quickly can we close?",
+    a: "Cash deals frequently close within 7–14 days once title is clear, and we adjust timelines if the lender needs proof sooner.",
+  },
+  {
+    q: "What should I have ready before we talk?",
+    a: "Bring the latest mortgage statement, any default notices, payoff quotes, and contact info for advisors you want involved.",
+  },
+];
 
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
@@ -102,7 +136,20 @@ const jsonLd = [
     </p>
     <div class="flex flex-wrap gap-4">
       <a href="/#get-offer" class="btn btn-primary text-base">Get Your Cash Offer</a>
-      <a href="tel:816-555-0123" class="btn btn-secondary text-base">Call Now: (816) 555-0123</a>
+      <a href={`tel:${SITE.phoneTel}`} class="btn btn-secondary text-base">Call Now: {SITE.phoneDisplay}</a>
+      <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
+    </div>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Facing foreclosure FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.q}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.a}</p>
+        </details>
+      ))}
     </div>
   </section>
 </Layout>

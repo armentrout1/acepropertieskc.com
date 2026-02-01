@@ -1,10 +1,75 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildBreadcrumbList } from "../../../lib/seo";
+import {
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+} from "../../../lib/seo";
+
+const checklist = [
+  "Mortgage servicer name and the best phone or portal to reach them",
+  "Rough arrears amount, including any late fees you have been told about",
+  "Copies of the most recent notices or letters you received",
+  "Key dates you are watching—payment due, inspection, court or auction",
+  "Whether anyone else (co-borrower, advisor) should be looped in",
+];
+
+const steps = [
+  {
+    title: "Clarify the status",
+    body:
+      "We review lender letters, grace periods, and what happens next if payments are not caught up.",
+  },
+  {
+    title: "Compare realistic paths",
+    body:
+      "We outline cash offers, payoff-at-closing scenarios, and subject-to possibilities so you can weigh each one.",
+  },
+  {
+    title: "Coordinate closing logistics",
+    body:
+      "We align with the title company, your lender, and any advisors you involve so deadlines stay visible.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can you still help if I have only missed one payment?",
+    answer:
+      "Yes. Early conversations give us more room to negotiate with the lender or plan closing dates before fees compound.",
+  },
+  {
+    question: "Do I need to know the exact reinstatement amount?",
+    answer:
+      "A recent statement or payoff quote helps, but we can also request updated figures through the title company once you authorize it.",
+  },
+  {
+    question: "What if another option, like a refinance, is already in motion?",
+    answer:
+      "We can prepare a written backup offer so you have a fallback if the refinance or loan modification stalls.",
+  },
+  {
+    question: "Will you talk with my lender for me?",
+    answer:
+      "We coordinate with lenders after you sign the necessary permissions, but we still encourage you to stay in direct contact with them too.",
+  },
+  {
+    question: "Can I stay in the house for a bit after closing?",
+    answer:
+      "If timelines require it, we can discuss short post-closing occupancies so you have a calm move-out plan.",
+  },
+  {
+    question: "Is there any cost to review my situation?",
+    answer:
+      "No. Conversations, walkthroughs, and written offers are free. You only pay standard closing costs if you choose to sell to us.",
+  },
+];
 
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
@@ -15,20 +80,96 @@ const jsonLd = [
 
 <Layout
   title="Sell a House Behind on Payments in Kansas City"
-  description="Coming soon: guidance for Kansas City homeowners who are behind on payments and need clear options."
+  description="Clear, local guidance for Kansas City homeowners who fell behind on mortgage payments and need calm next steps."
   canonicalPath="/solutions/behind-on-payments/"
-  noindex={true}
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Guide in progress</p>
-    <h1 class="text-4xl font-semibold text-primary">Behind on Payments Guide</h1>
+  <section class="section space-y-5">
+    <p class="badge">Past-Due Mortgage Support</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell a House Behind on Payments in Kansas City</h1>
     <p class="text-muted">
-      We are wrapping up this resource. Contact us for immediate help exploring cash offers, subject-to setups, or creative agreements that can catch up arrears without the stress of listing.
+      Falling behind on payments feels heavy, but it does not have to be chaotic. We focus solely on the Kansas City metro, so we already know how local lenders, title companies, and counties move through arrears and foreclosure timelines. Our goal is to listen first, share plain-language options, and help you keep every deadline visible.
     </p>
-    <div class="flex flex-wrap gap-4">
-      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
-      <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What to expect on the first call</h2>
+      <p class="text-muted">
+        We review the notices you have received, note how many payments are outstanding, and ask about any upcoming lender checkpoints. You set the tone—quiet catch-up plan or urgent exit—and we outline who else should be looped in so updates stay aligned.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Options we can walk through</h2>
+      <p class="text-muted">
+        Every path is optional. We can compare quick cash offers, payoff-at-closing scenarios, subject-to arrangements that keep the loan in place temporarily, or written backup offers that give you breathing room while you pursue a refinance or listing.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">What helps us help you fast</h2>
+      <p class="text-muted">Bring what you can—estimations are fine. The more we know, the faster we can coordinate with title and the lender.</p>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {checklist.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How the process plays out</h2>
+      <p class="text-muted">
+        Our process is meant to keep you informed without adding noise. Steps stay flexible if lenders or courts adjust the schedule.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
+      <p class="text-muted">
+        Title companies usually request your latest mortgage statement, any reinstatement quotes, HOA or tax letters, and proof of insurance. Having them handy shortens review time. Once title is clear, cash closings often land within two to three weeks.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Keeping communication steady</h2>
+      <p class="text-muted">
+        We summarize each conversation in writing so you, co-borrowers, or advisors can reference the same plan. If new notices arrive, send them our way—we adjust timelines immediately and confirm next steps in plain language.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Behind-on-payments FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
   </section>
 </Layout>
