@@ -43,6 +43,11 @@ export function localBusinessJsonLd(): object {
         addressRegion: "MO",
       },
       {
+        "@type": "City",
+        name: "Olathe",
+        addressRegion: "KS",
+      },
+      {
         "@type": "PostalAddress",
         postalCode: "64131",
         addressLocality: "Kansas City",
