@@ -64,16 +64,16 @@ export function localBusinessJsonLd(): object {
 /**
  * FAQPage JSON-LD schema
  */
-export function faqJsonLd(faqs: { q: string; a: string }[]): object {
+export function faqJsonLd(faqs: { question: string; answer: string }[]): object {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.q,
+      name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.a,
+        text: faq.answer,
       },
     })),
   };
@@ -82,7 +82,7 @@ export function faqJsonLd(faqs: { q: string; a: string }[]): object {
 /**
  * Build FAQPage JSON-LD schema (alias for faqJsonLd)
  */
-export function buildFaqPageJsonLd(faqs: { q: string; a: string }[]): object {
+export function buildFaqPageJsonLd(faqs: { question: string; answer: string }[]): object {
   return faqJsonLd(faqs);
 }
 
