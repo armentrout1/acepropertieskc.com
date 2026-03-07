@@ -1,0 +1,192 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+
+const probateChallenges = [
+  "Court approval requirements before accepting offers",
+  "Multiple heirs with different opinions on timing and price",
+  "Property maintenance and security during probate process",
+  "Outstanding mortgages, tax liens, or creditor claims",
+  "Coordinating with attorneys and probate court deadlines",
+];
+
+const steps = [
+  {
+    title: "Review probate status",
+    body: "We discuss court approval requirements, executor authority, and any court dates that affect timing. No legal advice—just practical coordination.",
+  },
+  {
+    title: "Property assessment",
+    body: "We evaluate the property condition, note repairs needed, and document everything for the court and heirs. Video walkthroughs available for out-of-town parties.",
+  },
+  {
+    title: "Court-ready offer",
+    body: "We prepare written offers with net proceeds calculations that probate courts typically require. All parties receive identical documentation for transparency.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can you buy a house before probate is complete?",
+    answer: "Often yes. Many Kansas City area courts allow contracts contingent on final probate approval. We coordinate with your attorney to match court timelines.",
+  },
+  {
+    question: "Do you work directly with probate attorneys?",
+    answer: "Yes. With your authorization, we communicate directly with attorneys to provide required documentation and coordinate closing dates that work with court schedules.",
+  },
+  {
+    question: "What if the house needs major repairs?",
+    answer: "We buy probate properties as-is. Repairs are factored into the offer, and we handle any post-closing requirements. Visit our <a href=\"/solutions/needs-repairs/\" class=\"text-secondary underline\">repairs guide</a> for details.",
+  },
+  {
+    question: "How do you handle multiple heirs in different states?",
+    answer: "We provide video walkthroughs, detailed photo documentation, and written summaries to all heirs. Everyone receives identical information simultaneously.",
+  },
+  {
+    question: "What documents do probate courts typically require?",
+    answer: "Courts usually want the offer, net proceeds calculation, and sometimes proof of market value. We prepare these formats based on Kansas City area court requirements.",
+  },
+  {
+    question: "Can you help with estate debts and liens?",
+    answer: "Yes. Title companies identify all mortgages, tax liens, and creditor claims. Those are paid from closing proceeds, and we can coordinate with creditors when needed.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Sell a Probate House in Kansas City", item: "/solutions/probate-house/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell a Probate House in Kansas City | ACE Properties KC"
+  description="Need to sell a probate house in Kansas City? We help executors and families sell estate property as-is in Missouri and Kansas."
+  canonicalPath="/solutions/probate-house/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Probate Property</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell a Probate House in Kansas City</h1>
+    <p class="text-muted">
+      Probate sales require coordination between court requirements, family needs, and practical property decisions. Whether you're an executor managing an estate in Jackson County or helping heirs navigate Johnson County probate, we provide clear, court-ready offers that respect legal timelines while protecting estate value.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why executors work with us</h2>
+      <p class="text-muted">
+        Most executors we help are balancing court deadlines, heir communication, and property maintenance—all while trying to maximize estate value. We provide documentation courts accept, coordinate with attorneys, and keep all parties informed with identical information.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Court-ready process</h2>
+      <p class="text-muted">
+        We understand what Kansas City area probate courts typically require: written offers, net proceeds calculations, and property condition documentation. Our offers come prepared for court approval, not just for family consideration.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">What makes probate sales different</h2>
+      <div class="mt-4 grid gap-6 md:grid-cols-2">
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Standard Sale</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Owner makes decisions independently</li>
+            <li>• Timeline based on seller preferences</li>
+            <li>• Simple documentation for closing</li>
+            <li>• Direct negotiation and closing</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Probate Sale</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Court approval often required</li>
+            <li>• Timeline follows court schedule</li>
+            <li>• Documentation for heirs and court</li>
+            <li>• Multiple parties must approve</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common probate-property challenges</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {probateChallenges.map((challenge) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{challenge}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How we work with probate house sellers</h2>
+      <p class="text-muted">
+        From initial conversation to closing, we focus on court compliance and heir communication. We provide the documentation probate courts need, coordinate with your attorney, and ensure every heir receives identical information simultaneously.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Missouri vs Kansas probate</h2>
+      <p class="text-muted">
+        Jackson County (Missouri) and Johnson County (Kansas) have different probate requirements and timelines. We're familiar with both court systems and can adjust documentation and coordination to match local requirements.
+      </p>
+      <p class="text-muted">
+        Whether the estate is in Kansas City, Independence, Lee's Summit, Overland Park, Olathe, or surrounding areas, we coordinate with the appropriate court and title companies to ensure smooth closing.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <p class="text-muted">
+        Need to understand probate versus inheritance options? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> for family coordination focus, or explore <a href="/solutions/needs-repairs/" class="text-secondary underline">repair scenarios</a> common in estate properties.
+      </p>
+      <p class="text-muted">
+        Have questions about your specific probate situation? <a href="/contact/" class="text-secondary underline">Contact us</a> for a no-pressure consultation about your property and court requirements. We work with Kansas City area estates regularly.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Probate House FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the probate consultation</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
+  </section>
+</Layout>
