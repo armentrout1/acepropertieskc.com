@@ -5,11 +5,11 @@ import { SITE } from "../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
 
 const trustPoints = [
-  "Local to the KC metro",
-  "Sell as-is",
-  "No repairs or showings",
-  "No commissions",
-  "Your timeline"
+  "Local Kansas City team",
+  "Sell as-is, no repairs",
+  "No showings or listings",
+  "No commissions or fees",
+  "Your timeline, your choice"
 ];
 
 const steps = [
@@ -28,12 +28,12 @@ const steps = [
 ];
 
 const solutions = [
-  { title: "As-Is Cash Offer", body: "Close without listing or repairs. Ideal when you want certainty and a clean handoff.", href: "/#get-offer" },
-  { title: "Inherited Home", body: "Coordinate with siblings or estates and keep the process organized and respectful.", href: "/options/" },
-  { title: "Major Repairs", body: "Skip contractors. We handle updates so you don't have to front the cost.", href: "/options/" },
-  { title: "Divorce", body: "Provide neutral timelines and clear paperwork so both parties stay informed.", href: "/#get-offer" },
-  { title: "Tenant-Occupied", body: "Work directly with current renters and keep income flowing until closing.", href: "/options/" },
-  { title: "Behind on Payments", body: "Explore payoffs, subject-to, or novations to protect equity before deadlines.", href: "/#get-offer" }
+  { title: "Sell House Fast", body: "Speed and certainty with as-is cash offers for any situation.", href: "/solutions/sell-house-fast/" },
+  { title: "Inherited Home", body: "Coordinate siblings and estates with calm, organized guidance.", href: "/solutions/inherited-house/" },
+  { title: "Probate House", body: "Court-ready offers for executors navigating legal processes.", href: "/solutions/probate-house/" },
+  { title: "Vacant House", body: "Stop carrying costs and sell empty properties as-is.", href: "/solutions/vacant-house/" },
+  { title: "Relocating", body: "Job transfer sales with remote coordination and timing.", href: "/solutions/relocating/" },
+  { title: "Major Repairs", body: "Skip contractors. We handle updates so you don't front costs.", href: "/solutions/needs-repairs/" }
 ];
 
 const faqs = [
@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     question: "How fast can we close?",
-    answer: "Most cash offers can close in as little as two weeks once title is clear. Creative options are paced around your goals."
+    answer: "Cash offers can close in as little as 10-14 days once title is clear. We prioritize your timeline and can expedite every step."
   },
   {
     question: "What if I still owe on the mortgage?",
@@ -52,6 +52,10 @@ const faqs = [
   {
     question: "Are there fees or commissions?",
     answer: "No commissions. Standard closing costs are reviewed with you up front before you sign anything."
+  },
+  {
+    question: "What if I'm dealing with a difficult situation?",
+    answer: "We handle complex situations daily—probate, relocations, financial pressure, and more. We provide practical options without judgment and clear next steps."
   },
   {
     question: "Can I talk with someone before deciding?",
@@ -80,9 +84,9 @@ const jsonLd = [
           <h1 class="text-4xl font-semibold text-primary md:text-5xl">
           Sell Your Kansas City House As-Is — Cash or Creative Options
           </h1>
-          <p class="text-lg text-muted">
-            Calm, local guidance focused on the Kansas City metro. We listen first, lay out every option clearly, and let you choose how to move forward.
-          </p>
+          <p class="text-muted">
+          Whether you're in <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a> or anywhere in the Kansas City metro, we provide local guidance and practical solutions. We work with homeowners facing relocations, inherited properties, and situations requiring quick decisions.
+        </p>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="#get-offer" class="btn btn-primary text-base">
@@ -96,7 +100,7 @@ const jsonLd = [
           </a>
         </div>
         <p class="text-sm font-medium text-muted">
-          Grounded in neighborhoods from Brookside to ZIP 64131 with transparent communication at every step.
+          Serving homeowners across the Kansas City metro with transparent communication and local expertise.
         </p>
       </div>
     </div>
@@ -160,9 +164,9 @@ const jsonLd = [
     <div class="grid gap-8 md:grid-cols-2">
       <div class="space-y-4">
         <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Why homeowners choose options</p>
-        <h2 class="text-3xl font-semibold text-primary">Control, transparency, and flexibility</h2>
+          <h2 class="text-3xl font-semibold text-primary">Control, transparency, and local expertise</h2>
         <p class="text-muted">
-          Whether you need a quick closing or want to keep income via a creative structure, we lay out side-by-side comparisons so the decision is yours.
+          Whether you need a <a href="/solutions/sell-house-fast/" class="text-secondary underline">fast cash sale</a> or want to explore options for complex situations, we lay out side-by-side comparisons so the decision is yours.
         </p>
         <ul class="space-y-3 text-sm text-primary">
           <li class="flex items-start gap-3">
