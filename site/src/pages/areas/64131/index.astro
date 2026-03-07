@@ -24,7 +24,7 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
-  faqJsonLd(faqs.map((f) => ({ q: f.question, a: f.answer }))),
+  faqJsonLd(faqs),
 ];
 ---
 

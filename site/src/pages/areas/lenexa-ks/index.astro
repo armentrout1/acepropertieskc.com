@@ -66,7 +66,7 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
-  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+  faqJsonLd(faqs),
 ];
 ---
 
