@@ -1,0 +1,203 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+
+const speedReasons = [
+  "Sudden job changes or unexpected opportunities",
+  "Inherited properties requiring quick decisions",
+  "Financial situations requiring fast liquidity",
+  "Landlord fatigue from tenant management",
+  "Downsizing or life transitions needing simplicity",
+];
+
+const situations = [
+  "Avoiding costly repairs and renovation projects",
+  "Eliminating showings, open houses, and buyer negotiations",
+  "Bypassing traditional listing delays and uncertainties",
+  "Coordinating with other life changes or relocations",
+  "Simplifying complex family or financial situations",
+];
+
+const steps = [
+  {
+    title: "Quick property assessment",
+    body: "We evaluate your property and discuss your timeline needs. No repairs required—we work with the house exactly as it stands.",
+  },
+  {
+    title: "Fast cash offer",
+    body: "You receive a written cash offer within days. We outline all numbers clearly so you can make informed decisions quickly.",
+  },
+  {
+    title: "Flexible closing timeline",
+    body: "Choose closing dates that work for your situation—from as little as two weeks to several months if you need more time.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How fast can you actually close?",
+    answer: "Cash offers can close in as little as two weeks. The exact timeline depends on your needs and title work, but we move as quickly as you require.",
+  },
+  {
+    question: "Do I need to make any repairs first?",
+    answer: "No. We buy houses as-is in any condition. You can avoid contractors, inspections, and repair costs entirely. Visit our <a href=\"/solutions/vacant-house/\" class=\"text-secondary underline\">vacant property guide</a> for common issues we handle.",
+  },
+  {
+    question: "What costs do I need to pay?",
+    answer: "We cover standard closing costs. There are no commissions, repair costs, or hidden fees. You receive the agreed amount at closing.",
+  },
+  {
+    question: "Will you buy a house with tenants?",
+    answer: "Yes. We can coordinate with existing tenants or handle lease termination. Many landlords choose this option to avoid ongoing management responsibilities.",
+  },
+  {
+    question: "What if I'm behind on payments or have liens?",
+    answer: "We work with title companies to resolve mortgages, tax liens, and other debts at closing. These are paid from proceeds, and we can coordinate with creditors when needed.",
+  },
+  {
+    question: "Is this better than listing with an agent?",
+    answer: "For speed and certainty, yes. Traditional listings take months and require repairs, showings, and negotiations. Cash offers provide guaranteed closing dates and as-is terms.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Sell Your House Fast in Kansas City", item: "/solutions/sell-house-fast/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell Your House Fast in Kansas City | ACE Properties KC"
+  description="Need to sell your house fast in Kansas City? We help homeowners in Missouri and Kansas sell as-is on a practical timeline."
+  canonicalPath="/solutions/sell-house-fast/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Fast As-Is Home Sales</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House Fast in Kansas City</h1>
+    <p class="text-muted">
+      Sometimes life demands speed—job changes, inherited properties, or financial situations requiring quick decisions. Whether you're in Kansas City, Overland Park, or anywhere in the metro, we provide cash offers that let you sell your house as-is on your timeline without repairs, showings, or listing delays.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why homeowners choose fast sales</h2>
+      <p class="text-muted">
+        Most homeowners who need speed are dealing with life changes—relocations, inherited properties, or situations requiring quick decisions. We eliminate traditional selling barriers so you can move forward with certainty.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Speed without sacrificing value</h2>
+      <p class="text-muted">
+        Fast doesn't mean low offers. We provide fair cash offers based on current market conditions, eliminating months of holding costs, commissions, and repair expenses that eat into traditional sale profits.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Why some sellers need speed and certainty</h2>
+      <div class="mt-4 grid gap-6 md:grid-cols-2">
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Common Speed Triggers</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            {speedReasons.map((reason) => (
+              <li>• {reason}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Fast Sale Benefits</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Guaranteed closing dates</li>
+            <li>• No repairs or renovations</li>
+            <li>• Skip showings and open houses</li>
+            <li>• Avoid listing uncertainties</li>
+            <li>• Simplified moving logistics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common fast-sale situations</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {situations.map((situation) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{situation}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How we help homeowners sell fast</h2>
+      <p class="text-muted">
+        From first call to closing, we focus on speed and simplicity. We evaluate properties as-is, provide clear cash offers, and coordinate closing dates that work with your timeline requirements.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Kansas City fast-sale market</h2>
+      <p class="text-muted">
+        Kansas City's real estate market moves quickly, but traditional listings still take months. We understand local market conditions across Missouri and Kansas, from Kansas City proper to Overland Park, Olathe, and surrounding suburbs.
+      </p>
+      <p class="text-muted">
+        Whether you're selling due to relocation, inheritance, or simply wanting a straightforward sale, we provide offers that reflect current market values while eliminating traditional selling delays.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Find your specific solution</h2>
+      <p class="text-muted">
+        Is your fast sale related to a job transfer? Visit our <a href=\"/solutions/relocating/\" class=\"text-secondary underline\">relocating guide</a> for employer coordination, or check our <a href=\"/solutions/vacant-house/\" class=\"text-secondary underline\">vacant property solutions</a> if your house will sit empty.
+      </p>
+      <p class="text-muted">
+        Dealing with estate or court requirements? Explore our <a href=\"/solutions/probate-house/\" class=\"text-secondary underline\">probate process</a> for court coordination, or review <a href=\"/areas/\" class=\"text-secondary underline\">Kansas City area insights</a> for market-specific considerations.
+      </p>
+      <p class="text-muted">
+        Ready for a fast, as-is sale? <a href=\"/contact/\" class=\"text-secondary underline\">Contact us</a> for a cash offer and closing timeline that works for your situation.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Sell House Fast FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Get fast cash offer</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
+  </section>
+</Layout>
