@@ -1,0 +1,203 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+
+const timingPressures = [
+  "Job transfer start dates with little notice",
+  "School year timing for family moves",
+  "Housing market deadlines in new city",
+  "Temporary housing costs adding up quickly",
+  "Coordinating two households simultaneously",
+];
+
+const challenges = [
+  "Managing showings and negotiations from another city",
+  "Handling repairs and maintenance while already moved",
+  "Coordinating closing dates with new home purchase",
+  "Dealing with uncertainty around sale timing",
+  "Paying for two housing situations at once",
+];
+
+const steps = [
+  {
+    title: "Discuss relocation timeline",
+    body: "We review your move date, employer requirements, and any pressures from your new home purchase. No pressure—just practical planning for your situation.",
+  },
+  {
+    title: "Remote property evaluation",
+    body: "We document the property condition with video walkthroughs and detailed photos. You can handle everything remotely without returning to Kansas City.",
+  },
+  {
+    title: "Certainty offer with flexibility",
+    body: "You receive a written cash offer with closing dates that work for your move. We can close quickly or coordinate with your new home timeline.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can you handle the entire sale remotely?",
+    answer: "Yes. We use video walkthroughs, electronic signatures, and mobile notaries when needed. Many of our relocating clients never return to Kansas City during the selling process.",
+  },
+  {
+    question: "How quickly can you close for a job transfer?",
+    answer: "Cash offers can close in as little as two weeks. We coordinate with your employer's relocation timeline and can adjust dates to match your start date.",
+  },
+  {
+    question: "What if the house needs repairs?",
+    answer: "We buy relocating properties as-is. No need to coordinate contractors from a distance. We handle all repairs after closing. Visit our <a href=\"/solutions/vacant-house/\" class=\"text-secondary underline\">vacant property guide</a> for common issues.",
+  },
+  {
+    question: "Can you work with my employer's relocation package?",
+    answer: "Yes. We provide documentation employers typically require and can coordinate with relocation companies. We're experienced with corporate transfer processes.",
+  },
+  {
+    question: "Do I need to move everything out first?",
+    answer: "No. We can handle clean-out and removal of any belongings. We coordinate this around your moving schedule and can work with items left behind.",
+  },
+  {
+    question: "What if my new home purchase depends on this sale?",
+    answer: "We structure offers and timelines to coordinate with your new home closing. Many relocating sellers use our cash offers to make stronger offers on their next home.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Sell Your House Fast When Relocating", item: "/solutions/relocating/" },
+  ]),
+];
+---
+
+<Layout
+  title="Relocating? Sell Your House Fast in Kansas City | ACE Properties KC"
+  description="Need to relocate and sell your house fast in Kansas City? We help homeowners in Missouri and Kansas sell on a practical timeline."
+  canonicalPath="/solutions/relocating/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Job Transfer & Moving Solutions</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House Fast When Relocating</h1>
+    <p class="text-muted">
+      Relocating creates unique timing pressures—job start dates, school calendars, and new home purchases all demanding certainty. Whether you're moving from Kansas City to another state or just across town, we provide cash offers with flexible closing dates that eliminate the stress of coordinating two households from a distance.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why relocating homeowners choose us</h2>
+      <p class="text-muted">
+        Most homeowners we help with relocations are managing moves from another city, coordinating job transfers, or dealing with tight employer deadlines. We handle everything remotely, provide certainty around timing, and eliminate the need to manage contractors or showings.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Remote selling made simple</h2>
+      <p class="text-muted">
+        From video walkthroughs to mobile notaries, we've streamlined the process for out-of-area sellers. You can handle the entire sale from your new location without returning to Kansas City or coordinating local services.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Why relocating creates timing pressure</h2>
+      <div class="mt-4 grid gap-6 md:grid-cols-2">
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Timeline Pressures</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            {timingPressures.map((pressure) => (
+              <li>• {pressure}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Logistical Challenges</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Managing property from distance</li>
+            <li>• Coordinating two housing payments</li>
+            <li>• Employer relocation requirements</li>
+            <li>• School year timing constraints</li>
+            <li>• New home purchase dependencies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common relocation-sale challenges</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {challenges.map((challenge) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{challenge}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How we work with relocating sellers</h2>
+      <p class="text-muted">
+        From initial conversation to closing, we focus on making your relocation smooth. We handle remote coordination, provide certainty around timing, and eliminate the logistical challenges of selling from a distance.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Kansas City relocation patterns</h2>
+      <p class="text-muted">
+        Kansas City's corporate employers—healthcare, technology, and logistics companies—create consistent relocation patterns. We understand employer timelines, relocation package requirements, and the need to coordinate with out-of-area moves.
+      </p>
+      <p class="text-muted">
+        Whether you're relocating from Overland Park, Olathe, Lee's Summit, or surrounding areas to another city, or just moving within the Kansas City metro, we can coordinate timing to match your schedule.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <p class="text-muted">
+        Is your move related to a divorce or separation? Visit our <a href=\"/solutions/divorce/\" class=\"text-secondary underline\">divorce guide</a> for legal coordination, or check our <a href=\"/solutions/vacant-house/\" class=\"text-secondary underline\">vacant property solutions</a> if your house will sit empty between moves.
+      </p>
+      <p class="text-muted">
+        Need to compare cash offers versus traditional listing? Explore <a href=\"/options/\" class=\"text-secondary underline\">selling options</a> for different timelines, or review <a href=\"/areas/\" class=\"text-secondary underline\">area-specific considerations</a> across the Kansas City metro.
+      </p>
+      <p class="text-muted">
+        Ready to coordinate your relocation sale? <a href=\"/contact/\" class=\"text-secondary underline\">Contact us</a> for a cash offer and timeline that works with your move date and employer requirements.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Relocating FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Get relocation cash offer</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
+  </section>
+</Layout>
