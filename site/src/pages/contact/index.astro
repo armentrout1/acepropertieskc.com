@@ -26,7 +26,7 @@ import { SITE } from "../../lib/siteConfig";
             <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
             <div>
               <p class="font-semibold">Call or text</p>
-              <a href={`tel:${SITE.phoneTel}`} class="text-secondary hover:underline">{SITE.phoneDisplay}</a>
+              <a href={`tel:${SITE.phoneTel}`} class="text-secondary hover:underline" data-phone-link="contact_page">{SITE.phoneDisplay}</a>
             </div>
           </div>
           <div class="flex items-start gap-3">
@@ -47,7 +47,7 @@ import { SITE } from "../../lib/siteConfig";
         <p class="text-sm text-muted">We respond during standard business hours and check messages after-hours for urgent updates.</p>
         <div class="flex flex-wrap gap-3">
           <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
-          <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base">Call us now</a>
+          <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base" data-phone-link="contact_page_cta">Call us now</a>
         </div>
       </div>
       <div class="card p-4 sm:p-6">
@@ -56,3 +56,19 @@ import { SITE } from "../../lib/siteConfig";
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  // Track phone clicks on contact page
+  document.querySelectorAll('[data-phone-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-phone-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_click', {
+          link_location: location,
+          phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+</script>

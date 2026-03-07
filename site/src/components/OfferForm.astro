@@ -206,6 +206,16 @@ const {
 
         if (response.ok) {
           const result = await response.json();
+          
+          // Track successful form submission
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              lead_type: 'offer_form',
+              page_path: window.location.pathname,
+              page_title: document.title
+            });
+          }
+          
           // Success - redirect to thank you page
           window.location.href = '/thank-you/';
         } else {

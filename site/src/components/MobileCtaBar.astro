@@ -13,6 +13,7 @@ const smsTel = SITE.smsTel;
       href={`tel:${phoneTel}`}
       aria-label={`Call ${phoneDisplay}`}
       class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
+      data-phone-link="mobile_cta"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -74,3 +75,19 @@ const smsTel = SITE.smsTel;
     </a>
   </div>
 </div>
+
+<script is:inline>
+  // Track phone clicks in mobile CTA bar
+  document.querySelectorAll('[data-phone-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-phone-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_click', {
+          link_location: location,
+          phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+</script>

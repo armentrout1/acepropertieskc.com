@@ -33,6 +33,7 @@ const navLinks = [
     <a
       href={`tel:${SITE.phoneTel}`}
       class="btn btn-ghost hidden md:inline-flex"
+      data-phone-link="header"
     >
       Call {SITE.phoneDisplay}
     </a>
@@ -63,6 +64,7 @@ const navLinks = [
         href={`tel:${SITE.phoneTel}`}
         class="block rounded-md border border-primary/20 px-2 py-2 text-center font-semibold text-primary"
         data-mobile-nav-link
+        data-phone-link="header_mobile"
       >
         Call {SITE.phoneDisplay}
       </a>
@@ -88,4 +90,18 @@ const navLinks = [
       link.addEventListener('click', () => setState(false));
     });
   }
+
+  // Track phone clicks
+  document.querySelectorAll('[data-phone-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-phone-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_click', {
+          link_location: location,
+          phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
 </script>

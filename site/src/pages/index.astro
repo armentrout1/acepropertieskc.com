@@ -95,6 +95,7 @@ const jsonLd = [
           <a
             href={`tel:${SITE.phoneTel}`}
             class="btn btn-ghost text-base"
+            data-phone-link="homepage_hero"
           >
             Call {SITE.phoneDisplay}
           </a>
@@ -223,3 +224,19 @@ const jsonLd = [
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  // Track phone clicks on homepage
+  document.querySelectorAll('[data-phone-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-phone-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_click', {
+          link_location: location,
+          phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+</script>
