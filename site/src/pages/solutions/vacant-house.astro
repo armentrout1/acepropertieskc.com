@@ -1,0 +1,203 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+
+const carryingCosts = [
+  "Monthly utilities (gas, electric, water, sewer)",
+  "Property taxes and special assessments",
+  "Homeowners insurance with vacancy surcharges",
+  "Lawn care and snow removal services",
+  "Security monitoring or system maintenance",
+];
+
+const challenges = [
+  "Weather damage from frozen pipes, roof leaks, or foundation issues",
+  "Vandalism, break-ins, or copper theft from empty properties",
+  "Neighborhood complaints about property appearance",
+  "City code violations for unmaintained yards or exterior",
+  "Insurance claims complications for vacant properties",
+];
+
+const steps = [
+  {
+    title: "Assess vacancy situation",
+    body: "We discuss how long the house has been empty, any ongoing costs, and your timeline. No pressure—just practical evaluation of your situation.",
+  },
+  {
+    title: "Property evaluation",
+    body: "We document the property condition, note any vacancy-related issues, and calculate carrying costs. Video walkthroughs available if you've already moved.",
+  },
+  {
+    title: "Cash offer with timeline",
+    body: "You receive a written cash offer and closing timeline. We can close quickly to stop monthly expenses or work around your schedule.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do I need to turn on utilities for showings?",
+    answer: "No. We evaluate properties as-is and can work without utilities. We'll note any systems that need inspection and factor that into our offer.",
+  },
+  {
+    question: "Will you buy a house with code violations?",
+    answer: "Yes. Vacant houses often accumulate code issues. We handle violations and factor compliance costs into our offer. Visit our <a href=\"/solutions/needs-repairs/\" class=\"text-secondary underline\">repairs guide</a> for details.",
+  },
+  {
+    question: "What if the house has been vandalized?",
+    answer: "We buy vacant properties in any condition. We'll document damage and include repair costs in our offer. No need to fix anything before selling.",
+  },
+  {
+    question: "Can you help with outstanding utility bills?",
+    answer: "Yes. Utility payoffs are handled at closing like any other debts. We can coordinate with utility companies to get final amounts for closing.",
+  },
+  {
+    question: "How quickly can you close on a vacant house?",
+    answer: "Cash offers can close in as little as two weeks. Fast closing helps you stop monthly carrying costs and eliminates ongoing maintenance responsibilities.",
+  },
+  {
+    question: "Do I need to clean out the property?",
+    answer: "No. We can handle clean-out and removal of any belongings left behind. We coordinate this as part of our offer when needed.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildFaqPageJsonLd(faqs.map((faq) => ({ q: faq.question.replace(/<[^>]+>/g, ""), a: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Solutions", item: "/solutions/" },
+    { name: "Sell a Vacant House in Kansas City", item: "/solutions/vacant-house/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell a Vacant House in Kansas City | ACE Properties KC"
+  description="Need to sell a vacant house in Kansas City? We help homeowners sell empty properties as-is in Missouri and Kansas."
+  canonicalPath="/solutions/vacant-house/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Empty Property Solutions</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell a Vacant House in Kansas City</h1>
+    <p class="text-muted">
+      Vacant houses drain resources through monthly carrying costs while exposing you to weather damage, vandalism, and code violations. Whether your property in Kansas City, Overland Park, or Lee's Summit has been sitting empty for months or years, we provide cash offers that let you stop the expenses and move forward without repairs or cleanup.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why vacant house owners sell to us</h2>
+      <p class="text-muted">
+        Most vacant property owners we work with are tired of monthly expenses, worried about security, or dealing with maintenance from a distance. We buy houses as-is, handle all cleanup, and close quickly so you can stop carrying costs.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stop the monthly drain</h2>
+      <p class="text-muted">
+        Between utilities, taxes, insurance, and maintenance, vacant houses cost hundreds or thousands monthly. Our cash offers let you close quickly and eliminate those ongoing expenses while getting fair value.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Why vacant houses become expensive fast</h2>
+      <div class="mt-4 grid gap-6 md:grid-cols-2">
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Monthly Carrying Costs</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            {carryingCosts.map((cost) => (
+              <li>• {cost}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-primary mb-2">Risk Factors</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Weather damage from neglect</li>
+            <li>• Vandalism and break-ins</li>
+            <li>• City code violations</li>
+            <li>• Insurance complications</li>
+            <li>• Neighborhood complaints</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common vacant-property challenges</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {challenges.map((challenge) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{challenge}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How we work with vacant house sellers</h2>
+      <p class="text-muted">
+        From first call to closing, we focus on eliminating your vacant property burdens. We evaluate the property as-is, calculate your carrying costs, and provide cash offers with timelines that work for your situation.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Kansas City vacant property challenges</h2>
+      <p class="text-muted">
+        Kansas City's weather creates specific risks for vacant properties—freezing winters can burst pipes, summer storms can damage roofs, and humidity can cause mold. Missouri and Kansas both have code enforcement departments that issue citations for unmaintained properties.
+      </p>
+      <p class="text-muted">
+        Whether your vacant house is in Kansas City, Independence, Overland Park, Olathe, or surrounding areas, we understand local requirements and can coordinate with city officials when needed.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <p class="text-muted">
+        Is your vacant property also an inherited estate? Visit our <a href=\"/solutions/inherited-house/\" class=\"text-secondary underline\">inherited property guide</a> for family coordination, or check our <a href=\"/solutions/probate-house/\" class=\"text-secondary underline\">probate process</a> if court approval is needed.
+      </p>
+      <p class="text-muted">
+        Need to compare repair costs versus selling as-is? Explore <a href=\"/solutions/needs-repairs/\" class=\"text-secondary underline\">repair scenarios</a> common in vacant properties, or review <a href=\"/areas/\" class=\"text-secondary underline\">area-specific challenges</a> across the Kansas City metro.
+      </p>
+      <p class="text-muted">
+        Ready to stop carrying costs on your vacant house? <a href=\"/contact/\" class=\"text-secondary underline\">Contact us</a> for a cash offer and closing timeline that works for you.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Vacant House FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Get cash offer for vacant house</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
+  </section>
+</Layout>
