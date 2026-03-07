@@ -1,0 +1,199 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const neighborhoods = [
+  {
+    title: "Independence Square",
+    body: "Historic downtown area with vintage homes and commercial properties. Many properties need updates after decades of family ownership.",
+  },
+  {
+    title: "Western Independence",
+    body: "Established neighborhoods with mid-century homes where inherited properties and repair needs are common.",
+  },
+  {
+    title: "Little Blue Valley",
+    body: "River valley area with mix of ranch homes and newer construction. Popular with families who need quick sales due to job changes or growing family needs.",
+  },
+];
+
+const situations = [
+  "Inherited homes that have been in Independence families for generations",
+  "Homes needing major repairs—foundations, roofs, or outdated systems",
+  "Pre-foreclosure situations requiring quick, reliable buyers",
+  "Senior downsizing when maintenance becomes overwhelming",
+  "Rental properties with long-term tenants needing transition",
+];
+
+const steps = [
+  {
+    title: "Share your Independence story",
+    body: "Tell us about your Independence property, any repair concerns, and timing pressures from inheritance, foreclosure, or relocation.",
+  },
+  {
+    title: "Property walkthrough",
+    body: "We schedule a walkthrough (or video) to note repairs, access issues, and any Jackson County-specific requirements.",
+  },
+  {
+    title: "Choose your solution",
+    body: "Receive a written comparison of a straightforward cash offer and any creative options that work with your timeline and financial goals.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do you buy homes in Independence's historic districts?",
+    answer: "Yes. We're familiar with the Historic Preservation Commission requirements and can work within guidelines while providing as-is cash offers for properties near the Square.",
+  },
+  {
+    question: "How quickly can you close on Independence properties?",
+    answer: "Cash offers can close in as little as two weeks once Jackson County title work is complete. We can also accommodate longer timelines if needed.",
+  },
+  {
+    question: "Will you buy houses with major code violations?",
+    answer: "Absolutely. Independence homes often have code items that scare traditional buyers. We evaluate properties as-is and factor compliance costs into our offer, including common issues like outdated electrical or plumbing.",
+  },
+  {
+    question: "Can you help with inherited estate properties?",
+    answer: "Yes. We coordinate with heirs, probate attorneys, and Jackson County officials to streamline inherited property sales. We're experienced with multi-family inheritances common in Independence.",
+  },
+  {
+    question: "What about Jackson County property taxes?",
+    answer: "We handle tax prorations and payoffs at closing. Any outstanding tax liens are addressed in the settlement statement so you receive clear proceeds.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+];
+---
+
+<Layout
+  title="Sell Your House As-Is in Independence, MO | ACE Properties KC"
+  description="Independence, MO home buyers providing cash offers and creative solutions. Sell as-is without repairs and close on your timeline."
+  canonicalPath="/areas/independence-mo/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Independence, Missouri</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Independence, Missouri</h1>
+    <p class="text-muted">
+      Independence homeowners deserve straightforward solutions when property decisions become complicated. Whether you're managing an inherited family home near the Square, facing repairs that feel overwhelming in Western Independence, or dealing with timeline pressure in Little Blue Valley, we provide clear options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why Independence sellers reach out</h2>
+      <p class="text-muted">
+        Most Independence homeowners we work with are managing complex situations—inherited estates, repair costs that keep growing, or urgent timelines that traditional buyers can't accommodate. We keep the process simple, provide clear documentation, and respect the pace you need.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
+      <p class="text-muted">
+        Our team meets you in person when possible, collaborates with trusted Jackson County title partners, and outlines both cash and creative pathways. No aggressive tactics—just honest answers about value, timelines, and paperwork requirements.
+      </p>
+    </article>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Independence market context</h2>
+      <p class="text-muted">
+        From historic homes near Independence Square to established Western Independence neighborhoods, each area has unique characteristics. We track local market conditions, understand older home challenges, and know how Jackson County requirements affect your timeline and options.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
+      <p class="text-muted">
+        Selling a long-held Independence home often involves coordinating with multiple family members, dealing with estate matters, or managing tenant transitions. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {situations.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="grid gap-6 md:grid-cols-3">
+      {neighborhoods.map((spot) => (
+        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
+          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
+          <p class="mt-2 text-sm text-muted">{spot.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How it works in Independence</h2>
+      <p class="text-muted">
+        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and explore creative solutions when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+      <p class="text-muted">
+        Jackson County title companies typically need payoff statements, tax clearances, and any estate documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every requirement is met before closing.
+      </p>
+      <p class="text-muted">
+        If you need extra time due to estate matters or family coordination, we can structure flexible closing dates or post-closing arrangements. Those options are detailed in writing alongside your cash offer.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <p class="text-muted">
+        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">repairs scenario</a> for detailed breakdowns. Explore other Jackson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/facing-foreclosure/" class="text-secondary underline">foreclosure avoidance options</a>.
+      </p>
+      <p class="text-muted">
+        When questions pop up about your Independence property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Independence FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
+    <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
+  </section>
+</Layout>
