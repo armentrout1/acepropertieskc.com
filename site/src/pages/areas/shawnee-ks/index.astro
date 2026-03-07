@@ -1,0 +1,199 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const neighborhoods = [
+  {
+    title: "Downtown Shawnee",
+    body: "Historic district with renovated homes and new mixed-use developments. Popular with families who appreciate small-town charm with modern amenities.",
+  },
+  {
+    title: "Monticello",
+    body: "Established neighborhoods with mature trees and larger lots. Many homes need updates after 20+ years of family ownership.",
+  },
+  {
+    title: "Woodland Hills",
+    body: "Golf course community with newer subdivisions and established properties. Popular with downsizing families and those needing quick relocations.",
+  },
+];
+
+const situations = [
+  "Inherited homes that have been in Shawnee families for generations",
+  "Homes needing major repairs—roofs, foundations, or outdated systems",
+  "Divorce settlements requiring neutral, written agreements",
+  "Corporate relocations to Kansas City needing quick closings",
+  "Senior downsizing when maintenance becomes overwhelming",
+];
+
+const steps = [
+  {
+    title: "Share your Shawnee story",
+    body: "Tell us about your Shawnee property, any repair concerns, and timing pressures from inheritance, divorce, or relocation.",
+  },
+  {
+    title: "Property walkthrough",
+    body: "We schedule a walkthrough (or video) to note repairs, access issues, and any Johnson County-specific requirements.",
+  },
+  {
+    title: "Choose your solution",
+    body: "Receive a written comparison of a straightforward cash offer and any creative options that work with your timeline and financial goals.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do you buy homes in Shawnee's historic districts?",
+    answer: "Yes. We're familiar with Shawnee's historic preservation requirements and can work within guidelines while providing as-is cash offers for properties in the downtown area.",
+  },
+  {
+    question: "How quickly can you close on Shawnee properties?",
+    answer: "Cash offers can close in as little as two weeks once Johnson County title work is complete. We can accommodate longer timelines for family transitions.",
+  },
+  {
+    question: "Will you buy houses needing major renovations?",
+    answer: "Absolutely. Shawnee has many 1980s and 1990s homes needing significant updates. We evaluate properties as-is and factor renovation costs into our offer.",
+  },
+  {
+    question: "Can you help with divorce settlements?",
+    answer: "Yes. We coordinate with both parties and attorneys to provide neutral, written offers that help divorce proceedings move forward smoothly. We're experienced with Kansas marital property requirements.",
+  },
+  {
+    question: "What about Shawnee's park system and trails?",
+    answer: "We're familiar with properties near Shawnee Mission Park and trail access points. Proximity to parks can affect property value and market timing.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+];
+---
+
+<Layout
+  title="Sell Your House As-Is in Shawnee, KS | ACE Properties KC"
+  description="Shawnee, KS home buyers offering cash and creative solutions. Sell as-is without repairs and close on your timeline."
+  canonicalPath="/areas/shawnee-ks/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Shawnee, Kansas</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Shawnee, Kansas</h1>
+    <p class="text-muted">
+      Shawnee homeowners value straightforward solutions when property decisions become complex. Whether you're managing an inherited family home in Downtown Shawnee, coordinating a corporate relocation from Woodland Hills, or facing repairs that feel overwhelming in Monticello, we provide clear options without pressure. Our local team understands Johnson County processes and keeps every step transparent.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why Shawnee sellers reach out</h2>
+      <p class="text-muted">
+        Most Shawnee homeowners we work with are managing multiple priorities—family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
+      <p class="text-muted">
+        Our team meets you in person when possible, collaborates with trusted Johnson County title partners, and outlines both cash and creative pathways. No aggressive tactics—just honest answers about value, timelines, and paperwork requirements.
+      </p>
+    </article>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Shawnee market context</h2>
+      <p class="text-muted">
+        From historic Downtown Shawnee properties to established Monticello neighborhoods and newer Woodland Hills developments, each area moves differently. We track local market conditions, understand suburban growth patterns, and know how Johnson County requirements affect your options.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
+      <p class="text-muted">
+        Selling a home in Shawnee often involves coordinating with schools, employers, and extended family across different timelines. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {situations.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="grid gap-6 md:grid-cols-3">
+      {neighborhoods.map((spot) => (
+        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
+          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
+          <p class="mt-2 text-sm text-muted">{spot.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How it works in Shawnee</h2>
+      <p class="text-muted">
+        From first conversation to closing, you control the timeline. We document property condition, navigate Johnson County requirements, and explore creative solutions when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+      <p class="text-muted">
+        Johnson County title companies typically need payoff statements, utility clearances, and any settlement documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every requirement is met before closing.
+      </p>
+      <p class="text-muted">
+        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements. Those options are detailed in writing alongside your cash offer.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <p class="text-muted">
+        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns. Explore other Johnson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/divorce/" class="text-secondary underline">divorce settlement process</a>.
+      </p>
+      <p class="text-muted">
+        When questions pop up about your Shawnee property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Shawnee FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
+    <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
+  </section>
+</Layout>

@@ -1,0 +1,199 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+
+const neighborhoods = [
+  {
+    title: "Downtown Lee's Summit",
+    body: "Historic district with renovated homes and new developments. Popular with families who appreciate walkable amenities and small-town charm.",
+  },
+  {
+    title: "Longview",
+    body: "Established neighborhoods near Longview Lake and golf course. Popular with empty nesters and families who have owned homes for 15+ years and need major updates.",
+  },
+  {
+    title: "Raintree Lake",
+    body: "Master-planned community with lakefront properties and newer subdivisions. Popular with relocating families and growing households.",
+  },
+];
+
+const situations = [
+  "Inherited homes that have been in Lee's Summit families for generations",
+  "Homes needing major repairs—roofs, foundations, or outdated systems",
+  "Divorce settlements requiring neutral, written agreements",
+  "Corporate relocations to Kansas City needing quick closings",
+  "Rental properties with long-term tenants requiring transition",
+];
+
+const steps = [
+  {
+    title: "Share your Lee's Summit story",
+    body: "Tell us about your Lee's Summit property, any repair concerns, and timing pressures from inheritance, divorce, or relocation.",
+  },
+  {
+    title: "Property walkthrough",
+    body: "We schedule a walkthrough (or video) to note repairs, access issues, and any Jackson County-specific requirements.",
+  },
+  {
+    title: "Choose your solution",
+    body: "Receive a written comparison of a straightforward cash offer and any creative options that work with your timeline and financial goals.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do you buy homes near Longview Lake?",
+    answer: "Yes. We're familiar with lakefront properties and any specific requirements for homes near water features, including floodplain considerations and boat dock permits.",
+  },
+  {
+    question: "How quickly can you close on Lee's Summit properties?",
+    answer: "Cash offers can close in as little as two weeks once Jackson County title work is complete. We can accommodate longer timelines for family transitions.",
+  },
+  {
+    question: "Will you buy houses needing major renovations?",
+    answer: "Absolutely. Lee's Summit has many 1990s-era homes needing significant updates. We evaluate properties as-is and factor renovation costs into our offer, including common issues like outdated kitchens and bathrooms.",
+  },
+  {
+    question: "Can you help with divorce settlements?",
+    answer: "Yes. We coordinate with both parties and attorneys to provide neutral, written offers that help divorce proceedings move forward smoothly. We're experienced with Missouri's marital property division requirements.",
+  },
+  {
+    question: "What about Lee's Summit school district timing?",
+    answer: "Many families prefer closing during summer breaks to minimize school disruptions. We can schedule around the Lee's Summit R-7 calendar or structure flexible closing dates.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+];
+---
+
+<Layout
+  title="Sell Your House As-Is in Lee's Summit, MO | ACE Properties KC"
+  description="Lee's Summit, MO home buyers offering cash and creative solutions. Sell as-is, avoid repairs, and close on your timeline."
+  canonicalPath="/areas/lees-summit-mo/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-4">
+    <p class="badge">Lee's Summit, Missouri</p>
+    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Lee's Summit, Missouri</h1>
+    <p class="text-muted">
+      Lee's Summit homeowners value straightforward solutions when property decisions become complex. Whether you're managing an inherited family home in Downtown Lee's Summit, coordinating a job relocation from Raintree Lake, or facing repairs that feel overwhelming in Longview, we provide clear options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why Lee's Summit sellers reach out</h2>
+      <p class="text-muted">
+        Most Lee's Summit homeowners we work with are managing multiple priorities—family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
+      <p class="text-muted">
+        Our team meets you in person when possible, collaborates with trusted Jackson County title partners, and outlines both cash and creative pathways. No aggressive tactics—just honest answers about value, timelines, and paperwork requirements.
+      </p>
+    </article>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Lee's Summit market context</h2>
+      <p class="text-muted">
+        From historic Downtown Lee's Summit properties to established Longview neighborhoods and newer Raintree Lake developments, each area moves differently. We track local market conditions, understand school district timing impacts, and know how Jackson County requirements affect your options.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
+      <p class="text-muted">
+        Selling a home in Lee's Summit often involves coordinating with schools, employers, and extended family across different timelines. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+      </p>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
+      <ul class="mt-4 space-y-3 text-sm text-primary">
+        {situations.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="grid gap-6 md:grid-cols-3">
+      {neighborhoods.map((spot) => (
+        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
+          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
+          <p class="mt-2 text-sm text-muted">{spot.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section space-y-6">
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How it works in Lee's Summit</h2>
+      <p class="text-muted">
+        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and explore creative solutions when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+      <p class="text-muted">
+        Jackson County title companies typically need payoff statements, utility clearances, and any settlement documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every requirement is met before closing.
+      </p>
+      <p class="text-muted">
+        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements. Those options are detailed in writing alongside your cash offer.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <p class="text-muted">
+        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns. Explore other Jackson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/divorce/" class="text-secondary underline">divorce settlement process</a>.
+      </p>
+      <p class="text-muted">
+        When questions pop up about your Lee's Summit property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
+      </p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Lee's Summit FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section flex flex-wrap gap-4">
+    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
+    <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
+  </section>
+</Layout>
