@@ -13,7 +13,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   site: "https://acepropertieskc.com",
   trailingSlash: "always",
-  output: 'server',
+  output: 'static',
   devToolbar: {
     enabled: false,
   },

@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import sgMail from "@sendgrid/mail";
 
+export const prerender = false;
+
 const SENDGRID_API_KEY = import.meta.env.SENDGRID_API_KEY;
 const SUPPORT_EMAIL = "info@acepropertieskc.com";
 const NOTIFICATION_EMAIL = "aaron@aprkc.com";
