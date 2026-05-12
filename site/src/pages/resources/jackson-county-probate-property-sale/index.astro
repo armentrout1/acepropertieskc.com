@@ -1,0 +1,148 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Jackson County Probate Property Sale Guide";
+const description =
+  "A practical guide to selling a probate property in Jackson County, Missouri, including authority to sign, court timelines, title work, repairs, clean-out, and as-is offers.";
+
+const checklist = [
+  "Confirm the personal representative, executor, or administrator has authority to sign",
+  "Gather letters testamentary, court orders, death certificate, deed, tax bill, and mortgage statements",
+  "Ask the title company what probate documents are still needed before closing",
+  "Decide whether the estate will clean out, repair, list, or sell the house as-is",
+  "Keep heirs updated with the same written offer, net sheet, and timeline",
+];
+
+const faqs = [
+  {
+    question: "Can a Jackson County probate house be sold as-is?",
+    answer:
+      "Often, yes. The estate still needs proper authority and title approval, but the property itself can usually be sold without repairs or clean-out if the buyer agrees in writing.",
+  },
+  {
+    question: "Who signs the contract for a probate property?",
+    answer:
+      "The person with legal authority, such as a personal representative, executor, or administrator, usually signs. A probate attorney or title company should confirm the exact signing authority.",
+  },
+  {
+    question: "Do all heirs need to approve the sale?",
+    answer:
+      "It depends on the estate documents and court requirements. Even when one representative can sign, clear written updates help reduce confusion among heirs.",
+  },
+  {
+    question: "How fast can a probate sale close?",
+    answer:
+      "A cash closing can be quick after title and court requirements are satisfied, but probate timing depends on documents, court status, liens, and whether all decision-makers are aligned.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/jackson-county-probate-property-sale/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Jackson County Probate Property Sale", item: "/resources/jackson-county-probate-property-sale/" },
+  ]),
+];
+---
+
+<Layout
+  title="Jackson County Probate Property Sale Guide"
+  description={description}
+  canonicalPath="/resources/jackson-county-probate-property-sale/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Jackson County probate</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Selling a probate property in Jackson County is part real estate decision and part paperwork process. The cleanest path is to confirm who can sign, what title needs, and whether the estate wants repairs, clean-out, listing exposure, or a direct as-is sale.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request a probate offer</a>
+        <a href="/solutions/probate-house/" class="btn btn-ghost text-base">View probate solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Probate sale checklist</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {checklist.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Authority comes first</h2>
+        <p class="text-muted">
+          Before accepting any offer, confirm the person signing has authority from the estate, trust, deed, or court. A title company will typically review court filings and ownership history before it can insure the closing.
+        </p>
+        <p class="text-muted">
+          If the property is in Kansas City, Independence, Lee's Summit, or another Jackson County community, local title teams may already know the common probate document flow.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Clean-out, repairs, and family timing</h2>
+        <p class="text-muted">
+          Probate houses often sit while relatives sort belongings, utilities, insurance, taxes, and lawn care. A direct as-is offer can reduce carrying costs when the family does not want to coordinate contractors or multiple showings.
+        </p>
+        <p class="text-muted">
+          For the clean-out decision, read our <a href="/resources/clean-out-house-before-selling-kansas-city/" class="text-secondary underline">house clean-out guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">How to compare sale options</h2>
+      <p class="text-muted">
+        Compare the estate's expected net from listing, listing as-is, and selling directly. Include repairs, clean-out, utilities, insurance, taxes, commissions, closing costs, and the time each heir may spend coordinating the sale.
+      </p>
+      <p class="text-muted">
+        The best offer is the one the estate understands clearly. Ask for a written price, closing timeline, clean-out responsibility, inspection terms, and any costs charged to the seller.
+      </p>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need one option to show the estate?</h2>
+        <p class="text-muted">
+          Send the address, probate status, and who needs updates. We can provide a written as-is option that is easy to share with heirs and advisors.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the probate conversation</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Jackson County probate FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

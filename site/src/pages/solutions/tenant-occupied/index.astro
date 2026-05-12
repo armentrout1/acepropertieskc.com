@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   webSiteJsonLd,
   localBusinessJsonLd,
@@ -82,8 +83,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell a Tenant-Occupied Property in Kansas City"
-  description="Respectful, local support for landlords selling a Kansas City rental with tenants still in place."
+  title="Sell a Tenant-Occupied Property in Kansas City | ACE"
+  description="Selling a Kansas City rental with tenants in place? Compare as-is cash sale options, lease coordination, and respectful closing timelines."
   canonicalPath="/solutions/tenant-occupied/"
   jsonLd={jsonLd}
 >
@@ -91,9 +92,25 @@ const jsonLd = [
     <p class="badge">Tenant-Focused Sale Support</p>
     <h1 class="text-4xl font-semibold text-primary">Sell a Tenant-Occupied Property in Kansas City</h1>
     <p class="text-muted">
-      Selling a rental becomes more complex when good tenants are still in place—or when rent is overdue and communication has slowed. ACE Properties KC buys within the metro only, so we understand local notice requirements, Section 8 paperwork, and how to coordinate timelines that respect renters. Our focus is keeping the process calm for you and the household inside the home.
+      Selling a rental becomes more complex when good tenants are still in place or when rent is overdue and communication has slowed. ACE Properties KC buys within the metro only, so we understand local notice requirements, Section 8 paperwork, and how to coordinate timelines that respect renters. Our focus is keeping the process calm for you and the household inside the home.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Rental property review"
+    title="Need to sell without disrupting the tenant?"
+    body="Share the address, lease status, and your preferred timeline. We can review an as-is offer, tenant-in-place handoff, or closing date that matches the lease."
+    points={[
+      "Leases, deposits, and rent ledgers reviewed clearly",
+      "Tenant-in-place and vacant handoff options compared",
+      "Private walkthrough planning when access is sensitive",
+      "Written coordination with managers or co-owners",
+    ]}
+    formId="tenant-occupied-offer-form"
+    formHeading="Review tenant-occupied sale options"
+    formSubheading="Start with the address and current lease status."
+    trackingLocation="tenant_occupied"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
@@ -105,14 +122,14 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Paths we can talk through</h2>
       <p class="text-muted">
-        Options include cash sales with tenants in place, closings timed to lease expirations, incentive programs that encourage smooth move-outs, or subject-to arrangements where we continue payments while the tenant stays. None are promised—we simply outline what each would take.
+        Options include cash sales with tenants in place, closings timed to lease expirations, incentive programs that encourage smooth move-outs, or subject-to arrangements where we continue payments while the tenant stays. None are promised; we simply outline what each would take.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">What we’ll ask about</h2>
+      <h2 class="text-2xl font-semibold text-primary">What we'll ask about</h2>
       <p class="text-muted">Having these details ready keeps conversations short and helps us prep the title company faster.</p>
       <ul class="mt-4 space-y-3 text-sm text-primary">
         {checklist.map((item) => (
@@ -149,6 +166,9 @@ const jsonLd = [
       <p class="text-muted">
         Title companies usually request the signed lease, ledger, deposit records, and any notices already served. Once those are in, cash closings often land within two to four weeks. If you need more time for tenant coordination, we simply write that into the contract.
       </p>
+      <p class="text-muted">
+        For a fuller planning guide, read <a href="/resources/sell-house-with-tenants-kansas-city/" class="text-secondary underline">how to sell a house with tenants in Kansas City</a>.
+      </p>
     </article>
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Keeping everyone informed</h2>
@@ -171,7 +191,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
     <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
   </section>

@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
   {
@@ -67,6 +67,11 @@ const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
   faqJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Areas", item: "/areas/" },
+    { name: "Lenexa KS", item: "/areas/lenexa-ks/" },
+  ]),
 ];
 ---
 
@@ -192,7 +197,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>

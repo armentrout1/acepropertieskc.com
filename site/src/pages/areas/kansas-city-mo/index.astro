@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import OfferForm from "../../../components/OfferForm.astro";
+import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
   {
@@ -73,6 +74,11 @@ const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
   faqJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Areas", item: "/areas/" },
+    { name: "Kansas City MO", item: "/areas/kansas-city-mo/" },
+  ]),
 ];
 ---
 
@@ -88,6 +94,21 @@ const jsonLd = [
     <p class="text-muted">
       Whether you are managing an inherited bungalow off Troost, a duplex near UMKC, or a south-side ranch that has seen better days, we provide calm guidance and a dependable offer. We stay focused on the Kansas City metro, so title work, contractors, and closing teams are already in place when you need them.
     </p>
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Want a Kansas City offer?</h2>
+      <p class="text-muted">
+        Send the address and what you are trying to solve. We will review the local context, condition, and timing before outlining your options.
+      </p>
+    </div>
+    <OfferForm
+      compact
+      formId="kansas-city-mo-offer-form"
+      heading="Get a local KC offer"
+      subheading="A short form is enough to start the conversation."
+    />
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
@@ -128,6 +149,9 @@ const jsonLd = [
       </p>
       <p class="text-muted">
         If you are unsure which route works best, review the comparisons on our <a href="/options/" class="text-secondary underline">options page</a> or ask for a side-by-side net sheet that outlines listing proceeds versus selling as-is. We would rather help you feel confident than rush a decision.
+      </p>
+      <p class="text-muted">
+        You can also start with our <a href="/resources/sell-house-as-is-kansas-city/" class="text-secondary underline">Kansas City as-is selling guide</a> if repairs, clean-out, or timing are the biggest questions.
       </p>
     </article>
     <article class="card space-y-3">
@@ -219,7 +243,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/options/" class="btn btn-outline text-base">Compare options</a>
   </section>

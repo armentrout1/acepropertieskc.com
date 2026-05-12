@@ -1,11 +1,12 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
 const repairTypes = [
   "Roof leaks, foundation settling, or structural issues",
   "Aging HVAC, plumbing, or electrical systems",
-  "Interior updates—flooring, kitchens, and baths that buyers expect",
+  "Interior updates: flooring, kitchens, and baths that buyers expect",
   "Exterior concerns like siding, windows, or drainage",
   "Final inspections and permits left open from past projects",
 ];
@@ -14,7 +15,7 @@ const steps = [
   {
     title: "Walk the property together",
     body:
-      "A quick walkthrough (or video) helps us understand the full repair list. You do not need to hide problems—we have likely seen worse.",
+      "A quick walkthrough (or video) helps us understand the full repair list. You do not need to hide problems; we have likely seen worse.",
   },
   {
     title: "Get transparent numbers",
@@ -69,8 +70,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell House That Needs Repairs Kansas City - Skip Contractors"
-  description="Buy houses needing major repairs. Foundation, roof, HVAC, or full gut rehabs. No need to fix anything. We handle permits and code violations."
+  title="Sell a House Needing Repairs in Kansas City | ACE"
+  description="Need to sell a Kansas City house with roof, foundation, HVAC, or code issues? Request an as-is offer without fixing anything first."
   canonicalPath="/solutions/needs-repairs/"
   jsonLd={jsonLd}
 >
@@ -78,18 +79,34 @@ const jsonLd = [
     <p class="badge">Major Repairs & Renovations</p>
     <h1 class="text-4xl font-semibold text-primary">Sell a House That Needs Repairs in Kansas City</h1>
     <p class="text-muted">
-      When repairs stack up, it can feel like you are stuck choosing between expensive contractors and a discounted sale. ACE Properties KC buys homes across the metro exactly as they sit. We evaluate the true scope, explain what it costs us to fix, and give you clear offers—no lectures about deferred maintenance.
+      When repairs stack up, it can feel like you are stuck choosing between expensive contractors and a discounted sale. ACE Properties KC buys homes across the metro exactly as they sit. We evaluate the true scope, explain what it costs us to fix, and give you clear offers without lectures about deferred maintenance.
     </p>
     <p class="text-muted">
       We stay nearby, focusing on neighborhoods you will find on the <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a>, and <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a> pages. That means we already know which installers are responsive, how quickly inspections can be scheduled, and which title companies can keep closing dates flexible while work finishes.
     </p>
   </section>
 
+  <HighIntentOfferBlock
+    badge="As-is repair offer"
+    title="Skip the repair bids?"
+    body="Tell us what is broken, unfinished, or uncertain. We will review the house as-is and explain how repairs affect the offer before you spend money on contractors."
+    points={[
+      "No contractor appointments required first",
+      "Roof, foundation, HVAC, and code issues reviewed",
+      "Clean-out and permit questions handled clearly",
+      "Written comparison against repairing before listing",
+    ]}
+    formId="repairs-offer-form"
+    formHeading="Get an as-is repair offer"
+    formSubheading="No contractor appointments required before you reach out."
+    trackingLocation="needs_repairs"
+  />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Straight talk about costs</h2>
       <p class="text-muted">
-        We break down the major repair items, from roof replacements to structural piers, so you know where the numbers come from. Expect transparent estimates, not vague discounts. If you already have contractor quotes, send them over—we will review them together.
+        We break down the major repair items, from roof replacements to structural piers, so you know where the numbers come from. Expect transparent estimates, not vague discounts. If you already have contractor quotes, send them over and we will review them together.
       </p>
     </article>
     <article class="card space-y-3">
@@ -138,6 +155,9 @@ const jsonLd = [
       <p class="text-muted">
         Title typically requires payoff statements, insurance claims (if any), and proof that utilities are current. We help gather everything. Cash deals close in about two to three weeks once title clears. Creative agreements may take a bit longer, but they allow you to capture more value while we fund repairs.
       </p>
+      <p class="text-muted">
+        Still deciding whether to repair first? Read our <a href="/resources/major-repairs-vs-selling-as-is-kansas-city/" class="text-secondary underline">major repairs vs selling as-is guide</a>.
+      </p>
     </article>
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Stay in the loop</h2>
@@ -160,7 +180,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Share property details</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Share property details</a>
     <a href="/options/" class="btn btn-outline text-base">Compare sale options</a>
     <a href="/areas/" class="btn btn-ghost text-base">See areas we buy</a>
     <a href="/solutions/" class="btn btn-secondary text-base">See other solutions</a>

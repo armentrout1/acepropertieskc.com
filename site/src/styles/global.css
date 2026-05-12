@@ -66,7 +66,8 @@
   .btn,
   .btn-primary,
   .btn-secondary,
-  .btn-ghost {
+  .btn-ghost,
+  .btn-outline {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
@@ -80,6 +81,10 @@
 
   .btn-ghost {
     @apply border border-primary/30 text-primary hover:border-primary hover:bg-primary/5 focus-visible:ring-primary/60;
+  }
+
+  .btn-outline {
+    @apply border border-secondary/40 text-secondary hover:border-secondary hover:bg-secondary/5 focus-visible:ring-secondary;
   }
 
   .badge {

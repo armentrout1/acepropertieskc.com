@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../lib/seo";
+import { expansionAreas } from "../../data/areaExpansion";
+import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../lib/seo";
 
 const areaLinks = [
   {
@@ -43,6 +44,11 @@ const areaLinks = [
     body: "Planned community with historic district and modern developments. Popular with relocating families.",
     href: "/areas/lenexa-ks/",
   },
+  ...expansionAreas.map((area) => ({
+    title: `${area.city}, ${area.state}`,
+    body: area.description,
+    href: `/areas/${area.slug}/`,
+  })),
 ];
 
 const placeholderCards: string[] = [
@@ -69,13 +75,17 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
-  faqJsonLd(faqs.map((faq) => ({ q: faq.question, a: faq.answer }))),
+  faqJsonLd(faqs.map((faq) => ({ question: faq.question, answer: faq.answer }))),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Areas", item: "/areas/" },
+  ]),
 ];
 ---
 
 <Layout
   title="Kansas City Metro Areas We Buy Houses - MO & KS"
-  description="Cash home buyers serving Kansas City, Overland Park, Olathe, Independence, Lee's Summit, and Johnson County. See local market insights."
+  description="Cash home buyers serving Kansas City, Overland Park, Olathe, Independence, Lee's Summit, Kansas City KS, Blue Springs, Raytown, and nearby metro areas."
   canonicalPath="/areas/"
   jsonLd={jsonLd}
 >
@@ -152,7 +162,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
   </section>
 </Layout>

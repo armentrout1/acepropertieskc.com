@@ -1,0 +1,142 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Cash Buyer vs Real Estate Agent in Kansas City";
+const description =
+  "Compare selling to a cash home buyer versus listing with a real estate agent in Kansas City, including price, repairs, commissions, timing, and certainty.";
+
+const comparisons = [
+  {
+    label: "Best fit for listing",
+    detail: "Updated house, clean presentation, flexible timeline, and willingness to handle showings, inspections, and negotiations.",
+  },
+  {
+    label: "Best fit for cash buyer",
+    detail: "Repairs, privacy, speed, tenants, inherited property, payment pressure, vacancy, or a seller who wants fewer moving parts.",
+  },
+  {
+    label: "Main tradeoff",
+    detail: "Listing may produce a higher headline price. A cash sale may produce more certainty and fewer seller-paid tasks.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Will an agent get me more money?",
+    answer:
+      "Sometimes. If the house is market-ready and you can wait, listing may create a higher sale price. Compare net proceeds after repairs, commissions, concessions, holding costs, and time.",
+  },
+  {
+    question: "Why would someone choose a cash buyer?",
+    answer:
+      "Sellers often choose cash buyers for speed, as-is terms, fewer showings, no repair management, privacy, tenant situations, inherited houses, or deadline pressure.",
+  },
+  {
+    question: "Can I talk to both an agent and a cash buyer?",
+    answer:
+      "Yes. Comparing both can be smart. Ask for realistic net numbers, timelines, and obligations instead of only comparing headline prices.",
+  },
+  {
+    question: "Does ACE Properties KC tell sellers when listing is better?",
+    answer:
+      "Yes. If the house is updated, easy to show, and timing is flexible, listing may be worth exploring. A clear answer builds more trust than forcing every seller into one path.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Cash Buyer vs Real Estate Agent", item: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Cash Buyer vs Real Estate Agent in Kansas City"
+  description={description}
+  canonicalPath="/resources/cash-buyer-vs-real-estate-agent-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Compare selling paths</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        The best way to sell depends on the house and your situation. A real estate agent may be the right choice for a retail-ready property. A direct cash buyer may be better when repairs, privacy, timing, or certainty matter more.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
+        <a href="/options/" class="btn btn-ghost text-base">Cash vs creative options</a>
+      </div>
+    </header>
+
+    <section class="grid gap-5 md:grid-cols-3">
+      {comparisons.map((item) => (
+        <article class="card">
+          <h2 class="text-xl font-semibold text-primary">{item.label}</h2>
+          <p class="mt-2 text-sm text-muted">{item.detail}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What to include in your listing net</h2>
+        <p class="text-muted">
+          A realistic listing net includes repairs, cleaning, staging, commissions, seller concessions, inspection negotiations, utilities, insurance, taxes, mortgage payments during the listing period, and the risk of buyer financing falling through.
+        </p>
+        <p class="text-muted">
+          If those costs are low and timing is flexible, listing may be worth it.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What to include in a cash sale comparison</h2>
+        <p class="text-muted">
+          A direct sale should be compared by net proceeds, certainty, closing date, seller costs, repair obligations, clean-out responsibility, and how much stress the seller avoids.
+        </p>
+        <p class="text-muted">
+          Read our <a href="/resources/how-cash-home-buyers-determine-offer-kansas-city/" class="text-secondary underline">offer math guide</a> for a deeper look at how direct buyers think through the number.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want a side-by-side view?</h2>
+        <p class="text-muted">
+          Share the address and condition. We can help you compare a direct offer with the likely listing path so you can make a calm decision.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Request a comparison</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Cash buyer vs agent FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
 
 const carryingCosts = [
@@ -21,7 +22,7 @@ const challenges = [
 const steps = [
   {
     title: "Assess vacancy situation",
-    body: "We discuss how long the house has been empty, any ongoing costs, and your timeline. No pressure—just practical evaluation of your situation.",
+    body: "We discuss how long the house has been empty, any ongoing costs, and your timeline. No pressure, just practical evaluation of your situation.",
   },
   {
     title: "Property evaluation",
@@ -77,8 +78,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell Vacant House Kansas City - Stop Carrying Costs Now"
-  description="Buy vacant houses fast. Stop paying utilities, taxes, and insurance on empty properties. Handle vandalism, code violations, and cleanup."
+  title="Sell a Vacant House in Kansas City | Stop Costs"
+  description="Stop paying utilities, insurance, taxes, and upkeep on a vacant Kansas City house. Request an as-is cash offer with cleanup options."
   canonicalPath="/solutions/vacant-house/"
   jsonLd={jsonLd}
 >
@@ -89,6 +90,22 @@ const jsonLd = [
       Vacant houses drain resources through monthly carrying costs while exposing you to weather damage, vandalism, and code violations. Whether your property in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/lees-summit-mo/" class="text-secondary underline">Lee's Summit</a>, or anywhere in the metro has been sitting empty for months or years, we provide cash offers that let you stop the expenses and move forward without repairs or cleanup.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Vacant house review"
+    title="Ready to stop the monthly carrying costs?"
+    body="Send the address, how long the home has been vacant, and any known issues. We can review an as-is offer and timing that stops utilities, insurance, taxes, and upkeep."
+    points={[
+      "No clean-out required before the first review",
+      "Code, vandalism, and repair issues considered",
+      "Fast closing available when title is ready",
+      "Remote-owner walkthrough options available",
+    ]}
+    formId="vacant-house-offer-form"
+    formHeading="Get a vacant-house offer"
+    formSubheading="Start with the address and what is costing you each month."
+    trackingLocation="vacant_house"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
@@ -167,7 +184,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Kansas City vacant property challenges</h2>
       <p class="text-muted">
-        Kansas City's weather creates specific risks for vacant properties—freezing winters can burst pipes, summer storms can damage roofs, and humidity can cause mold. Missouri and Kansas both have code enforcement departments that issue citations for unmaintained properties.
+        Kansas City's weather creates specific risks for vacant properties: freezing winters can burst pipes, summer storms can damage roofs, and humidity can cause mold. Missouri and Kansas both have code enforcement departments that issue citations for unmaintained properties.
       </p>
       <p class="text-muted">
         Whether your vacant house is in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, or surrounding areas, we understand local requirements and can coordinate with city officials when needed.
@@ -180,6 +197,9 @@ const jsonLd = [
       </p>
       <p class="text-muted">
         Need to compare repair costs versus selling as-is? Explore <a href="/solutions/needs-repairs/" class="text-secondary underline">major renovations guide</a> for detailed repair scenarios, or review <a href="/areas/" class="text-secondary underline">area-specific challenges</a> across the Kansas City metro.
+      </p>
+      <p class="text-muted">
+        If the house still has belongings inside, our <a href="/resources/clean-out-house-before-selling-kansas-city/" class="text-secondary underline">clean-out guide</a> explains what can stay and how that affects an offer.
       </p>
       <p class="text-muted">
         Ready to stop paying utilities and insurance on your vacant house? <a href="/contact/" class="text-secondary underline">Contact us</a> for a cash offer and closing timeline that eliminates your monthly expenses.
@@ -200,7 +220,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Get cash offer for vacant house</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Get cash offer for vacant house</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
     <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
   </section>

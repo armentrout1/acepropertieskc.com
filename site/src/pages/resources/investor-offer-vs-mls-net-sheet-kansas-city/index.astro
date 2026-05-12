@@ -1,0 +1,173 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Investor Offer vs MLS Net Sheet in Kansas City";
+const description =
+  "Compare an investor offer against an MLS net sheet in Kansas City, including repairs, commissions, concessions, holding costs, financing risk, closing timelines, and net proceeds.";
+
+const investorItems = [
+  "Offer price",
+  "Seller closing costs, if any",
+  "Mortgage payoff and liens",
+  "Clean-out responsibility",
+  "Inspection period or as-is language",
+  "Verified funds or cash closing ability",
+  "Closing date and possession terms",
+];
+
+const mlsItems = [
+  "Expected list price and likely sale price",
+  "Repairs before listing",
+  "Agent commission",
+  "Seller concessions and inspection credits",
+  "Utilities, insurance, taxes, lawn care, and mortgage payments while listed",
+  "Appraisal and buyer financing risk",
+  "Time to list, contract, inspect, appraise, and close",
+];
+
+const faqs = [
+  {
+    question: "Is an investor offer always lower than an MLS sale?",
+    answer:
+      "Usually the headline price is lower because the investor is taking on repairs, risk, holding costs, and resale work. The real comparison is net proceeds and certainty, not just price.",
+  },
+  {
+    question: "What should an MLS net sheet include?",
+    answer:
+      "Include repairs, commission, concessions, inspection credits, closing costs, mortgage payments, taxes, utilities, insurance, and the time needed to close.",
+  },
+  {
+    question: "When is an investor offer worth considering?",
+    answer:
+      "It may fit when the house needs major repairs, is inherited, vacant, tenant-occupied, behind on payments, hard to show, or when certainty matters more than maximum price.",
+  },
+  {
+    question: "Can I compare both before deciding?",
+    answer:
+      "Yes. A side-by-side net sheet helps you compare timing, risk, cash needed up front, and likely proceeds before choosing a path.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/investor-offer-vs-mls-net-sheet-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Investor Offer vs MLS Net Sheet", item: "/resources/investor-offer-vs-mls-net-sheet-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Investor Offer vs MLS Net Sheet | Kansas City"
+  description={description}
+  canonicalPath="/resources/investor-offer-vs-mls-net-sheet-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Compare net proceeds</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        A seller should never compare only two headline prices. Compare what you keep, what you must spend first, how long it takes, and what can still go wrong before closing.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request a side-by-side comparison</a>
+        <a href="/resources/as-is-sale-net-sheet-template/" class="btn btn-ghost text-base">Use the net sheet template</a>
+      </div>
+    </header>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-4">
+        <h2 class="text-2xl font-semibold text-primary">Investor offer column</h2>
+        <p class="text-muted">
+          This column should show the actual offer terms, not just the price. A strong investor offer explains closing date, seller costs, as-is terms, clean-out, possession, and proof of funds.
+        </p>
+        <ul class="space-y-3 text-sm text-primary">
+          {investorItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <article class="card space-y-4">
+        <h2 class="text-2xl font-semibold text-primary">MLS net sheet column</h2>
+        <p class="text-muted">
+          This column should account for what a traditional sale may cost before and during the listing. Repairs, time, buyer negotiations, and financing risk can change the final net.
+        </p>
+        <ul class="space-y-3 text-sm text-primary">
+          {mlsItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+
+    <section class="card bg-soft/70 space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">How to make the comparison fair</h2>
+      <p class="text-muted">
+        If the house is updated, easy to show, and the seller can wait, the MLS may be the better path. If the house needs major repairs, has tenants, is vacant, or the seller wants privacy and certainty, an investor offer may be worth a serious look.
+      </p>
+      <p class="text-muted">
+        The cleanest comparison includes both a likely best case and a conservative case for listing. Then compare those numbers against a direct offer with a guaranteed timeline and known responsibilities.
+      </p>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Questions to ask an investor</h2>
+        <p class="text-muted">
+          Ask how the offer was calculated, who pays closing costs, whether the buyer can show proof of funds, what happens after inspection, and whether clean-out or repairs are your responsibility.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Questions to ask before listing</h2>
+        <p class="text-muted">
+          Ask what repairs are needed before photos, how long similar homes take to close, what concessions are common, and how the agent estimates net proceeds after inspection and appraisal.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want help comparing the numbers?</h2>
+        <p class="text-muted">
+          Send the address and condition. We can explain a direct offer and help you compare it against a realistic listing path.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Investor offer vs MLS FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

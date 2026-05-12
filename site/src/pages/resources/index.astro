@@ -1,0 +1,191 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+
+const resources = [
+  {
+    title: "How to Sell a House As-Is in Kansas City",
+    description:
+      "A practical guide to repairs, disclosures, cash offers, timelines, title work, and deciding whether an as-is sale makes sense.",
+    href: "/resources/sell-house-as-is-kansas-city/",
+    category: "As-is selling",
+  },
+  {
+    title: "Selling an Inherited House in Kansas City",
+    description:
+      "How to handle heirs, probate questions, title, clean-out, repairs, and family timelines when selling an inherited property.",
+    href: "/resources/selling-inherited-house-kansas-city/",
+    category: "Inherited property",
+  },
+  {
+    title: "Do I Need to Clean Out a House Before Selling?",
+    description:
+      "When to clean out, when to leave items, and how furniture, debris, and belongings can affect an as-is offer.",
+    href: "/resources/clean-out-house-before-selling-kansas-city/",
+    category: "Clean-out",
+  },
+  {
+    title: "How Cash Home Buyers Determine an Offer",
+    description:
+      "A transparent look at comparable sales, repair scope, holding costs, risk, and how to compare an offer against listing.",
+    href: "/resources/how-cash-home-buyers-determine-offer-kansas-city/",
+    category: "Offer math",
+  },
+  {
+    title: "Sell a House With Tenants in Kansas City",
+    description:
+      "How landlords can compare selling with tenants in place, waiting for vacancy, and reducing showings or repair disruption.",
+    href: "/resources/sell-house-with-tenants-kansas-city/",
+    category: "Tenant-occupied",
+  },
+  {
+    title: "Can I Sell if I Am Behind on Payments?",
+    description:
+      "How payoffs, arrears, foreclosure timelines, and title work affect a Kansas City sale when mortgage payments are late.",
+    href: "/resources/sell-house-behind-on-payments-kansas-city/",
+    category: "Payment pressure",
+  },
+  {
+    title: "Cash Buyer vs Real Estate Agent in Kansas City",
+    description:
+      "Compare price, repairs, commissions, holding costs, closing certainty, and when each selling path may make sense.",
+    href: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
+    category: "Comparison",
+  },
+  {
+    title: "Major Repairs vs Selling As-Is in Kansas City",
+    description:
+      "Compare funding repairs before listing against selling as-is when the house needs major work.",
+    href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    category: "Repairs",
+  },
+  {
+    title: "Divorce and Selling a House in Kansas City",
+    description:
+      "How to handle communication, proceeds, repairs, timelines, and written offer options during divorce.",
+    href: "/resources/divorce-selling-house-kansas-city/",
+    category: "Divorce",
+  },
+  {
+    title: "What Is a Subject-To Deal in Kansas City?",
+    description:
+      "A plain-English overview of subject-to real estate, seller risks, payment questions, and when cash may be simpler.",
+    href: "/resources/subject-to-real-estate-kansas-city/",
+    category: "Creative options",
+  },
+  {
+    title: "What Happens After You Contact ACE Properties KC?",
+    description:
+      "See the offer request process, what we ask for, privacy expectations, walkthroughs, and next steps.",
+    href: "/resources/what-happens-after-contact-ace-properties-kc/",
+    category: "Process",
+  },
+  {
+    title: "Jackson County Probate Property Sale Guide",
+    description:
+      "How authority, court status, title work, clean-out, repairs, and heir communication affect a Jackson County probate sale.",
+    href: "/resources/jackson-county-probate-property-sale/",
+    category: "County process",
+  },
+  {
+    title: "Johnson County Inherited House Sale Guide",
+    description:
+      "What heirs should compare before selling an inherited house in Overland Park, Olathe, Shawnee, Lenexa, and nearby areas.",
+    href: "/resources/johnson-county-inherited-house-sale/",
+    category: "County process",
+  },
+  {
+    title: "Wyandotte County Distressed Property Sale Guide",
+    description:
+      "A practical guide to selling a Kansas City, Kansas property with repairs, code items, liens, taxes, clean-out, or tenants.",
+    href: "/resources/wyandotte-county-distressed-property-sale/",
+    category: "County process",
+  },
+  {
+    title: "Kansas City Inherited House Checklist",
+    description:
+      "A scannable checklist for heirs covering authority, documents, belongings, condition, costs, and sale decisions.",
+    href: "/resources/kansas-city-inherited-house-checklist/",
+    category: "Checklist",
+  },
+  {
+    title: "Probate Document Checklist",
+    description:
+      "Documents to gather before selling a probate house, including court authority, payoffs, liens, leases, and repair records.",
+    href: "/resources/probate-document-checklist/",
+    category: "Checklist",
+  },
+  {
+    title: "As-Is Sale Net Sheet Template",
+    description:
+      "A simple way to compare direct offers against listing costs, repairs, concessions, holding costs, and payoffs.",
+    href: "/resources/as-is-sale-net-sheet-template/",
+    category: "Template",
+  },
+  {
+    title: "Vacant House Carrying Cost Calculator",
+    description:
+      "Estimate monthly and total holding costs while a vacant Kansas City house waits for repairs, listing, or closing.",
+    href: "/resources/vacant-house-carrying-cost-calculator/",
+    category: "Calculator",
+  },
+  {
+    title: "Investor Offer vs MLS Net Sheet",
+    description:
+      "Compare a direct investor offer against a realistic MLS net sheet using repairs, commissions, time, risk, and seller proceeds.",
+    href: "/resources/investor-offer-vs-mls-net-sheet-kansas-city/",
+    category: "Comparison",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+  ]),
+];
+---
+
+<Layout
+  title="Kansas City Home Seller Resources | ACE Properties KC"
+  description="Helpful Kansas City home selling guides for as-is sales, inherited houses, repairs, tenants, late payments, and cash offer decisions."
+  canonicalPath="/resources/"
+  jsonLd={jsonLd}
+>
+  <section class="section space-y-5">
+    <p class="badge">Seller resources</p>
+    <h1 class="text-4xl font-semibold text-primary">Kansas City Home Seller Resources</h1>
+    <p class="max-w-3xl text-muted">
+      Clear, local guides for homeowners deciding whether to list, sell as-is, request a cash offer, or compare creative options. These resources are written for real situations: repairs, inherited houses, tenants, late payments, relocation, and family timelines.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="/get-offer/" class="btn btn-primary text-base">Get an offer</a>
+      <a href="/solutions/" class="btn btn-ghost text-base">Compare situations</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-6 md:grid-cols-2">
+      {resources.map((resource) => (
+        <a href={resource.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">{resource.category}</p>
+          <h2 class="mt-2 text-2xl font-semibold text-primary">{resource.title}</h2>
+          <p class="mt-3 text-sm text-muted">{resource.description}</p>
+          <span class="mt-5 inline-flex text-sm font-semibold text-secondary">Read guide</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="mx-auto max-w-3xl space-y-4 text-center">
+      <h2 class="text-3xl font-semibold text-primary">Need an answer before the next guide is published?</h2>
+      <p class="text-muted">
+        Send the address and what you are trying to solve. We will walk through the practical options and tell you when listing may be better than selling directly.
+      </p>
+      <a href="/get-offer/" class="btn btn-primary text-base">Start the offer conversation</a>
+    </div>
+  </section>
+</Layout>

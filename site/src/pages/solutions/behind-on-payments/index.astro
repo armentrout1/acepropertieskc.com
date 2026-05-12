@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   webSiteJsonLd,
   localBusinessJsonLd,
@@ -11,7 +12,7 @@ const checklist = [
   "Mortgage servicer name and the best phone or portal to reach them",
   "Rough arrears amount, including any late fees you have been told about",
   "Copies of the most recent notices or letters you received",
-  "Key dates you are watching—payment due, inspection, court or auction",
+  "Key dates you are watching: payment due, inspection, court or auction",
   "Whether anyone else (co-borrower, advisor) should be looped in",
 ];
 
@@ -79,8 +80,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell a House Behind on Payments in Kansas City"
-  description="Clear, local guidance for Kansas City homeowners who fell behind on mortgage payments and need calm next steps."
+  title="Sell a House Behind on Payments in Kansas City | ACE"
+  description="Behind on mortgage payments in Kansas City? Compare cash sale, payoff-at-closing, and backup options before fees or deadlines grow."
   canonicalPath="/solutions/behind-on-payments/"
   jsonLd={jsonLd}
 >
@@ -92,11 +93,27 @@ const jsonLd = [
     </p>
   </section>
 
+  <HighIntentOfferBlock
+    badge="Payment deadline review"
+    title="Need to see your options before the next deadline?"
+    body="Share the address, rough payment status, and any important dates. We can compare a cash sale, payoff-at-closing path, or backup offer so you know what is realistic."
+    points={[
+      "Mortgage payoff and arrears handled through title",
+      "Written option summary for co-borrowers or advisors",
+      "No repairs or public listing required to start",
+      "Flexible timing if a refinance or modification is pending",
+    ]}
+    formId="behind-on-payments-offer-form"
+    formHeading="Review payment-related options"
+    formSubheading="Start privately with the address and best contact method."
+    trackingLocation="behind_on_payments"
+  />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">What to expect on the first call</h2>
       <p class="text-muted">
-        We review the notices you have received, note how many payments are outstanding, and ask about any upcoming lender checkpoints. You set the tone—quiet catch-up plan or urgent exit—and we outline who else should be looped in so updates stay aligned.
+        We review the notices you have received, note how many payments are outstanding, and ask about any upcoming lender checkpoints. You set the tone, whether quiet catch-up plan or urgent exit, and we outline who else should be looped in so updates stay aligned.
       </p>
     </article>
     <article class="card space-y-3">
@@ -110,7 +127,7 @@ const jsonLd = [
   <section class="section">
     <div class="card">
       <h2 class="text-2xl font-semibold text-primary">What helps us help you fast</h2>
-      <p class="text-muted">Bring what you can—estimations are fine. The more we know, the faster we can coordinate with title and the lender.</p>
+      <p class="text-muted">Bring what you can; estimates are fine. The more we know, the faster we can coordinate with title and the lender.</p>
       <ul class="mt-4 space-y-3 text-sm text-primary">
         {checklist.map((item) => (
           <li class="flex items-start gap-3">
@@ -146,11 +163,14 @@ const jsonLd = [
       <p class="text-muted">
         Title companies usually request your latest mortgage statement, any reinstatement quotes, HOA or tax letters, and proof of insurance. Having them handy shortens review time. Once title is clear, cash closings often land within two to three weeks.
       </p>
+      <p class="text-muted">
+        Read the deeper guide on <a href="/resources/sell-house-behind-on-payments-kansas-city/" class="text-secondary underline">selling when you are behind on payments</a> if you are still comparing lender options and sale timelines.
+      </p>
     </article>
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Keeping communication steady</h2>
       <p class="text-muted">
-        We summarize each conversation in writing so you, co-borrowers, or advisors can reference the same plan. If new notices arrive, send them our way—we adjust timelines immediately and confirm next steps in plain language.
+        We summarize each conversation in writing so you, co-borrowers, or advisors can reference the same plan. If new notices arrive, send them our way; we adjust timelines immediately and confirm next steps in plain language.
       </p>
     </article>
   </section>
@@ -168,7 +188,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
     <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
   </section>

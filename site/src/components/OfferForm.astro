@@ -3,16 +3,18 @@ type Props = {
   heading?: string;
   subheading?: string;
   formId?: string;
+  compact?: boolean;
 };
 
 const {
   heading = "Tell us about the property",
   subheading = "We'll review the basics and follow up shortly.",
   formId = "offer-form",
+  compact = false,
 } = Astro.props as Props;
 ---
 
-<section class="w-full rounded-2xl border border-border/70 bg-white p-6 shadow-sm" aria-labelledby={`${formId}-title`}>
+<section class:list={["w-full rounded-2xl border border-border/70 bg-white shadow-sm", compact ? "p-5" : "p-6"]} aria-labelledby={`${formId}-title`}>
   <div class="space-y-1">
     <p
       id={`${formId}-badge`}
@@ -20,11 +22,11 @@ const {
     >
       Get a no-pressure consultation
     </p>
-    <h3 id={`${formId}-title`} class="text-2xl font-semibold text-primary">{heading}</h3>
+    <h3 id={`${formId}-title`} class:list={[compact ? "text-xl" : "text-2xl", "font-semibold text-primary"]}>{heading}</h3>
     <p class="text-sm text-muted">{subheading}</p>
   </div>
 
-  <form id={formId} data-offer-form method="post" action="/api/send-email/" class="mt-6 space-y-5" novalidate>
+  <form id={formId} data-offer-form method="post" action="/api/send-email/" class:list={[compact ? "mt-5 space-y-4" : "mt-6 space-y-5"]} novalidate>
     <div class="space-y-1">
       <label for={`${formId}-address`} class="text-sm font-medium text-primary">
         Property address<span class="text-accent">*</span>
@@ -34,18 +36,19 @@ const {
         name="address"
         type="text"
         required
+        aria-describedby={`${formId}-error`}
         placeholder="123 Main St, Kansas City"
-        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
       />
     </div>
 
-    <div class="grid gap-4 md:grid-cols-2">
+    <div class:list={["grid gap-4", compact ? "md:grid-cols-1" : "md:grid-cols-2"]}>
       <div class="space-y-1">
         <label for={`${formId}-situation`} class="text-sm font-medium text-primary">Situation</label>
         <select
           id={`${formId}-situation`}
           name="situation"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
         >
           <option value="as-is cash">As-is cash</option>
           <option value="inherited">Inherited</option>
@@ -62,7 +65,7 @@ const {
         <select
           id={`${formId}-timeline`}
           name="timeline"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
         >
           <option value="asap">ASAP</option>
           <option value="2-4 weeks">2-4 weeks</option>
@@ -72,7 +75,7 @@ const {
       </div>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-2">
+    <div class:list={["grid gap-4", compact ? "md:grid-cols-1" : "md:grid-cols-2"]}>
       <div class="space-y-1">
         <label for={`${formId}-name`} class="text-sm font-medium text-primary">Name (optional)</label>
         <input
@@ -80,7 +83,7 @@ const {
           name="name"
           type="text"
           placeholder="Your name"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
         />
       </div>
 
@@ -91,8 +94,9 @@ const {
           name="phone"
           type="tel"
           inputmode="tel"
+          aria-describedby={`${formId}-error`}
           placeholder="816-728-7548"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
         />
       </div>
     </div>
@@ -103,15 +107,32 @@ const {
         id={`${formId}-email`}
         name="email"
         type="email"
+        aria-describedby={`${formId}-error`}
         placeholder="you@example.com"
-        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none"
+        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
       />
     </div>
 
+    {!compact && (
+      <div class="space-y-1">
+        <label for={`${formId}-notes`} class="text-sm font-medium text-primary">Anything we should know?</label>
+        <textarea
+          id={`${formId}-notes`}
+          name="notes"
+          rows="4"
+          placeholder="Repairs, tenants, timing, probate, mortgage payoff, or anything else on your mind"
+          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+        ></textarea>
+      </div>
+    )}
+
     <label class="flex items-start gap-3 text-sm text-primary">
-      <input id={`${formId}-consent`} name="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-border/80" required />
+      <input id={`${formId}-consent`} name="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-border/80 focus-visible:ring-2 focus-visible:ring-secondary/40" aria-describedby={`${formId}-error`} required />
       <span>I agree to be contacted about my request.</span>
     </label>
+    <p class="text-xs text-muted">
+      We use your information only to respond to this property request. No obligation, no spam, and no sale of your details.
+    </p>
 
     <div aria-hidden="true" class="sr-only">
       <label for={`${formId}-website`}>Website</label>
@@ -125,12 +146,22 @@ const {
     </div>
 
     <input type="hidden" name="form_started_at" value="" />
+    <input type="hidden" name="landing_page" value="" />
+    <input type="hidden" name="referrer" value="" />
+    <input type="hidden" name="utm_source" value="" />
+    <input type="hidden" name="utm_medium" value="" />
+    <input type="hidden" name="utm_campaign" value="" />
+    <input type="hidden" name="utm_term" value="" />
+    <input type="hidden" name="utm_content" value="" />
+    <input type="hidden" name="gclid" value="" />
+    <input type="hidden" name="gbraid" value="" />
+    <input type="hidden" name="wbraid" value="" />
 
-    <p data-error class="hidden rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600"></p>
+    <p id={`${formId}-error`} data-error class="hidden rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600" aria-live="polite" role="status"></p>
 
     <button
       type="submit"
-      class="w-full rounded-xl bg-secondary px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-secondary/90"
+      class="w-full rounded-xl bg-secondary px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2"
     >
       Start my offer conversation
     </button>
@@ -141,10 +172,55 @@ const {
   document.querySelectorAll('form[data-offer-form]').forEach(function(form) {
     const errorBanner = form.querySelector('[data-error]');
     const startField = form.querySelector('input[name="form_started_at"]');
+    const sourceFields = [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_term',
+      'utm_content',
+      'gclid',
+      'gbraid',
+      'wbraid'
+    ];
 
     if (startField) {
       startField.value = Date.now().toString();
     }
+
+    const params = new URLSearchParams(window.location.search);
+    const landingField = form.querySelector('input[name="landing_page"]');
+    const referrerField = form.querySelector('input[name="referrer"]');
+
+    if (landingField) {
+      landingField.value = window.location.href;
+    }
+
+    if (referrerField) {
+      referrerField.value = document.referrer || '';
+    }
+
+    sourceFields.forEach((fieldName) => {
+      const field = form.querySelector(`input[name="${fieldName}"]`);
+      if (field) {
+        field.value = params.get(fieldName) || '';
+      }
+    });
+
+    let formStartedTracked = false;
+    form.addEventListener('focusin', function() {
+      if (formStartedTracked) {
+        return;
+      }
+
+      formStartedTracked = true;
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'form_start', {
+          form_id: form.id,
+          page_path: window.location.pathname,
+          page_title: document.title
+        });
+      }
+    });
 
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -154,19 +230,41 @@ const {
       const address = (formData.get('address') || '').toString().trim();
       const phone = (formData.get('phone') || '').toString().trim();
       const email = (formData.get('email') || '').toString().trim();
+      const addressInput = form.querySelector('input[name="address"]');
+      const phoneInput = form.querySelector('input[name="phone"]');
+      const emailInput = form.querySelector('input[name="email"]');
       const consentInput = form.querySelector('input[name="consent"]');
       const consentChecked = consentInput ? consentInput.checked : false;
+      const invalidFields = [];
+
+      [addressInput, phoneInput, emailInput, consentInput].forEach((field) => {
+        if (field) {
+          field.removeAttribute('aria-invalid');
+        }
+      });
 
       if (!address) {
         errors.push('Please provide the property address.');
+        if (addressInput) {
+          invalidFields.push(addressInput);
+        }
       }
 
       if (!consentChecked) {
         errors.push('Consent is required to continue.');
+        if (consentInput) {
+          invalidFields.push(consentInput);
+        }
       }
 
       if (!phone && !email) {
-        errors.push('Share at least one way to reach you—phone or email.');
+        errors.push('Share at least one way to reach you: phone or email.');
+        if (phoneInput) {
+          invalidFields.push(phoneInput);
+        }
+        if (emailInput) {
+          invalidFields.push(emailInput);
+        }
       }
 
       if (errors.length > 0) {
@@ -174,6 +272,8 @@ const {
           errorBanner.textContent = errors.join(' ');
           errorBanner.classList.remove('hidden');
         }
+        invalidFields.forEach((field) => field.setAttribute('aria-invalid', 'true'));
+        invalidFields[0]?.focus();
         return;
       }
 

@@ -5,7 +5,7 @@ export const SITE = {
   phoneDisplay: "816-728-7548",
   phoneTel: "+18167287548",
   smsTel: "+18167287548",
-  email: "info@acepropertieskc.com", // TODO: replace
+  email: "info@acepropertieskc.com",
   serviceArea: "Kansas City metro (including ZIP 64131)",
   defaultTitle: "ACE Properties KC | Cash & Creative Home Buying Solutions",
   defaultDescription:

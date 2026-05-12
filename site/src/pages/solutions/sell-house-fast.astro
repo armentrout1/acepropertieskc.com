@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
 
 const speedReasons = [
@@ -21,7 +22,7 @@ const situations = [
 const steps = [
   {
     title: "Quick property assessment",
-    body: "We evaluate your property and discuss your timeline needs. No repairs required—we work with the house exactly as it stands.",
+    body: "We evaluate your property and discuss your timeline needs. No repairs required; we work with the house exactly as it stands.",
   },
   {
     title: "Fast cash offer",
@@ -29,7 +30,7 @@ const steps = [
   },
   {
     title: "Flexible closing timeline",
-    body: "Choose closing dates that work for your situation—from as little as two weeks to several months if you need more time.",
+    body: "Choose closing dates that work for your situation, from as little as two weeks to several months if you need more time.",
   },
 ];
 
@@ -73,8 +74,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City - Close in 2 Weeks"
-  description="Need to sell fast? Cash offers in 24 hours, close in 14 days. No repairs, no showings, no fees. Job transfers, inheritance, or any urgent situation."
+  title="Sell Your House Fast in Kansas City | ACE Properties KC"
+  description="Need to sell a Kansas City house fast? Request a no-pressure as-is offer with no repairs, showings, commissions, or listing delays."
   canonicalPath="/solutions/sell-house-fast/"
   jsonLd={jsonLd}
 >
@@ -82,15 +83,30 @@ const jsonLd = [
     <p class="badge">Speed & Certainty Solutions</p>
     <h1 class="text-4xl font-semibold text-primary">Sell Your House Fast in Kansas City</h1>
     <p class="text-muted">
-      Sometimes life demands speed—job changes, inherited properties, or financial situations requiring quick decisions. Whether you're in Kansas City, Overland Park, or anywhere in the metro, we provide cash offers that let you sell your house as-is on your timeline without repairs, showings, or listing delays.
+      Sometimes life demands speed: job changes, inherited properties, or financial situations requiring quick decisions. Whether you're in Kansas City, Overland Park, or anywhere in the metro, we provide cash offers that let you sell your house as-is on your timeline without repairs, showings, or listing delays.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Fast offer path"
+    title="Need a fast number without listing first?"
+    body="Send the address and your timeline. We will review whether a quick cash close is realistic, explain the tradeoffs, and give you the next step before you commit to anything."
+    points={[
+      "No showings, open houses, or MLS prep",
+      "As-is sale path for urgent timelines",
+      "Cash and creative options compared clearly",
+      "Closing date built around your move",
+    ]}
+    formId="sell-house-fast-offer-form"
+    formHeading="Request a fast-sale offer"
+    trackingLocation="sell_house_fast"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why homeowners choose fast sales</h2>
       <p class="text-muted">
-        Most homeowners who need speed are dealing with life changes—relocations, inherited properties, or situations requiring quick decisions. We eliminate traditional selling barriers so you can move forward with certainty.
+        Most homeowners who need speed are dealing with life changes: relocations, inherited properties, or situations requiring quick decisions. We eliminate traditional selling barriers so you can move forward with certainty.
       </p>
     </article>
     <article class="card space-y-3">
@@ -196,7 +212,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Get fast cash offer</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Get fast cash offer</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
     <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
   </section>

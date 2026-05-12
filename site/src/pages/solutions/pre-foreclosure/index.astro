@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -37,7 +38,7 @@ const options = [
   {
     title: "Cash offer with payoff at closing",
     body:
-      "We purchase the property as-is and use closing proceeds to pay the arrears and remaining loan balance. Typical timelines run 14–21 days after clear title.",
+      "We purchase the property as-is and use closing proceeds to pay the arrears and remaining loan balance. Typical timelines run 14 to 21 days after clear title.",
   },
   {
     title: "Subject-to or assumption style",
@@ -65,7 +66,7 @@ const faqs = [
     a: "With your written permission we share payoff requests, timelines, and closing updates directly with the lender and title company.",
   },
   {
-    q: "What if I’m trying a loan modification?",
+    q: "What if I'm trying a loan modification?",
     a: "We can prepare a backup offer so you have a documented plan if the modification is denied or takes longer than expected.",
   },
   {
@@ -92,8 +93,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Kansas City Pre-Foreclosure Options"
-  description="Review practical steps for handling a pre-foreclosure in the Kansas City metro. Compare cash sales, payoff-at-closing, or subject-to possibilities without pressure."
+  title="Kansas City Pre-Foreclosure Options | ACE"
+  description="Facing pre-foreclosure in Kansas City? Compare as-is cash sale, payoff-at-closing, and timeline options before deadlines tighten."
   canonicalPath="/solutions/pre-foreclosure/"
   jsonLd={jsonLd}
 >
@@ -104,6 +105,22 @@ const jsonLd = [
       Pre-foreclosure notices can feel urgent, but there is still time to weigh options in the Kansas City metro. ACE Properties KC focuses locally, so we know how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders handle reinstatement, short timelines, and payoff communication. We do not provide legal advice and cannot guarantee outcomes, yet we do explain every sale path plainly so you can decide what aligns with your plans.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Private timeline review"
+    title="Have a deadline from the lender?"
+    body="Share the address and latest notice date if you have it. We can discuss payoff-at-closing timelines, cash sale options, and whether more documentation is needed."
+    points={[
+      "Private conversation around lender deadlines",
+      "Payoff-at-closing and cash sale paths compared",
+      "Written next steps for title or advisor review",
+      "No repairs or public listing required to start",
+    ]}
+    formId="pre-foreclosure-offer-form"
+    formHeading="Review pre-foreclosure options"
+    formSubheading="Start privately with the property address and contact info."
+    trackingLocation="pre_foreclosure"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
@@ -184,7 +201,7 @@ const jsonLd = [
       The sooner we review your timeline, the more options you can keep open. We respond the same day, summarize everything in writing, and leave the final call in your hands.
     </p>
     <div class="flex flex-wrap gap-4">
-      <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+      <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
       <a href={`tel:${SITE.phoneTel}`} class="btn btn-secondary text-base">Call {SITE.phoneDisplay}</a>
       <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
       <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>

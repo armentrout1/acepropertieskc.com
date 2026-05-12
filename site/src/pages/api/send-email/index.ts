@@ -35,9 +35,28 @@ function isNonEmptyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function readString(body: Record<string, unknown>, key: string, fallback = ""): string {
+  return isNonEmptyString(body[key]) ? body[key].trim() : fallback;
+}
+
 const MIN_SUBMIT_MS = 2500;
+const MAX_BODY_BYTES = 12_000;
 
 export const POST: APIRoute = async ({ request }) => {
+  const contentLength = Number(request.headers.get("content-length") ?? "0");
+  if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
+    return respondJson({ ok: false, error: "request_too_large" }, 413);
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();
@@ -81,7 +100,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
   }
 
-  const address = isNonEmptyString(body.address) ? body.address.trim() : "";
+  const address = readString(body, "address");
   if (!address) {
     fieldErrors.address = "Address is required.";
   }
@@ -92,8 +111,8 @@ export const POST: APIRoute = async ({ request }) => {
     fieldErrors.consent = "Consent is required.";
   }
 
-  const phone = isNonEmptyString(body.phone) ? body.phone.trim() : "";
-  const email = isNonEmptyString(body.email) ? body.email.trim() : "";
+  const phone = readString(body, "phone");
+  const email = readString(body, "email");
   if (!phone && !email) {
     fieldErrors.contact = "Provide a phone or email.";
   }
@@ -109,10 +128,20 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  const name = isNonEmptyString(body.name) ? body.name.trim() : "Not provided";
-  const situation = isNonEmptyString(body.situation) ? body.situation.trim() : "Not provided";
-  const timeline = isNonEmptyString(body.timeline) ? body.timeline.trim() : "Not provided";
-  const notes = isNonEmptyString(body.notes) ? body.notes.trim() : "";
+  const name = readString(body, "name", "Not provided");
+  const situation = readString(body, "situation", "Not provided");
+  const timeline = readString(body, "timeline", "Not provided");
+  const notes = readString(body, "notes");
+  const landingPage = readString(body, "landing_page", "Not captured");
+  const referrer = readString(body, "referrer", "Direct or not captured");
+  const utmSource = readString(body, "utm_source");
+  const utmMedium = readString(body, "utm_medium");
+  const utmCampaign = readString(body, "utm_campaign");
+  const utmTerm = readString(body, "utm_term");
+  const utmContent = readString(body, "utm_content");
+  const gclid = readString(body, "gclid");
+  const gbraid = readString(body, "gbraid");
+  const wbraid = readString(body, "wbraid");
 
   if (!SENDGRID_API_KEY) {
     console.error("Cannot send email: missing SENDGRID_API_KEY.");
@@ -129,8 +158,40 @@ export const POST: APIRoute = async ({ request }) => {
     `Situation: ${situation}`,
     `Timeline: ${timeline}`,
     `Notes: ${notes || "None"}`,
+    `Landing page: ${landingPage}`,
+    `Referrer: ${referrer}`,
+    `UTM source: ${utmSource || "None"}`,
+    `UTM medium: ${utmMedium || "None"}`,
+    `UTM campaign: ${utmCampaign || "None"}`,
+    `UTM term: ${utmTerm || "None"}`,
+    `UTM content: ${utmContent || "None"}`,
+    `GCLID: ${gclid || "None"}`,
+    `GBRAID: ${gbraid || "None"}`,
+    `WBRAID: ${wbraid || "None"}`,
     `Consent: ${consentAccepted ? "Granted" : "Pending"}`,
     `Submitted at: ${submittedAt}`,
+  ];
+
+  const htmlFields = [
+    ["Address", address],
+    ["Name", name],
+    ["Phone", phone || "Not provided"],
+    ["Email", email || "Not provided"],
+    ["Situation", situation],
+    ["Timeline", timeline],
+    ["Notes", notes || "None"],
+    ["Landing page", landingPage],
+    ["Referrer", referrer],
+    ["UTM source", utmSource || "None"],
+    ["UTM medium", utmMedium || "None"],
+    ["UTM campaign", utmCampaign || "None"],
+    ["UTM term", utmTerm || "None"],
+    ["UTM content", utmContent || "None"],
+    ["GCLID", gclid || "None"],
+    ["GBRAID", gbraid || "None"],
+    ["WBRAID", wbraid || "None"],
+    ["Consent", consentAccepted ? "Granted" : "Pending"],
+    ["Submitted at", submittedAt],
   ];
 
   const message = {
@@ -142,15 +203,9 @@ export const POST: APIRoute = async ({ request }) => {
     html: `
       <p><strong>New property inquiry received.</strong></p>
       <ul>
-        <li><strong>Address:</strong> ${address}</li>
-        <li><strong>Name:</strong> ${name}</li>
-        <li><strong>Phone:</strong> ${phone || "Not provided"}</li>
-        <li><strong>Email:</strong> ${email || "Not provided"}</li>
-        <li><strong>Situation:</strong> ${situation}</li>
-        <li><strong>Timeline:</strong> ${timeline}</li>
-        <li><strong>Notes:</strong> ${notes || "None"}</li>
-        <li><strong>Consent:</strong> ${consentAccepted ? "Granted" : "Pending"}</li>
-        <li><strong>Submitted at:</strong> ${submittedAt}</li>
+        ${htmlFields
+          .map(([label, value]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</li>`)
+          .join("\n")}
       </ul>
     `,
   };

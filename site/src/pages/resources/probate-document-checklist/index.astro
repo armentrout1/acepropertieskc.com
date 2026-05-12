@@ -1,0 +1,90 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Probate Document Checklist for Selling a Kansas City House";
+const description =
+  "A probate document checklist for Kansas City home sellers preparing for title, court, heir, payoff, and closing questions.";
+
+const documents = [
+  "Death certificate",
+  "Letters testamentary, letters of administration, or court appointment paperwork",
+  "Will, trust, beneficiary deed, transfer-on-death deed, or estate documents if available",
+  "Most recent deed and property tax bill",
+  "Mortgage, HELOC, HOA, lien, utility, or judgment payoff information",
+  "Insurance policy and vacant-property coverage details",
+  "Lease, tenant ledger, rental license, or property management records if occupied",
+  "Repair bids, code notices, permits, or inspection reports",
+  "Photo inventory of personal property the family wants to keep",
+  "Contact list for heirs, attorney, title company, and advisors",
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/probate-document-checklist/",
+    datePublished: "2026-05-12",
+  }),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Probate Document Checklist", item: "/resources/probate-document-checklist/" },
+  ]),
+];
+---
+
+<Layout
+  title="Probate Document Checklist for Kansas City Sellers"
+  description={description}
+  canonicalPath="/resources/probate-document-checklist/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Probate checklist</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        You do not need every document before asking questions, but gathering these items early helps the title company, attorney, heirs, and buyer understand what can close and when.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request a probate offer</a>
+        <a href="/resources/jackson-county-probate-property-sale/" class="btn btn-ghost text-base">Jackson County probate guide</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Documents to gather</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {documents.map((document) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{document}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Title will verify authority</h2>
+        <p class="text-muted">
+          The title company needs to confirm who can sign, what liens must be paid, and whether court orders or estate documents are required before closing.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Family clarity matters</h2>
+        <p class="text-muted">
+          Share document status, repair notes, offer terms, and estimated proceeds with the same group of heirs so everyone is working from the same facts.
+        </p>
+      </article>
+    </section>
+  </article>
+</Layout>

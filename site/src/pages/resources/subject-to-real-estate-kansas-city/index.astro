@@ -1,0 +1,137 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "What Is a Subject-To Deal in Kansas City Real Estate?";
+const description =
+  "Learn what a subject-to real estate deal means, why Kansas City homeowners consider it, key risks, questions to ask, and when a cash sale may be simpler.";
+
+const questions = [
+  "Who will make the monthly payments, and how will you verify they are paid?",
+  "What happens if insurance, taxes, or HOA dues change?",
+  "Does the mortgage have a due-on-sale clause?",
+  "What written protections, servicing, escrow, or third-party oversight are used?",
+];
+
+const faqs = [
+  {
+    question: "What does subject-to mean?",
+    answer:
+      "Subject-to generally means a buyer takes ownership subject to the existing mortgage staying in place. The loan is not usually paid off at closing, and the seller's name may remain on the loan.",
+  },
+  {
+    question: "Is subject-to the same as assuming a loan?",
+    answer:
+      "No. A formal assumption usually involves lender approval and may release or change borrower responsibility. Subject-to structures are different and should be reviewed carefully.",
+  },
+  {
+    question: "What is the biggest risk for sellers?",
+    answer:
+      "The seller may remain connected to the loan. Missed payments, insurance problems, tax issues, or due-on-sale concerns can create risk if the structure is not handled carefully.",
+  },
+  {
+    question: "Should I get legal advice before signing?",
+    answer:
+      "Yes. Subject-to agreements can affect credit, taxes, insurance, mortgage terms, and legal obligations. Sellers should involve qualified legal and financial advisors.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/subject-to-real-estate-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Subject-To Real Estate", item: "/resources/subject-to-real-estate-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="What Is a Subject-To Deal in Kansas City?"
+  description={description}
+  canonicalPath="/resources/subject-to-real-estate-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Creative options explained</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Subject-to can be useful in specific situations, but it is not something to sign casually. It can preserve an existing loan and create flexibility, while also creating obligations and risks that sellers need to understand.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare cash and creative options</a>
+        <a href="/options/" class="btn btn-ghost text-base">Read options overview</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Questions to ask before considering subject-to</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {questions.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Why sellers consider it</h2>
+        <p class="text-muted">
+          Subject-to can help when a traditional cash sale does not solve payoff issues, when the existing loan terms are useful, or when a seller wants an option beyond listing.
+        </p>
+        <p class="text-muted">
+          It may also create a path when a house needs repairs but the seller wants to avoid bringing money to closing.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Why cash may be simpler</h2>
+        <p class="text-muted">
+          A cash sale usually pays off the loan at closing and gives the seller a cleaner break. If certainty and simplicity are the priority, cash may be easier to understand.
+        </p>
+        <p class="text-muted">
+          The right answer depends on mortgage balance, equity, timing, condition, and risk tolerance.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want both options explained side by side?</h2>
+        <p class="text-muted">
+          We can outline a cash offer and any creative structure that may fit, then encourage you to review it with your own advisors.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Request options for my house</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Subject-to FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

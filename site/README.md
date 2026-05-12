@@ -1,48 +1,28 @@
-# Astro Starter Kit: Basics
+# ACE Properties KC Site
 
-> Railway SSR deployment - Node.js runtime (not nginx)
+Astro SSR website for ACE Properties KC, focused on Kansas City metro home sellers who need cash, as-is, inherited, probate, repair, tenant, foreclosure, and relocation solutions.
+
+## Commands
+
+Run from `site/`:
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev
+npm run build
+npm run seo:preflight
+npm audit --audit-level=moderate
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## SEO Guardrails
 
-## 🚀 Project Structure
+- Keep one H1 per page.
+- Add canonical paths through `Layout`.
+- Add visible FAQ content only when matching FAQ schema is included.
+- Keep `/thank-you/` out of the sitemap.
+- Route conversion CTAs to `/get-offer/` unless the page intentionally uses an on-page form.
+- Use real reviews only; do not add review schema without visible, verified reviews.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Production Notes
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The email API requires `SENDGRID_API_KEY` and a verified sender for `info@acepropertieskc.com`. GA4 is installed through `G-NTFNNJTML7`; mark `generate_lead` as a key event in GA4 after deployment.

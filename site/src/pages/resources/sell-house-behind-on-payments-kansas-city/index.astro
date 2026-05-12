@@ -1,0 +1,137 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Can I Sell My House if I Am Behind on Payments in Kansas City?";
+const description =
+  "Kansas City homeowner guide for selling when behind on mortgage payments, including payoff statements, arrears, liens, foreclosure timelines, and cash offer options.";
+
+const steps = [
+  "Find the current mortgage statement and servicer contact information",
+  "Ask for a reinstatement or payoff amount if foreclosure notices have started",
+  "Check for property taxes, HOA dues, utilities, or other liens",
+  "Compare selling, catching up, loan workout options, and direct buyer timelines",
+];
+
+const faqs = [
+  {
+    question: "Can I sell if I am behind on mortgage payments?",
+    answer:
+      "Yes, if there is enough time and title can close before a hard deadline. The mortgage payoff or arrears are usually handled through the title company at closing.",
+  },
+  {
+    question: "What if foreclosure has already started?",
+    answer:
+      "Act quickly. Foreclosure timelines are deadline-driven. A buyer, title company, or attorney needs enough time to confirm payoff numbers and close before any sale date.",
+  },
+  {
+    question: "Will the late payments be paid from closing?",
+    answer:
+      "Usually, yes. The title company requests payoff information and uses sale proceeds to pay the lender, taxes, and other recorded liens before the seller receives net proceeds.",
+  },
+  {
+    question: "Should I talk to my lender first?",
+    answer:
+      "Yes. Ask about reinstatement, repayment, forbearance, modification, or payoff options. Selling is one path, but it should be compared with any option that lets you keep the house if that is your goal.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-house-behind-on-payments-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Sell House Behind on Payments", item: "/resources/sell-house-behind-on-payments-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell a House Behind on Payments in Kansas City"
+  description={description}
+  canonicalPath="/resources/sell-house-behind-on-payments-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Payment pressure guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Falling behind on payments is stressful, but it does not automatically mean you are out of options. The key is getting accurate numbers, understanding deadlines, and comparing paths before the timeline gets too tight.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Ask about payoff-at-closing</a>
+        <a href="/solutions/behind-on-payments/" class="btn btn-ghost text-base">Behind on payments solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Start with the numbers</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {steps.map((step) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{step}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Selling before deadlines</h2>
+        <p class="text-muted">
+          If the property has equity, a sale can often pay off the mortgage and late amounts at closing. A cash buyer may help when the house needs repairs, the listing timeline is too long, or a foreclosure date is getting close.
+        </p>
+        <p class="text-muted">
+          If a foreclosure notice has arrived, review our <a href="/solutions/pre-foreclosure/" class="text-secondary underline">pre-foreclosure options</a> and talk with a qualified advisor quickly.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When keeping the house may be better</h2>
+        <p class="text-muted">
+          If your goal is to stay, ask your lender about repayment, modification, forbearance, or reinstatement. Selling should be compared against those options, not treated as the only path.
+        </p>
+        <p class="text-muted">
+          We can still provide a written offer so you understand what selling would look like while you evaluate lender options.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need to know whether a sale can catch the deadline?</h2>
+        <p class="text-muted">
+          Send the address, lender status, and any known dates. We can help you understand whether a direct sale timeline is realistic.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Check my options</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Behind on payments FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

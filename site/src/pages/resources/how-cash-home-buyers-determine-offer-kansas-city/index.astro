@@ -1,0 +1,156 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "How Cash Home Buyers Determine an Offer in Kansas City";
+const description =
+  "Learn how Kansas City cash home buyers evaluate as-is houses, repairs, resale value, closing costs, holding costs, and seller timeline before making an offer.";
+
+const factors = [
+  {
+    title: "Comparable sales",
+    body: "Recent nearby sales help estimate what the property could be worth after repairs or stabilization.",
+  },
+  {
+    title: "Repair scope",
+    body: "Roof, foundation, HVAC, plumbing, electrical, clean-out, cosmetic updates, and code items all affect the final number.",
+  },
+  {
+    title: "Holding costs",
+    body: "Taxes, insurance, utilities, interest, maintenance, and time on market are real costs a buyer carries after closing.",
+  },
+  {
+    title: "Closing certainty",
+    body: "A clean title, clear occupancy, and realistic timeline reduce risk. Liens, probate, tenants, or missing documents may require more coordination.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Why is a cash offer lower than a retail sale price?",
+    answer:
+      "A retail price assumes the house is marketed to an end buyer, often after repairs, showings, inspections, and financing. A cash offer prices in repairs, speed, certainty, closing costs, and the buyer's risk.",
+  },
+  {
+    question: "Can I ask for the offer breakdown?",
+    answer:
+      "Yes. A clear buyer should be able to explain the major assumptions behind the offer, including repair scope, resale range, closing costs, and timeline.",
+  },
+  {
+    question: "Does a messy or full house change the offer?",
+    answer:
+      "It can. Clean-out, dumpsters, labor, and disposal take time and money. The impact depends on how much remains and whether the seller wants the buyer to handle it.",
+  },
+  {
+    question: "Should I get more than one offer?",
+    answer:
+      "It is reasonable to compare options. Just compare terms too: inspection periods, closing dates, assignment language, earnest money, seller costs, and whether the buyer can actually close.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/how-cash-home-buyers-determine-offer-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "How Cash Home Buyers Determine an Offer", item: "/resources/how-cash-home-buyers-determine-offer-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="How Cash Home Buyers Determine an Offer"
+  description={description}
+  canonicalPath="/resources/how-cash-home-buyers-determine-offer-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Offer transparency</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        A cash offer should not feel like a mystery number. It is usually built from a few practical inputs: current condition, likely resale value, repair costs, closing costs, timeline, and risk. Understanding those inputs helps you compare a direct sale against listing on the open market.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get an offer breakdown</a>
+        <a href="/options/" class="btn btn-ghost text-base">Compare selling options</a>
+      </div>
+    </header>
+
+    <section class="space-y-6">
+      <h2 class="text-3xl font-semibold text-primary">The main inputs behind an offer</h2>
+      <div class="grid gap-5 md:grid-cols-2">
+        {factors.map((factor) => (
+          <article class="card">
+            <h3 class="text-xl font-semibold text-primary">{factor.title}</h3>
+            <p class="mt-2 text-sm text-muted">{factor.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Cash offer vs retail value</h2>
+        <p class="text-muted">
+          Retail value is what a prepared home might sell for to a traditional buyer. A direct cash offer is different because the buyer is also taking on repairs, clean-out, resale risk, title timing, holding costs, and the possibility that the market changes before the project is complete.
+        </p>
+        <p class="text-muted">
+          That is why a cash offer should be compared to your likely net after commissions, repairs, concessions, utilities, insurance, taxes, and time.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Terms matter as much as price</h2>
+        <p class="text-muted">
+          A high offer with a long inspection period, weak earnest money, or unclear buyer funding may not be better than a slightly lower offer with a dependable closing date.
+        </p>
+        <p class="text-muted">
+          Ask who is buying, when earnest money is deposited, who pays closing costs, whether the buyer can close without financing, and what happens if title needs extra time.
+        </p>
+      </article>
+    </section>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">A simple way to compare</h2>
+      <p class="mt-3 text-muted">
+        Estimate your listing net, then compare it with the direct offer. Include repairs, clean-out, commissions, seller concessions, mortgage payments during the listing period, utilities, insurance, taxes, and your own time. The right choice is not always the highest headline number; it is the path that best fits your situation.
+      </p>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want us to show the assumptions?</h2>
+        <p class="text-muted">
+          Send the property address and situation. We can explain the major assumptions behind a cash or creative offer so you know what you are comparing.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Request my offer breakdown</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Cash offer FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

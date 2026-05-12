@@ -1,0 +1,152 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import OfferForm from "../../components/OfferForm.astro";
+import { expansionAreas } from "../../data/areaExpansion";
+import { buildBreadcrumbList, faqJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return expansionAreas.map((area) => ({
+    params: { slug: area.slug },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+
+const faqs = [
+  {
+    question: `Do you buy houses in ${area.city}, ${area.state}?`,
+    answer: `Yes. We review houses in ${area.city} and nearby ${area.county} neighborhoods when the situation fits our Kansas City metro service area.`,
+  },
+  {
+    question: `Can I sell a ${area.city} house as-is?`,
+    answer:
+      "Yes. Repairs, clean-out, older systems, tenants, and unfinished projects can often be handled after closing when the buyer accepts the property as-is.",
+  },
+  {
+    question: "How fast can closing happen?",
+    answer:
+      "Cash closings often take about two weeks after title is ready, but the timeline depends on payoffs, liens, probate, tenants, and any documents title needs.",
+  },
+  {
+    question: "Should I list instead of selling directly?",
+    answer:
+      "Sometimes. If the house is updated, easy to show, and timing is flexible, listing may deserve a close look. We can help compare the net sheet against a direct offer.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Areas", item: "/areas/" },
+    { name: `${area.city} ${area.state}`, item: `/areas/${area.slug}/` },
+  ]),
+];
+---
+
+<Layout
+  title={`We Buy Houses ${area.city} ${area.state} | Sell As-Is`}
+  description={area.description}
+  canonicalPath={`/areas/${area.slug}/`}
+  jsonLd={jsonLd}
+>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-5">
+      <p class="badge">{area.county}</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+        Sell Your House As-Is in {area.city}, {area.state}
+      </h1>
+      <p class="text-muted">{area.body}</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a local offer</a>
+        <a href="/areas/" class="btn btn-ghost text-base">See all areas</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId={`${area.slug}-offer-form`}
+      heading={`Request a ${area.city} offer`}
+      subheading="Start with the address and the best way to reach you."
+    />
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why local sellers reach out</h2>
+      <p class="text-muted">
+        A direct sale may help when repairs, tenants, clean-out, privacy, estate paperwork, or timing make a traditional listing harder to manage.
+      </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {area.sellerSituations.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Title and closing notes</h2>
+      <p class="text-muted">{area.titleNotes}</p>
+      <p class="text-muted">
+        If the house is inherited, vacant, behind on payments, or tenant-occupied, we can summarize the documents and timeline before you choose a path.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt">
+    <div class="space-y-5">
+      <h2 class="text-3xl font-semibold text-primary">{area.city} area property context</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        {area.neighborhoodFocus.map((spot) => (
+          <article class="card bg-white/90">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Local focus</p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">{spot}</h3>
+            <p class="mt-2 text-sm text-muted">
+              We review condition, access, title, and seller timing before recommending a direct sale or listing comparison.
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Compare before deciding</h2>
+      <p class="text-muted">
+        Use our <a href="/resources/investor-offer-vs-mls-net-sheet-kansas-city/" class="text-secondary underline">investor offer vs MLS net sheet guide</a> to compare repair costs, commissions, holding costs, closing certainty, and net proceeds.
+      </p>
+      <p class="text-muted">
+        If the property needs major work, the <a href="/resources/major-repairs-vs-selling-as-is-kansas-city/" class="text-secondary underline">repairs vs selling as-is guide</a> can help frame the decision.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Nearby resources</h2>
+      <ul class="space-y-3 text-sm text-primary">
+        {area.nearbyLinks.map((link) => (
+          <li>
+            <a href={link.href} class="text-secondary underline">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">{area.city} FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>

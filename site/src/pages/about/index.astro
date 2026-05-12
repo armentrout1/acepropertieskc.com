@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import OfferForm from "../../components/OfferForm.astro";
+import { SITE } from "../../lib/siteConfig";
+import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+
+const commitments = [
+  "We explain cash and creative options in plain English before asking for a signature",
+  "We buy houses as-is, including repairs, clean-out, title questions, tenants, and timing issues",
+  "We use written summaries so family members, attorneys, or advisors can review the same facts",
+  "We close through title professionals and document payoffs, liens, timelines, and seller costs",
+  "We tell sellers when a traditional listing deserves a closer look",
+];
+
+const processChecks = [
+  "No pressure to repair, clean out, or host open houses before you hear options",
+  "No fake urgency around signing immediately",
+  "No review schema or testimonials added unless reviews are real and visible",
+  "No hidden commissions from ACE Properties KC",
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "About", item: "/about/" },
+  ]),
+];
+---
+
+<Layout
+  title="About ACE Properties KC | Local Kansas City Home Buyers"
+  description="Learn how ACE Properties KC helps Kansas City metro homeowners compare cash offers, creative options, as-is sales, and practical next steps without pressure."
+  canonicalPath="/about/"
+  jsonLd={jsonLd}
+>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-5">
+      <p class="badge">About ACE Properties KC</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+        Local, Practical Help for Kansas City Home Sellers
+      </h1>
+      <p class="text-muted">
+        ACE Properties KC helps homeowners across the Kansas City metro compare as-is cash offers, creative options, and traditional sale trade-offs. The work is simple on purpose: understand the property, explain the numbers, document the path, and let you decide.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get an offer</a>
+        <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base" data-phone-link="about_hero">Call {SITE.phoneDisplay}</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="about-offer-form"
+      heading="Ask a local buyer"
+      subheading="Share the address and what you are trying to solve."
+    />
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What we focus on</h2>
+      <p class="text-muted">
+        Most sellers who contact us are dealing with something more complicated than a clean listing: inherited property, probate, repairs, tenants, late payments, divorce, relocation, vacant-house risk, or family coordination.
+      </p>
+      <p class="text-muted">
+        We keep the conversation grounded in timing, title, condition, and net proceeds so you can compare paths without guessing.
+      </p>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Where we work</h2>
+      <p class="text-muted">
+        We serve the Kansas City metro, including Kansas City, MO, ZIP 64131, Independence, Lee's Summit, Overland Park, Olathe, Shawnee, Lenexa, and nearby communities on both sides of the state line.
+      </p>
+      <p class="text-muted">
+        Visit the <a href="/areas/" class="text-secondary underline">areas page</a> for local pages and county-specific resources.
+      </p>
+    </article>
+  </section>
+
+  <section class="section section-alt">
+    <div class="space-y-5">
+      <div class="space-y-2">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">How we earn trust</p>
+        <h2 class="text-3xl font-semibold text-primary">Clear options before commitment</h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {commitments.map((commitment) => (
+          <div class="card bg-white/90">
+            <div class="flex items-start gap-3 text-sm text-primary">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{commitment}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What we will not fake</h2>
+      <p class="text-muted">
+        Reviews, seller stories, project photos, and third-party profile links should be real. As those assets are collected and approved, they can be added to the site and schema correctly.
+      </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {processChecks.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Before you decide</h2>
+      <p class="text-muted">
+        Start with the <a href="/resources/how-cash-home-buyers-determine-offer-kansas-city/" class="text-secondary underline">offer math guide</a>, compare <a href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/" class="text-secondary underline">cash buyer vs agent</a>, or use the <a href="/resources/as-is-sale-net-sheet-template/" class="text-secondary underline">net sheet template</a> to compare paths.
+      </p>
+      <p class="text-muted">
+        If you want the exact sequence first, read <a href="/resources/what-happens-after-contact-ace-properties-kc/" class="text-secondary underline">what happens after you contact ACE Properties KC</a>.
+      </p>
+    </article>
+  </section>
+</Layout>
+
+<script is:inline>
+  document.querySelectorAll('[data-phone-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-phone-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'phone_click', {
+          link_location: location,
+          phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+</script>

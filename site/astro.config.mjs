@@ -14,12 +14,48 @@ export default defineConfig({
   site: "https://acepropertieskc.com",
   trailingSlash: "always",
   output: 'server',
+  devToolbar: {
+    enabled: false,
+  },
+  redirects: {
+    "/services/": {
+      status: 301,
+      destination: "/solutions/",
+    },
+    "/contact-local-home-buyers/": {
+      status: 301,
+      destination: "/contact/",
+    },
+    "/about-us/": {
+      status: 301,
+      destination: "/about/",
+    },
+    "/free-info/": {
+      status: 301,
+      destination: "/resources/",
+    },
+  },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      entries: [
+        "src/components/**/*.{astro,js,jsx,ts,tsx}",
+        "src/data/**/*.{js,ts}",
+        "src/layouts/**/*.{astro,js,ts}",
+        "src/lib/**/*.{js,ts}",
+        "src/pages/**/*.{astro,md,mdx}",
+      ],
+      exclude: ["@sendgrid/mail", "aria-query", "axobject-query"],
+    },
   },
   adapter: node({
     mode: 'standalone'
   }),
 
-  integrations: [sitemap(), mdx()]
+  integrations: [
+    sitemap({
+      filter: (page) => !page.endsWith("/thank-you/"),
+    }),
+    mdx()
+  ]
 });

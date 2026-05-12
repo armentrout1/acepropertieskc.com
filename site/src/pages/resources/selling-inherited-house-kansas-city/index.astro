@@ -1,0 +1,147 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Selling an Inherited House in Kansas City";
+const description =
+  "A Kansas City guide for selling an inherited house, including heirs, probate, clean-out, title, repairs, timelines, and as-is offer options.";
+
+const firstSteps = [
+  "Confirm who has authority to sign",
+  "Find the deed, mortgage statement, tax bill, and insurance info",
+  "Decide whether family wants to clean out, list, rent, or sell as-is",
+  "Ask title or an attorney about probate requirements before promising a closing date",
+];
+
+const faqs = [
+  {
+    question: "Can I sell an inherited house before probate is finished?",
+    answer:
+      "Sometimes, but it depends on ownership, estate documents, and court requirements. A title company or probate attorney should confirm who can sign and when closing can happen.",
+  },
+  {
+    question: "Do all heirs need to agree?",
+    answer:
+      "If multiple heirs have ownership or approval rights, they usually need to be aligned before closing. Written offer summaries can help everyone compare the same numbers and timeline.",
+  },
+  {
+    question: "Do we have to clean out the house first?",
+    answer:
+      "No. Some families remove personal items and sell the rest as-is. A direct buyer can often handle remaining furniture, tools, trash, and deferred maintenance after closing.",
+  },
+  {
+    question: "What if the inherited house has a mortgage or liens?",
+    answer:
+      "Those items are normally reviewed during title work and paid from closing proceeds if there is enough equity. It is better to identify them early so the family sees a realistic net number.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/selling-inherited-house-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Selling an Inherited House in Kansas City", item: "/resources/selling-inherited-house-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Selling an Inherited House in Kansas City"
+  description={description}
+  canonicalPath="/resources/selling-inherited-house-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Inherited property guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        An inherited house can feel like a property decision, a family conversation, and a paperwork project all at once. The cleanest path is to slow down just enough to confirm authority, title, belongings, repairs, and the family's preferred timeline.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request an inherited house offer</a>
+        <a href="/solutions/inherited-house/" class="btn btn-ghost text-base">View inherited house solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">First things to confirm</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {firstSteps.map((step) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{step}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Probate and signing authority</h2>
+        <p class="text-muted">
+          Before choosing a buyer, confirm who can legally sign. Some properties transfer by deed, trust, beneficiary deed, or joint ownership. Others need probate court steps before title can insure the sale.
+        </p>
+        <p class="text-muted">
+          If probate is involved, our <a href="/solutions/probate-house/" class="text-secondary underline">probate property page</a> explains how court-ready offers and heir communication usually work.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Clean-out and repairs</h2>
+        <p class="text-muted">
+          Families often lose time deciding whether to empty the house, repair it, or list it. If the property needs major updates, selling as-is may save weeks of coordination and prevent one family member from carrying the whole project.
+        </p>
+        <p class="text-muted">
+          For more detail, read our <a href="/resources/sell-house-as-is-kansas-city/" class="text-secondary underline">Kansas City as-is selling guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">How families compare options</h2>
+      <p class="text-muted">
+        The best choice is usually the one everyone understands. Compare the likely net proceeds from listing, selling as-is, and holding the property. Include utilities, insurance, taxes, lawn care, clean-out, repairs, commissions, time, and family stress.
+      </p>
+      <p class="text-muted">
+        A direct cash offer is not always the highest number, but it can be the cleanest option when heirs live out of town, the house is full of belongings, title work is sensitive, or repairs are too large to manage.
+      </p>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need one written option to share with family?</h2>
+        <p class="text-muted">
+          Send the address and the estate status. We can outline an as-is offer and closing timeline so everyone is reviewing the same information.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the inherited house conversation</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Inherited house FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

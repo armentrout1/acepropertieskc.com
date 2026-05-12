@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
 const checklist = [
@@ -14,7 +15,7 @@ const steps = [
   {
     title: "Share the story",
     body:
-      "We talk through how the property was inherited, who needs to sign, and what timeline the family prefers. Expect calm questions—not pressure." ,
+      "We talk through how the property was inherited, who needs to sign, and what timeline the family prefers. Expect calm questions, not pressure." ,
   },
   {
     title: "Walkthrough + paperwork",
@@ -42,7 +43,7 @@ const faqs = [
   {
     question: "Do you remove belongings?",
     answer:
-      "If the family wants to keep certain items, we tag them during the walkthrough. Anything left can be donated or disposed of after closing—we handle the coordination and cost when agreed to in writing.",
+      "If the family wants to keep certain items, we tag them during the walkthrough. Anything left can be donated or disposed of after closing; we handle the coordination and cost when agreed to in writing.",
   },
   {
     question: "How are taxes and liens handled?",
@@ -69,8 +70,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell Inherited House Kansas City - Coordinate Multiple Heirs"
-  description="Inherited property buyers. Help siblings agree, handle estate paperwork, and provide identical documentation to all heirs. Fair transparent offers."
+  title="Sell an Inherited House in Kansas City | ACE"
+  description="Inherited a Kansas City house? Compare as-is cash and creative options, coordinate heirs, and get clear next steps without repairs or pressure."
   canonicalPath="/solutions/inherited-house/"
   jsonLd={jsonLd}
 >
@@ -81,6 +82,22 @@ const jsonLd = [
       Estates come with paperwork, family emotions, and logistics. Our Kansas City team focuses on service-area homes, so we already know which title companies, clean-out crews, and attorneys keep things moving. Whether you just received letters testamentary or have been maintaining a vacant bungalow for years, we help you evaluate the property's condition, settle obligations, and either sell for cash or consider a creative structure that preserves income for the heirs.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Inherited-house review"
+    title="Need the family to see clear numbers?"
+    body="Send the address and who needs to be involved. We can outline a simple as-is offer, likely title documents, and the decision points before everyone chooses a path."
+    points={[
+      "Written summary for heirs or advisors",
+      "No clean-out required before the first conversation",
+      "Flexible timing around probate or estate needs",
+      "Cash and creative options explained side by side",
+    ]}
+    formId="inherited-house-offer-form"
+    formHeading="Start an inherited-house review"
+    formSubheading="Share the address and preferred contact method."
+    trackingLocation="inherited_house"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
@@ -145,6 +162,9 @@ const jsonLd = [
       <p class="text-muted">
         If the family decides to keep the property, we still share renovation estimates, rental analyses, or introductions to property managers. Prefer to sell? We will compare cash versus creative approaches on our <a href="/options/" class="text-secondary underline">options page</a> and point you to <a href="/solutions/" class="text-secondary underline">other solution guides</a> for unique situations.
       </p>
+      <p class="text-muted">
+        For a deeper planning checklist, read our <a href="/resources/selling-inherited-house-kansas-city/" class="text-secondary underline">Kansas City inherited house guide</a>.
+      </p>
     </article>
   </section>
 
@@ -161,7 +181,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
     <a href="/areas/" class="btn btn-outline text-base">See areas we buy</a>
   </section>

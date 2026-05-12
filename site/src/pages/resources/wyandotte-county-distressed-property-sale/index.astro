@@ -1,0 +1,148 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Wyandotte County Distressed Property Sale Guide";
+const description =
+  "A guide for selling a distressed property in Wyandotte County or Kansas City, Kansas, including repairs, liens, tenants, taxes, clean-out, title work, and as-is cash offers.";
+
+const commonIssues = [
+  "Major repairs such as roof, foundation, electrical, plumbing, HVAC, or fire damage",
+  "Code violations, open permits, or city notices that need a plan",
+  "Back taxes, utility balances, judgments, or other title items",
+  "Vacant property risk, break-ins, debris, or insurance concerns",
+  "Tenant communication or rental license questions",
+];
+
+const faqs = [
+  {
+    question: "Can I sell a distressed Wyandotte County property as-is?",
+    answer:
+      "Yes, many distressed properties can be sold as-is when the buyer understands the condition, title can close, and responsibilities are documented in the contract.",
+  },
+  {
+    question: "What if there are code violations or city notices?",
+    answer:
+      "Share any notices early. A direct buyer can often factor code items into the offer and handle repairs after closing, but title and city requirements should be reviewed before signing.",
+  },
+  {
+    question: "Can liens or back taxes be paid at closing?",
+    answer:
+      "Often, yes. Recorded liens, taxes, and payoffs are typically reviewed by title and paid from sale proceeds when there is enough equity.",
+  },
+  {
+    question: "Do I need to remove everything before selling?",
+    answer:
+      "No. Furniture, debris, tools, or abandoned items can often stay if the buyer agrees to handle clean-out after closing.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/wyandotte-county-distressed-property-sale/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Wyandotte County Distressed Property Sale", item: "/resources/wyandotte-county-distressed-property-sale/" },
+  ]),
+];
+---
+
+<Layout
+  title="Wyandotte County Distressed Property Sale Guide"
+  description={description}
+  canonicalPath="/resources/wyandotte-county-distressed-property-sale/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Wyandotte County as-is sale</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Distressed property sales are usually about reducing risk and getting a clear plan. In Wyandotte County and Kansas City, Kansas, that may mean repairs, taxes, code items, title issues, tenants, vacant-house risk, or clean-out.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request an as-is offer</a>
+        <a href="/resources/major-repairs-vs-selling-as-is-kansas-city/" class="btn btn-ghost text-base">Compare repairs vs as-is</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Common distressed-property issues</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {commonIssues.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Start with title and notices</h2>
+        <p class="text-muted">
+          Gather property tax bills, mortgage statements, city notices, utility balances, lease details, and any repair bids you already have. These items help determine whether a sale can close cleanly and what must be paid from proceeds.
+        </p>
+        <p class="text-muted">
+          If payment pressure is part of the issue, review our <a href="/resources/sell-house-behind-on-payments-kansas-city/" class="text-secondary underline">behind-on-payments guide</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">As-is sale versus repair project</h2>
+        <p class="text-muted">
+          Large repairs can make a listing harder, especially when the house is vacant or difficult to insure. A direct as-is sale can shift repair coordination, clean-out, and code follow-up to the buyer.
+        </p>
+        <p class="text-muted">
+          Listing may still make sense if repairs are minor and the seller has time. Compare net proceeds, not just top-line price.
+        </p>
+      </article>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">What a buyer should explain</h2>
+      <p class="text-muted">
+        Ask any buyer to explain price, inspection terms, closing date, clean-out responsibility, repair responsibility, title requirements, and whether they can close with cash or verified funds.
+      </p>
+      <p class="text-muted">
+        A distressed property sale should still be documented carefully. Closing through a title company helps verify ownership, payoffs, liens, and seller proceeds.
+      </p>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need a clean path for a difficult property?</h2>
+        <p class="text-muted">
+          Send the address, condition, and any notice or lien details you know. We can review whether a direct as-is option fits.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the as-is review</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Wyandotte County distressed property FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

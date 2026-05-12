@@ -36,6 +36,10 @@ export function localBusinessJsonLd(): object {
     "@type": "LocalBusiness",
     name: SITE.name,
     url: SITE.baseUrl,
+    logo: `${SITE.baseUrl}/brand/ace-logo.svg`,
+    image: `${SITE.baseUrl}/og-default.svg`,
+    priceRange: "$$",
+    description: SITE.defaultDescription,
     areaServed: [
       {
         "@type": "City",
@@ -49,6 +53,13 @@ export function localBusinessJsonLd(): object {
         addressRegion: "MO",
       },
     ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: SITE.phoneTel,
+      contactType: "sales",
+      areaServed: "Kansas City metro",
+      availableLanguage: "English",
+    },
   };
 
   if (SITE.phoneTel) {
@@ -96,5 +107,42 @@ export function buildBreadcrumbList(items: { name: string; item: string }[]): ob
       name: entry.name,
       item: buildCanonicalUrl(entry.item),
     })),
+  };
+}
+
+export function articleJsonLd({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified = datePublished,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+}): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    datePublished,
+    dateModified,
+    author: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE.baseUrl}/brand/ace-logo.svg`,
+      },
+    },
+    mainEntityOfPage: buildCanonicalUrl(path),
   };
 }

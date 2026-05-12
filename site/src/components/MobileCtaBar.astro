@@ -36,6 +36,7 @@ const smsTel = SITE.smsTel;
       href={`sms:${smsTel}`}
       aria-label={`Text ${phoneDisplay}`}
       class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
+      data-sms-link="mobile_cta"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +56,7 @@ const smsTel = SITE.smsTel;
 
     <!-- Get Offer -->
     <a
-      href="#get-offer"
+      href="/get-offer/"
       class="flex flex-col items-center gap-1 px-4 py-2 bg-accent text-primary rounded-lg hover:bg-amber-400 transition-colors"
     >
       <svg
@@ -85,6 +86,19 @@ const smsTel = SITE.smsTel;
         window.gtag('event', 'phone_click', {
           link_location: location,
           phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-sms-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-sms-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'sms_click', {
+          link_location: location,
+          phone_number: link.href.replace('sms:', ''),
           page_path: window.location.pathname
         });
       }

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../../lib/seo";
 
 const coordinationPoints = [
@@ -69,8 +70,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell a Divorce House in Kansas City"
-  description="Neutral, timeline-driven support for selling a Kansas City house during divorce. Clear communication, written offers, and coordinated closings."
+  title="Sell a House During Divorce in Kansas City | ACE"
+  description="Selling a Kansas City house during divorce? Get a neutral as-is offer path with written updates, flexible timing, and clear proceeds."
   canonicalPath="/solutions/divorce/"
   jsonLd={jsonLd}
 >
@@ -78,15 +79,31 @@ const jsonLd = [
     <p class="badge">Calm Guidance During Divorce</p>
     <h1 class="text-4xl font-semibold text-primary">Sell a Divorce House in Kansas City</h1>
     <p class="text-muted">
-      Divorce already asks a lot of you. Selling a home on top of court hearings, mediation, and family logistics can feel overwhelming—especially when repairs, equity splits, or safety concerns enter the picture. ACE Properties KC works only within the Kansas City metro, so we know how Jackson, Johnson, Clay, and Wyandotte County title companies handle divorce-related documents. Our role is to keep communication even-handed, supply transparent offers, and respect the timeline set by the court or by mutual agreement.
+      Divorce already asks a lot of you. Selling a home on top of court hearings, mediation, and family logistics can feel overwhelming, especially when repairs, equity splits, or safety concerns enter the picture. ACE Properties KC works only within the Kansas City metro, so we know how Jackson, Johnson, Clay, and Wyandotte County title companies handle divorce-related documents. Our role is to keep communication even-handed, supply transparent offers, and respect the timeline set by the court or by mutual agreement.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Neutral sale review"
+    title="Need clear numbers both sides can review?"
+    body="Share the address, decision timeline, and who should receive updates. We can prepare an as-is offer path with written details for spouses, attorneys, or mediators."
+    points={[
+      "Same written summary for designated parties",
+      "No repairs required before getting numbers",
+      "Flexible timing around court or mediation dates",
+      "Cash and creative options explained neutrally",
+    ]}
+    formId="divorce-offer-form"
+    formHeading="Start a neutral property review"
+    formSubheading="Share the address and preferred communication path."
+    trackingLocation="divorce"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">What to expect</h2>
       <p class="text-muted">
-        We begin with a confidential intake call to understand your priorities—whether that means a quick cash sale, creative financing that preserves payments, or pausing to evaluate other options. Every major update is documented via email so both parties (and their attorneys) can reference the same information. If safety or privacy is a concern, we tailor walkthroughs and signings accordingly.
+        We begin with a confidential intake call to understand your priorities, whether that means a quick cash sale, creative financing that preserves payments, or pausing to evaluate other options. Every major update is documented via email so both parties (and their attorneys) can reference the same information. If safety or privacy is a concern, we tailor walkthroughs and signings accordingly.
       </p>
     </article>
     <article class="card space-y-3">
@@ -133,13 +150,16 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
       <p class="text-muted">
-        Title companies typically request the divorce petition or decree, payoff letters, HOA statements, and any temporary orders dictating proceeds. We help gather these documents and coordinate signatures—digital if the court allows, in-person if required. Cash closings often happen within two to three weeks once paperwork is ready; creative agreements may take slightly longer but allow one spouse to remain in the home temporarily.
+        Title companies typically request the divorce petition or decree, payoff letters, HOA statements, and any temporary orders dictating proceeds. We help gather these documents and coordinate signatures: digital if the court allows, in-person if required. Cash closings often happen within two to three weeks once paperwork is ready; creative agreements may take slightly longer but allow one spouse to remain in the home temporarily.
       </p>
     </article>
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Support beyond the sale</h2>
       <p class="text-muted">
         Need referrals for movers, estate planners, or housing searches? We maintain a vetted list and only recommend partners we trust. Review cash vs. creative pathways on our <a href="/options/" class="text-secondary underline">options page</a> and explore other scenarios in the <a href="/solutions/" class="text-secondary underline">solutions hub</a> before deciding.
+      </p>
+      <p class="text-muted">
+        For a broader planning overview, read our <a href="/resources/divorce-selling-house-kansas-city/" class="text-secondary underline">divorce and selling a house guide</a>.
       </p>
     </article>
   </section>
@@ -157,7 +177,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
     <a href="/options/" class="btn btn-outline text-base">Compare options</a>
   </section>

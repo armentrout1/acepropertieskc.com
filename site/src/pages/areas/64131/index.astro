@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import OfferForm from "../../../components/OfferForm.astro";
+import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const faqs = [
   {
@@ -25,6 +26,11 @@ const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
   faqJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Areas", item: "/areas/" },
+    { name: "64131", item: "/areas/64131/" },
+  ]),
 ];
 ---
 
@@ -40,6 +46,21 @@ const jsonLd = [
     <p class="text-muted">
       From Waldo and Armour Hills to the blocks closer to Red Bridge Road, we help 64131 homeowners solve repairs, inherited estates, or rental challenges without listing. Our Kansas City metro team keeps communication clear and timelines flexible.
     </p>
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Selling in 64131?</h2>
+      <p class="text-muted">
+        Share the address and timeline. We can review nearby repairs, title considerations, and whether a quick as-is offer fits.
+      </p>
+    </div>
+    <OfferForm
+      compact
+      formId="64131-offer-form"
+      heading="Request a 64131 offer"
+      subheading="Start with the property address and contact info."
+    />
   </section>
 
   <section class="section">
@@ -87,7 +108,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/#get-offer" class="btn btn-primary text-base">
+    <a href="/get-offer/" class="btn btn-primary text-base">
       Start the offer form
     </a>
     <a href="/contact/" class="btn btn-ghost text-base">

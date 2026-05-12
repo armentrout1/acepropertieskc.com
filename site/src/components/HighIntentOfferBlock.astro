@@ -1,0 +1,57 @@
+---
+import OfferForm from "./OfferForm.astro";
+import { SITE } from "../lib/siteConfig";
+
+type Props = {
+  badge?: string;
+  title: string;
+  body: string;
+  points?: string[];
+  formId: string;
+  formHeading: string;
+  formSubheading?: string;
+  trackingLocation?: string;
+};
+
+const {
+  badge = "Start here",
+  title,
+  body,
+  points = [
+    "As-is review with no repair requirement",
+    "Cash and creative options explained in writing",
+    "Flexible closing dates across the Kansas City metro",
+  ],
+  formId,
+  formHeading,
+  formSubheading = "Start with the address and the best way to reach you.",
+  trackingLocation = formId,
+} = Astro.props;
+---
+
+<section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+  <div class="card space-y-5">
+    <p class="badge">{badge}</p>
+    <div class="space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">{title}</h2>
+      <p class="text-muted">{body}</p>
+    </div>
+    <ul class="grid gap-3 text-sm text-primary sm:grid-cols-2">
+      {points.map((point) => (
+        <li class="flex items-start gap-3 rounded-2xl border border-border/70 bg-soft/60 p-3">
+          <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+          <span>{point}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="flex flex-wrap gap-3">
+      <a href={`tel:${SITE.phoneTel}`} class="btn btn-secondary text-base" data-phone-link={`${trackingLocation}_call`}>
+        Call {SITE.phoneDisplay}
+      </a>
+      <a href={`sms:${SITE.smsTel}`} class="btn btn-outline text-base" data-sms-link={`${trackingLocation}_sms`}>
+        Text us
+      </a>
+    </div>
+  </div>
+  <OfferForm compact formId={formId} heading={formHeading} subheading={formSubheading} />
+</section>

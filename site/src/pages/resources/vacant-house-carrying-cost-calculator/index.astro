@@ -1,0 +1,122 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Vacant House Carrying Cost Calculator";
+const description =
+  "Estimate monthly carrying costs for a vacant Kansas City house, including mortgage, taxes, insurance, utilities, lawn care, security, repairs, and time on market.";
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/vacant-house-carrying-cost-calculator/",
+    datePublished: "2026-05-12",
+  }),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Vacant House Carrying Cost Calculator", item: "/resources/vacant-house-carrying-cost-calculator/" },
+  ]),
+];
+---
+
+<Layout
+  title="Vacant House Carrying Cost Calculator"
+  description={description}
+  canonicalPath="/resources/vacant-house-carrying-cost-calculator/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Vacant house calculator</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Vacant houses keep costing money while you decide. Use this quick calculator to estimate how much time, repairs, and monthly expenses may affect your net.
+      </p>
+    </header>
+
+    <section class="grid gap-8 lg:grid-cols-[0.95fr_1fr]">
+      <form class="card space-y-4" data-carrying-cost-calculator>
+        <h2 class="text-2xl font-semibold text-primary">Estimate costs</h2>
+        <label class="block space-y-1 text-sm font-medium text-primary">
+          Monthly mortgage or loan payment
+          <input name="mortgage" type="number" min="0" value="0" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
+        </label>
+        <label class="block space-y-1 text-sm font-medium text-primary">
+          Monthly taxes and insurance
+          <input name="taxes" type="number" min="0" value="350" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
+        </label>
+        <label class="block space-y-1 text-sm font-medium text-primary">
+          Monthly utilities
+          <input name="utilities" type="number" min="0" value="250" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
+        </label>
+        <label class="block space-y-1 text-sm font-medium text-primary">
+          Lawn, snow, security, or maintenance
+          <input name="maintenance" type="number" min="0" value="200" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
+        </label>
+        <label class="block space-y-1 text-sm font-medium text-primary">
+          Expected months before closing
+          <input name="months" type="number" min="1" value="4" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
+        </label>
+        <label class="block space-y-1 text-sm font-medium text-primary">
+          One-time repairs, clean-out, or holding surprises
+          <input name="oneTime" type="number" min="0" value="5000" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
+        </label>
+      </form>
+
+      <div class="card bg-soft/70 space-y-5">
+        <h2 class="text-2xl font-semibold text-primary">Estimated holding cost</h2>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-white p-5">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Monthly cost</p>
+            <p class="mt-2 text-3xl font-semibold text-primary" data-monthly-result>$0</p>
+          </div>
+          <div class="rounded-2xl bg-white p-5">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Total before closing</p>
+            <p class="mt-2 text-3xl font-semibold text-primary" data-total-result>$0</p>
+          </div>
+        </div>
+        <p class="text-muted">
+          This estimate is not a formal valuation. It is a decision tool to compare waiting, repairing, listing, or selling as-is.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/get-offer/" class="btn btn-primary text-base">Compare an as-is offer</a>
+          <a href="/solutions/vacant-house/" class="btn btn-ghost text-base">Vacant house solutions</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<script is:inline>
+  const form = document.querySelector('[data-carrying-cost-calculator]');
+  const monthlyResult = document.querySelector('[data-monthly-result]');
+  const totalResult = document.querySelector('[data-total-result]');
+  const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+  function readNumber(name) {
+    const field = form?.querySelector(`[name="${name}"]`);
+    const value = Number(field?.value || 0);
+    return Number.isFinite(value) && value > 0 ? value : 0;
+  }
+
+  function updateCalculator() {
+    const monthly = readNumber('mortgage') + readNumber('taxes') + readNumber('utilities') + readNumber('maintenance');
+    const months = Math.max(1, readNumber('months'));
+    const total = monthly * months + readNumber('oneTime');
+
+    if (monthlyResult) monthlyResult.textContent = formatter.format(monthly);
+    if (totalResult) totalResult.textContent = formatter.format(total);
+  }
+
+  form?.addEventListener('input', updateCalculator);
+  updateCalculator();
+</script>

@@ -1,0 +1,138 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Major Repairs vs Selling As-Is in Kansas City";
+const description =
+  "Compare repairing a Kansas City house before listing versus selling as-is, including contractor risk, timelines, buyer expectations, and net proceeds.";
+
+const repairCosts = [
+  "Roof, gutters, siding, windows, or exterior drainage",
+  "Foundation, basement water, grading, or structural work",
+  "HVAC, electrical, plumbing, sewer line, or water heater",
+  "Kitchen, bath, flooring, paint, and buyer-facing updates",
+  "Permits, inspections, clean-out, utilities, and carrying costs",
+];
+
+const faqs = [
+  {
+    question: "Should I fix my house before selling?",
+    answer:
+      "It depends on repair scope, available cash, timing, and how much the repairs are likely to increase your net proceeds. Big repairs can help retail value but also add risk, delays, and coordination.",
+  },
+  {
+    question: "Which repairs usually matter most to buyers?",
+    answer:
+      "Foundation, roof, HVAC, electrical, plumbing, water intrusion, and safety issues often matter most. Cosmetic updates can help, but only when the major systems are not creating concern.",
+  },
+  {
+    question: "Can I sell if contractors already started and stopped?",
+    answer:
+      "Yes. A house can be sold mid-project. The buyer will want to understand permits, completed work, remaining scope, and any contractor liens or unpaid invoices.",
+  },
+  {
+    question: "How do I compare repair-and-list vs as-is?",
+    answer:
+      "Compare realistic net proceeds after repair costs, commissions, concessions, holding costs, utilities, taxes, insurance, and your time. Then compare that with the certainty of an as-is offer.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Major Repairs vs Selling As-Is", item: "/resources/major-repairs-vs-selling-as-is-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Major Repairs vs Selling As-Is in Kansas City"
+  description={description}
+  canonicalPath="/resources/major-repairs-vs-selling-as-is-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Repair decision guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Repairing before selling can make sense when the work is manageable and likely to increase your net. Selling as-is can make more sense when repairs are expensive, uncertain, urgent, or emotionally draining.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare my repair options</a>
+        <a href="/solutions/needs-repairs/" class="btn btn-ghost text-base">Repair-heavy house solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Costs sellers often forget</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {repairCosts.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When repairs may be worth it</h2>
+        <p class="text-muted">
+          Repairs may pay off when you have reliable contractors, cash to fund the work, a flexible timeline, and a clear path to a higher retail sale. This is especially true for cosmetic updates on otherwise solid houses.
+        </p>
+        <p class="text-muted">
+          You still need to account for inspection requests, appraisal risk, days on market, and buyer financing.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When as-is may be better</h2>
+        <p class="text-muted">
+          Selling as-is may be better when the house has foundation, roof, water, electrical, HVAC, or clean-out issues that would require a major project before listing.
+        </p>
+        <p class="text-muted">
+          If you want the practical selling process, read our <a href="/resources/sell-house-as-is-kansas-city/" class="text-secondary underline">Kansas City as-is guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want to compare the numbers?</h2>
+        <p class="text-muted">
+          Send the address and repair list. We can explain what an as-is offer looks like so you can compare it against repairing and listing.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a repair-adjusted offer</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Repair decision FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

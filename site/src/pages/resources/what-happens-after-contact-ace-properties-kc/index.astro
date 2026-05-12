@@ -1,0 +1,144 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "What Happens After You Contact ACE Properties KC?";
+const description =
+  "See what happens after you request an offer from ACE Properties KC, including property review, walkthroughs, offer timing, privacy, and closing next steps.";
+
+const process = [
+  {
+    title: "We review the basics",
+    body: "We look at the address, situation, timeline, and best way to contact you. If anything is missing, we ask simple follow-up questions.",
+  },
+  {
+    title: "We schedule a walkthrough",
+    body: "This may be in person or by video. You do not need to clean, repair, or prepare the property before we look.",
+  },
+  {
+    title: "We explain the options",
+    body: "You receive a clear cash offer or, when relevant, a creative option. We explain the assumptions, timeline, and seller responsibilities.",
+  },
+  {
+    title: "You decide without pressure",
+    body: "If it fits, title work begins. If listing or waiting makes more sense, we will say that too.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do I have to accept an offer after contacting you?",
+    answer:
+      "No. Contacting us only starts a conversation. You can ask questions, compare options, and decide not to move forward.",
+  },
+  {
+    question: "Do I need to clean before the walkthrough?",
+    answer:
+      "No. We prefer to see the property as it is. Repairs, belongings, tenants, and unfinished projects can all be discussed openly.",
+  },
+  {
+    question: "How fast will someone respond?",
+    answer:
+      "We aim for same-day responses during normal business hours and quick follow-up on urgent situations.",
+  },
+  {
+    question: "What happens to my information?",
+    answer:
+      "Your details are used to respond to your property request. We do not sell your information, and you are not obligated to accept anything.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/what-happens-after-contact-ace-properties-kc/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "What Happens After Contact", item: "/resources/what-happens-after-contact-ace-properties-kc/" },
+  ]),
+];
+---
+
+<Layout
+  title="What Happens After You Contact ACE Properties KC?"
+  description={description}
+  canonicalPath="/resources/what-happens-after-contact-ace-properties-kc/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Process and privacy</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Reaching out should not feel like stepping into a sales machine. Here is what happens after you send the form, call, or text: a real person reviews the property, asks practical questions, and explains options without pressure.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the offer conversation</a>
+        <a href="/contact/" class="btn btn-ghost text-base">Contact us directly</a>
+      </div>
+    </header>
+
+    <section class="space-y-6">
+      <h2 class="text-3xl font-semibold text-primary">The simple process</h2>
+      <div class="grid gap-5 md:grid-cols-2">
+        {process.map((step, index) => (
+          <article class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What we ask for</h2>
+        <p class="text-muted">
+          The property address, your timeline, condition concerns, occupancy status, and best contact method are enough to begin. More details help, but you do not need every document ready before reaching out.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What you get back</h2>
+        <p class="text-muted">
+          You get plain-language next steps: whether we need a walkthrough, what documents title may request, and how the offer or comparison will be prepared.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Ready to ask a few questions?</h2>
+        <p class="text-muted">
+          Send the address and situation. You stay in control of the pace, and you can stop the process any time.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Share property basics</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Contact process FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

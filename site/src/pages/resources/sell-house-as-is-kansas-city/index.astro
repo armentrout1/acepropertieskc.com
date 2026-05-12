@@ -1,0 +1,192 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "How to Sell a House As-Is in Kansas City";
+const description =
+  "Learn how selling a house as-is works in Kansas City, including repairs, disclosures, cash offers, title, timelines, and when listing may be better.";
+
+const checkpoints = [
+  "The house needs repairs you do not want to manage",
+  "You inherited the property and need a simple family decision",
+  "The house is vacant, tenant-occupied, or hard to show",
+  "You want a clear closing date instead of months of uncertainty",
+  "You need to compare cash now against listing after repairs",
+];
+
+const steps = [
+  {
+    title: "Gather the basics",
+    body: "Write down the address, mortgage payoff if known, repair concerns, occupancy status, and any estate or title paperwork. You do not need everything perfect before starting.",
+  },
+  {
+    title: "Compare selling paths",
+    body: "Look at the likely net from listing after repairs, listing as-is, and selling directly for cash. The best choice depends on equity, timing, stress, and risk tolerance.",
+  },
+  {
+    title: "Review offer terms",
+    body: "Do not only compare the headline price. Compare closing date, inspection period, seller costs, clean-out responsibility, financing risk, and whether the buyer can actually close.",
+  },
+  {
+    title: "Close through title",
+    body: "A legitimate Kansas City sale should use a title company or closing professional. They verify ownership, pay off liens, prepare statements, and make sure proceeds are handled correctly.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can I sell a Kansas City house as-is if it needs major repairs?",
+    answer:
+      "Yes. As-is sales often involve roof, foundation, HVAC, electrical, plumbing, or clean-out issues. The buyer prices those repairs into the offer instead of asking you to complete them first.",
+  },
+  {
+    question: "Do I still have to disclose problems?",
+    answer:
+      "As-is does not mean hiding known issues. You should answer disclosure questions honestly and ask a local real estate attorney or licensed professional when you are unsure about a legal requirement.",
+  },
+  {
+    question: "Is a cash offer always better than listing?",
+    answer:
+      "No. If the house is updated, easy to show, and you have time, listing may produce a higher net. A direct cash sale is usually about speed, certainty, fewer repairs, and less coordination.",
+  },
+  {
+    question: "How fast can an as-is sale close?",
+    answer:
+      "Many cash purchases can close in about two weeks after title is clear. Complicated estates, liens, or payoff issues may take longer, but those can usually be mapped out early.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-house-as-is-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Sell a House As-Is in Kansas City", item: "/resources/sell-house-as-is-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="How to Sell a House As-Is in Kansas City"
+  description={description}
+  canonicalPath="/resources/sell-house-as-is-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">As-is selling guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Selling as-is means you are asking the buyer to take the property in its current condition instead of requiring you to repair, clean out, update, or prepare the house for showings. For many Kansas City homeowners, that tradeoff is worth it. For others, listing may still be the better financial move.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request an as-is offer</a>
+        <a href="/options/" class="btn btn-ghost text-base">Compare cash vs creative options</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">When selling as-is may make sense</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {checkpoints.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">What "as-is" actually means</h2>
+      <p class="text-muted">
+        An as-is sale does not mean the house has no value. It means the buyer is pricing the property with its current condition in mind. Instead of you hiring contractors, managing permits, cleaning out belongings, and waiting on buyer repair requests, the buyer takes on those responsibilities after closing.
+      </p>
+      <p class="text-muted">
+        In Kansas City, as-is sellers often call us about older homes, inherited properties, vacant houses, rentals with deferred maintenance, and houses with code or title complications. Those situations can still close cleanly when expectations are set early.
+      </p>
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="text-3xl font-semibold text-primary">The practical process</h2>
+      <div class="grid gap-5 md:grid-cols-2">
+        {steps.map((step, index) => (
+          <article class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What impacts an as-is offer?</h2>
+        <p class="text-muted">
+          Buyers usually look at comparable sales, expected resale value, repair scope, holding costs, closing costs, risk, and the time needed to make the property marketable. A foundation issue, old roof, or full clean-out does not automatically stop a sale, but it changes the math.
+        </p>
+        <p class="text-muted">
+          If you want to understand the difference between a direct offer and an MLS listing, start with our <a href="/options/" class="text-secondary underline">cash and creative options comparison</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When listing may be better</h2>
+        <p class="text-muted">
+          Listing may make sense when the property is updated, clean, easy to show, and you can wait through inspections, appraisal, buyer financing, and possible repair negotiations. A good local agent can be valuable in that situation.
+        </p>
+        <p class="text-muted">
+          Selling directly usually becomes more attractive when certainty, privacy, repairs, occupancy, family coordination, or speed matter more than squeezing out the highest possible sale price.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want a real number for your house?</h2>
+        <p class="text-muted">
+          Send the address and a few details. We will review the condition, timeline, and title questions, then explain what an as-is offer could look like.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Get my as-is offer</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Kansas City as-is sale FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="text-2xl font-semibold text-primary">Related Kansas City selling situations</h2>
+      <div class="mt-4 grid gap-3 text-sm md:grid-cols-3">
+        <a href="/solutions/needs-repairs/" class="text-secondary underline">House needs repairs</a>
+        <a href="/solutions/inherited-house/" class="text-secondary underline">Inherited house</a>
+        <a href="/solutions/vacant-house/" class="text-secondary underline">Vacant house</a>
+        <a href="/solutions/probate-house/" class="text-secondary underline">Probate property</a>
+        <a href="/solutions/behind-on-payments/" class="text-secondary underline">Behind on payments</a>
+        <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City, MO area page</a>
+      </div>
+    </section>
+  </article>
+</Layout>

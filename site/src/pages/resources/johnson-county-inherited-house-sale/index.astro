@@ -1,0 +1,148 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Johnson County Inherited House Sale Guide";
+const description =
+  "A Johnson County guide for selling an inherited house in Overland Park, Olathe, Shawnee, Lenexa, and nearby Kansas communities, including heirs, title, clean-out, repairs, and as-is offers.";
+
+const decisionPoints = [
+  "Who has authority to sign for the inherited property",
+  "Whether the house is in a trust, estate, transfer-on-death deed, or individual ownership",
+  "How much clean-out, repair, HOA, or utility work is still needed",
+  "Whether out-of-state heirs need written updates or virtual walkthroughs",
+  "How listing net proceeds compare with a direct as-is sale",
+];
+
+const faqs = [
+  {
+    question: "Can I sell an inherited house in Johnson County without repairs?",
+    answer:
+      "Yes, if the buyer accepts the condition and title can close. Many inherited homes are sold as-is when families do not want to coordinate contractors or clean-out.",
+  },
+  {
+    question: "What if the inherited house has an HOA?",
+    answer:
+      "HOA dues, resale documents, violations, or transfer requirements should be checked early. A title company can help identify balances that need to be paid at closing.",
+  },
+  {
+    question: "Do out-of-state heirs need to come to Kansas?",
+    answer:
+      "Usually not for every step. Many documents can be reviewed remotely, but signing requirements depend on title, estate documents, and notary rules.",
+  },
+  {
+    question: "Is listing better in Johnson County?",
+    answer:
+      "Sometimes. Updated Johnson County homes can do well on the MLS. A direct sale may fit better when repairs, clean-out, timing, or family coordination matter more than maximizing headline price.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/johnson-county-inherited-house-sale/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Johnson County Inherited House Sale", item: "/resources/johnson-county-inherited-house-sale/" },
+  ]),
+];
+---
+
+<Layout
+  title="Johnson County Inherited House Sale Guide"
+  description={description}
+  canonicalPath="/resources/johnson-county-inherited-house-sale/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Johnson County inheritance</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Inherited houses in Johnson County can have strong market value, but family logistics still matter. The right path depends on authority to sign, property condition, HOA details, clean-out needs, and how quickly the heirs want closure.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request an inherited-house offer</a>
+        <a href="/solutions/inherited-house/" class="btn btn-ghost text-base">View inherited solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">What to decide first</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {decisionPoints.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Johnson County sale factors</h2>
+        <p class="text-muted">
+          Homes in Overland Park, Olathe, Shawnee, Lenexa, and nearby communities may involve HOA packets, resale expectations, higher buyer repair standards, or family members comparing a listing against a direct offer.
+        </p>
+        <p class="text-muted">
+          If the house is updated and easy to show, listing may deserve a close look. If the house needs repairs or heirs live out of town, an as-is offer may be easier to manage.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Keep heirs aligned</h2>
+        <p class="text-muted">
+          Written updates help prevent one person from carrying the whole sale. Share the same repair notes, offer terms, estimated net, and closing timeline with every heir before signing.
+        </p>
+        <p class="text-muted">
+          For a broader overview, read our <a href="/resources/selling-inherited-house-kansas-city/" class="text-secondary underline">Kansas City inherited house guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Comparing listing and selling as-is</h2>
+      <p class="text-muted">
+        A good comparison includes more than sale price. Add repair costs, clean-out, holding costs, commissions, inspection negotiations, appraisal risk, utilities, HOA dues, taxes, and the time each heir must spend.
+      </p>
+      <p class="text-muted">
+        A direct offer is often about certainty and simplicity. Listing may produce more if the house is clean, updated, accessible, and the family has time to wait.
+      </p>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need a clear option for the family?</h2>
+        <p class="text-muted">
+          Send the address and what the heirs are deciding. We can outline an as-is offer, clean-out expectations, and timeline in writing.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the inherited property review</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Johnson County inherited house FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

@@ -1,0 +1,88 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "As-Is Sale Net Sheet Template for Kansas City Sellers";
+const description =
+  "A simple Kansas City as-is sale net sheet template to compare cash offers, listing costs, repairs, holding costs, commissions, payoffs, and seller proceeds.";
+
+const lineItems = [
+  "Offer or estimated sale price",
+  "Mortgage payoff and liens",
+  "Property taxes, HOA dues, utilities, and other prorations",
+  "Agent commission if listing",
+  "Seller concessions or buyer repair credits",
+  "Repair bids, clean-out, lawn care, utilities, insurance, and holding costs",
+  "Closing costs charged to seller",
+  "Estimated net proceeds after all known costs",
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/as-is-sale-net-sheet-template/",
+    datePublished: "2026-05-12",
+  }),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "As-Is Sale Net Sheet Template", item: "/resources/as-is-sale-net-sheet-template/" },
+  ]),
+];
+---
+
+<Layout
+  title="As-Is Sale Net Sheet Template | Kansas City"
+  description={description}
+  canonicalPath="/resources/as-is-sale-net-sheet-template/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Net sheet template</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        A net sheet keeps the conversation honest. Compare what you actually keep after repairs, commissions, concessions, holding costs, payoffs, and closing items.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request offer numbers</a>
+        <a href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/" class="btn btn-ghost text-base">Cash buyer vs agent</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Net sheet line items</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {lineItems.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Direct sale column</h2>
+        <p class="text-muted">
+          Include the offer price, any seller closing costs, mortgage payoff, liens, and clean-out responsibility. A clean as-is offer should be simple to explain.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Listing column</h2>
+        <p class="text-muted">
+          Include repairs before listing, commissions, seller concessions, inspection credits, utilities, insurance, taxes, lawn care, and the time needed to close.
+        </p>
+      </article>
+    </section>
+  </article>
+</Layout>

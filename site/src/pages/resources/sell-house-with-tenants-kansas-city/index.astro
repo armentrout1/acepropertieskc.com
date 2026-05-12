@@ -1,0 +1,137 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Sell a House With Tenants in Kansas City";
+const description =
+  "A Kansas City landlord guide to selling a tenant-occupied house, including leases, notice, showings, rent, deposits, repairs, and as-is buyer options.";
+
+const concerns = [
+  "Respecting current lease terms and tenant privacy",
+  "Avoiding repeated showings and inspection disruptions",
+  "Handling repairs without asking tenants to live through a project",
+  "Coordinating rent, deposits, and possession at closing",
+];
+
+const faqs = [
+  {
+    question: "Can I sell a Kansas City rental while tenants still live there?",
+    answer:
+      "Yes. A tenant-occupied property can often be sold with the lease in place. The buyer, title company, and seller should understand lease terms, deposits, rent status, and possession before closing.",
+  },
+  {
+    question: "Do tenants have to move before closing?",
+    answer:
+      "Not always. Some buyers purchase rentals with tenants in place. Others need the house vacant later. The key is handling notice and possession in writing and respecting the lease.",
+  },
+  {
+    question: "Is selling with tenants harder than selling vacant?",
+    answer:
+      "It can be harder through a traditional listing because of showings, inspections, repairs, and buyer financing. A direct buyer can often reduce disruption by reviewing the property with fewer visits.",
+  },
+  {
+    question: "What information should I gather first?",
+    answer:
+      "Gather the lease, rent ledger, deposit amount, tenant contact rules, repair history, and any notices already sent. Those details help avoid surprises during title and closing.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-house-with-tenants-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Sell a House With Tenants", item: "/resources/sell-house-with-tenants-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell a House With Tenants in Kansas City"
+  description={description}
+  canonicalPath="/resources/sell-house-with-tenants-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Landlord guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Selling a rental is not only about price. You also need to protect tenant relationships, respect lease terms, reduce showings, and make sure rent, deposits, and possession are handled cleanly at closing.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Ask about a tenant-occupied offer</a>
+        <a href="/solutions/tenant-occupied/" class="btn btn-ghost text-base">Tenant-occupied solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">What landlords usually want to avoid</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {concerns.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Selling with the lease in place</h2>
+        <p class="text-muted">
+          If the tenant has a valid lease, the buyer usually needs to understand and honor those terms after closing. That means the lease, deposit, rent ledger, and notice history matter.
+        </p>
+        <p class="text-muted">
+          A direct buyer may be comfortable taking over with tenants in place, especially when the goal is to reduce disruption and avoid a public listing.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Selling after vacancy</h2>
+        <p class="text-muted">
+          Waiting for vacancy can make showings and repairs easier, but it may also mean months of lost rent, utilities, repairs, and turn costs. Compare the cost of waiting against the certainty of an as-is sale.
+        </p>
+        <p class="text-muted">
+          If the property needs work after move-out, review our <a href="/resources/sell-house-as-is-kansas-city/" class="text-secondary underline">as-is selling guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want to sell without disrupting tenants?</h2>
+        <p class="text-muted">
+          Send the address, lease status, and ideal timeline. We can explain whether a direct sale with tenants in place is realistic.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the landlord conversation</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Tenant-occupied sale FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

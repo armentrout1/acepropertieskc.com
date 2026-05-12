@@ -33,7 +33,7 @@ import { SITE } from "../../lib/siteConfig";
             <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
             <div>
               <p class="font-semibold">Email</p>
-              <a href={`mailto:${SITE.email}`} class="text-secondary hover:underline">{SITE.email}</a>
+              <a href={`mailto:${SITE.email}`} class="text-secondary hover:underline" data-email-link="contact_page">{SITE.email}</a>
             </div>
           </div>
           <div class="flex items-start gap-3">
@@ -46,7 +46,7 @@ import { SITE } from "../../lib/siteConfig";
         </div>
         <p class="text-sm text-muted">We respond during standard business hours and check messages after-hours for urgent updates.</p>
         <div class="flex flex-wrap gap-3">
-          <a href="/#get-offer" class="btn btn-primary text-base">Start the offer form</a>
+          <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
           <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base" data-phone-link="contact_page_cta">Call us now</a>
         </div>
       </div>
@@ -66,6 +66,19 @@ import { SITE } from "../../lib/siteConfig";
         window.gtag('event', 'phone_click', {
           link_location: location,
           phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-email-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.getAttribute('data-email-link');
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'email_click', {
+          link_location: location,
+          email: link.href.replace('mailto:', ''),
           page_path: window.location.pathname
         });
       }

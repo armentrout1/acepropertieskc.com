@@ -1,0 +1,111 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Kansas City Inherited House Checklist";
+const description =
+  "A practical inherited house checklist for Kansas City families covering authority, documents, belongings, repairs, carrying costs, title, and sale options.";
+
+const sections = [
+  {
+    title: "Authority and people",
+    items: [
+      "Identify the executor, trustee, personal representative, or owner who can sign",
+      "List every heir or decision-maker who needs updates",
+      "Confirm whether an attorney, CPA, or financial advisor should review documents",
+    ],
+  },
+  {
+    title: "Documents",
+    items: [
+      "Deed, death certificate, trust documents, letters testamentary, or court orders",
+      "Mortgage statement, tax bill, insurance policy, HOA info, and utility bills",
+      "Any repair bids, code notices, leases, or property management records",
+    ],
+  },
+  {
+    title: "Property condition",
+    items: [
+      "Photograph major rooms, mechanicals, roof concerns, basement, garage, and exterior",
+      "Decide which personal items stay, go to family, get donated, or remain with the house",
+      "Compare repair costs against selling as-is and closing quickly",
+    ],
+  },
+  {
+    title: "Sale decision",
+    items: [
+      "Compare listing, listing as-is, renting, and direct sale net proceeds",
+      "Include taxes, utilities, insurance, lawn care, repairs, clean-out, and commissions",
+      "Put every serious offer in writing so family members compare the same facts",
+    ],
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/kansas-city-inherited-house-checklist/",
+    datePublished: "2026-05-12",
+  }),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Kansas City Inherited House Checklist", item: "/resources/kansas-city-inherited-house-checklist/" },
+  ]),
+];
+---
+
+<Layout
+  title="Kansas City Inherited House Checklist"
+  description={description}
+  canonicalPath="/resources/kansas-city-inherited-house-checklist/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Inherited house checklist</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Use this checklist to organize family conversations before selling, listing, renting, or holding an inherited Kansas City property.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request an inherited-house offer</a>
+        <a href="/resources/selling-inherited-house-kansas-city/" class="btn btn-ghost text-base">Read the inherited guide</a>
+      </div>
+    </header>
+
+    <section class="grid gap-6 md:grid-cols-2">
+      {sections.map((section) => (
+        <article class="card space-y-3">
+          <h2 class="text-2xl font-semibold text-primary">{section.title}</h2>
+          <ul class="space-y-3 text-sm text-primary">
+            {section.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want a written option to share with heirs?</h2>
+        <p class="text-muted">
+          Send the address and the estate status. We can prepare a clear as-is option with timing, clean-out expectations, and next steps.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the conversation</a>
+      </div>
+    </section>
+  </article>
+</Layout>

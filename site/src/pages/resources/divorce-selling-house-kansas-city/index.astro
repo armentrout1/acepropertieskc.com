@@ -1,0 +1,137 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Divorce and Selling a House in Kansas City";
+const description =
+  "A practical Kansas City guide for selling a house during divorce, including communication, title, court timelines, repairs, proceeds, and as-is offer options.";
+
+const decisions = [
+  "Who will communicate with the buyer, title company, and attorneys",
+  "Whether both parties agree on price, timeline, and possession",
+  "How repairs, mortgage payments, utilities, and insurance are handled before closing",
+  "How proceeds should be distributed through the settlement statement",
+];
+
+const faqs = [
+  {
+    question: "Can we sell before the divorce is final?",
+    answer:
+      "Sometimes. It depends on ownership, court orders, lender requirements, and whether both parties can sign. Your attorney and title company should confirm the path.",
+  },
+  {
+    question: "What if one spouse wants to sell and the other does not?",
+    answer:
+      "A buyer cannot solve legal disagreement. Written offers can help clarify options, but attorneys or the court may need to resolve authority and timing.",
+  },
+  {
+    question: "Can proceeds be split at closing?",
+    answer:
+      "Yes, when title receives clear written instructions or court-approved documents. The settlement statement can show payoffs and distributions.",
+  },
+  {
+    question: "Can the house be sold as-is during divorce?",
+    answer:
+      "Yes. Selling as-is can reduce repair disputes, shorten timelines, and create a single written number for both parties to review.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/divorce-selling-house-kansas-city/",
+    datePublished: "2026-05-12",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Divorce and Selling a House", item: "/resources/divorce-selling-house-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Divorce and Selling a House in Kansas City"
+  description={description}
+  canonicalPath="/resources/divorce-selling-house-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Divorce sale guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Selling during divorce needs neutral communication, clear documents, and a timeline everyone can understand. The goal is not just getting an offer. It is reducing uncertainty around repairs, possession, proceeds, and closing.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request a neutral written offer</a>
+        <a href="/solutions/divorce/" class="btn btn-ghost text-base">Divorce sale solutions</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Decisions to clarify early</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {decisions.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Why a direct offer can help</h2>
+        <p class="text-muted">
+          A direct offer gives both parties the same written price, timeline, and terms. That can make mediation or attorney review easier, especially when repairs or showings would create more conflict.
+        </p>
+        <p class="text-muted">
+          It may not always beat listing, but it can reduce uncertainty when court deadlines or family logistics matter.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Why listing may still make sense</h2>
+        <p class="text-muted">
+          If both parties agree, the house is market-ready, and there is time for showings and negotiations, listing may produce a stronger net. The important part is comparing realistic timelines and costs.
+        </p>
+        <p class="text-muted">
+          Our <a href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/" class="text-secondary underline">cash buyer vs agent guide</a> can help frame that comparison.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need one clear offer both sides can review?</h2>
+        <p class="text-muted">
+          Send the address and preferred communication setup. We can provide a written option without forcing both parties into the same conversation.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start a neutral offer conversation</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Divorce sale FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>
