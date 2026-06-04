@@ -1,0 +1,51 @@
+<script is:inline>
+  (() => {
+    if (window.__aceClickTrackingInitialized) {
+      return;
+    }
+
+    window.__aceClickTrackingInitialized = true;
+
+    const trackClick = (eventName, payload) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, {
+          ...payload,
+          page_path: window.location.pathname,
+        });
+      }
+    };
+
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) {
+        return;
+      }
+
+      const phoneLink = target.closest('a[data-phone-link]');
+      if (phoneLink) {
+        trackClick('phone_click', {
+          link_location: phoneLink.getAttribute('data-phone-link'),
+          phone_number: phoneLink.href.replace('tel:', ''),
+        });
+        return;
+      }
+
+      const smsLink = target.closest('a[data-sms-link]');
+      if (smsLink) {
+        trackClick('sms_click', {
+          link_location: smsLink.getAttribute('data-sms-link'),
+          phone_number: smsLink.href.replace('sms:', ''),
+        });
+        return;
+      }
+
+      const emailLink = target.closest('a[data-email-link]');
+      if (emailLink) {
+        trackClick('email_click', {
+          link_location: emailLink.getAttribute('data-email-link'),
+          email: emailLink.href.replace('mailto:', ''),
+        });
+      }
+    });
+  })();
+</script>

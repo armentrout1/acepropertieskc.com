@@ -17,6 +17,7 @@ const REQUIRED_ROUTES = [
   "/resources/how-cash-home-buyers-determine-offer-kansas-city/",
   "/resources/sell-house-with-tenants-kansas-city/",
   "/resources/sell-house-behind-on-payments-kansas-city/",
+  "/resources/sell-house-with-tax-lien-kansas-city/",
   "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
   "/resources/major-repairs-vs-selling-as-is-kansas-city/",
   "/resources/divorce-selling-house-kansas-city/",

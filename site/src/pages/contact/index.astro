@@ -56,32 +56,3 @@ import { SITE } from "../../lib/siteConfig";
     </div>
   </section>
 </Layout>
-
-<script is:inline>
-  // Track phone clicks on contact page
-  document.querySelectorAll('[data-phone-link]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const location = link.getAttribute('data-phone-link');
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'phone_click', {
-          link_location: location,
-          phone_number: link.href.replace('tel:', ''),
-          page_path: window.location.pathname
-        });
-      }
-    });
-  });
-
-  document.querySelectorAll('[data-email-link]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const location = link.getAttribute('data-email-link');
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'email_click', {
-          link_location: location,
-          email: link.href.replace('mailto:', ''),
-          page_path: window.location.pathname
-        });
-      }
-    });
-  });
-</script>

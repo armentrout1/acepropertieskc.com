@@ -118,18 +118,3 @@ const jsonLd = [
     </article>
   </section>
 </Layout>
-
-<script is:inline>
-  document.querySelectorAll('[data-phone-link]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const location = link.getAttribute('data-phone-link');
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'phone_click', {
-          link_location: location,
-          phone_number: link.href.replace('tel:', ''),
-          page_path: window.location.pathname
-        });
-      }
-    });
-  });
-</script>

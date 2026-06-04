@@ -76,32 +76,3 @@ const smsTel = SITE.smsTel;
     </a>
   </div>
 </div>
-
-<script is:inline>
-  // Track phone clicks in mobile CTA bar
-  document.querySelectorAll('[data-phone-link]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const location = link.getAttribute('data-phone-link');
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'phone_click', {
-          link_location: location,
-          phone_number: link.href.replace('tel:', ''),
-          page_path: window.location.pathname
-        });
-      }
-    });
-  });
-
-  document.querySelectorAll('[data-sms-link]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const location = link.getAttribute('data-sms-link');
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'sms_click', {
-          link_location: location,
-          phone_number: link.href.replace('sms:', ''),
-          page_path: window.location.pathname
-        });
-      }
-    });
-  });
-</script>

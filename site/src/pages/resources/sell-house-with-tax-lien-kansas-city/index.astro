@@ -1,0 +1,153 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Can You Sell a House With a Tax Lien in Kansas City?";
+const description =
+  "A Kansas City guide to selling a house with a tax lien, including payoff-at-closing, title checks, auction deadlines, and cash offer options.";
+
+const checklist = [
+  "Recent county tax statement or lien notice",
+  "Any redemption, auction, or sale date letter",
+  "Mortgage payoff, HOA balance, utility, or code violation notices",
+  "Names of every owner who must sign",
+  "Attorney, accountant, or county contact information if someone is advising you",
+];
+
+const risks = [
+  "Waiting until the auction deadline leaves less time for title review",
+  "Multiple liens can change the net proceeds at closing",
+  "A payment plan may still need written confirmation from the county",
+  "Out-of-state owners or estate paperwork can add signing time",
+];
+
+const faqs = [
+  {
+    question: "Can I sell my Kansas City house if it has a tax lien?",
+    answer:
+      "Yes. In many cases the lien can be paid from sale proceeds at closing, as long as title can confirm the payoff and all owners are able to sign.",
+  },
+  {
+    question: "Will a cash buyer pay off the tax lien?",
+    answer:
+      "The payoff is normally handled through the title company from closing proceeds. A buyer should not ask you to guess the final payoff without title verification.",
+  },
+  {
+    question: "How fast can a tax-lien property close?",
+    answer:
+      "Some cash sales can close in two to three weeks once title is ready. Auction dates, probate authority, missing owner signatures, or multiple liens can add time.",
+  },
+  {
+    question: "Should I talk to an attorney or tax advisor?",
+    answer:
+      "Yes if you are unsure about legal rights, redemption rules, estate authority, or tax consequences. ACE Properties KC can explain sale logistics, but does not provide legal or tax advice.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-house-with-tax-lien-kansas-city/",
+    datePublished: "2026-06-04",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    {
+      name: "Sell a House With a Tax Lien in Kansas City",
+      item: "/resources/sell-house-with-tax-lien-kansas-city/",
+    },
+  ]),
+];
+---
+
+<Layout
+  title="Sell a House With a Tax Lien in Kansas City"
+  description={description}
+  canonicalPath="/resources/sell-house-with-tax-lien-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Tax lien guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        A tax lien does not automatically stop a sale, but it does make timing and title work more important. This guide explains how Kansas City sellers can think through payoff-at-closing, cash offers, county deadlines, and the documents title may need.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/solutions/tax-lien/" class="btn btn-primary text-base">Review tax-lien options</a>
+        <a href="/get-offer/" class="btn btn-ghost text-base">Ask about my property</a>
+      </div>
+    </header>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">How a sale can clear the lien</h2>
+        <p class="text-muted">
+          The title company confirms ownership, taxes, liens, mortgage payoffs, and other balances. If there is enough equity and all sellers can sign, the lien can often be paid from proceeds at closing so the buyer receives clear title.
+        </p>
+        <p class="text-muted">
+          For the direct offer path, start with our <a href="/solutions/tax-lien/" class="text-secondary underline">Kansas City tax-lien solution page</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What can slow things down?</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {risks.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Documents to gather before asking for an offer</h2>
+      <p class="mt-3 text-muted">
+        You do not need every document before reaching out, but these items help title and the buyer understand the deadline.
+      </p>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {checklist.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need to know if a sale can work before the deadline?</h2>
+        <p class="text-muted">
+          Send the address, county, and any deadline notice. We will help you understand what title may need before promising a closing date.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start a tax-lien review</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Tax lien selling FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

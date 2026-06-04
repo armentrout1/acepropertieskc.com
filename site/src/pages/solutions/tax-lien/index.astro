@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -53,28 +54,28 @@ const options = [
 
 const faqs = [
   {
-    q: "What happens if I miss a tax lien deadline?",
-    a: "Penalties escalate and counties can finalize an auction, but acting early gives you more room to sell or pay off the balance first.",
+    question: "What happens if I miss a tax lien deadline?",
+    answer: "Penalties escalate and counties can finalize an auction, but acting early gives you more room to sell or pay off the balance first.",
   },
   {
-    q: "Can I sell a house with a tax lien?",
-    a: "Yes. The lien is paid from sale proceeds at closing so the buyer receives clear title.",
+    question: "Can I sell a house with a tax lien?",
+    answer: "Yes. The lien is paid from sale proceeds at closing so the buyer receives clear title.",
   },
   {
-    q: "How do you confirm the payoff amount?",
-    a: "We request written payoff letters from the county treasurer or title company and confirm amounts again just before closing.",
+    question: "How do you confirm the payoff amount?",
+    answer: "We request written payoff letters from the county treasurer or title company and confirm amounts again just before closing.",
   },
   {
-    q: "What if there are multiple liens?",
-    a: "Title pulls a full report so we can stack mortgage, HOA, utility, and tax payoffs and ensure all are covered at settlement.",
+    question: "What if there are multiple liens?",
+    answer: "Title pulls a full report so we can stack mortgage, HOA, utility, and tax payoffs and ensure all are covered at settlement.",
   },
   {
-    q: "How quickly can this move before an auction?",
-    a: "Cash deals commonly close in two to three weeks once title is ready, and we can aim faster if the county accepts proof of funds.",
+    question: "How quickly can this move before an auction?",
+    answer: "Cash deals commonly close in two to three weeks once title is ready, and we can aim faster if the county accepts proof of funds.",
   },
   {
-    q: "What documents should I gather?",
-    a: "Bring recent tax statements, redemption letters, any payoff quotes, and contact info for advisors who should be copied.",
+    question: "What documents should I gather?",
+    answer: "Bring recent tax statements, redemption letters, any payoff quotes, and contact info for advisors who should be copied.",
   },
 ];
 
@@ -85,30 +86,49 @@ const jsonLd = [
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
-    { name: "Resolve a Tax Lien House in Kansas City", item: "/solutions/tax-lien/" },
+    { name: "Sell a House With a Tax Lien in Kansas City", item: "/solutions/tax-lien/" },
   ]),
 ];
 ---
 
 <Layout
-  title="Resolve a Tax Lien House in Kansas City"
-  description="Guidance for Kansas City homeowners facing tax lien deadlines. Compare cash sales, payoff-at-closing, or creative structures without legal pressure."
+  title="Sell a House With a Tax Lien in Kansas City | Cash Offer"
+  description="Need to sell a Kansas City house with a tax lien? Compare as-is cash offers, payoff-at-closing options, auction timelines, and title steps."
   canonicalPath="/solutions/tax-lien/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-5">
     <p class="badge">Tax Lien Relief</p>
-    <h1 class="text-4xl font-semibold text-primary">Handle a Tax Lien Before the Deadline</h1>
+    <h1 class="text-4xl font-semibold text-primary">Sell a House With a Tax Lien in Kansas City</h1>
     <p class="text-muted">
       County tax liens escalate quickly—interest, redemption deadlines, and auction dates differ between Kansas City, Jackson County, Wyandotte County, and the surrounding suburbs we cover. ACE Properties KC focuses solely on this metro, so we understand how local treasurers and title companies process lien payoffs. We are not attorneys or tax advisors, but we do provide clear sale options and coordinate the paperwork so you can make an informed choice before penalties grow.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Tax-lien review"
+    title="Need to know if a sale can clear the lien?"
+    body="Send the address and any deadline letter you have. We can review the likely title steps, payoff-at-closing options, and whether a cash offer could help before penalties or auction pressure grow."
+    points={[
+      "As-is cash offer options with no repairs required",
+      "Payoff-at-closing coordination through title",
+      "Auction, redemption, and deadline questions reviewed early",
+      "Written numbers you can compare with keeping or listing",
+    ]}
+    formId="tax-lien-offer-form"
+    formHeading="Start a tax-lien review"
+    formSubheading="Share the address, county, and best way to reach you."
+    trackingLocation="tax_lien"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">What you can expect</h2>
       <p class="text-muted">
         Our first call covers the lien balance, any prior payment plans, and whether other liens (HOA, code violations, or utilities) exist. We outline realistic timelines—no promises we cannot keep—and encourage you to run everything past your attorney or accountant. Every offer is provided in writing with estimated net proceeds so you can compare against redemption costs.
+      </p>
+      <p class="text-muted">
+        Want a deeper planning checklist first? Read our <a href="/resources/sell-house-with-tax-lien-kansas-city/" class="text-secondary underline">Kansas City tax-lien selling guide</a>.
       </p>
     </article>
     <article class="card space-y-3">
@@ -170,15 +190,15 @@ const jsonLd = [
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.q}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.a}</p>
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
         </details>
       ))}
     </div>
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-semibold text-primary">Stay ahead of the auction clock</h2>
+    <h2 class="text-2xl font-semibold text-primary">Stay ahead of the tax lien or auction clock</h2>
     <p class="text-muted">
       Tax lien timelines move quickly, but you still have choices. We respond the same day, provide plain-language summaries, and respect any advisors you want looped into the conversation.
     </p>

@@ -54,28 +54,28 @@ const options = [
 
 const faqs = [
   {
-    q: "What is pre-foreclosure?",
-    a: "It is the window after missed payments when the lender issues default notices but before a sale date is completed, giving you time to act.",
+    question: "What is pre-foreclosure?",
+    answer: "It is the window after missed payments when the lender issues default notices but before a sale date is completed, giving you time to act.",
   },
   {
-    q: "Do I still have options if I got a notice?",
-    a: "Yes. Notices outline deadlines, but you can still explore cash sales, payoff-at-closing, or other agreements before the auction.",
+    question: "Do I still have options if I got a notice?",
+    answer: "Yes. Notices outline deadlines, but you can still explore cash sales, payoff-at-closing, or other agreements before the auction.",
   },
   {
-    q: "Can you coordinate with my lender?",
-    a: "With your written permission we share payoff requests, timelines, and closing updates directly with the lender and title company.",
+    question: "Can you coordinate with my lender?",
+    answer: "With your written permission we share payoff requests, timelines, and closing updates directly with the lender and title company.",
   },
   {
-    q: "What if I'm trying a loan modification?",
-    a: "We can prepare a backup offer so you have a documented plan if the modification is denied or takes longer than expected.",
+    question: "What if I'm trying a loan modification?",
+    answer: "We can prepare a backup offer so you have a documented plan if the modification is denied or takes longer than expected.",
   },
   {
-    q: "How fast can a sale close?",
-    a: "Cash purchases often close within two to three weeks once title is ready, and we can write faster timelines when everyone is aligned.",
+    question: "How fast can a sale close?",
+    answer: "Cash purchases often close within two to three weeks once title is ready, and we can write faster timelines when everyone is aligned.",
   },
   {
-    q: "What should I bring to the first call?",
-    a: "Have your latest statement, any reinstatement quotes, notice dates, and contact info for advisors you want looped in.",
+    question: "What should I bring to the first call?",
+    answer: "Have your latest statement, any reinstatement quotes, notice dates, and contact info for advisors you want looped in.",
   },
 ];
 
@@ -188,8 +188,8 @@ const jsonLd = [
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.q}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.a}</p>
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
         </details>
       ))}
     </div>

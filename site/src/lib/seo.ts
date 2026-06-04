@@ -77,14 +77,28 @@ export function localBusinessJsonLd(): object {
   return schema;
 }
 
+type FaqEntry = {
+  question?: string;
+  answer?: string;
+  q?: string;
+  a?: string;
+};
+
+function normalizeFaq(faq: FaqEntry): { question: string; answer: string } {
+  return {
+    question: faq.question ?? faq.q ?? "",
+    answer: faq.answer ?? faq.a ?? "",
+  };
+}
+
 /**
  * FAQPage JSON-LD schema
  */
-export function faqJsonLd(faqs: { question: string; answer: string }[]): object {
+export function faqJsonLd(faqs: FaqEntry[]): object {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: faqs.map((faq) => normalizeFaq(faq)).map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {
@@ -98,7 +112,7 @@ export function faqJsonLd(faqs: { question: string; answer: string }[]): object 
 /**
  * Build FAQPage JSON-LD schema (alias for faqJsonLd)
  */
-export function buildFaqPageJsonLd(faqs: { question: string; answer: string }[]): object {
+export function buildFaqPageJsonLd(faqs: FaqEntry[]): object {
   return faqJsonLd(faqs);
 }
 
