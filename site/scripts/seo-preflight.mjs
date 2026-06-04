@@ -9,6 +9,8 @@ const REQUIRED_ROUTES = [
   "/about/",
   "/get-offer/",
   "/resources/",
+  "/resources/sell-house-fast-kansas-city-guide/",
+  "/resources/cash-home-buyers-close-in-two-weeks-kansas-city/",
   "/resources/sell-house-as-is-kansas-city/",
   "/resources/selling-inherited-house-kansas-city/",
   "/resources/clean-out-house-before-selling-kansas-city/",

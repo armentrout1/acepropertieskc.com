@@ -1,0 +1,201 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "How to Sell Your House Fast in Kansas City";
+const description =
+  "A Kansas City guide to selling your house fast, including cash offers, title timelines, repairs, tenants, vacant homes, inherited property, and what can slow closing.";
+
+const fastSaleSignals = [
+  "You need a dependable closing date instead of a long listing process",
+  "The house needs repairs, clean-out, or updates before retail buyers compete",
+  "You are handling inherited property, probate, tenants, or family coordination",
+  "You are paying utilities, insurance, taxes, mortgage payments, or upkeep on a house you no longer want",
+  "You want to compare a cash offer against listing with an agent before deciding",
+];
+
+const timelines = [
+  {
+    label: "Same day to 48 hours",
+    detail:
+      "Share the address, occupancy status, known repairs, and your preferred timing. A buyer can often give an initial direction quickly, but a real offer still needs the property details.",
+  },
+  {
+    label: "2 to 5 days",
+    detail:
+      "Walkthrough, photos, title questions, payoff estimates, and repair assumptions get reviewed. This is where vague promises turn into a written offer and realistic next steps.",
+  },
+  {
+    label: "10 to 14 days",
+    detail:
+      "A clean cash closing may happen in this range after title is ready. Liens, probate, tenants, missing payoff statements, or court approval can add time.",
+  },
+  {
+    label: "30 days or more",
+    detail:
+      "Some sellers choose a longer timeline for moving, family coordination, school schedules, or post-closing occupancy. Fast does not have to mean rushed.",
+  },
+];
+
+const slowdowns = [
+  "Unclear ownership, probate authority, or missing estate documents",
+  "Mortgage payoffs, tax liens, judgments, or utility balances that title needs to verify",
+  "Tenant access, lease terms, or move-out timing",
+  "Major repair questions that require a second walkthrough or contractor estimate",
+  "Family decision-makers who need the same written numbers before moving forward",
+];
+
+const faqs = [
+  {
+    question: "What is the fastest way to sell a house in Kansas City?",
+    answer:
+      "The fastest path is usually a direct as-is sale to a buyer who can close with cash after title is clear. The exact timeline depends on ownership, payoffs, liens, tenants, probate, and whether all sellers are ready to sign.",
+  },
+  {
+    question: "Can I sell fast without cleaning out or fixing the house?",
+    answer:
+      "Yes. A direct buyer can price clean-out, repairs, and condition into the offer. That can save time when the house needs work or belongings are still inside.",
+  },
+  {
+    question: "Is a fast cash offer always the best choice?",
+    answer:
+      "No. If the house is updated, easy to show, and you have time, listing may produce a higher net. A fast sale is strongest when certainty, fewer repairs, privacy, or timing matter more.",
+  },
+  {
+    question: "Which Kansas City areas can use this process?",
+    answer:
+      "This process can apply across the Kansas City metro, including Kansas City, MO, Kansas City, KS, Olathe, Overland Park, Shawnee, Independence, Lee's Summit, Lenexa, Blue Springs, and nearby communities.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-house-fast-kansas-city-guide/",
+    datePublished: "2026-06-04",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "How to Sell Your House Fast in Kansas City", item: "/resources/sell-house-fast-kansas-city-guide/" },
+  ]),
+];
+---
+
+<Layout
+  title="How to Sell Your House Fast in Kansas City"
+  description={description}
+  canonicalPath="/resources/sell-house-fast-kansas-city-guide/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Fast sale guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Selling fast does not mean skipping the important details. It means removing the parts that slow sellers down: repairs, showings, uncertain buyer financing, long inspection periods, and unclear timelines. This guide walks through what actually makes a Kansas City house sale move quickly.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/solutions/sell-house-fast/" class="btn btn-primary text-base">Sell my house fast</a>
+        <a href="/get-offer/" class="btn btn-ghost text-base">Request a local offer</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">When a fast sale may make sense</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {fastSaleSignals.map((signal) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{signal}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">The realistic fast-sale timeline</h2>
+      <p class="text-muted">
+        A fast sale is only useful if the timeline is honest. A buyer can respond quickly, but title, ownership, payoffs, and seller readiness still matter. Here is how the timeline usually breaks down.
+      </p>
+      <div class="grid gap-5 md:grid-cols-2">
+        {timelines.map((item) => (
+          <article class="card">
+            <h3 class="text-xl font-semibold text-primary">{item.label}</h3>
+            <p class="mt-2 text-sm text-muted">{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What can speed up closing?</h2>
+        <p class="text-muted">
+          Start with the basics: address, seller names, occupancy, mortgage payoff if known, repair concerns, liens or tax issues, and whether the house is inherited or in probate. The faster those facts are clear, the faster a real closing date can be discussed.
+        </p>
+        <p class="text-muted">
+          If you want the direct offer path, the main page is here: <a href="/solutions/sell-house-fast/" class="text-secondary underline">sell your Kansas City house fast</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What can slow it down?</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {slowdowns.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">City-specific fast-sale considerations</h2>
+      <p class="text-muted">
+        The same fast-sale process can look different depending on title, county, repairs, and buyer demand. These local pages explain what sellers commonly run into across the metro.
+      </p>
+      <div class="grid gap-3 text-sm md:grid-cols-3">
+        <a href="/areas/olathe-ks/" class="card transition hover:border-secondary/60">Sell fast in Olathe, KS</a>
+        <a href="/areas/overland-park-ks/" class="card transition hover:border-secondary/60">Sell fast in Overland Park, KS</a>
+        <a href="/areas/shawnee-ks/" class="card transition hover:border-secondary/60">Sell fast in Shawnee, KS</a>
+        <a href="/areas/independence-mo/" class="card transition hover:border-secondary/60">Sell fast in Independence, MO</a>
+        <a href="/areas/kansas-city-ks/" class="card transition hover:border-secondary/60">Sell fast in Kansas City, KS</a>
+        <a href="/areas/kansas-city-mo/" class="card transition hover:border-secondary/60">Sell fast in Kansas City, MO</a>
+      </div>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need a fast answer for your property?</h2>
+        <p class="text-muted">
+          Send the address, condition, and timeline. We will tell you what a direct sale could look like and what might need to happen before closing.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Start the fast-sale review</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Fast sale FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>
