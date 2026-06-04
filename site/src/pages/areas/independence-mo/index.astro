@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import OfferForm from "../../../components/OfferForm.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -40,6 +41,13 @@ const steps = [
   },
 ];
 
+const commonSellerGoals = [
+  "Sell my house fast in Independence MO without repairs or cleanup",
+  "Get cash for a house in Independence before listing",
+  "Handle inherited property, code issues, back taxes, or urgent timelines",
+  "Compare an as-is offer with agent fees, repairs, and holding costs",
+];
+
 const faqs = [
   {
     question: "Do you buy homes in Independence's historic districts?",
@@ -76,17 +84,40 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Cash for Houses Independence MO - Historic & Estate Properties"
-  description="Buy houses Independence MO. Historic district expertise, probate coordination, and Jackson County title knowledge. Fair offers for any condition."
+  title="Sell My House Fast Independence MO | Cash Offer"
+  description="Sell your Independence MO house fast for cash or compare as-is options. Help with historic homes, estates, code issues, repairs, and Jackson County title."
   canonicalPath="/areas/independence-mo/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Independence, Missouri</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Independence, Missouri</h1>
-    <p class="text-muted">
-      Independence homeowners deserve straightforward solutions when property decisions become complicated. Whether you're managing an inherited family home near the Square, facing repairs that feel overwhelming in Western Independence, or dealing with timeline pressure in Little Blue Valley, we provide clear options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
-    </p>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-4">
+      <p class="badge">Independence, Missouri</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Independence, MO</h1>
+      <p class="text-muted">
+        Independence homeowners deserve straightforward solutions when property decisions become complicated. Whether you're managing an inherited family home near the Square, facing repairs that feel overwhelming in Western Independence, or dealing with timeline pressure in Little Blue Valley, we provide clear cash and creative options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get an Independence offer</a>
+        <a href="/solutions/sell-house-fast/" class="btn btn-ghost text-base">Compare fast-sale options</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="independence-mo-offer-form"
+      heading="Request an Independence offer"
+      subheading="Start with the address and the best way to reach you."
+    />
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">Common Independence seller goals</h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {commonSellerGoals.map((goal) => (
+          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">

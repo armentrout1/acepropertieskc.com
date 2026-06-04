@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
 
 const probateChallenges = [
@@ -26,6 +27,11 @@ const steps = [
 ];
 
 const faqs = [
+  {
+    question: "Can I sell a house in probate in Kansas City?",
+    answer:
+      "Often yes, but the sale usually needs to match the executor's authority, attorney guidance, and any court approval requirements. We can provide a written as-is offer and net estimate for your attorney or family to review.",
+  },
   {
     question: "Can you buy a house before probate is complete?",
     answer: "Often yes. Many Kansas City area courts allow contracts contingent on final probate approval. We coordinate with your attorney to match court timelines.",
@@ -73,18 +79,33 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell Probate Property Kansas City - Court-Ready Offers"
-  description="Probate house buyers for executors. Court-approved offers, heir coordination, and Jackson/Johnson County expertise. Handle estates as-is."
+  title="Selling a House in Probate Kansas City | Cash Offer"
+  description="Selling a probate house in Kansas City? Get a court-ready as-is offer, heir coordination, net sheet help, and Jackson/Johnson County closing guidance."
   canonicalPath="/solutions/probate-house/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-4">
     <p class="badge">Court-Approved Probate Sales</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell a Probate House in Kansas City</h1>
+    <h1 class="text-4xl font-semibold text-primary">Selling a House in Probate in Kansas City</h1>
     <p class="text-muted">
       Probate sales require coordination between court requirements, family needs, and practical property decisions. Whether you're an executor managing an estate in Jackson County or helping heirs navigate Johnson County probate, we provide clear, court-ready offers that respect legal timelines while protecting estate value.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Probate property review"
+    title="Need a probate-ready offer and net sheet?"
+    body="Send the property address and where the probate process stands. We can outline an as-is offer path, documents title may need, and questions to review with your attorney before anyone signs."
+    points={[
+      "Court-ready written offer documentation",
+      "Heir and executor communication kept organized",
+      "As-is sale path for repair-heavy estate homes",
+      "Jackson, Johnson, Wyandotte, and Clay County title coordination",
+    ]}
+    formId="probate-house-offer-form"
+    formHeading="Request a probate property review"
+    trackingLocation="probate_house"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">

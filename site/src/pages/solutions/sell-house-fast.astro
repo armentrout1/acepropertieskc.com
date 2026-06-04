@@ -34,7 +34,57 @@ const steps = [
   },
 ];
 
+const fastSaleCityLinks = [
+  {
+    label: "Kansas City, MO",
+    href: "/areas/kansas-city-mo/",
+    body: "Fast as-is sale options for Midtown, Brookside, Waldo, south KC, and nearby neighborhoods.",
+  },
+  {
+    label: "Olathe, KS",
+    href: "/areas/olathe-ks/",
+    body: "Olathe cash-offer reviews for relocation, repairs, inherited homes, and school-year timelines.",
+  },
+  {
+    label: "Overland Park, KS",
+    href: "/areas/overland-park-ks/",
+    body: "Johnson County closing help for HOA items, repair decisions, and flexible possession needs.",
+  },
+  {
+    label: "Shawnee, KS",
+    href: "/areas/shawnee-ks/",
+    body: "Direct-sale options for Shawnee houses needing updates, estate coordination, or a quick close.",
+  },
+  {
+    label: "Independence, MO",
+    href: "/areas/independence-mo/",
+    body: "Jackson County help for inherited homes, code issues, repairs, and urgent timelines.",
+  },
+  {
+    label: "Lee's Summit, MO",
+    href: "/areas/lees-summit-mo/",
+    body: "Cash and creative sale options for growing families, vacant homes, and move-driven timelines.",
+  },
+];
+
+const searchIntentPoints = [
+  "Sell my house fast in Kansas City without repairs",
+  "Get a cash offer instead of listing with showings",
+  "Compare a direct sale against agent commissions and holding costs",
+  "Close around relocation, probate, tenants, late payments, or a vacant house",
+];
+
 const faqs = [
+  {
+    question: "Can I sell my house fast in Kansas City without repairs?",
+    answer:
+      "Yes. We review Kansas City metro houses as-is, including dated interiors, roof issues, foundation concerns, clean-out needs, tenants, and other items that can slow down a traditional listing.",
+  },
+  {
+    question: "Do you make fast cash offers in Olathe, Overland Park, Shawnee, and Independence?",
+    answer:
+      "Yes. We review homes across the Kansas City metro, including Olathe, Overland Park, Shawnee, Independence, Kansas City, KS, Lee's Summit, Lenexa, and nearby communities.",
+  },
   {
     question: "What's the fastest closing timeline possible?",
     answer: "Cash offers can close in as little as 10-14 days when title work is clear. We prioritize your timeline and can expedite every step of the process.",
@@ -74,16 +124,16 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell Your House Fast in Kansas City | ACE Properties KC"
-  description="Need to sell a Kansas City house fast? Request a no-pressure as-is offer with no repairs, showings, commissions, or listing delays."
+  title="Sell My House Fast Kansas City | Cash Offer"
+  description="Need to sell your Kansas City house fast? Get a no-pressure as-is cash offer with no repairs, showings, commissions, or listing delays."
   canonicalPath="/solutions/sell-house-fast/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-4">
     <p class="badge">Speed & Certainty Solutions</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell Your House Fast in Kansas City</h1>
+    <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Kansas City</h1>
     <p class="text-muted">
-      Sometimes life demands speed: job changes, inherited properties, or financial situations requiring quick decisions. Whether you're in Kansas City, Overland Park, or anywhere in the metro, we provide cash offers that let you sell your house as-is on your timeline without repairs, showings, or listing delays.
+      Sometimes life demands speed: job changes, inherited properties, tenants, vacant houses, or financial situations requiring quick decisions. Whether you're in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, or anywhere in the metro, we provide cash offers that let you sell your house as-is on your timeline without repairs, showings, or listing delays.
     </p>
   </section>
 
@@ -101,6 +151,36 @@ const jsonLd = [
     formHeading="Request a fast-sale offer"
     trackingLocation="sell_house_fast"
   />
+
+  <section class="section grid gap-8 md:grid-cols-[0.85fr_1.15fr]">
+    <article class="card space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Fast-sale goals</p>
+      <h2 class="text-2xl font-semibold text-primary">Common Kansas City seller goals we can help with</h2>
+      <ul class="space-y-3 text-sm text-primary">
+        {searchIntentPoints.map((point) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+    <article class="card space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Metro coverage</p>
+      <h2 class="text-2xl font-semibold text-primary">Fast house buyers across KC, Missouri and Kansas</h2>
+      <p class="text-muted">
+        These local pages give homeowners a clearer path based on where the house sits, what county title work applies, and what kind of closing timeline is realistic.
+      </p>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {fastSaleCityLinks.map((city) => (
+          <a href={city.href} class="rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary/60 hover:bg-white">
+            <span class="text-sm font-semibold text-primary">Sell fast in {city.label}</span>
+            <span class="mt-1 block text-xs text-muted">{city.body}</span>
+          </a>
+        ))}
+      </div>
+    </article>
+  </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">

@@ -37,6 +37,13 @@ const faqs = [
   },
 ];
 
+const commonSellerGoals = [
+  `Sell my house fast in ${area.city} without repairs or showings`,
+  `Compare a local cash offer with listing a ${area.city} house on the MLS`,
+  `Get help with inherited, vacant, tenant-occupied, or repair-heavy property`,
+  `Choose a closing date around family, title, payoffs, or relocation timing`,
+];
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
@@ -50,7 +57,7 @@ const jsonLd = [
 ---
 
 <Layout
-  title={`We Buy Houses ${area.city} ${area.state} | Sell As-Is`}
+  title={`Sell My House Fast ${area.city} ${area.state} | We Buy Houses`}
   description={area.description}
   canonicalPath={`/areas/${area.slug}/`}
   jsonLd={jsonLd}
@@ -59,7 +66,7 @@ const jsonLd = [
     <div class="space-y-5">
       <p class="badge">{area.county}</p>
       <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-        Sell Your House As-Is in {area.city}, {area.state}
+        Sell My House Fast in {area.city}, {area.state}
       </h1>
       <p class="text-muted">{area.body}</p>
       <div class="flex flex-wrap gap-3">
@@ -73,6 +80,19 @@ const jsonLd = [
       heading={`Request a ${area.city} offer`}
       subheading="Start with the address and the best way to reach you."
     />
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">Common {area.city} seller goals</h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {commonSellerGoals.map((goal) => (
+          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">
+            {goal}
+          </div>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">

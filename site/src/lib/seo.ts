@@ -41,11 +41,16 @@ export function localBusinessJsonLd(): object {
     priceRange: "$$",
     description: SITE.defaultDescription,
     areaServed: [
-      {
-        "@type": "City",
-        name: "Kansas City",
-        addressRegion: "MO",
-      },
+      { "@type": "City", name: "Kansas City", addressRegion: "MO" },
+      { "@type": "City", name: "Kansas City", addressRegion: "KS" },
+      { "@type": "City", name: "Overland Park", addressRegion: "KS" },
+      { "@type": "City", name: "Olathe", addressRegion: "KS" },
+      { "@type": "City", name: "Shawnee", addressRegion: "KS" },
+      { "@type": "City", name: "Lenexa", addressRegion: "KS" },
+      { "@type": "City", name: "Independence", addressRegion: "MO" },
+      { "@type": "City", name: "Lee's Summit", addressRegion: "MO" },
+      { "@type": "City", name: "Blue Springs", addressRegion: "MO" },
+      { "@type": "City", name: "Liberty", addressRegion: "MO" },
       {
         "@type": "PostalAddress",
         postalCode: "64131",

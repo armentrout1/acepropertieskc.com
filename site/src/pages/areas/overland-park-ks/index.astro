@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import OfferForm from "../../../components/OfferForm.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -46,6 +47,13 @@ const steps = [
   },
 ];
 
+const commonSellerGoals = [
+  "Sell my house fast in Overland Park without repairs or showings",
+  "Talk with cash home buyers in Overland Park before listing",
+  "Compare a direct offer with agent commissions, HOA items, and holding costs",
+  "Coordinate an inherited, vacant, tenant-occupied, or repair-heavy Johnson County sale",
+];
+
 const faqs = [
   {
     question: "Are your offers competitive with listing on the MLS?",
@@ -82,17 +90,40 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Cash Home Buyers Overland Park KS - Johnson County"
-  description="Overland Park cash buyers. Flexible closing dates for Blue Valley, South OP, and Central OP homes. Work with HOAs, handle repairs, respect your timeline."
+  title="Cash Home Buyers Overland Park KS | Sell Fast"
+  description="Sell your Overland Park house fast or compare a local cash offer. No repairs, showings, or fees. Johnson County help with HOAs and timing."
   canonicalPath="/areas/overland-park-ks/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Overland Park, Kansas</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Overland Park</h1>
-    <p class="text-muted">
-      Overland Park homeowners value clear communication and predictable timelines. Whether you are relocating for work, handling an estate, or navigating repairs that keep piling up, we provide straight answers and options built around your goals. We live and work in the Kansas City metro, so local lenders, title companies, and contractors already know our process.
-    </p>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-4">
+      <p class="badge">Overland Park, Kansas</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Overland Park, KS</h1>
+      <p class="text-muted">
+        Overland Park homeowners value clear communication and predictable timelines. Whether you are relocating for work, handling an estate, or navigating repairs that keep piling up, we provide straight answers and cash or creative options built around your goals. We live and work in the Kansas City metro, so local lenders, title companies, and contractors already know our process.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get an Overland Park offer</a>
+        <a href="/solutions/sell-house-fast/" class="btn btn-ghost text-base">Compare fast-sale options</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="overland-park-ks-offer-form"
+      heading="Request an Overland Park offer"
+      subheading="Start with the address and the best way to reach you."
+    />
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">Common Overland Park seller goals</h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {commonSellerGoals.map((goal) => (
+          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">

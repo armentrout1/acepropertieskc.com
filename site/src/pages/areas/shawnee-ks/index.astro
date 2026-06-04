@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import OfferForm from "../../../components/OfferForm.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -40,6 +41,13 @@ const steps = [
   },
 ];
 
+const commonSellerGoals = [
+  "Sell my house fast in Shawnee KS without repairs or open houses",
+  "Talk with we-buy-houses Shawnee buyers before listing",
+  "Compare a cash offer with agent fees, repair costs, and holding time",
+  "Handle inherited, vacant, divorce, relocation, or major-repair situations",
+];
+
 const faqs = [
   {
     question: "Do you buy homes in Shawnee's historic districts?",
@@ -76,17 +84,40 @@ const jsonLd = [
 ---
 
 <Layout
-  title="We Buy Homes Shawnee KS - Downtown & Monticello"
-  description="Buying homes in Shawnee KS. Johnson County expertise for historic properties, golf course communities, and family relocations. Fair cash offers."
+  title="We Buy Houses Shawnee KS | Sell My House Fast"
+  description="Sell your Shawnee KS house fast or compare a local cash offer. As-is help for Downtown Shawnee, Monticello, Woodland Hills, repairs, and estates."
   canonicalPath="/areas/shawnee-ks/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Shawnee, Kansas</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Shawnee, Kansas</h1>
-    <p class="text-muted">
-      Shawnee homeowners value straightforward solutions when property decisions become complex. Whether you're managing an inherited family home in Downtown Shawnee, coordinating a corporate relocation from Woodland Hills, or facing repairs that feel overwhelming in Monticello, we provide clear options without pressure. Our local team understands Johnson County processes and keeps every step transparent.
-    </p>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-4">
+      <p class="badge">Shawnee, Kansas</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Shawnee, KS</h1>
+      <p class="text-muted">
+        Shawnee homeowners value straightforward solutions when property decisions become complex. Whether you're managing an inherited family home in Downtown Shawnee, coordinating a corporate relocation from Woodland Hills, or facing repairs that feel overwhelming in Monticello, we provide clear cash and creative options without pressure. Our local team understands Johnson County processes and keeps every step transparent.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a Shawnee offer</a>
+        <a href="/solutions/sell-house-fast/" class="btn btn-ghost text-base">Compare fast-sale options</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="shawnee-ks-offer-form"
+      heading="Request a Shawnee offer"
+      subheading="Start with the address and the best way to reach you."
+    />
+  </section>
+
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">Common Shawnee seller goals</h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {commonSellerGoals.map((goal) => (
+          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
