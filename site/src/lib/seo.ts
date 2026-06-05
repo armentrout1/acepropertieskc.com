@@ -165,3 +165,46 @@ export function articleJsonLd({
     mainEntityOfPage: buildCanonicalUrl(path),
   };
 }
+
+export function serviceJsonLd({
+  name,
+  description,
+  path,
+  serviceType = "Real estate home buying service",
+}: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType?: string;
+}): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    serviceType,
+    url: buildCanonicalUrl(path),
+    provider: {
+      "@type": "LocalBusiness",
+      name: SITE.name,
+      url: SITE.baseUrl,
+      telephone: SITE.phoneTel,
+    },
+    areaServed: [
+      { "@type": "City", name: "Kansas City", addressRegion: "MO" },
+      { "@type": "City", name: "Kansas City", addressRegion: "KS" },
+      { "@type": "City", name: "Overland Park", addressRegion: "KS" },
+      { "@type": "City", name: "Olathe", addressRegion: "KS" },
+      { "@type": "City", name: "Shawnee", addressRegion: "KS" },
+      { "@type": "AdministrativeArea", name: "Johnson County", addressRegion: "KS" },
+      { "@type": "AdministrativeArea", name: "Jackson County", addressRegion: "MO" },
+    ],
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      areaServed: "Kansas City metro",
+      priceCurrency: "USD",
+      url: buildCanonicalUrl(path),
+    },
+  };
+}

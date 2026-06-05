@@ -6,6 +6,7 @@ import {
   localBusinessJsonLd,
   buildFaqPageJsonLd,
   buildBreadcrumbList,
+  serviceJsonLd,
 } from "../../../lib/seo";
 
 const faqs = [
@@ -38,6 +39,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Facing Foreclosure Options in Kansas City",
+    description:
+      "Private cash and creative sale options for Kansas City homeowners facing foreclosure, including payoff-at-closing, title coordination, and advisor-reviewed next steps.",
+    path: "/solutions/facing-foreclosure/",
+  }),
   buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -49,15 +56,15 @@ const jsonLd = [
 
 <Layout
   title="Facing Foreclosure? Sell Your House Fast in Kansas City"
-  description="ACE Properties KC helps Kansas City homeowners avoid foreclosure with fast cash offers and creative solutions. Subject-to options available. Get your offer today."
+  description="Facing foreclosure in Kansas City? Compare as-is cash sale, payoff-at-closing, subject-to discussions, and timeline options before deadlines tighten."
   canonicalPath="/solutions/facing-foreclosure/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-5">
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Foreclosure Solutions</p>
-    <h1 class="text-4xl font-semibold text-primary">Facing Foreclosure? We Can Help</h1>
+    <h1 class="text-4xl font-semibold text-primary">Facing Foreclosure in Kansas City? Compare Your Options</h1>
     <p class="max-w-3xl text-muted">
-      When the bank is moving toward foreclosure, time is your most valuable asset. We specialize in fast closings that can stop the foreclosure process and protect your credit. Learn your options without pressure or obligation.
+      When a lender is moving toward foreclosure, time matters. A direct sale may be one possible path if title can clear before a deadline, but it should be compared with lender workouts, housing counseling, legal advice, and any option that helps you keep the house if that is your goal.
     </p>
   </section>
 
@@ -66,7 +73,7 @@ const jsonLd = [
       <article class="card space-y-3">
         <h2 class="text-2xl font-semibold text-primary">Fast Cash Sale</h2>
         <p class="text-muted">
-          Close in as little as 7-14 days with a guaranteed cash offer. We pay all closing costs and handle the paperwork. This is the quickest way to stop foreclosure and preserve your credit.
+          A cash sale may close quickly once title is ready and can use closing proceeds to pay the mortgage, arrears, taxes, and recorded liens. The timeline depends on title, lender payoff figures, all required signatures, and any court or auction date.
         </p>
         <ul class="list-disc list-inside text-sm text-muted space-y-1">
           <li>No repairs needed – sell as-is</li>
@@ -79,13 +86,13 @@ const jsonLd = [
       <article class="card space-y-3">
         <h2 class="text-2xl font-semibold text-primary">Subject-To Options</h2>
         <p class="text-muted">
-          We may be able to take over your existing mortgage payments, catching up arrears and stopping foreclosure while you walk away. This creative approach works when you have equity but need time.
+          Subject-to may be discussed when keeping the existing loan in place could solve a payoff or timing problem. This structure carries real seller risk and should be reviewed with your own legal or financial advisor before signing.
         </p>
         <ul class="list-disc list-inside text-sm text-muted space-y-1">
-          <li>We catch up missed payments</li>
-          <li>M stays in your name temporarily</li>
-          <li>No new loan needed</li>
-          <li>Protects your credit score</li>
+          <li>Payment and arrears plan documented in writing</li>
+          <li>Existing mortgage may stay in your name temporarily</li>
+          <li>No new loan may be needed from the buyer</li>
+          <li>Advisor review strongly encouraged</li>
         </ul>
       </article>
     </div>
@@ -93,19 +100,19 @@ const jsonLd = [
 
   <section class="section section-alt">
     <div class="card bg-white/90 space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">How We Stop Foreclosure</h2>
+      <h2 class="text-2xl font-semibold text-primary">How we review the timeline</h2>
       <div class="grid gap-4 md:grid-cols-3">
         <div class="space-y-2">
-          <h3 class="font-semibold text-primary">1. Same-Day Offer</h3>
-          <p class="text-sm text-muted">Submit your property details and receive a no-obligation cash offer within 24 hours.</p>
+          <h3 class="font-semibold text-primary">1. Notice review</h3>
+          <p class="text-sm text-muted">Share the lender notices, payoff status, and any sale date so the timeline is not guessed.</p>
         </div>
         <div class="space-y-2">
-          <h3 class="font-semibold text-primary">2. Title Work</h3>
-          <p class="text-sm text-muted">We handle all title searches and paperwork while you review the offer with advisors.</p>
+          <h3 class="font-semibold text-primary">2. Title and payoff check</h3>
+          <p class="text-sm text-muted">The title company confirms ownership, liens, payoff numbers, and what must be paid from proceeds.</p>
         </div>
         <div class="space-y-2">
-          <h3 class="font-semibold text-primary">3. Fast Closing</h3>
-          <p class="text-sm text-muted">Close when you're ready. We coordinate with the lender to stop the foreclosure process.</p>
+          <h3 class="font-semibold text-primary">3. Written options</h3>
+          <p class="text-sm text-muted">You can compare a sale, backup offer, or creative discussion with lender and advisor input.</p>
         </div>
       </div>
     </div>
@@ -118,11 +125,14 @@ const jsonLd = [
         Every foreclosure situation is unique. While we can often provide solutions that stop the process, we cannot guarantee specific outcomes. We encourage you to:
       </p>
       <ul class="list-disc list-inside text-sm text-muted space-y-1">
-        <li>Consult with a housing counselor or attorney</li>
+        <li>Consult with a HUD-approved housing counselor or attorney</li>
         <li>Review all loan documents carefully</li>
         <li>Understand tax implications of any sale</li>
         <li>Consider all alternatives before deciding</li>
       </ul>
+      <p class="text-sm text-muted">
+        A neutral starting point is the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a>, which links to HUD and CFPB housing counseling resources.
+      </p>
       <p class="text-sm text-muted">
         We provide clear, transparent options and help you understand the timeline and consequences of each approach.
       </p>
@@ -132,7 +142,7 @@ const jsonLd = [
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Take Action Today</h2>
     <p class="text-muted">
-      The sooner you contact us, the more options we have to help. Don't wait until the auction date – reach out now for a confidential consultation about your situation.
+      The sooner you compare timelines, the more room you usually have to make a calm decision. Share the address, latest lender notice, and any known sale date so we can tell you whether a direct sale timeline is realistic.
     </p>
     <div class="flex flex-wrap gap-4">
       <a href="/get-offer/" class="btn btn-primary text-base">Get Your Cash Offer</a>

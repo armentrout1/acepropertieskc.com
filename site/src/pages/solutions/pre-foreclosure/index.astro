@@ -7,6 +7,7 @@ import {
   localBusinessJsonLd,
   buildFaqPageJsonLd,
   buildBreadcrumbList,
+  serviceJsonLd,
 } from "../../../lib/seo";
 
 const steps = [
@@ -82,6 +83,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Kansas City Pre-Foreclosure Options",
+    description:
+      "Private cash and creative sale options for Kansas City homeowners in pre-foreclosure, including payoff-at-closing, backup offer, and title timeline reviews.",
+    path: "/solutions/pre-foreclosure/",
+  }),
   buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -101,9 +108,12 @@ const jsonLd = [
   <section class="section space-y-5">
     <p class="badge">Pre-Foreclosure Guidance</p>
     <h1 class="text-4xl font-semibold text-primary">Navigate Pre-Foreclosure with Clarity</h1>
-    <p class="text-muted">
-      Pre-foreclosure notices can feel urgent, but there is still time to weigh options in the Kansas City metro. ACE Properties KC focuses locally, so we know how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders handle reinstatement, short timelines, and payoff communication. We do not provide legal advice and cannot guarantee outcomes, yet we do explain every sale path plainly so you can decide what aligns with your plans.
-    </p>
+      <p class="text-muted">
+        Pre-foreclosure notices can feel urgent, but there is still time to weigh options in the Kansas City metro. ACE Properties KC focuses locally, so we know how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders handle reinstatement, short timelines, and payoff communication. We do not provide legal advice and cannot guarantee outcomes, yet we do explain every sale path plainly so you can decide what aligns with your plans.
+      </p>
+      <p class="text-muted">
+        If you need the broader decision tree first, use the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> to compare lender help, counseling, selling, and subject-to questions.
+      </p>
   </section>
 
   <HighIntentOfferBlock

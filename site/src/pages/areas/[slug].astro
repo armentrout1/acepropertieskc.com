@@ -44,6 +44,15 @@ const commonSellerGoals = [
   `Choose a closing date around family, title, payoffs, or relocation timing`,
 ];
 
+const countyPressureGuide =
+  area.county === "Jackson County"
+    ? { label: "Jackson County foreclosure options", href: "/resources/jackson-county-foreclosure-options/" }
+    : area.county === "Johnson County"
+      ? { label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }
+      : area.county === "Wyandotte County"
+        ? { label: "Wyandotte County foreclosure options", href: "/resources/wyandotte-county-foreclosure-options/" }
+        : null;
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
@@ -149,6 +158,11 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Nearby resources</h2>
       <ul class="space-y-3 text-sm text-primary">
+        {countyPressureGuide && (
+          <li>
+            <a href={countyPressureGuide.href} class="text-secondary underline">{countyPressureGuide.label}</a>
+          </li>
+        )}
         {area.nearbyLinks.map((link) => (
           <li>
             <a href={link.href} class="text-secondary underline">{link.label}</a>

@@ -29,6 +29,8 @@ const steps = [
 
 const solutions = [
   { title: "Sell House Fast", body: "Speed and certainty with as-is cash offers for any situation.", href: "/solutions/sell-house-fast/" },
+  { title: "Behind on Payments", body: "Compare lender options, payoff-at-closing, cash sale, and backup plans.", href: "/solutions/behind-on-payments/" },
+  { title: "Facing Foreclosure", body: "Review timing, title, payoffs, housing counseling, and sale options calmly.", href: "/solutions/facing-foreclosure/" },
   { title: "Inherited Home", body: "Coordinate siblings and estates with calm, organized guidance.", href: "/solutions/inherited-house/" },
   { title: "Probate House", body: "Court-ready offers for executors navigating legal processes.", href: "/solutions/probate-house/" },
   { title: "Vacant House", body: "Stop carrying costs and sell empty properties as-is.", href: "/solutions/vacant-house/" },
@@ -55,7 +57,7 @@ const faqs = [
   },
   {
     question: "What if I'm dealing with a difficult situation?",
-    answer: "We handle complex situations daily—probate, relocations, financial pressure, and more. We provide practical options without judgment and clear next steps."
+    answer: "We handle complex situations daily - probate, relocations, financial pressure, and more. We provide practical options without judgment and clear next steps."
   },
   {
     question: "Can I talk with someone before deciding?",
@@ -71,8 +73,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="We Buy Houses Kansas City - Cash Offers & Creative Options"
-  description="Kansas City cash home buyer. Get fair offers in 24 hours, close in 2 weeks, or explore creative financing. No repairs, no fees, no pressure."
+  title="Sell My House Fast Kansas City | Cash & Creative Options"
+  description="Need to sell your Kansas City house fast or as-is? Compare a local cash offer, creative options, repairs, payoffs, and timelines with no pressure."
   canonicalPath="/"
   jsonLd={jsonLd}
 >
@@ -82,7 +84,7 @@ const jsonLd = [
         <span class="badge">Creative Home Buyer</span>
         <div class="space-y-4">
           <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-          Sell Your Kansas City House As-Is — Cash or Creative Options
+          Sell Your Kansas City House Fast or As-Is
           </h1>
           <p class="text-muted">
           Whether you're in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, or anywhere in the metro, we provide local guidance and practical solutions. We work with homeowners facing <a href="/solutions/relocating/" class="text-secondary underline">relocations</a>, <a href="/solutions/inherited-house/" class="text-secondary underline">inherited properties</a>, and situations requiring quick decisions.
@@ -112,7 +114,7 @@ const jsonLd = [
       <div class="grid gap-4 text-sm font-medium text-primary sm:grid-cols-5">
         {trustPoints.map((point) => (
           <div class="flex items-center gap-2" role="listitem">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary/10 text-secondary">•</span>
+            <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-secondary"></span>
             <span>{point}</span>
           </div>
         ))}
@@ -145,7 +147,7 @@ const jsonLd = [
       <h2 class="text-3xl font-semibold text-primary">Solutions we walk through every week</h2>
       <p class="text-muted">Choose the path that fits your timing, financing, and comfort level. We outline pros and trade-offs before you sign.</p>
     </div>
-    <div class="grid gap-5 md:grid-cols-3">
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
       {solutions.map((solution) => (
         <a href={solution.href} class="card transition hover:-translate-y-1 hover:border-secondary/60">
           <h3 class="text-xl font-semibold text-primary">{solution.title}</h3>

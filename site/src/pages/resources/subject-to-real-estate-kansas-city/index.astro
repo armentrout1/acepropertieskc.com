@@ -17,6 +17,26 @@ const questions = [
   "What happens if insurance, taxes, or HOA dues change?",
   "Does the mortgage have a due-on-sale clause?",
   "What written protections, servicing, escrow, or third-party oversight are used?",
+  "What happens if the buyer misses a payment or stops communicating?",
+  "Has an attorney or qualified advisor reviewed the agreement before signing?",
+];
+
+const comparisonItems = [
+  {
+    title: "Cash sale",
+    body:
+      "The existing loan is usually paid off through the title company at closing. This is often simpler when the seller wants a clean break.",
+  },
+  {
+    title: "Subject-to",
+    body:
+      "The existing loan may stay in place after ownership transfers. This can solve certain timing or payoff issues, but the seller may remain tied to the loan.",
+  },
+  {
+    title: "Loan workout",
+    body:
+      "A lender may discuss repayment, forbearance, modification, or reinstatement. This matters most when the seller wants to keep the house.",
+  },
 ];
 
 const faqs = [
@@ -39,6 +59,11 @@ const faqs = [
     question: "Should I get legal advice before signing?",
     answer:
       "Yes. Subject-to agreements can affect credit, taxes, insurance, mortgage terms, and legal obligations. Sellers should involve qualified legal and financial advisors.",
+  },
+  {
+    question: "Can subject-to help if I am behind on payments?",
+    answer:
+      "It may be discussed in some behind-payment situations, but arrears, lender timelines, loan terms, and seller risk all matter. Compare it with lender options, a cash sale, and payoff-at-closing.",
   },
 ];
 
@@ -76,6 +101,7 @@ const jsonLd = [
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Compare cash and creative options</a>
         <a href="/options/" class="btn btn-ghost text-base">Read options overview</a>
+        <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn btn-outline text-base">Behind on mortgage guide</a>
       </div>
     </header>
 
@@ -89,6 +115,21 @@ const jsonLd = [
           </li>
         ))}
       </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Compare it against the simpler paths</h2>
+      <p class="text-muted">
+        Subject-to can sound attractive when mortgage payments are creating pressure, but it should be compared against cleaner options first. The right path depends on deadlines, equity, loan terms, credit impact, and whether you want to stay or sell.
+      </p>
+      <div class="grid gap-5 md:grid-cols-3">
+        {comparisonItems.map((item) => (
+          <article class="card">
+            <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm text-muted">{item.body}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="grid gap-8 md:grid-cols-2">
@@ -108,6 +149,9 @@ const jsonLd = [
         </p>
         <p class="text-muted">
           The right answer depends on mortgage balance, equity, timing, condition, and risk tolerance.
+        </p>
+        <p class="text-muted">
+          If the situation involves missed payments, review our <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a> and our <a href="/solutions/behind-on-payments/" class="text-secondary underline">behind-on-payments solution page</a>.
         </p>
       </article>
     </section>

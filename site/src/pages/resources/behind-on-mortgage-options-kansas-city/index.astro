@@ -1,0 +1,245 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Behind on Mortgage Payments in Kansas City? Compare Your Options";
+const description =
+  "A Kansas City homeowner guide to mortgage payment pressure, including lender options, HUD-approved counseling, cash sale, payoff-at-closing, subject-to, and foreclosure timeline questions.";
+
+const firstSteps = [
+  "Open the most recent mortgage statement and any default or foreclosure letters",
+  "Call the servicer or log in to check the reinstatement, payoff, and deadline status",
+  "Write down taxes, HOA dues, utilities, liens, and other balances tied to the property",
+  "Decide whether your first goal is keeping the house, selling cleanly, or buying time to move",
+];
+
+const options = [
+  {
+    title: "Talk with the loan servicer",
+    body:
+      "Ask about reinstatement, repayment, forbearance, modification, payoff, and any deadline already on the file. This is the baseline even if you also compare selling.",
+  },
+  {
+    title: "Contact a HUD-approved housing counselor",
+    body:
+      "A counselor can help you understand hardship options and communicate with the lender. This is especially useful if you want to keep the home.",
+  },
+  {
+    title: "Sell with payoff at closing",
+    body:
+      "If there is equity and enough time, a sale can pay the loan, arrears, taxes, and recorded liens through the title company before the seller receives net proceeds.",
+  },
+  {
+    title: "Compare subject-to carefully",
+    body:
+      "Subject-to may be discussed when keeping the existing loan in place could solve a timing or payoff issue. It needs careful written terms and advisor review.",
+  },
+  {
+    title: "Use a backup offer",
+    body:
+      "A written backup offer can help while you pursue a modification, refinance, or listing. If the first plan stalls, you already know whether selling can work.",
+  },
+  {
+    title: "List traditionally if time allows",
+    body:
+      "If the house is market-ready and deadlines are not tight, listing may produce a higher gross price. Compare net proceeds, repairs, concessions, and timing.",
+  },
+];
+
+const subjectToChecks = [
+  "Will the seller remain responsible for the loan?",
+  "How will payments be verified every month?",
+  "What happens if taxes, insurance, HOA dues, or escrow change?",
+  "Does the loan include due-on-sale language?",
+  "Who services the payments, stores records, and handles disputes?",
+  "Has an attorney or qualified advisor reviewed the documents?",
+];
+
+const countyGuides = [
+  {
+    title: "Jackson County foreclosure options",
+    href: "/resources/jackson-county-foreclosure-options/",
+    body:
+      "For Kansas City, Independence, Raytown, Grandview, Blue Springs, Lee's Summit, Grain Valley, and Oak Grove sellers comparing payoff-at-closing with lender options.",
+  },
+  {
+    title: "Johnson County behind-on-payments guide",
+    href: "/resources/johnson-county-behind-on-payments/",
+    body:
+      "For Olathe, Overland Park, Shawnee, Lenexa, Prairie Village, Mission, Leawood, Merriam, Gardner, Spring Hill, and De Soto sellers dealing with HOA and title timing.",
+  },
+  {
+    title: "Wyandotte County foreclosure options",
+    href: "/resources/wyandotte-county-foreclosure-options/",
+    body:
+      "For Kansas City, Kansas and Wyandotte County sellers balancing payment pressure with repairs, taxes, code notices, liens, tenants, or vacancy.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What should I do first if I am behind on mortgage payments?",
+    answer:
+      "Start by checking the current status with your loan servicer, gathering the latest statement and notices, and writing down any hard deadlines. Then compare keeping the house, selling, or using a backup plan.",
+  },
+  {
+    question: "Can I sell my house if I am behind on payments?",
+    answer:
+      "Often yes, if there is enough time and title can clear. The title company usually uses sale proceeds to pay the mortgage, arrears, taxes, and recorded liens at closing.",
+  },
+  {
+    question: "Is subject-to a way to get out of a mortgage?",
+    answer:
+      "It can be one possible structure, but it is not a simple cure-all. The seller may remain tied to the loan, so payment verification, insurance, taxes, due-on-sale risk, and advisor review matter.",
+  },
+  {
+    question: "Should I talk to a housing counselor?",
+    answer:
+      "Yes, especially if your goal is to keep the house. HUD-approved housing counselors can help homeowners understand lender and foreclosure-prevention options.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/behind-on-mortgage-options-kansas-city/",
+    datePublished: "2026-06-05",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Behind on Mortgage Options", item: "/resources/behind-on-mortgage-options-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Behind on Mortgage Payments Kansas City | Options Guide"
+  description={description}
+  canonicalPath="/resources/behind-on-mortgage-options-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Mortgage pressure guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        If you are behind on mortgage payments, trying to avoid foreclosure, or wondering whether subject-to could help, start with clarity. This guide is not legal or financial advice. It is a plain-English way to compare the major paths Kansas City homeowners ask about before deciding what to do next.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/solutions/behind-on-payments/" class="btn btn-primary text-base">Review sale options</a>
+        <a href="/resources/subject-to-real-estate-kansas-city/" class="btn btn-ghost text-base">Understand subject-to</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Start with these four facts</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {firstSteps.map((step) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{step}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Options to compare before the timeline gets tighter</h2>
+      <p class="text-muted">
+        The right path depends on equity, deadlines, property condition, whether you want to stay, and how much risk you are comfortable carrying. These are the conversations worth having before signing anything.
+      </p>
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {options.map((option) => (
+          <article class="card h-full">
+            <h3 class="text-xl font-semibold text-primary">{option.title}</h3>
+            <p class="mt-2 text-sm text-muted">{option.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When subject-to comes up</h2>
+        <p class="text-muted">
+          Subject-to usually means ownership transfers while the existing loan stays in place. That can create flexibility, but it can also leave the seller tied to the mortgage. Before treating it as an answer, ask these questions.
+        </p>
+        <ul class="space-y-3 text-sm text-primary">
+          {subjectToChecks.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Helpful neutral resources</h2>
+        <p class="text-muted">
+          If keeping the house is your goal, talk with the lender and a neutral counselor too. HUD and CFPB both point homeowners toward HUD-approved housing counselors.
+        </p>
+        <div class="space-y-3 text-sm">
+          <a href="https://www.hud.gov/helping-americans/avoiding-foreclosure" class="block rounded-md border border-border bg-white p-4 font-semibold text-secondary" rel="noopener noreferrer">
+            HUD avoiding foreclosure resources
+          </a>
+          <a href="https://www.consumerfinance.gov/find-a-housing-counselor/" class="block rounded-md border border-border bg-white p-4 font-semibold text-secondary" rel="noopener noreferrer">
+            CFPB housing counselor finder
+          </a>
+          <a href="https://www.consumerfinance.gov/mortgagehelp/" class="block rounded-md border border-border bg-white p-4 font-semibold text-secondary" rel="noopener noreferrer">
+            CFPB mortgage help
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">County guides for local deadlines and title details</h2>
+      <p class="text-muted">
+        The broad mortgage options are similar across the metro, but county, HOA, code, tax, and title details can change the practical path. Start with the county guide closest to the property.
+      </p>
+      <div class="grid gap-5 md:grid-cols-3">
+        {countyGuides.map((guide) => (
+          <a href={guide.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">County payment guide</p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">{guide.title}</h3>
+            <p class="mt-3 text-sm text-muted">{guide.body}</p>
+            <span class="mt-5 inline-flex text-sm font-semibold text-secondary">Read county guide</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need a written backup option while you talk to the lender?</h2>
+        <p class="text-muted">
+          Send the address, rough payment status, and any known dates. We can outline whether a direct sale, payoff-at-closing, or creative option is realistic and encourage you to review it with your own advisors.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Mortgage pressure FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

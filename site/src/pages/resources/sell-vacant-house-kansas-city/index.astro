@@ -1,0 +1,193 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Sell a Vacant House in Kansas City";
+const description =
+  "A Kansas City guide to selling a vacant house, including carrying costs, insurance, utilities, code issues, clean-out, repairs, and cash offer timing.";
+
+const costs = [
+  "Utilities that stay on for safety, inspections, or weather protection",
+  "Vacant-home insurance or higher insurance premiums",
+  "Property taxes, mortgage payments, HOA dues, and special assessments",
+  "Lawn care, snow removal, trash, security, locks, and winterization",
+  "Repairs from leaks, vandalism, break-ins, pests, or deferred maintenance",
+];
+
+const riskSignals = [
+  {
+    title: "Insurance gets harder",
+    body:
+      "Some policies change once a house is vacant. If coverage is limited, even a small leak or break-in can become expensive quickly.",
+  },
+  {
+    title: "Code items can stack up",
+    body:
+      "Tall grass, exterior damage, trash, open windows, or unsecured doors can lead to city notices and repeat trips to the property.",
+  },
+  {
+    title: "Small repairs become bigger",
+    body:
+      "Vacant houses hide problems. A roof leak, frozen pipe, or HVAC issue may go unnoticed until the damage affects more rooms.",
+  },
+  {
+    title: "The net changes while you wait",
+    body:
+      "Even if a later listing sells for more, carrying costs, repairs, concessions, and time can reduce the final number you keep.",
+  },
+];
+
+const sellerPaths = [
+  {
+    path: "List after cleaning and repairs",
+    fit: "Best when the house is safe, marketable, easy to show, and you can manage the work before listing.",
+  },
+  {
+    path: "Sell as-is with a direct buyer",
+    fit: "Best when you want to stop costs, avoid repairs, skip clean-out, or close around title and moving needs.",
+  },
+  {
+    path: "Hold while you decide",
+    fit: "Best only when monthly costs are low, insurance is stable, and the property is secure.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can I sell a vacant house in Kansas City without cleaning it out?",
+    answer:
+      "Yes. A direct as-is buyer can include clean-out, trash removal, and leftover belongings in the offer. If the house is easy to clean out, you can also compare that against listing.",
+  },
+  {
+    question: "Do utilities need to be on before asking for a cash offer?",
+    answer:
+      "Not always. Utilities can help confirm systems, but a direct buyer can often review the property without them and price that uncertainty into the offer.",
+  },
+  {
+    question: "How fast can a vacant house sale close?",
+    answer:
+      "A clean cash closing can sometimes happen in about two weeks after title is clear. Payoffs, liens, ownership issues, code items, or missing documents can add time.",
+  },
+  {
+    question: "Should I list a vacant house or sell it as-is?",
+    answer:
+      "If the house is updated and easy to show, listing may be worth comparing. If repairs, clean-out, security, insurance, or monthly costs are becoming the problem, an as-is offer may be the cleaner path.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-vacant-house-kansas-city/",
+    datePublished: "2026-06-05",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Sell a Vacant House in Kansas City", item: "/resources/sell-vacant-house-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell a Vacant House in Kansas City | As-Is Guide"
+  description={description}
+  canonicalPath="/resources/sell-vacant-house-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Vacant house guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        A vacant house can look quiet from the outside while the monthly costs keep moving. This guide helps Kansas City sellers compare holding, repairing, listing, and selling as-is before insurance, code items, or repairs make the decision harder.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/solutions/vacant-house/" class="btn btn-primary text-base">Review vacant house options</a>
+        <a href="/resources/vacant-house-carrying-cost-calculator/" class="btn btn-ghost text-base">Estimate carrying costs</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Costs that keep running while the house sits empty</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {costs.map((cost) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{cost}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Why vacant homes create urgency</h2>
+      <p class="text-muted">
+        The risk is not just the current repair list. It is what can happen while nobody is living there. That is why vacant sellers often ask for a fast written offer before deciding whether to invest in cleaning, repairs, and a full MLS listing.
+      </p>
+      <div class="grid gap-5 md:grid-cols-2">
+        {riskSignals.map((signal) => (
+          <article class="card">
+            <h3 class="text-xl font-semibold text-primary">{signal.title}</h3>
+            <p class="mt-2 text-sm text-muted">{signal.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Three paths to compare</h2>
+        <div class="space-y-4">
+          {sellerPaths.map((item) => (
+            <div class="rounded-md border border-border bg-white p-4">
+              <h3 class="text-base font-semibold text-primary">{item.path}</h3>
+              <p class="mt-2 text-sm text-muted">{item.fit}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What to have ready before requesting an offer</h2>
+        <p class="text-muted">
+          Start with the address, how long the home has been vacant, whether utilities are on, known repairs, security concerns, and any city letters or HOA notices. If you know the mortgage payoff, tax balance, or insurance issue, include that too.
+        </p>
+        <p class="text-muted">
+          For the direct offer path, read the main <a href="/solutions/vacant-house/" class="text-secondary underline">vacant house solution page</a>. If timing is the concern, compare the <a href="/resources/cash-home-buyers-close-in-two-weeks-kansas-city/" class="text-secondary underline">two-week cash closing guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Want to know what the vacant house could sell for as-is?</h2>
+        <p class="text-muted">
+          Send the address and a quick note about condition, utilities, and your timeline. We will help you compare an as-is offer with the costs of waiting.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a vacant house offer</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Vacant house FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

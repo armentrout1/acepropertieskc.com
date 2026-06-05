@@ -1,0 +1,190 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Jackson County Foreclosure Options for Kansas City Homeowners";
+const description =
+  "A Jackson County MO guide for homeowners behind on payments, comparing lender options, housing counseling, payoff-at-closing, cash sale, subject-to, and backup offers.";
+
+const localSignals = [
+  "Kansas City, Independence, Raytown, Grandview, Blue Springs, Lee's Summit, Grain Valley, and Oak Grove",
+  "Mortgage payoff, reinstatement, property tax, HOA, and utility balances",
+  "Title items such as liens, judgments, probate authority, divorce orders, or missing signatures",
+  "Move-out timing, clean-out needs, repairs, tenants, and whether the house is vacant",
+];
+
+const optionCards = [
+  {
+    title: "Keep-the-house path",
+    body:
+      "Talk with the loan servicer about reinstatement, repayment plans, forbearance, modification, and other workout options. If keeping the property is the goal, a HUD-approved housing counselor can help you compare those steps.",
+  },
+  {
+    title: "Sell with payoff at closing",
+    body:
+      "If there is enough equity and enough time, the title company can usually use sale proceeds to pay the mortgage, late amounts, taxes, and recorded liens at closing.",
+  },
+  {
+    title: "Direct as-is cash offer",
+    body:
+      "A cash sale may help when the property needs repairs, the timeline is tight, or showings are not practical. The key is confirming title, payoff numbers, and seller net before committing.",
+  },
+  {
+    title: "Subject-to or creative option",
+    body:
+      "Subject-to can come up when the existing loan stays in place after transfer. It needs careful documents, payment tracking, insurance/tax planning, and advisor review because the seller may remain tied to the loan.",
+  },
+];
+
+const decisionQuestions = [
+  "Do you want to keep the house, sell the house, or simply buy time to make a cleaner decision?",
+  "Is there a written deadline from the lender, trustee, court, HOA, or tax authority?",
+  "How much equity is likely left after payoff, arrears, taxes, and selling costs?",
+  "Would repairs, showings, tenants, or vacancy make a traditional listing too slow?",
+  "Who needs to sign, and does title need probate, divorce, trust, or estate documents?",
+];
+
+const faqs = [
+  {
+    question: "Can I sell a Jackson County house if I am behind on payments?",
+    answer:
+      "Often yes, if title can close and there is enough time before any hard deadline. The title company usually confirms payoff and uses sale proceeds to pay the lender and recorded liens at closing.",
+  },
+  {
+    question: "Should I contact my lender before asking for an offer?",
+    answer:
+      "Yes. Ask the servicer for current payoff, reinstatement, and deadline information. A written offer can be compared with lender options, but the lender status is the baseline.",
+  },
+  {
+    question: "Can a direct buyer stop foreclosure?",
+    answer:
+      "A buyer should not promise that casually. A sale may help if it closes in time and pays what title requires. Always verify deadlines with the lender, title company, and your own advisor.",
+  },
+  {
+    question: "What if the property needs repairs or clean-out?",
+    answer:
+      "A direct as-is offer can account for repairs, clean-out, and vacant-house risk. Listing may still work if time allows, so compare net proceeds and certainty before deciding.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/jackson-county-foreclosure-options/",
+    datePublished: "2026-06-05",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Jackson County Foreclosure Options", item: "/resources/jackson-county-foreclosure-options/" },
+  ]),
+];
+---
+
+<Layout
+  title="Jackson County Foreclosure Options | Kansas City MO"
+  description={description}
+  canonicalPath="/resources/jackson-county-foreclosure-options/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Jackson County payment pressure</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Behind-on-payment decisions get easier when the facts are visible. This guide is not legal or financial advice. It is a practical local checklist for Jackson County sellers comparing lender options, housing counseling, a direct sale, and backup offers before the timeline gets tighter.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request a written backup offer</a>
+        <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn btn-ghost text-base">Compare mortgage options</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Jackson County details to gather first</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {localSignals.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Four paths worth comparing</h2>
+      <p class="text-muted">
+        Most homeowners should compare the keep-the-house path and the sale path at the same time. That way, if a lender workout, refinance, or listing does not line up, you still understand whether a direct sale can clear the loan and protect the move-out timeline.
+      </p>
+      <div class="grid gap-5 md:grid-cols-2">
+        {optionCards.map((option) => (
+          <article class="card h-full">
+            <h3 class="text-xl font-semibold text-primary">{option.title}</h3>
+            <p class="mt-2 text-sm text-muted">{option.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Questions that shape the best route</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {decisionQuestions.map((question) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{question}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Helpful neutral resources</h2>
+        <p class="text-muted">
+          If your first goal is keeping the home, talk with the lender and a neutral counselor. You can still keep a written sale option in your back pocket while you compare.
+        </p>
+        <div class="space-y-3 text-sm">
+          <a href="https://www.hud.gov/helping-americans/avoiding-foreclosure" class="block rounded-md border border-border bg-white p-4 font-semibold text-secondary" rel="noopener noreferrer">
+            HUD avoiding foreclosure resources
+          </a>
+          <a href="https://www.consumerfinance.gov/find-a-housing-counselor/" class="block rounded-md border border-border bg-white p-4 font-semibold text-secondary" rel="noopener noreferrer">
+            CFPB housing counselor finder
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need to know if selling can actually solve the payoff?</h2>
+        <p class="text-muted">
+          Send the address, rough payment status, and any notices you have. We can outline whether an as-is sale, payoff-at-closing, or backup offer is realistic, then you can compare it with your lender and advisors.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Check my Jackson County options</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Jackson County foreclosure options FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

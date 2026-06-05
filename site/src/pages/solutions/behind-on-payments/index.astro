@@ -6,6 +6,7 @@ import {
   localBusinessJsonLd,
   buildFaqPageJsonLd,
   buildBreadcrumbList,
+  serviceJsonLd,
 } from "../../../lib/seo";
 
 const checklist = [
@@ -70,6 +71,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Sell a House Behind on Payments in Kansas City",
+    description:
+      "Private cash and creative sale options for Kansas City homeowners behind on mortgage payments, including payoff-at-closing, backup offers, and subject-to discussions.",
+    path: "/solutions/behind-on-payments/",
+  }),
   buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -121,6 +128,9 @@ const jsonLd = [
       <p class="text-muted">
         Every path is optional. We can compare quick cash offers, payoff-at-closing scenarios, subject-to arrangements that keep the loan in place temporarily, or written backup offers that give you breathing room while you pursue a refinance or listing.
       </p>
+      <p class="text-muted">
+        If you are still sorting through the big picture, start with the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> before deciding whether to sell.
+      </p>
     </article>
   </section>
 
@@ -165,6 +175,9 @@ const jsonLd = [
       </p>
       <p class="text-muted">
         Read the deeper guide on <a href="/resources/sell-house-behind-on-payments-kansas-city/" class="text-secondary underline">selling when you are behind on payments</a> if you are still comparing lender options and sale timelines.
+      </p>
+      <p class="text-muted">
+        If subject-to is part of the conversation, review the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to risk checklist</a> and involve your own legal or financial advisor before signing anything.
       </p>
     </article>
     <article class="card space-y-3">

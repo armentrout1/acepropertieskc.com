@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
 
 const carryingCosts = [
   "Monthly utilities (gas, electric, water, sewer)",
@@ -68,6 +68,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Sell a Vacant House in Kansas City",
+    description:
+      "As-is cash and creative options for vacant Kansas City metro houses with carrying costs, code issues, clean-out needs, or repair concerns.",
+    path: "/solutions/vacant-house/",
+  }),
   buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -200,6 +206,9 @@ const jsonLd = [
       </p>
       <p class="text-muted">
         If the house still has belongings inside, our <a href="/resources/clean-out-house-before-selling-kansas-city/" class="text-secondary underline">clean-out guide</a> explains what can stay and how that affects an offer.
+      </p>
+      <p class="text-muted">
+        For a deeper planning guide, read <a href="/resources/sell-vacant-house-kansas-city/" class="text-secondary underline">how to sell a vacant house in Kansas City</a>, then use the <a href="/resources/vacant-house-carrying-cost-calculator/" class="text-secondary underline">carrying cost calculator</a> to compare waiting against selling as-is.
       </p>
       <p class="text-muted">
         Ready to stop paying utilities and insurance on your vacant house? <a href="/contact/" class="text-secondary underline">Contact us</a> for a cash offer and closing timeline that eliminates your monthly expenses.

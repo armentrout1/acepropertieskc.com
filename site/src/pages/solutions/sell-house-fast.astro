@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
 
 const speedReasons = [
   "Sudden job changes or unexpected opportunities",
@@ -74,6 +74,47 @@ const searchIntentPoints = [
   "Close around relocation, probate, tenants, late payments, or a vacant house",
 ];
 
+const comparisonRows = [
+  {
+    path: "Direct cash sale",
+    bestFor: "Speed, repairs, privacy, tenants, vacant houses, inherited homes, or uncertain timing",
+    tradeoff: "The offer may be lower than a polished retail listing, but it removes repairs, showings, commissions, and financing risk.",
+  },
+  {
+    path: "Traditional listing",
+    bestFor: "Updated homes, flexible timelines, easy showings, and sellers who can wait for the strongest retail buyer",
+    tradeoff: "You may need repairs, cleaning, buyer inspections, concessions, appraisal timing, and months of carrying costs.",
+  },
+  {
+    path: "Creative option",
+    bestFor: "Sellers who want to compare cash with terms that may protect equity or solve a payment/timing issue",
+    tradeoff: "The paperwork and risk profile need to be reviewed carefully with your own advisors before signing.",
+  },
+];
+
+const relatedGuides = [
+  {
+    title: "Kansas City fast-sale guide",
+    href: "/resources/sell-house-fast-kansas-city-guide/",
+    body: "The practical timeline, documents, title checks, and seller decisions that affect a fast closing.",
+  },
+  {
+    title: "Cash buyers closing in two weeks",
+    href: "/resources/cash-home-buyers-close-in-two-weeks-kansas-city/",
+    body: "When a two-week closing is realistic and what can slow title, payoffs, or occupancy.",
+  },
+  {
+    title: "Johnson County cash buyers",
+    href: "/resources/johnson-county-cash-home-buyers/",
+    body: "Olathe, Overland Park, Shawnee, and Lenexa details for HOA, title, repairs, and timing.",
+  },
+  {
+    title: "Vacant house carrying costs",
+    href: "/resources/vacant-house-carrying-cost-calculator/",
+    body: "Estimate how utilities, insurance, taxes, repairs, and time can affect your net.",
+  },
+];
+
 const faqs = [
   {
     question: "Can I sell my house fast in Kansas City without repairs?",
@@ -114,6 +155,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Sell My House Fast in Kansas City",
+    description:
+      "As-is cash and creative home buying options for Kansas City metro sellers who need speed, certainty, and no repair requirements.",
+    path: "/solutions/sell-house-fast/",
+  }),
   buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -124,8 +171,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City | Cash Offer"
-  description="Need to sell your Kansas City house fast? Get a no-pressure as-is cash offer with no repairs, showings, commissions, or listing delays."
+  title="Sell My House Fast Kansas City | Cash Home Buyers"
+  description="Need to sell your Kansas City house fast? Compare a no-pressure as-is cash offer with no repairs, showings, commissions, or listing delays."
   canonicalPath="/solutions/sell-house-fast/"
   jsonLd={jsonLd}
 >
@@ -133,7 +180,7 @@ const jsonLd = [
     <p class="badge">Speed & Certainty Solutions</p>
     <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Kansas City</h1>
     <p class="text-muted">
-      Sometimes life demands speed: job changes, inherited properties, tenants, vacant houses, or financial situations requiring quick decisions. Whether you're in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, or anywhere in the metro, we provide cash offers that let you sell your house as-is on your timeline without repairs, showings, or listing delays.
+      If you need to sell a house fast in Kansas City, the real question is not just how quickly someone can make an offer. It is whether the buyer can explain title timing, repairs, closing costs, occupancy, and your net clearly enough for you to make a good decision. Whether you are in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, or anywhere in the metro, we provide cash and creative options so you can compare an as-is sale against listing without repairs, showings, or pressure.
     </p>
   </section>
 
@@ -151,6 +198,26 @@ const jsonLd = [
     formHeading="Request a fast-sale offer"
     trackingLocation="sell_house_fast"
   />
+
+  <section class="section space-y-5">
+    <div class="space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Compare before you decide</p>
+      <h2 class="text-3xl font-semibold text-primary">The fastest option is not always the best option</h2>
+      <p class="max-w-3xl text-muted">
+        A strong cash buyer should help you compare the direct-sale path against the open market. These are the three lanes we walk through with Kansas City sellers before they choose what fits.
+      </p>
+    </div>
+    <div class="grid gap-4 lg:grid-cols-3">
+      {comparisonRows.map((row) => (
+        <article class="card h-full space-y-3">
+          <h3 class="text-xl font-semibold text-primary">{row.path}</h3>
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Best for</p>
+          <p class="text-sm text-primary">{row.bestFor}</p>
+          <p class="text-sm text-muted">{row.tradeoff}</p>
+        </article>
+      ))}
+    </div>
+  </section>
 
   <section class="section grid gap-8 md:grid-cols-[0.85fr_1.15fr]">
     <article class="card space-y-3">
@@ -285,13 +352,32 @@ const jsonLd = [
     </article>
   </section>
 
+  <section class="section space-y-5">
+    <div class="space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Fast-sale resources</p>
+      <h2 class="text-2xl font-semibold text-primary">Helpful guides before you request an offer</h2>
+      <p class="max-w-3xl text-muted">
+        These support pages answer the questions sellers usually have right before they ask for a cash offer: timing, title, repairs, vacant-house costs, and whether listing might still be better.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {relatedGuides.map((guide) => (
+        <a href={guide.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
+          <h3 class="text-xl font-semibold text-primary">{guide.title}</h3>
+          <p class="mt-2 text-sm text-muted">{guide.body}</p>
+          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Read guide</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Sell House Fast FAQ</h2>
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">
           <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          <p class="mt-2 text-sm text-muted" set:html={faq.answer}></p>
         </details>
       ))}
     </div>

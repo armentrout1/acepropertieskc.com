@@ -1,0 +1,182 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Wyandotte County Foreclosure Options and As-Is Sale Guide";
+const description =
+  "A Wyandotte County and Kansas City KS guide for homeowners facing payment pressure, code issues, taxes, liens, repairs, lender options, and as-is sale decisions.";
+
+const localIssues = [
+  "Kansas City, KS, Bonner Springs, western Wyandotte County, rentals, vacant houses, and repair-heavy properties",
+  "Mortgage payoff, reinstatement, back taxes, utility balances, code notices, liens, or judgments",
+  "Tenants, clean-out, property access, insurance concerns, and vacant-house security",
+  "Whether a lender workout, listing, direct sale, or creative option fits the timeline",
+];
+
+const pathCards = [
+  {
+    title: "Talk to the lender and counselor",
+    body:
+      "If keeping the property is the goal, start with the loan servicer and a HUD-approved housing counselor. Ask about current status, reinstatement, payoff, and workout options.",
+  },
+  {
+    title: "Check title and city items early",
+    body:
+      "Back taxes, liens, code notices, utilities, and ownership documents can affect closing. A direct buyer should ask for those details before promising a timeline.",
+  },
+  {
+    title: "Compare an as-is sale",
+    body:
+      "If repairs, code issues, tenants, vacancy, or payment pressure make listing hard, an as-is offer can show whether selling can clear required payoffs and simplify the next move.",
+  },
+  {
+    title: "Review creative options carefully",
+    body:
+      "Subject-to or seller-finance conversations need careful written terms, payment proof, insurance/tax planning, and advisor review. They are not one-size-fits-all solutions.",
+  },
+];
+
+const sellerChecklist = [
+  "Most recent mortgage statement and any default or foreclosure letters",
+  "Tax, utility, code, or city notices connected to the property",
+  "Names of all owners, heirs, trustees, or decision-makers",
+  "Tenant lease details, vacant-house access, and clean-out needs",
+  "Repair concerns such as roof, foundation, fire, plumbing, electrical, or HVAC issues",
+];
+
+const faqs = [
+  {
+    question: "Can I sell a Wyandotte County house with code issues or liens?",
+    answer:
+      "Often yes, if the buyer understands the issues and title can close. Code items, taxes, liens, and payoffs should be reviewed before signing so the settlement statement is clear.",
+  },
+  {
+    question: "Can back taxes or utility balances be paid at closing?",
+    answer:
+      "Many recorded or required balances can be paid through closing when there is enough equity. Title and the closing team determine what must be handled.",
+  },
+  {
+    question: "What if the house is vacant or needs major repairs?",
+    answer:
+      "A direct as-is offer can account for vacancy risk, clean-out, code items, and major repairs. Listing can still be compared if time, condition, and access make it realistic.",
+  },
+  {
+    question: "Should I request a written offer while talking to my lender?",
+    answer:
+      "Yes, if selling is a realistic backup path. A written offer gives you numbers to compare while you keep discussing lender options, counseling, refinancing, or listing.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/wyandotte-county-foreclosure-options/",
+    datePublished: "2026-06-05",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Wyandotte County Foreclosure Options", item: "/resources/wyandotte-county-foreclosure-options/" },
+  ]),
+];
+---
+
+<Layout
+  title="Wyandotte County Foreclosure Options | Kansas City KS"
+  description={description}
+  canonicalPath="/resources/wyandotte-county-foreclosure-options/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Wyandotte County payment pressure</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Wyandotte County sellers often face more than one issue at once: payment pressure, code notices, taxes, repairs, vacancy, tenants, or title questions. This guide helps organize the options without replacing advice from your lender, title company, attorney, housing counselor, or tax professional.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Request an as-is review</a>
+        <a href="/resources/wyandotte-county-distressed-property-sale/" class="btn btn-ghost text-base">Read distressed sale guide</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Wyandotte County facts to put on one page</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {localIssues.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Paths to compare before signing anything</h2>
+      <div class="grid gap-5 md:grid-cols-2">
+        {pathCards.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm text-muted">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Documents that help everyone move faster</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {sellerChecklist.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When an as-is offer can be useful</h2>
+        <p class="text-muted">
+          A written as-is offer can help you compare the sale path while you also talk with the lender. It should show price, closing timing, clean-out responsibility, what title must pay, and what you may net after required items.
+        </p>
+        <p class="text-muted">
+          For broader payment-pressure planning, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a>.
+        </p>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need a clear sale option for a complicated KCK property?</h2>
+        <p class="text-muted">
+          Send the address, payment status, known code or tax items, and repair concerns. We can outline whether a direct as-is option is realistic while you continue reviewing lender and advisor options.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Check my Wyandotte County options</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Wyandotte County foreclosure options FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

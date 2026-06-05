@@ -6,6 +6,7 @@ import {
   localBusinessJsonLd,
   buildFaqPageJsonLd,
   buildBreadcrumbList,
+  serviceJsonLd,
 } from "../../../lib/seo";
 
 const steps = [
@@ -86,6 +87,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Late Mortgage Payment Options in Kansas City",
+    description:
+      "Private cash and creative sale options for Kansas City homeowners with late mortgage payments, including payoff-at-closing and backup offer reviews.",
+    path: "/solutions/late-payments/",
+  }),
   buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -104,9 +111,12 @@ const jsonLd = [
   <section class="section space-y-5">
     <p class="badge">Late Payment Relief</p>
     <h1 class="text-4xl font-semibold text-primary">Support for Late Mortgage Payments</h1>
-    <p class="text-muted">
-      Falling behind on payments does not automatically mean foreclosure. In the Kansas City metro, lenders often send multiple notices before scheduling a sale, giving you space to weigh realistic options. ACE Properties KC focuses locally, so we understand how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders process reinstatements and payoff requests. We do not provide legal advice or guarantee outcomes, but we do explain each route clearly so you can select the plan that fits your priorities.
-    </p>
+      <p class="text-muted">
+        Falling behind on payments does not automatically mean foreclosure. In the Kansas City metro, lenders often send multiple notices before scheduling a sale, giving you space to weigh realistic options. ACE Properties KC focuses locally, so we understand how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders process reinstatements and payoff requests. We do not provide legal advice or guarantee outcomes, but we do explain each route clearly so you can select the plan that fits your priorities.
+      </p>
+      <p class="text-muted">
+        For the full decision tree, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a> before deciding whether to sell.
+      </p>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
