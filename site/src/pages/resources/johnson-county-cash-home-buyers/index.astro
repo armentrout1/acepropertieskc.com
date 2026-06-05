@@ -1,0 +1,162 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Johnson County Cash Home Buyers: Olathe, Overland Park, Shawnee";
+const description =
+  "A Johnson County KS guide to cash home buyers in Olathe, Overland Park, Shawnee, and Lenexa, including as-is offers, HOA items, title timing, and fast closings.";
+
+const cities = [
+  {
+    name: "Olathe",
+    href: "/areas/olathe-ks/",
+    body: "Good fit for sellers comparing a fast as-is offer with relocation, school-year timing, repairs, or inherited property decisions.",
+  },
+  {
+    name: "Overland Park",
+    href: "/areas/overland-park-ks/",
+    body: "Useful when HOA details, larger repair budgets, family timing, or a quick written cash offer matter before listing.",
+  },
+  {
+    name: "Shawnee",
+    href: "/areas/shawnee-ks/",
+    body: "Common for established homes, deferred maintenance, estate coordination, and sellers searching for we-buy-houses Shawnee options.",
+  },
+  {
+    name: "Lenexa",
+    href: "/areas/lenexa-ks/",
+    body: "Helpful for Old Town, Falcon Valley, Canyon Creek, and nearby homes where Johnson County title or HOA steps need clarity.",
+  },
+];
+
+const checklist = [
+  "Mortgage payoff information if you have it",
+  "HOA name, dues, transfer requirements, or violation letters",
+  "Names of all owners who need to sign",
+  "Known repairs, clean-out needs, or tenant details",
+  "Preferred closing date and whether you need post-closing occupancy",
+];
+
+const faqs = [
+  {
+    question: "Do cash home buyers work across Johnson County, Kansas?",
+    answer:
+      "Yes. ACE Properties KC reviews homes in Olathe, Overland Park, Shawnee, Lenexa, Leawood, Mission, Merriam, Prairie Village, and nearby Johnson County communities.",
+  },
+  {
+    question: "Can I sell a Johnson County house as-is?",
+    answer:
+      "Yes. A direct cash offer can account for repairs, clean-out, dated finishes, foundation concerns, roof issues, or tenant coordination without requiring you to fix the property first.",
+  },
+  {
+    question: "How fast can a Johnson County cash closing happen?",
+    answer:
+      "A clean cash closing can sometimes happen in about two weeks once title is clear. HOA resale packets, missing owner signatures, liens, probate authority, or tenant timing can add time.",
+  },
+  {
+    question: "Should I compare a cash offer with listing?",
+    answer:
+      "Usually, yes. If the house is market-ready and timing is flexible, listing may produce a higher gross price. A cash offer is strongest when certainty, no repairs, privacy, or timing matter more.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/johnson-county-cash-home-buyers/",
+    datePublished: "2026-06-05",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Johnson County Cash Home Buyers", item: "/resources/johnson-county-cash-home-buyers/" },
+  ]),
+];
+---
+
+<Layout
+  title="Johnson County Cash Home Buyers | Olathe, Overland Park, Shawnee"
+  description={description}
+  canonicalPath="/resources/johnson-county-cash-home-buyers/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Johnson County guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Johnson County sellers often search for cash home buyers when timing, repairs, HOA details, or family coordination make a normal listing harder. This guide explains how direct as-is offers work in Olathe, Overland Park, Shawnee, Lenexa, and nearby communities.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Ask for a Johnson County offer</a>
+        <a href="/areas/" class="btn btn-ghost text-base">View all KC areas</a>
+      </div>
+    </header>
+
+    <section class="grid gap-6 md:grid-cols-2">
+      {cities.map((city) => (
+        <a href={city.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Johnson County</p>
+          <h2 class="text-2xl font-semibold text-primary">Cash home buyers in {city.name}</h2>
+          <p class="mt-3 text-sm text-muted">{city.body}</p>
+          <span class="mt-5 inline-flex text-sm font-semibold text-secondary">View {city.name} options</span>
+        </a>
+      ))}
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What makes Johnson County sales different?</h2>
+        <p class="text-muted">
+          HOA resale packets, school-year move dates, job relocations, estate decisions, and high repair expectations can all affect timing. A local buyer should explain which items matter before promising a closing date.
+        </p>
+        <p class="text-muted">
+          If speed is the biggest concern, also read our <a href="/resources/cash-home-buyers-close-in-two-weeks-kansas-city/" class="text-secondary underline">two-week cash closing guide</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What to gather before asking for an offer</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {checklist.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+
+    <section class="section-alt px-6">
+      <div class="mx-auto max-w-3xl space-y-4 text-center">
+        <h2 class="text-3xl font-semibold text-primary">Need a cash offer before deciding whether to list?</h2>
+        <p class="text-muted">
+          Send the address, condition, and preferred timing. We will help you compare a direct offer with listing, repairs, holding costs, and closing certainty.
+        </p>
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare my Johnson County options</a>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Johnson County cash buyer FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>
