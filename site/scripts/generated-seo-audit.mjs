@@ -1,0 +1,177 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const root = path.join(process.cwd(), "dist", "client");
+const siteBase = "https://acepropertieskc.com";
+
+async function walk(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await walk(fullPath)));
+    } else {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+function getAttribute(tag, name) {
+  const match = tag.match(new RegExp(`${name}=["']([^"']+)["']`, "i"));
+  return match?.[1] ?? null;
+}
+
+function stripTags(value) {
+  return value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function routeFromHtmlFile(file) {
+  const relative = path.relative(root, file).replaceAll(path.sep, "/");
+
+  if (relative === "index.html") return "/";
+  if (relative === "404.html") return "/404/";
+
+  return `/${relative.replace(/index\.html$/, "")}`;
+}
+
+function isNoIndex(html) {
+  return /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html);
+}
+
+function recordSchemaTypes(html, schemaCounts, route, issues) {
+  const scripts = html.matchAll(
+    /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  );
+
+  for (const script of scripts) {
+    try {
+      const parsed = JSON.parse(script[1].trim());
+      const items = Array.isArray(parsed) ? parsed : [parsed];
+
+      for (const item of items) {
+        const type = Array.isArray(item["@type"]) ? item["@type"].join(",") : item["@type"];
+        schemaCounts[type] = (schemaCounts[type] ?? 0) + 1;
+      }
+    } catch (error) {
+      issues.badJson.push({ route, error: error.message });
+    }
+  }
+}
+
+async function main() {
+  try {
+    await fs.access(root);
+  } catch {
+    throw new Error("Missing dist/client. Run npm run build before npm run seo:audit.");
+  }
+
+  const files = await walk(root);
+  const htmlFiles = files.filter((file) => file.endsWith(".html"));
+  const xmlFiles = files.filter((file) => file.endsWith(".xml"));
+  const issues = {
+    badJson: [],
+    canonicals: [],
+    h1: [],
+    titles: [],
+    metaDescriptions: [],
+    offerLinks: [],
+    contactLinks: [],
+    areaProof: [],
+  };
+  const schemaCounts = {};
+
+  for (const file of htmlFiles) {
+    const html = await fs.readFile(file, "utf8");
+    const route = routeFromHtmlFile(file);
+    const noIndex = isNoIndex(html);
+    const title = stripTags(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
+    const descriptionTag = html.match(/<meta[^>]+name=["']description["'][^>]*>/i)?.[0] ?? "";
+    const description = getAttribute(descriptionTag, "content");
+    const canonicalTag = html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i)?.[0] ?? "";
+    const canonical = getAttribute(canonicalTag, "href");
+    const h1s = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map((match) => stripTags(match[1]));
+
+    recordSchemaTypes(html, schemaCounts, route, issues);
+
+    if (noIndex) continue;
+
+    if (!canonical || !canonical.startsWith(siteBase)) {
+      issues.canonicals.push({ route, canonical });
+    }
+
+    if (h1s.length !== 1) {
+      issues.h1.push({ route, count: h1s.length });
+    }
+
+    if (title.length < 25 || title.length > 65) {
+      issues.titles.push({ route, length: title.length, title });
+    }
+
+    if (!description || description.length > 160) {
+      issues.metaDescriptions.push({
+        route,
+        length: description?.length ?? 0,
+        description,
+      });
+    }
+
+    if (!/href=["']\/get-offer\//.test(html)) {
+      issues.offerLinks.push(route);
+    }
+
+    if (!/href=["']\/contact\//.test(html)) {
+      issues.contactLinks.push(route);
+    }
+
+    if (/^\/areas\/[^/]+\/$/.test(route) && !/Property type/.test(html)) {
+      issues.areaProof.push(route);
+    }
+  }
+
+  const sitemapLocations = [];
+
+  for (const file of xmlFiles) {
+    const xml = await fs.readFile(file, "utf8");
+    sitemapLocations.push(...[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]));
+  }
+
+  const sitemapPollution = {
+    thankYou: sitemapLocations.some((url) => url.includes("/thank-you/")),
+    notFound: sitemapLocations.some((url) => url.includes("/404/")),
+    legacy: sitemapLocations.filter((url) =>
+      /\/services\/|\/contact-local-home-buyers\/|\/about-us\/|\/free-info\//.test(url),
+    ),
+  };
+
+  const failedIssueGroups = Object.entries(issues).filter(([, value]) => value.length > 0);
+  const hasSitemapPollution =
+    sitemapPollution.thankYou || sitemapPollution.notFound || sitemapPollution.legacy.length > 0;
+
+  const summary = {
+    htmlPages: htmlFiles.length,
+    sitemapFiles: xmlFiles.map((file) => path.basename(file)).sort(),
+    sitemapLocations: sitemapLocations.length,
+    indexableSitemapPages: sitemapLocations.filter((url) => !url.endsWith("sitemap-0.xml")).length,
+    schema: Object.fromEntries(Object.entries(schemaCounts).sort()),
+  };
+
+  console.log("[generated-seo-audit] Summary:");
+  console.log(JSON.stringify(summary, null, 2));
+
+  if (failedIssueGroups.length || hasSitemapPollution) {
+    console.error("[generated-seo-audit] Issues:");
+    console.error(JSON.stringify({ issues, sitemapPollution }, null, 2));
+    process.exit(1);
+  }
+
+  console.log("[generated-seo-audit] All generated SEO checks passed.");
+}
+
+main().catch((error) => {
+  console.error(`[generated-seo-audit] ${error.message}`);
+  process.exit(1);
+});

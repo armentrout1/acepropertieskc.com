@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
 
 const carryingCosts = [
@@ -71,7 +72,7 @@ const jsonLd = [
   serviceJsonLd({
     name: "Sell a Vacant House in Kansas City",
     description:
-      "As-is cash and creative options for vacant Kansas City metro houses with carrying costs, code issues, clean-out needs, or repair concerns.",
+      "As-is cash and flexible options for vacant Kansas City metro houses with carrying costs, code issues, clean-out needs, or repair concerns.",
     path: "/solutions/vacant-house/",
   }),
   buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
@@ -227,6 +228,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="vacant"
+    heading="Connect a vacant house to local carrying-cost and title details"
+    intro="Vacant-house risk depends on city code, weather exposure, utilities, insurance, repairs, and county title timing. Use these local pages to compare what waiting may cost."
+  />
 
   <section class="section flex flex-wrap gap-4">
     <a href="/get-offer/" class="btn btn-primary text-base">Get cash offer for vacant house</a>

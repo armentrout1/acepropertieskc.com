@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -19,7 +20,7 @@ const steps = [
   {
     title: "Compare offers & payoffs",
     body:
-      "Cash sale, payoff-at-closing, or subject-to arrangements may be options depending on equity, arrears, and approvals.",
+      "Cash sale, payoff-at-closing, or payment takeover arrangements may be options depending on equity, arrears, and approvals.",
   },
   {
     title: "Coordinate closing details",
@@ -42,9 +43,9 @@ const options = [
       "We purchase the property as-is and use closing proceeds to pay the arrears and remaining loan balance. Typical timelines run 14 to 21 days after clear title.",
   },
   {
-    title: "Subject-to or assumption style",
+    title: "Payment takeover review",
     body:
-      "If the lender and your situation allow, we may take over payments and fund arrears while the existing loan stays in place temporarily. This path depends on approvals and clear documentation.",
+      "If the loan and your situation allow, we may take over payments and fund arrears while the existing loan stays in place temporarily. This path depends on careful documentation, deadlines, and advisor review.",
   },
   {
     title: "Timeline coordination",
@@ -86,7 +87,7 @@ const jsonLd = [
   serviceJsonLd({
     name: "Kansas City Pre-Foreclosure Options",
     description:
-      "Private cash and creative sale options for Kansas City homeowners in pre-foreclosure, including payoff-at-closing, backup offer, and title timeline reviews.",
+      "Private cash and payment takeover options for Kansas City homeowners in pre-foreclosure, including payoff-at-closing, backup offer, and title timeline reviews.",
     path: "/solutions/pre-foreclosure/",
   }),
   buildFaqPageJsonLd(faqs),
@@ -101,7 +102,7 @@ const jsonLd = [
 
 <Layout
   title="Kansas City Pre-Foreclosure Options | ACE"
-  description="Facing pre-foreclosure in Kansas City? Compare as-is cash sale, payoff-at-closing, and timeline options before deadlines tighten."
+  description="Facing pre-foreclosure in Kansas City? Compare as-is cash sale, payoff-at-closing, payment takeover, and timeline options before deadlines tighten."
   canonicalPath="/solutions/pre-foreclosure/"
   jsonLd={jsonLd}
 >
@@ -112,19 +113,19 @@ const jsonLd = [
         Pre-foreclosure notices can feel urgent, but there is still time to weigh options in the Kansas City metro. ACE Properties KC focuses locally, so we know how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders handle reinstatement, short timelines, and payoff communication. We do not provide legal advice and cannot guarantee outcomes, yet we do explain every sale path plainly so you can decide what aligns with your plans.
       </p>
       <p class="text-muted">
-        If you need the broader decision tree first, use the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> to compare lender help, counseling, selling, and subject-to questions.
+        If you need the broader decision tree first, use the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> and the <a href="/options/" class="text-secondary underline">cash or payment takeover options page</a> to compare lender help, counseling, selling, and takeover questions.
       </p>
   </section>
 
   <HighIntentOfferBlock
     badge="Private timeline review"
     title="Have a deadline from the lender?"
-    body="Share the address and latest notice date if you have it. We can discuss payoff-at-closing timelines, cash sale options, and whether more documentation is needed."
+    body="Share the address and latest notice date if you have it. We can discuss payoff-at-closing timelines, cash sale options, payment takeover possibilities, and whether more documentation is needed."
     points={[
       "Private conversation around lender deadlines",
       "Payoff-at-closing and cash sale paths compared",
+      "Payment takeover reviewed if the existing loan can stay in place",
       "Written next steps for title or advisor review",
-      "No repairs or public listing required to start",
     ]}
     formId="pre-foreclosure-offer-form"
     formHeading="Review pre-foreclosure options"
@@ -136,7 +137,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">What we cover on the first call</h2>
       <p class="text-muted">
-        We review lender letters, auction dates, and any payment plans you have attempted. From there we share timelines for cash purchases, payoff-at-closing, or creative approaches and let you loop in family or advisors before moving forward.
+        We review lender letters, auction dates, and any payment plans you have attempted. From there we share timelines for cash purchases, payoff-at-closing, or payment takeover approaches and let you loop in family or advisors before moving forward.
       </p>
     </article>
     <article class="card space-y-3">
@@ -204,6 +205,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="payment"
+    heading="Match pre-foreclosure timing to your local KC path"
+    intro="County notices, payoff timing, title issues, and city-specific repairs all affect what can happen before deadlines tighten. Start with the closest local page and county guide."
+  />
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Talk through next steps today</h2>

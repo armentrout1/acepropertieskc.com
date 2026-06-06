@@ -18,7 +18,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "MO",
     county: "Jackson County",
     description:
-      "Sell your Blue Springs house as-is for cash or compare creative options. Local help for inherited homes, repairs, relocation, tenants, and tight timelines.",
+      "Sell your Blue Springs house as-is for cash or compare flexible options. Local help for inherited homes, repairs, relocation, tenants, and tight timelines.",
     body:
       "Blue Springs sellers often want a clean plan when a house needs repairs, family members are coordinating an estate, or a move needs to happen without a long listing process. We review the property as-is, explain title and payoff items, and give you a written path before you decide.",
     neighborhoodFocus: ["Downtown Blue Springs", "Lake Tapawingo area", "Adams Dairy Parkway corridor"],
@@ -66,7 +66,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "MO",
     county: "Clay County",
     description:
-      "Sell a Gladstone house as-is. Compare cash and creative options for repairs, inherited property, tenants, downsizing, or relocation.",
+      "Sell a Gladstone house as-is. Compare cash and flexible options for repairs, inherited property, tenants, downsizing, or relocation.",
     body:
       "Gladstone homeowners often reach out when a house needs updates, a family member is downsizing, or an inherited property needs a simple decision. We keep the conversation practical and focused on net proceeds, timing, and certainty.",
     neighborhoodFocus: ["Antioch Road corridor", "Linden area", "North Oak Trafficway area"],
@@ -114,7 +114,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "MO",
     county: "Jackson County",
     description:
-      "Sell your Grandview house as-is. Cash and creative options for repairs, inherited homes, vacant properties, tenants, and relocation.",
+      "Sell your Grandview house as-is. Cash and flexible options for repairs, inherited homes, vacant properties, tenants, and relocation.",
     body:
       "Grandview sellers often want direct answers when repairs, vacancy, inherited property, or payment pressure make listing feel uncertain. We explain the as-is offer and compare it against a realistic listing path.",
     neighborhoodFocus: ["Main Street area", "Byars Road area", "South Grandview neighborhoods"],
@@ -234,7 +234,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "MO",
     county: "Cass County",
     description:
-      "Sell a Belton house as-is with cash or creative options for repairs, inherited property, vacant homes, tenants, and relocation timelines.",
+      "Sell a Belton house as-is with cash or flexible options for repairs, inherited property, vacant homes, tenants, and relocation timelines.",
     body:
       "Belton sellers often want a simple option when repairs, estate decisions, vacancy, or relocation make listing feel like too much coordination. We review the property as-is, compare the likely net, and document a closing path before you decide.",
     neighborhoodFocus: ["Downtown Belton", "Markey Parkway area", "North Belton neighborhoods"],
@@ -282,7 +282,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "MO",
     county: "Platte County",
     description:
-      "Sell your Parkville house as-is. Compare cash and creative options for inherited homes, repairs, hillside properties, downsizing, and relocation.",
+      "Sell your Parkville house as-is. Compare cash and flexible options for inherited homes, repairs, hillside properties, downsizing, and relocation.",
     body:
       "Parkville homes can have unique layouts, terrain, older systems, and strong resale potential. We help sellers compare the direct-sale certainty against listing prep, repair scope, and timeline risk.",
     neighborhoodFocus: ["Downtown Parkville", "Riss Lake area", "Highway 9 corridor"],
@@ -354,7 +354,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "KS",
     county: "Johnson County",
     description:
-      "Sell a Roeland Park house as-is. Cash and creative options for older homes, inherited property, repairs, tenants, and fast timelines.",
+      "Sell a Roeland Park house as-is. Cash and flexible options for older homes, inherited property, repairs, tenants, and fast timelines.",
     body:
       "Roeland Park sellers often need a practical plan for older homes, inherited property, or rentals close to the urban core. We explain the as-is number and compare it with listing preparation when needed.",
     neighborhoodFocus: ["Roe Boulevard area", "Nall Avenue area", "North Johnson County neighborhoods"],
@@ -474,7 +474,7 @@ export const expansionAreas: ExpansionArea[] = [
     state: "KS",
     county: "Johnson County",
     description:
-      "Sell a Spring Hill house as-is. Compare cash and creative options for repairs, inherited homes, acreage, relocation, and vacant property.",
+      "Sell a Spring Hill house as-is. Compare cash and flexible options for repairs, inherited homes, acreage, relocation, and vacant property.",
     body:
       "Spring Hill sellers often need flexibility around acreage, newer subdivisions, older homes, or relocation timing. We review the property and explain whether a direct as-is sale fits better than listing.",
     neighborhoodFocus: ["Downtown Spring Hill", "Webster Street corridor", "South Johnson County acreage"],

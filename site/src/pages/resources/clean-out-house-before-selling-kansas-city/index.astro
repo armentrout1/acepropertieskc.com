@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -136,6 +137,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Get a clean-out-inclusive offer</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="repairs"
+      heading="Connect clean-out decisions to local as-is options"
+      intro="Clean-out choices affect offer price, timing, access, and stress. Use these local pages to compare selling as-is, leaving items, or getting a written option first."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Clean-out FAQ</h2>

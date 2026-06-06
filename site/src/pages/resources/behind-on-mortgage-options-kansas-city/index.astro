@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Behind on Mortgage Payments in Kansas City? Compare Your Options";
 const description =
-  "A Kansas City homeowner guide to mortgage payment pressure, including lender options, HUD-approved counseling, cash sale, payoff-at-closing, subject-to, and foreclosure timeline questions.";
+  "Kansas City guide for mortgage payment pressure, including lender options, cash sale, payoff-at-closing, payment takeover, and foreclosure deadlines.";
 
 const firstSteps = [
   "Open the most recent mortgage statement and any default or foreclosure letters",
@@ -36,9 +37,9 @@ const options = [
       "If there is equity and enough time, a sale can pay the loan, arrears, taxes, and recorded liens through the title company before the seller receives net proceeds.",
   },
   {
-    title: "Compare subject-to carefully",
+    title: "Compare payment takeover carefully",
     body:
-      "Subject-to may be discussed when keeping the existing loan in place could solve a timing or payoff issue. It needs careful written terms and advisor review.",
+      "Payment takeover or subject-to may be discussed when keeping the existing loan in place could solve a timing or payoff issue. It needs careful written terms, payment verification, and advisor review.",
   },
   {
     title: "Use a backup offer",
@@ -94,9 +95,9 @@ const faqs = [
       "Often yes, if there is enough time and title can clear. The title company usually uses sale proceeds to pay the mortgage, arrears, taxes, and recorded liens at closing.",
   },
   {
-    question: "Is subject-to a way to get out of a mortgage?",
+    question: "Is payment takeover a way to get out of a mortgage?",
     answer:
-      "It can be one possible structure, but it is not a simple cure-all. The seller may remain tied to the loan, so payment verification, insurance, taxes, due-on-sale risk, and advisor review matter.",
+      "It can be one possible structure, often called subject-to, but it is not a simple cure-all. The seller may remain tied to the loan, so payment verification, insurance, taxes, due-on-sale risk, and advisor review matter.",
   },
   {
     question: "Should I talk to a housing counselor?",
@@ -134,11 +135,12 @@ const jsonLd = [
       <p class="badge">Mortgage pressure guide</p>
       <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
       <p class="max-w-3xl text-muted">
-        If you are behind on mortgage payments, trying to avoid foreclosure, or wondering whether subject-to could help, start with clarity. This guide is not legal or financial advice. It is a plain-English way to compare the major paths Kansas City homeowners ask about before deciding what to do next.
+        If you are behind on mortgage payments, trying to avoid foreclosure, or wondering whether someone can take over the monthly payment, start with clarity. This guide is not legal or financial advice. It is a plain-English way to compare the major paths Kansas City homeowners ask about before deciding what to do next.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/solutions/behind-on-payments/" class="btn btn-primary text-base">Review sale options</a>
-        <a href="/resources/subject-to-real-estate-kansas-city/" class="btn btn-ghost text-base">Understand subject-to</a>
+        <a href="/resources/subject-to-real-estate-kansas-city/" class="btn btn-ghost text-base">Understand payment takeover</a>
+        <a href="/options/" class="btn btn-outline text-base">Compare cash vs takeover</a>
       </div>
     </header>
 
@@ -171,9 +173,9 @@ const jsonLd = [
 
     <section class="grid gap-8 md:grid-cols-2">
       <article class="card space-y-3">
-        <h2 class="text-2xl font-semibold text-primary">When subject-to comes up</h2>
+        <h2 class="text-2xl font-semibold text-primary">When payment takeover comes up</h2>
         <p class="text-muted">
-          Subject-to usually means ownership transfers while the existing loan stays in place. That can create flexibility, but it can also leave the seller tied to the mortgage. Before treating it as an answer, ask these questions.
+          Payment takeover usually means ownership transfers while the existing loan stays in place and the buyer steps in to make the monthly payments. That can create flexibility, but it can also leave the seller tied to the mortgage. Before treating it as an answer, ask these questions.
         </p>
         <ul class="space-y-3 text-sm text-primary">
           {subjectToChecks.map((item) => (
@@ -224,11 +226,17 @@ const jsonLd = [
       <div class="mx-auto max-w-3xl space-y-4 text-center">
         <h2 class="text-3xl font-semibold text-primary">Need a written backup option while you talk to the lender?</h2>
         <p class="text-muted">
-          Send the address, rough payment status, and any known dates. We can outline whether a direct sale, payoff-at-closing, or creative option is realistic and encourage you to review it with your own advisors.
+          Send the address, rough payment status, and any known dates. We can outline whether a direct sale, payoff-at-closing, or payment takeover option is realistic and encourage you to review it with your own advisors.
         </p>
         <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Turn payment questions into a local Kansas City action plan"
+      intro="Mortgage pressure gets clearer when you connect the loan status to the city, county, payoff timing, and seller situation. Use these local pages to move from research into the right next step."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Mortgage pressure FAQ</h2>

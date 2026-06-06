@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -121,6 +122,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start the landlord conversation</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="vacant"
+      heading="Connect tenant sale questions to local landlord options"
+      intro="Tenant-occupied sales depend on leases, access, repairs, city details, and whether the seller wants privacy or speed. Use these local routes to decide what to compare next."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Tenant-occupied sale FAQ</h2>

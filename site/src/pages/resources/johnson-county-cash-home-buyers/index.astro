@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -146,6 +147,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Compare my Johnson County options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="fast"
+      heading="Connect Johnson County cash-offer questions to city pages"
+      intro="Johnson County cash offers depend on HOA items, title timing, repairs, and city-specific buyer demand. Use these local routes to compare what happens next."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Johnson County cash buyer FAQ</h2>

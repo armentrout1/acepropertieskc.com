@@ -1,6 +1,7 @@
 # ACE Properties KC SEO Audit and Roadmap
 
 Audit date: May 11, 2026  
+Latest generated-output audit: June 6, 2026
 Repo: `armentrout1/acepropertieskc.com`  
 Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pull\acepropertieskc.com`
 
@@ -10,11 +11,14 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
 - Build passes.
 - Custom `seo:preflight` passes.
 - Robots.txt is live and allows crawling.
-- XML sitemap is live and includes 29 URLs.
+- XML sitemap output includes 86 indexable page URLs plus the sitemap index.
 - Strong existing base: homepage, areas hub, 8 area pages, solutions hub, 13 solution pages, contact, options, privacy, terms, thank-you, 404.
+- Expanded local/content base now includes the resources hub, 28 resource articles/tools, 13 solution pages, 8 core area pages, and 27 dynamic metro expansion area pages.
+- Dynamic metro expansion pages now include neighborhood focus, common seller situations, explicit property-type proof, county/title notes, and nearby internal links.
 - GA4 tag is installed: `G-NTFNNJTML7`.
 - Offer form posts to SendGrid-backed API.
 - Primary organic target is clear: motivated Kansas City homeowners who need to sell as-is, fast, inherited, probate, foreclosure, repair-heavy, vacant, tenant-occupied, behind on payments, or relocation.
+- Latest generated HTML audit found no sitemap pollution, JSON-LD parse errors, missing H1s, title-length issues, meta-description issues, missing canonicals, or missing offer/contact paths on indexable pages.
 
 ## Highest-Priority Findings
 
@@ -199,18 +203,22 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
 
 ## Phase 6: Page-Level SEO Improvements
 
-- [ ] Audit every page title for click-through appeal.
+- [x] Audit every page title for click-through appeal.
   - [x] First pass complete for priority solution pages: sell fast, inherited, needs repairs, pre-foreclosure, behind on payments, tenant-occupied, vacant house, and divorce.
-- [ ] Keep titles under roughly 55-60 characters where possible.
-- [ ] Keep meta descriptions under roughly 150-160 characters.
+- [x] Generated-output title audit passes: every indexable page has exactly one title in the current acceptable range.
+- [x] Keep titles under roughly 55-60 characters where possible.
+- [x] Keep meta descriptions under roughly 150-160 characters.
+- [x] Generated-output meta description audit passes with no indexable page over 160 characters.
 - [ ] Add stronger first-screen CTAs to every solution page.
   - [x] Added reusable high-intent CTA/form block to sell fast, inherited, needs repairs, pre-foreclosure, behind on payments, tenant-occupied, vacant house, and divorce pages.
-- [ ] Add local proof blocks to every area page:
+- [x] Add local proof blocks to every area page:
   - neighborhoods
   - common property types
   - county/title notes
   - seller scenarios
   - nearby internal links
+  - [x] Core area pages use custom local sections.
+  - [x] Dynamic expansion pages use reusable city data with property-type proof cards.
 - [x] Add FAQ schema only where visible FAQ content exists.
 - [x] Add breadcrumb schema to area pages and hub pages.
 - [x] Add Organization schema or enrich LocalBusiness schema:
@@ -219,6 +227,7 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
   - telephone
   - email
   - areaServed
+- [x] Add Service schema to priority seller-situation solution pages.
 - [ ] Add `sameAs` once real profiles are confirmed.
 - [ ] Do not add Review schema until reviews are real and visible on-page.
 - [ ] Avoid publishing placeholder cards that imply unfinished pages.

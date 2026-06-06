@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -131,6 +132,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start the inherited house conversation</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="estate"
+      heading="Connect inherited-house questions to local next steps"
+      intro="Inherited property decisions depend on authority, title, family timing, clean-out, repairs, and county process. These local links help heirs move from research to a practical plan."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Inherited house FAQ</h2>

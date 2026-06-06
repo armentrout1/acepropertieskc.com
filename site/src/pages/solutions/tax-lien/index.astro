@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -18,7 +19,7 @@ const steps = [
   {
     title: "Outline sale options",
     body:
-      "Side-by-side looks at a straightforward cash sale, paying the lien from proceeds, or creative arrangements where we catch up the balance and take over payments.",
+      "Side-by-side looks at a straightforward cash sale, paying the lien from proceeds, or payment takeover arrangements where we catch up the balance and take over payments.",
   },
   {
     title: "Set closing logistics",
@@ -196,6 +197,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="payment"
+    heading="Connect tax liens to local title and county timing"
+    intro="Tax liens, payoff timing, mortgage balances, and county releases can change the sale path. Use these local pages and guides to compare what needs to happen before closing."
+  />
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Stay ahead of the tax lien or auction clock</h2>

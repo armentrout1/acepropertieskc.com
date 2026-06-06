@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Investor Offer vs MLS Net Sheet in Kansas City";
 const description =
-  "Compare an investor offer against an MLS net sheet in Kansas City, including repairs, commissions, concessions, holding costs, financing risk, closing timelines, and net proceeds.";
+  "Compare an investor offer against an MLS net sheet in Kansas City, including repairs, commissions, holding costs, financing risk, timelines, and net proceeds.";
 
 const investorItems = [
   "Offer price",
@@ -129,7 +130,7 @@ const jsonLd = [
         If the house is updated, easy to show, and the seller can wait, the MLS may be the better path. If the house needs major repairs, has tenants, is vacant, or the seller wants privacy and certainty, an investor offer may be worth a serious look.
       </p>
       <p class="text-muted">
-        The cleanest comparison includes both a likely best case and a conservative case for listing. Then compare those numbers against a direct offer with a guaranteed timeline and known responsibilities.
+        The cleanest comparison includes both a likely best case and a conservative case for listing. Then compare those numbers against a direct offer with a clear timeline and known responsibilities.
       </p>
     </section>
 
@@ -157,6 +158,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="general"
+      heading="Compare net proceeds with local Kansas City context"
+      intro="A net sheet is only useful when it reflects local repairs, title items, timing, and seller pressure. Use these local links to compare the numbers against real next steps."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Investor offer vs MLS FAQ</h2>

@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
+import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -38,7 +40,7 @@ const steps = [
   {
     title: "Confirm details",
     body:
-      "We schedule a walkthrough or video tour, review title payoffs, and outline whether cash or creative terms fit best.",
+      "We schedule a walkthrough or video tour, review title payoffs, and outline whether cash or flexible terms fit best.",
   },
   {
     title: "Choose your path",
@@ -66,7 +68,7 @@ const faqs = [
   {
     question: "How soon could we close?",
     answer:
-      "Cash deals often close in about two weeks after a clear title search. Creative agreements depend on the structure, and we outline milestones in writing.",
+      "Cash deals often close in about two weeks after a clear title search. Flexible agreements depend on the structure, and we outline milestones in writing.",
   },
 ];
 
@@ -111,6 +113,13 @@ const jsonLd = [
     />
   </section>
 
+  <SellerSituationLinks
+    city="Kansas City, MO"
+    countyGuide={{ label: "Jackson County foreclosure options", href: "/resources/jackson-county-foreclosure-options/" }}
+  />
+
+  <AreaPropertyProof city="Kansas City, MO" county="Jackson County" />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why sellers reach out</h2>
@@ -121,7 +130,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
       <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted title partners, and outlines both cash and creative pathways. No aggressive pitches—just straightforward answers about value, timelines, and paperwork.
+        Our team meets you in person when possible, collaborates with trusted title partners, and outlines both cash and flexible pathways. No aggressive pitches - just straightforward answers about value, timelines, and paperwork.
       </p>
     </article>
   </section>
@@ -198,7 +207,7 @@ const jsonLd = [
     <div class="space-y-3">
       <h2 class="text-2xl font-semibold text-primary">How it works in Kansas City</h2>
       <p class="text-muted">
-        From first call to closing, you decide the pace. We document condition with photos, confirm title payoffs, and walk through creative alternatives when that protects your equity. Expect regular updates so you are never guessing what comes next.
+        From first call to closing, you decide the pace. We document condition with photos, confirm title payoffs, and walk through flexible alternatives when that protects your equity. Expect regular updates so you are never guessing what comes next.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">

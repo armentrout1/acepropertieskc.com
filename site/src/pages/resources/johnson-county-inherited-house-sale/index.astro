@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Johnson County Inherited House Sale Guide";
 const description =
-  "A Johnson County guide for selling an inherited house in Overland Park, Olathe, Shawnee, Lenexa, and nearby Kansas communities, including heirs, title, clean-out, repairs, and as-is offers.";
+  "Johnson County guide for selling an inherited house in Overland Park, Olathe, Shawnee, and Lenexa, including heirs, title, clean-out, repairs, and offers.";
 
 const decisionPoints = [
   "Who has authority to sign for the inherited property",
@@ -132,6 +133,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start the inherited property review</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="estate"
+      heading="Connect Johnson County inherited-house questions to local next steps"
+      intro="Inherited homes in Overland Park, Olathe, Shawnee, Lenexa, and nearby cities often come down to title, family timing, repairs, and net proceeds. Use these links to compare the next move."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Johnson County inherited house FAQ</h2>

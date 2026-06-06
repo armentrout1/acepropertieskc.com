@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
+import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -33,7 +35,7 @@ const steps = [
   {
     title: "Set expectations",
     body:
-      "We discuss your timeline, decision-makers, HOA requirements, and whether cash or creative terms sound best.",
+      "We discuss your timeline, decision-makers, HOA requirements, and whether cash or flexible terms sound best.",
   },
   {
     title: "On-site walkthrough",
@@ -43,7 +45,7 @@ const steps = [
   {
     title: "Written offer choices",
     body:
-      "You receive a side-by-side summary of a straightforward cash offer plus any creative structure that protects equity or income.",
+      "You receive a side-by-side summary of a straightforward cash offer plus any flexible structure that protects equity or income.",
   },
 ];
 
@@ -100,7 +102,7 @@ const jsonLd = [
       <p class="badge">Overland Park, Kansas</p>
       <h1 class="text-4xl font-semibold text-primary">Cash Home Buyers in Overland Park, KS</h1>
       <p class="text-muted">
-        Overland Park homeowners value clear communication and predictable timelines. If you are comparing cash home buyers in Overland Park, need to sell your house fast, or want a written as-is option before listing, we provide straight answers and cash or creative options built around your goals. We live and work in the Kansas City metro, so local lenders, title companies, and contractors already know our process.
+        Overland Park homeowners value clear communication and predictable timelines. If you are comparing cash home buyers in Overland Park, need to sell your house fast, or want a written as-is option before listing, we provide straight answers and cash or flexible options built around your goals. We live and work in the Kansas City metro, so local lenders, title companies, and contractors already know our process.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Get an Overland Park offer</a>
@@ -125,6 +127,13 @@ const jsonLd = [
       </div>
     </div>
   </section>
+
+  <SellerSituationLinks
+    city="Overland Park, KS"
+    countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
+  />
+
+  <AreaPropertyProof city="Overland Park, KS" county="Johnson County" />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">

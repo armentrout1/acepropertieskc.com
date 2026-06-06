@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -135,11 +136,17 @@ const jsonLd = [
       <div class="mx-auto max-w-3xl space-y-4 text-center">
         <h2 class="text-3xl font-semibold text-primary">Want us to show the assumptions?</h2>
         <p class="text-muted">
-          Send the property address and situation. We can explain the major assumptions behind a cash or creative offer so you know what you are comparing.
+          Send the property address and situation. We can explain the major assumptions behind a cash or flexible offer so you know what you are comparing.
         </p>
         <a href="/get-offer/" class="btn btn-primary text-base">Request my offer breakdown</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="general"
+      heading="Turn offer math into a local Kansas City next step"
+      intro="Offer assumptions depend on city, county, repair scope, payoffs, and timeline. These local pages help connect the numbers to the property situation."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Cash offer FAQ</h2>

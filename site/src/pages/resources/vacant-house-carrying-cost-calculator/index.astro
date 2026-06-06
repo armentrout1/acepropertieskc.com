@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -9,7 +10,7 @@ import {
 
 const title = "Vacant House Carrying Cost Calculator";
 const description =
-  "Estimate monthly carrying costs for a vacant Kansas City house, including mortgage, taxes, insurance, utilities, lawn care, security, repairs, and time on market.";
+  "Estimate vacant Kansas City house costs, including mortgage, taxes, insurance, utilities, lawn care, security, repairs, and time on market.";
 
 const jsonLd = [
   webSiteJsonLd(),
@@ -93,6 +94,11 @@ const jsonLd = [
         </div>
       </div>
     </section>
+    <LocalDecisionMap
+      variant="vacant"
+      heading="Turn carrying costs into a local vacant-house plan"
+      intro="Once the monthly cost is clear, the next decision is local: city, county, repairs, utilities, insurance, and timeline. Use these links to compare the next step."
+    />
   </article>
 </Layout>
 

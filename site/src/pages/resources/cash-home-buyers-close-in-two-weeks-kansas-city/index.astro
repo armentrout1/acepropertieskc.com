@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -139,6 +140,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Check my closing timeline</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="fast"
+      heading="Check whether a fast closing fits your local situation"
+      intro="A two-week close is strongest when title, payoffs, access, and seller readiness line up. These city and county links help turn the timeline into a practical next step."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Two-week closing FAQ</h2>

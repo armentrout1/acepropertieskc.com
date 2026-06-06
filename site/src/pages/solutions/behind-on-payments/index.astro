@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   webSiteJsonLd,
   localBusinessJsonLd,
@@ -26,7 +27,7 @@ const steps = [
   {
     title: "Compare realistic paths",
     body:
-      "We outline cash offers, payoff-at-closing scenarios, and subject-to possibilities so you can weigh each one.",
+      "We outline cash offers, payoff-at-closing scenarios, and payment takeover possibilities so you can weigh each one.",
   },
   {
     title: "Coordinate closing logistics",
@@ -74,7 +75,7 @@ const jsonLd = [
   serviceJsonLd({
     name: "Sell a House Behind on Payments in Kansas City",
     description:
-      "Private cash and creative sale options for Kansas City homeowners behind on mortgage payments, including payoff-at-closing, backup offers, and subject-to discussions.",
+      "Private cash and payment takeover options for Kansas City homeowners behind on mortgage payments, including payoff-at-closing, backup offers, and careful takeover reviews.",
     path: "/solutions/behind-on-payments/",
   }),
   buildFaqPageJsonLd(faqs),
@@ -88,7 +89,7 @@ const jsonLd = [
 
 <Layout
   title="Sell a House Behind on Payments in Kansas City | ACE"
-  description="Behind on mortgage payments in Kansas City? Compare cash sale, payoff-at-closing, and backup options before fees or deadlines grow."
+  description="Behind on mortgage payments in Kansas City? Compare cash sale, payoff-at-closing, payment takeover, and backup options before fees or deadlines grow."
   canonicalPath="/solutions/behind-on-payments/"
   jsonLd={jsonLd}
 >
@@ -103,12 +104,12 @@ const jsonLd = [
   <HighIntentOfferBlock
     badge="Payment deadline review"
     title="Need to see your options before the next deadline?"
-    body="Share the address, rough payment status, and any important dates. We can compare a cash sale, payoff-at-closing path, or backup offer so you know what is realistic."
+    body="Share the address, rough payment status, and any important dates. We can compare a cash sale, payoff-at-closing path, payment takeover option, or backup offer so you know what is realistic."
     points={[
       "Mortgage payoff and arrears handled through title",
+      "Payment takeover reviewed if the existing loan can stay in place",
       "Written option summary for co-borrowers or advisors",
       "No repairs or public listing required to start",
-      "Flexible timing if a refinance or modification is pending",
     ]}
     formId="behind-on-payments-offer-form"
     formHeading="Review payment-related options"
@@ -126,10 +127,10 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Options we can walk through</h2>
       <p class="text-muted">
-        Every path is optional. We can compare quick cash offers, payoff-at-closing scenarios, subject-to arrangements that keep the loan in place temporarily, or written backup offers that give you breathing room while you pursue a refinance or listing.
+        Every path is optional. We can compare quick cash offers, payoff-at-closing scenarios, payment takeover arrangements that keep the loan in place temporarily, or written backup offers that give you breathing room while you pursue a refinance or listing.
       </p>
       <p class="text-muted">
-        If you are still sorting through the big picture, start with the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> before deciding whether to sell.
+        If you are still sorting through the big picture, start with the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> and the <a href="/options/" class="text-secondary underline">cash or payment takeover options page</a> before deciding whether to sell.
       </p>
     </article>
   </section>
@@ -177,7 +178,7 @@ const jsonLd = [
         Read the deeper guide on <a href="/resources/sell-house-behind-on-payments-kansas-city/" class="text-secondary underline">selling when you are behind on payments</a> if you are still comparing lender options and sale timelines.
       </p>
       <p class="text-muted">
-        If subject-to is part of the conversation, review the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to risk checklist</a> and involve your own legal or financial advisor before signing anything.
+        If payment takeover is part of the conversation, review the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to payment takeover guide</a> and involve your own legal or financial advisor before signing anything.
       </p>
     </article>
     <article class="card space-y-3">
@@ -199,6 +200,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="payment"
+    heading="Match payment pressure to the right local KC next step"
+    intro="Mortgage pressure moves differently by county, city, title status, and payoff timing. Use these local pages to compare the right path before choosing an offer."
+  />
 
   <section class="section flex flex-wrap gap-4">
     <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>

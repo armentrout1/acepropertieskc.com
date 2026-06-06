@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -97,6 +98,12 @@ const jsonLd = [
         </article>
       ))}
     </section>
+
+    <LocalDecisionMap
+      variant="estate"
+      heading="Turn the inherited-house checklist into a local plan"
+      intro="Once heirs know what documents, costs, and decisions are involved, the next step is usually local: county process, title status, repair condition, and whether the family wants a written offer."
+    />
 
     <section class="section-alt px-6">
       <div class="mx-auto max-w-3xl space-y-4 text-center">

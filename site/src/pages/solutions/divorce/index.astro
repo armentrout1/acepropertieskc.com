@@ -1,7 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../../lib/seo";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../../lib/seo";
 
 const coordinationPoints = [
   "Decide whether both spouses will be present for walkthroughs or prefer individual conversations.",
@@ -25,7 +26,7 @@ const steps = [
   {
     title: "Offers & closing plan",
     body:
-      "We present cash and creative options, outline net proceeds, and schedule closing dates that fit court timelines. Updates are shared simultaneously with both parties.",
+      "We present cash and flexible options, outline net proceeds, and schedule closing dates that fit court timelines. Updates are shared simultaneously with both parties.",
   },
 ];
 
@@ -60,6 +61,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Sell a House During Divorce in Kansas City",
+    description:
+      "Neutral as-is cash offer support for Kansas City homeowners selling during divorce, mediation, court timelines, or equity-split decisions.",
+    path: "/solutions/divorce/",
+  }),
   buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -91,7 +98,7 @@ const jsonLd = [
       "Same written summary for designated parties",
       "No repairs required before getting numbers",
       "Flexible timing around court or mediation dates",
-      "Cash and creative options explained neutrally",
+      "Cash and flexible options explained neutrally",
     ]}
     formId="divorce-offer-form"
     formHeading="Start a neutral property review"
@@ -103,7 +110,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">What to expect</h2>
       <p class="text-muted">
-        We begin with a confidential intake call to understand your priorities, whether that means a quick cash sale, creative financing that preserves payments, or pausing to evaluate other options. Every major update is documented via email so both parties (and their attorneys) can reference the same information. If safety or privacy is a concern, we tailor walkthroughs and signings accordingly.
+        We begin with a confidential intake call to understand your priorities, whether that means a quick cash sale, payment takeover terms that preserve payments, or pausing to evaluate other options. Every major update is documented via email so both parties (and their attorneys) can reference the same information. If safety or privacy is a concern, we tailor walkthroughs and signings accordingly.
       </p>
     </article>
     <article class="card space-y-3">
@@ -150,13 +157,13 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Documents & timeline basics</h2>
       <p class="text-muted">
-        Title companies typically request the divorce petition or decree, payoff letters, HOA statements, and any temporary orders dictating proceeds. We help gather these documents and coordinate signatures: digital if the court allows, in-person if required. Cash closings often happen within two to three weeks once paperwork is ready; creative agreements may take slightly longer but allow one spouse to remain in the home temporarily.
+        Title companies typically request the divorce petition or decree, payoff letters, HOA statements, and any temporary orders dictating proceeds. We help gather these documents and coordinate signatures: digital if the court allows, in-person if required. Cash closings often happen within two to three weeks once paperwork is ready; flexible agreements may take slightly longer but allow one spouse to remain in the home temporarily.
       </p>
     </article>
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Support beyond the sale</h2>
       <p class="text-muted">
-        Need referrals for movers, estate planners, or housing searches? We maintain a vetted list and only recommend partners we trust. Review cash vs. creative pathways on our <a href="/options/" class="text-secondary underline">options page</a> and explore other scenarios in the <a href="/solutions/" class="text-secondary underline">solutions hub</a> before deciding.
+        Need referrals for movers, estate planners, or housing searches? We maintain a vetted list and only recommend partners we trust. Review cash vs. flexible pathways on our <a href="/options/" class="text-secondary underline">options page</a> and explore other scenarios in the <a href="/solutions/" class="text-secondary underline">solutions hub</a> before deciding.
       </p>
       <p class="text-muted">
         For a broader planning overview, read our <a href="/resources/divorce-selling-house-kansas-city/" class="text-secondary underline">divorce and selling a house guide</a>.
@@ -175,6 +182,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="general"
+    heading="Connect a divorce sale to the right local KC closing path"
+    intro="Divorce timelines can involve attorneys, court orders, title payoffs, occupancy, and county requirements. Use these local pages to narrow the practical next step."
+  />
 
   <section class="section flex flex-wrap gap-4">
     <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>

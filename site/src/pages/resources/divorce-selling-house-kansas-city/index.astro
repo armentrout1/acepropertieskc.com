@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -121,6 +122,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start a neutral offer conversation</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="general"
+      heading="Connect a divorce sale question to local KC options"
+      intro="A divorce-related sale often needs neutral numbers, clear timing, and minimal disruption. These local pages help compare city, county, and seller-situation next steps."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Divorce sale FAQ</h2>

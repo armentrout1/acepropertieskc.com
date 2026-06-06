@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Jackson County Foreclosure Options for Kansas City Homeowners";
 const description =
-  "A Jackson County MO guide for homeowners behind on payments, comparing lender options, housing counseling, payoff-at-closing, cash sale, subject-to, and backup offers.";
+  "Jackson County MO guide for payment pressure, lender options, counseling, payoff-at-closing, cash sale, payment takeover, and backup offers.";
 
 const localSignals = [
   "Kansas City, Independence, Raytown, Grandview, Blue Springs, Lee's Summit, Grain Valley, and Oak Grove",
@@ -36,9 +37,9 @@ const optionCards = [
       "A cash sale may help when the property needs repairs, the timeline is tight, or showings are not practical. The key is confirming title, payoff numbers, and seller net before committing.",
   },
   {
-    title: "Subject-to or creative option",
+    title: "Payment takeover option",
     body:
-      "Subject-to can come up when the existing loan stays in place after transfer. It needs careful documents, payment tracking, insurance/tax planning, and advisor review because the seller may remain tied to the loan.",
+      "Payment takeover can come up when the existing loan stays in place after transfer and the buyer steps in to make payments. It needs careful documents, payment tracking, insurance/tax planning, and advisor review because the seller may remain tied to the loan.",
   },
 ];
 
@@ -62,7 +63,7 @@ const faqs = [
       "Yes. Ask the servicer for current payoff, reinstatement, and deadline information. A written offer can be compared with lender options, but the lender status is the baseline.",
   },
   {
-    question: "Can a direct buyer stop foreclosure?",
+    question: "Can a direct buyer help before foreclosure is completed?",
     answer:
       "A buyer should not promise that casually. A sale may help if it closes in time and pays what title requires. Always verify deadlines with the lender, title company, and your own advisor.",
   },
@@ -107,6 +108,7 @@ const jsonLd = [
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Request a written backup offer</a>
         <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn btn-ghost text-base">Compare mortgage options</a>
+        <a href="/options/" class="btn btn-outline text-base">Compare cash vs takeover</a>
       </div>
     </header>
 
@@ -169,11 +171,17 @@ const jsonLd = [
       <div class="mx-auto max-w-3xl space-y-4 text-center">
         <h2 class="text-3xl font-semibold text-primary">Need to know if selling can actually solve the payoff?</h2>
         <p class="text-muted">
-          Send the address, rough payment status, and any notices you have. We can outline whether an as-is sale, payoff-at-closing, or backup offer is realistic, then you can compare it with your lender and advisors.
+          Send the address, rough payment status, and any notices you have. We can outline whether an as-is sale, payoff-at-closing, payment takeover, or backup offer is realistic, then you can compare it with your lender and advisors.
         </p>
         <a href="/get-offer/" class="btn btn-primary text-base">Check my Jackson County options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Connect Jackson County pressure to nearby city pages"
+      intro="Foreclosure pressure in Jackson County often overlaps with repairs, taxes, estate issues, or urgent move timing. Use the city pages and payment resources below to compare a clearer local path."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Jackson County foreclosure options FAQ</h2>

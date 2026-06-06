@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
+import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -37,7 +39,7 @@ const steps = [
   },
   {
     title: "Choose your path",
-    body: "Receive a written comparison of a straightforward cash offer and any creative options that work with your timeline and goals.",
+    body: "Receive a written comparison of a straightforward cash offer and any flexible options that work with your timeline and goals.",
   },
 ];
 
@@ -94,7 +96,7 @@ const jsonLd = [
       <p class="badge">Olathe, Kansas</p>
       <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Olathe, KS With a Cash Buyer</h1>
       <p class="text-muted">
-        Olathe homeowners value clear communication and predictable outcomes. If you are searching for how to sell my house fast in Olathe, comparing we-buy-houses Olathe buyers, or trying to avoid repairs and showings, we provide straightforward cash and creative options without pressure. Our local team understands Johnson County requirements and keeps every step transparent.
+        Olathe homeowners value clear communication and predictable outcomes. If you are searching for how to sell my house fast in Olathe, comparing we-buy-houses Olathe buyers, or trying to avoid repairs and showings, we provide straightforward cash and flexible options without pressure. Our local team understands Johnson County requirements and keeps every step transparent.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Get an Olathe offer</a>
@@ -120,6 +122,13 @@ const jsonLd = [
     </div>
   </section>
 
+  <SellerSituationLinks
+    city="Olathe, KS"
+    countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
+  />
+
+  <AreaPropertyProof city="Olathe, KS" county="Johnson County" />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why Olathe sellers reach out</h2>
@@ -130,7 +139,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
       <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted Johnson County title partners, and outlines both cash and creative pathways. No aggressive pitches—just clear answers about value, timelines, and paperwork.
+        Our team meets you in person when possible, collaborates with trusted Johnson County title partners, and outlines both cash and flexible pathways. No aggressive pitches - just clear answers about value, timelines, and paperwork.
       </p>
     </article>
   </section>
@@ -180,7 +189,7 @@ const jsonLd = [
     <div class="space-y-3">
       <h2 class="text-2xl font-semibold text-primary">How it works in Olathe</h2>
       <p class="text-muted">
-        From first call to closing, you set the pace. We document property condition, confirm Johnson County requirements, and walk through creative alternatives when that protects your equity. Expect regular updates so you're never guessing what comes next.
+        From first call to closing, you set the pace. We document property condition, confirm Johnson County requirements, and walk through flexible alternatives when that protects your equity. Expect regular updates so you're never guessing what comes next.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">

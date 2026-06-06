@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -95,7 +96,7 @@ const jsonLd = [
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Request an as-is offer</a>
-        <a href="/options/" class="btn btn-ghost text-base">Compare cash vs creative options</a>
+        <a href="/options/" class="btn btn-ghost text-base">Compare cash vs payment takeover</a>
       </div>
     </header>
 
@@ -141,7 +142,7 @@ const jsonLd = [
           Buyers usually look at comparable sales, expected resale value, repair scope, holding costs, closing costs, risk, and the time needed to make the property marketable. A foundation issue, old roof, or full clean-out does not automatically stop a sale, but it changes the math.
         </p>
         <p class="text-muted">
-          If you want to understand the difference between a direct offer and an MLS listing, start with our <a href="/options/" class="text-secondary underline">cash and creative options comparison</a>.
+          If you want to understand the difference between a direct offer and an MLS listing, start with our <a href="/options/" class="text-secondary underline">cash and payment takeover options comparison</a>.
         </p>
       </article>
       <article class="card space-y-3">
@@ -164,6 +165,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Get my as-is offer</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="repairs"
+      heading="Match an as-is sale question to local Kansas City options"
+      intro="As-is value depends on repairs, clean-out, title, location, and how fast the seller needs to move. These local paths connect the guide to city pages, repair resources, and an offer route."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Kansas City as-is sale FAQ</h2>

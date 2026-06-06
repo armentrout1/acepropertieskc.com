@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
 import { webSiteJsonLd, localBusinessJsonLd } from "../../lib/seo";
 
 const solutions = [
@@ -40,12 +41,12 @@ const solutions = [
   },
   {
     title: "Tax Lien",
-    body: "Compare payoff-at-closing or creative relief before auction clocks run out.",
+    body: "Compare payoff-at-closing, payment takeover review, or backup sale options before auction clocks run out.",
     href: "/solutions/tax-lien/",
   },
   {
     title: "Pre-Foreclosure",
-    body: "Review timelines before auction dates with cash, payoff, or creative options.",
+    body: "Review timelines before auction dates with cash, payoff, or payment takeover options.",
     href: "/solutions/pre-foreclosure/",
   },
   {
@@ -65,7 +66,7 @@ const solutions = [
   },
   {
     title: "Behind on Payments",
-    body: "Compare lender options, payoff-at-closing, subject-to, and backup offers before deadlines.",
+    body: "Compare lender options, payoff-at-closing, payment takeover, and backup offers before deadlines.",
     href: "/solutions/behind-on-payments/",
   },
 ];
@@ -79,7 +80,7 @@ const principles = [
   {
     title: "Options, not pressure",
     body:
-      "Every call includes side-by-side looks at a straightforward cash sale and creative approaches. You pick what aligns with your plans.",
+      "Every call includes side-by-side looks at a straightforward cash sale and payment takeover approaches when they may fit. You pick what aligns with your plans.",
   },
   {
     title: "Clear paperwork",
@@ -101,7 +102,7 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Ways we can help</p>
     <h1 class="text-4xl font-semibold text-primary">Solutions for Selling As-Is</h1>
     <p class="max-w-3xl text-muted">
-      Every Kansas City homeowner has a different mix of timelines, repairs, and family dynamics. This hub outlines the most common situations we support. Each page explains what to expect, how our process works, and how to move forward without stress. We serve homeowners across the metro—from <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a> and <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a> to <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a> and <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>.
+      Every Kansas City homeowner has a different mix of timelines, repairs, and family dynamics. This hub outlines the most common situations we support. Each page explains what to expect, how our process works, and how to move forward without stress. We serve homeowners across the metro - from <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a> and <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a> to <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a> and <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>.
     </p>
   </section>
 
@@ -136,9 +137,9 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Cash vs Creative Options</h2>
+      <h2 class="text-2xl font-semibold text-primary">Cash vs Payment Takeover Options</h2>
       <p class="text-muted">
-        Some sellers want a clean break with guaranteed funds in two to three weeks. Others prefer payments over time or subject-to agreements that preserve financing already in place. Visit our <a href="/options/" class="text-secondary underline">options page</a> for deeper comparisons and disclosures about each approach.
+        Some sellers want a clean break with a confirmed cash closing in two to three weeks. Others need to know whether someone can step in and take over the monthly payment through a payment takeover structure. Visit our <a href="/options/" class="text-secondary underline">cash or payment takeover options page</a> for deeper comparisons and disclosures about each approach.
       </p>
       <p class="text-muted">
         If you are behind on mortgage payments or trying to avoid foreclosure, start with the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a> before choosing a sale path.
@@ -150,11 +151,17 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Need a different scenario?</h2>
       <p class="text-muted">
-        Even if your situation is not listed yet—tenant buyouts, relocation timelines, or commercial conversions—start a conversation. If we are not the right fit, we can refer you to someone who is.
+        Even if your situation is not listed yet - tenant buyouts, relocation timelines, or commercial conversions - start a conversation. If we are not the right fit, we can refer you to someone who is.
       </p>
       <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
     </article>
   </section>
+
+  <LocalDecisionMap
+    variant="general"
+    heading="Match the situation to your local Kansas City page"
+    intro="Start with the seller problem, then narrow by city, county, and timeline. This helps you compare the practical next step before requesting an offer."
+  />
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Ready when you are</h2>

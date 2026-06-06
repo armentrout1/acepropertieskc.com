@@ -1,11 +1,13 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   webSiteJsonLd,
   localBusinessJsonLd,
   buildFaqPageJsonLd,
   buildBreadcrumbList,
+  serviceJsonLd,
 } from "../../../lib/seo";
 
 const checklist = [
@@ -73,6 +75,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Sell a Tenant-Occupied Property in Kansas City",
+    description:
+      "As-is cash offer support for Kansas City rental houses with tenants, leases, deposits, access limits, rent arrears, or possession timing.",
+    path: "/solutions/tenant-occupied/",
+  }),
   buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -189,6 +197,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="vacant"
+    heading="Connect tenant-occupied sales to the right local KC path"
+    intro="Tenant-occupied sales depend on lease terms, county title work, access, deposits, repairs, and local notice timing. Use these pages to compare a quiet sale path."
+  />
 
   <section class="section flex flex-wrap gap-4">
     <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>

@@ -32,5 +32,8 @@ jobs:
       - name: SEO preflight
         run: npm run seo:preflight
 
+      - name: Generated SEO audit
+        run: npm run seo:audit
+
       - name: Dependency audit
         run: npm audit --audit-level=moderate

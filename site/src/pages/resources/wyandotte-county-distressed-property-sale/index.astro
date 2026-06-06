@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Wyandotte County Distressed Property Sale Guide";
 const description =
-  "A guide for selling a distressed property in Wyandotte County or Kansas City, Kansas, including repairs, liens, tenants, taxes, clean-out, title work, and as-is cash offers.";
+  "Sell a distressed property in Wyandotte County or Kansas City, KS. Compare repairs, liens, tenants, taxes, clean-out, title work, and as-is offers.";
 
 const commonIssues = [
   "Major repairs such as roof, foundation, electrical, plumbing, HVAC, or fire damage",
@@ -132,6 +133,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start the as-is review</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="repairs"
+      heading="Connect Wyandotte County distress signals to local options"
+      intro="A difficult KCK property may involve repairs, code, liens, taxes, vacancy, tenants, or payment pressure. These local links help sort the next step by situation."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Wyandotte County distressed property FAQ</h2>

@@ -7,7 +7,7 @@ export const SITE = {
   smsTel: "+18167287548",
   email: "info@acepropertieskc.com",
   serviceArea: "Kansas City metro (including ZIP 64131)",
-  defaultTitle: "ACE Properties KC | Cash & Creative Home Buying Solutions",
+  defaultTitle: "ACE Properties KC | Cash & Flexible Home Buying Options",
   defaultDescription:
-    "Local Kansas City metro home buyer. Sell as-is for cash or explore creative options. No repairs, no pressure. Start with a quick conversation.",
+    "Local Kansas City metro home buyer. Sell as-is for cash or compare flexible options. No repairs, no pressure. Start with a quick conversation.",
 };

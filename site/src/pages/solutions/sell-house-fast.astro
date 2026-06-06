@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
 
 const speedReasons = [
@@ -63,7 +64,7 @@ const fastSaleCityLinks = [
   {
     label: "Lee's Summit, MO",
     href: "/areas/lees-summit-mo/",
-    body: "Cash and creative sale options for growing families, vacant homes, and move-driven timelines.",
+    body: "Cash and flexible sale options for growing families, vacant homes, and move-driven timelines.",
   },
 ];
 
@@ -86,7 +87,7 @@ const comparisonRows = [
     tradeoff: "You may need repairs, cleaning, buyer inspections, concessions, appraisal timing, and months of carrying costs.",
   },
   {
-    path: "Creative option",
+    path: "Flexible option",
     bestFor: "Sellers who want to compare cash with terms that may protect equity or solve a payment/timing issue",
     tradeoff: "The paperwork and risk profile need to be reviewed carefully with your own advisors before signing.",
   },
@@ -148,7 +149,7 @@ const faqs = [
   },
   {
     question: "Is this better than listing with an agent?",
-    answer: "For speed and certainty, yes. Traditional listings take months and require repairs, showings, and negotiations. Cash offers provide guaranteed closing dates and as-is terms.",
+    answer: "For speed and certainty, often yes. Traditional listings can take months and require repairs, showings, and negotiations. Cash offers provide clear closing dates and as-is terms.",
   },
 ];
 
@@ -158,7 +159,7 @@ const jsonLd = [
   serviceJsonLd({
     name: "Sell My House Fast in Kansas City",
     description:
-      "As-is cash and creative home buying options for Kansas City metro sellers who need speed, certainty, and no repair requirements.",
+      "As-is cash and flexible home buying options for Kansas City metro sellers who need speed, certainty, and no repair requirements.",
     path: "/solutions/sell-house-fast/",
   }),
   buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
@@ -180,7 +181,7 @@ const jsonLd = [
     <p class="badge">Speed & Certainty Solutions</p>
     <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Kansas City</h1>
     <p class="text-muted">
-      If you need to sell a house fast in Kansas City, the real question is not just how quickly someone can make an offer. It is whether the buyer can explain title timing, repairs, closing costs, occupancy, and your net clearly enough for you to make a good decision. Whether you are in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, or anywhere in the metro, we provide cash and creative options so you can compare an as-is sale against listing without repairs, showings, or pressure.
+      If you need to sell a house fast in Kansas City, the real question is not just how quickly someone can make an offer. It is whether the buyer can explain title timing, repairs, closing costs, occupancy, and your net clearly enough for you to make a good decision. Whether you are in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, or anywhere in the metro, we provide cash and flexible options so you can compare an as-is sale against listing without repairs, showings, or pressure.
     </p>
   </section>
 
@@ -191,7 +192,7 @@ const jsonLd = [
     points={[
       "No showings, open houses, or MLS prep",
       "As-is sale path for urgent timelines",
-      "Cash and creative options compared clearly",
+      "Cash and flexible options compared clearly",
       "Closing date built around your move",
     ]}
     formId="sell-house-fast-offer-form"
@@ -382,6 +383,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="fast"
+    heading="Connect a fast sale to the right local KC page"
+    intro="Fast closing depends on title, access, payoffs, repairs, and county details. Use these local pages and guides to understand what can speed up or slow down the timeline."
+  />
 
   <section class="section flex flex-wrap gap-4">
     <a href="/get-offer/" class="btn btn-primary text-base">Get fast cash offer</a>

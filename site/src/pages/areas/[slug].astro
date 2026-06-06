@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import OfferForm from "../../components/OfferForm.astro";
+import SellerSituationLinks from "../../components/SellerSituationLinks.astro";
 import { expansionAreas } from "../../data/areaExpansion";
 import { buildBreadcrumbList, faqJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
@@ -42,6 +43,27 @@ const commonSellerGoals = [
   `Compare a local cash offer with listing a ${area.city} house on the MLS`,
   `Get help with inherited, vacant, tenant-occupied, or repair-heavy property`,
   `Choose a closing date around family, title, payoffs, or relocation timing`,
+];
+
+const hasAcreageContext = `${area.body} ${area.titleNotes} ${area.neighborhoodFocus.join(" ")}`
+  .toLowerCase()
+  .includes("acreage");
+
+const propertyTypeFocus = [
+  {
+    title: `${area.city} as-is houses`,
+    body: `Single-family homes with old roofs, tired interiors, full clean-outs, deferred maintenance, or repairs that make listing harder.`,
+  },
+  {
+    title: `${area.county} inherited homes`,
+    body: `Estate, trust, or family-owned properties where heirs need clear paperwork, title updates, and one written path before deciding.`,
+  },
+  {
+    title: hasAcreageContext ? "Acreage and rural-edge properties" : "Rentals and tenant-occupied homes",
+    body: hasAcreageContext
+      ? "Homes with land, outbuildings, septic, drainage, access, or repair questions that need a realistic as-is review before listing."
+      : "Small rentals, tenant-occupied houses, duplexes, and vacant properties where privacy, lease timing, and access need careful handling.",
+  },
 ];
 
 const countyPressureGuide =
@@ -104,6 +126,13 @@ const jsonLd = [
     </div>
   </section>
 
+  <SellerSituationLinks
+    city={`${area.city}, ${area.state}`}
+    countyGuide={countyPressureGuide}
+    heading={`Match your ${area.city} situation to the right selling path`}
+    intro={`Use this ${area.city} page for local context, then compare the guide that matches your repairs, title pressure, mortgage deadline, or family timeline.`}
+  />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why local sellers reach out</h2>
@@ -131,16 +160,32 @@ const jsonLd = [
   <section class="section section-alt">
     <div class="space-y-5">
       <h2 class="text-3xl font-semibold text-primary">{area.city} area property context</h2>
-      <div class="grid gap-4 md:grid-cols-3">
-        {area.neighborhoodFocus.map((spot) => (
-          <article class="card bg-white/90">
-            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Local focus</p>
-            <h3 class="mt-2 text-xl font-semibold text-primary">{spot}</h3>
-            <p class="mt-2 text-sm text-muted">
-              We review condition, access, title, and seller timing before recommending a direct sale or listing comparison.
-            </p>
-          </article>
-        ))}
+      <div class="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+        <article class="card bg-white/90">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
+          <h3 class="mt-2 text-xl font-semibold text-primary">Local spots we reference</h3>
+          <ul class="mt-4 space-y-3 text-sm text-primary">
+            {area.neighborhoodFocus.map((spot) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+                <span>{spot}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-sm text-muted">
+            These are starting points for local context. The actual offer still depends on condition,
+            access, payoff details, title, and your preferred timeline.
+          </p>
+        </article>
+        <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
+          {propertyTypeFocus.map((property) => (
+            <article class="card bg-white/90">
+              <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Property type</p>
+              <h3 class="mt-2 text-xl font-semibold text-primary">{property.title}</h3>
+              <p class="mt-2 text-sm text-muted">{property.body}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>

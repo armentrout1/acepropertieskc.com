@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -86,5 +87,10 @@ const jsonLd = [
         </p>
       </article>
     </section>
+    <LocalDecisionMap
+      variant="estate"
+      heading="Turn probate documents into a local property plan"
+      intro="Once authority, title documents, payoffs, and family details are gathered, the next step is local. These links connect the checklist to county, city, and inherited-property options."
+    />
   </article>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Can Someone Take Over My Mortgage Payments in Kansas City?";
 const description =
-  "Learn how subject-to and payment takeover options work for Kansas City homeowners, including monthly payment relief, credit considerations, seller risks, and questions to ask.";
+  "Learn how subject-to and payment takeover options work for Kansas City homeowners, including payment relief, credit concerns, seller risks, and key questions.";
 
 const questions = [
   "Who will make the monthly payments, and how will you verify they are paid?",
@@ -108,7 +109,7 @@ const jsonLd = [
       <p class="badge">Payment takeover explained</p>
       <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
       <p class="max-w-3xl text-muted">
-        If the monthly mortgage payment is the problem, subject-to may be one creative option to review. In plain English, it can mean we buy the house while the existing loan stays in place and we step in to make the payments, but the details and risks matter.
+        If the monthly mortgage payment is the problem, subject-to may be one payment takeover option to review. In plain English, it can mean we buy the house while the existing loan stays in place and we step in to make the payments, but the details and risks matter.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Compare cash and payment takeover</a>
@@ -200,6 +201,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Request options for my house</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Compare payment takeover against local KC next steps"
+      intro="If monthly payments are the problem, the next decision depends on the property location, county process, arrears, payoff, repairs, and whether cash or payment takeover is the cleaner path."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Subject-to FAQ</h2>

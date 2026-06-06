@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
+import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
@@ -37,7 +39,7 @@ const steps = [
   },
   {
     title: "Choose your solution",
-    body: "Receive a written comparison of a straightforward cash offer and any creative options that work with your timeline and financial goals.",
+    body: "Receive a written comparison of a straightforward cash offer and any flexible options that work with your timeline and financial goals.",
   },
 ];
 
@@ -94,7 +96,7 @@ const jsonLd = [
       <p class="badge">Independence, Missouri</p>
       <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Independence, MO</h1>
       <p class="text-muted">
-        Independence homeowners deserve straightforward solutions when property decisions become complicated. Whether you're managing an inherited family home near the Square, facing repairs that feel overwhelming in Western Independence, or dealing with timeline pressure in Little Blue Valley, we provide clear cash and creative options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
+        Independence homeowners deserve straightforward solutions when property decisions become complicated. Whether you're managing an inherited family home near the Square, facing repairs that feel overwhelming in Western Independence, or dealing with timeline pressure in Little Blue Valley, we provide clear cash and flexible options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Get an Independence offer</a>
@@ -120,6 +122,13 @@ const jsonLd = [
     </div>
   </section>
 
+  <SellerSituationLinks
+    city="Independence, MO"
+    countyGuide={{ label: "Jackson County foreclosure options", href: "/resources/jackson-county-foreclosure-options/" }}
+  />
+
+  <AreaPropertyProof city="Independence, MO" county="Jackson County" />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why Independence sellers reach out</h2>
@@ -130,7 +139,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
       <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted Jackson County title partners, and outlines both cash and creative pathways. No aggressive tactics—just honest answers about value, timelines, and paperwork requirements.
+        Our team meets you in person when possible, collaborates with trusted Jackson County title partners, and outlines both cash and flexible pathways. No aggressive tactics - just honest answers about value, timelines, and paperwork requirements.
       </p>
     </article>
   </section>
@@ -180,7 +189,7 @@ const jsonLd = [
     <div class="space-y-3">
       <h2 class="text-2xl font-semibold text-primary">How it works in Independence</h2>
       <p class="text-muted">
-        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and explore creative solutions when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and review flexible options when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">

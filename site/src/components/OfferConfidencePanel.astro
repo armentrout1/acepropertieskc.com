@@ -1,0 +1,85 @@
+---
+type LinkItem = {
+  title: string;
+  body: string;
+  href: string;
+};
+
+type Props = {
+  heading?: string;
+  intro?: string;
+};
+
+const {
+  heading = "Before you send the address, know what happens next",
+  intro = "A seller reaching out should not feel trapped into a sales pitch. These are the expectations we want clear before you ask for an offer.",
+} = Astro.props as Props;
+
+const expectations = [
+  "The form is not a contract and does not obligate you to sell.",
+  "You can ask for a cash offer, a payment takeover review, or both side by side.",
+  "You do not need repairs, cleaning, photos, or perfect information before starting.",
+  "We explain title, payoff, timeline, and closing questions before any decision.",
+];
+
+const guideLinks: LinkItem[] = [
+  {
+    title: "What happens after contact",
+    body: "See the exact sequence from first message to walkthrough, written options, and closing.",
+    href: "/resources/what-happens-after-contact-ace-properties-kc/",
+  },
+  {
+    title: "How offers are determined",
+    body: "Review repairs, comparable sales, holding costs, title items, and net proceeds.",
+    href: "/resources/how-cash-home-buyers-determine-offer-kansas-city/",
+  },
+  {
+    title: "Behind on mortgage options",
+    body: "Compare lender help, payoff-at-closing, cash sale, payment takeover, and backup plans.",
+    href: "/resources/behind-on-mortgage-options-kansas-city/",
+  },
+  {
+    title: "Cash buyer vs real estate agent",
+    body: "Compare certainty, repairs, showings, commissions, timing, and net proceeds.",
+    href: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
+  },
+];
+---
+
+<section class="section section-alt">
+  <div class="space-y-6">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller confidence</p>
+      <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
+      <p class="max-w-3xl text-muted">{intro}</p>
+    </div>
+    <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+      <article class="card bg-white/90">
+        <h3 class="text-xl font-semibold text-primary">Clear expectations</h3>
+        <ul class="mt-4 space-y-3 text-sm text-primary">
+          {expectations.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="/get-offer/" class="btn btn-primary">Start the offer form</a>
+          <a href="/contact/" class="btn btn-ghost">Ask first</a>
+        </div>
+      </article>
+      <article class="card bg-white/90">
+        <h3 class="text-xl font-semibold text-primary">Read before deciding</h3>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {guideLinks.map((link) => (
+            <a href={link.href} class="rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary">
+              <span class="block text-sm font-semibold text-primary">{link.title}</span>
+              <span class="mt-1 block text-sm text-muted">{link.body}</span>
+            </a>
+          ))}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

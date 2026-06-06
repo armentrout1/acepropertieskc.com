@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,13 +11,13 @@ import {
 
 const title = "Wyandotte County Foreclosure Options and As-Is Sale Guide";
 const description =
-  "A Wyandotte County and Kansas City KS guide for homeowners facing payment pressure, code issues, taxes, liens, repairs, lender options, and as-is sale decisions.";
+  "Wyandotte County and Kansas City KS guide for payment pressure, code issues, taxes, liens, repairs, lender options, and as-is sale decisions.";
 
 const localIssues = [
   "Kansas City, KS, Bonner Springs, western Wyandotte County, rentals, vacant houses, and repair-heavy properties",
   "Mortgage payoff, reinstatement, back taxes, utility balances, code notices, liens, or judgments",
   "Tenants, clean-out, property access, insurance concerns, and vacant-house security",
-  "Whether a lender workout, listing, direct sale, or creative option fits the timeline",
+  "Whether a lender workout, listing, direct sale, or payment takeover option fits the timeline",
 ];
 
 const pathCards = [
@@ -36,9 +37,9 @@ const pathCards = [
       "If repairs, code issues, tenants, vacancy, or payment pressure make listing hard, an as-is offer can show whether selling can clear required payoffs and simplify the next move.",
   },
   {
-    title: "Review creative options carefully",
+    title: "Review payment takeover carefully",
     body:
-      "Subject-to or seller-finance conversations need careful written terms, payment proof, insurance/tax planning, and advisor review. They are not one-size-fits-all solutions.",
+      "Payment takeover, subject-to, or seller-finance conversations need careful written terms, payment proof, insurance/tax planning, and advisor review. They are not one-size-fits-all solutions.",
   },
 ];
 
@@ -107,6 +108,7 @@ const jsonLd = [
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Request an as-is review</a>
         <a href="/resources/wyandotte-county-distressed-property-sale/" class="btn btn-ghost text-base">Read distressed sale guide</a>
+        <a href="/options/" class="btn btn-outline text-base">Compare cash vs takeover</a>
       </div>
     </header>
 
@@ -152,7 +154,7 @@ const jsonLd = [
           A written as-is offer can help you compare the sale path while you also talk with the lender. It should show price, closing timing, clean-out responsibility, what title must pay, and what you may net after required items.
         </p>
         <p class="text-muted">
-          For broader payment-pressure planning, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a>.
+          For broader payment-pressure planning, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a> and the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">payment takeover subject-to guide</a>.
         </p>
       </article>
     </section>
@@ -161,11 +163,17 @@ const jsonLd = [
       <div class="mx-auto max-w-3xl space-y-4 text-center">
         <h2 class="text-3xl font-semibold text-primary">Need a clear sale option for a complicated KCK property?</h2>
         <p class="text-muted">
-          Send the address, payment status, known code or tax items, and repair concerns. We can outline whether a direct as-is option is realistic while you continue reviewing lender and advisor options.
+          Send the address, payment status, known code or tax items, and repair concerns. We can outline whether a direct as-is option, payoff-at-closing path, or payment takeover review is realistic while you continue reviewing lender and advisor options.
         </p>
         <a href="/get-offer/" class="btn btn-primary text-base">Check my Wyandotte County options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Connect Wyandotte County foreclosure pressure to local next steps"
+      intro="Kansas City, Kansas sellers may be balancing missed payments, liens, taxes, repairs, tenants, or code issues. Use these local paths to compare what can realistically move fast."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Wyandotte County foreclosure options FAQ</h2>

@@ -1,19 +1,50 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import OfferConfidencePanel from "../../components/OfferConfidencePanel.astro";
 import OfferForm from "../../components/OfferForm.astro";
 import { SITE } from "../../lib/siteConfig";
+import { buildBreadcrumbList, buildFaqPageJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+
+const contactFaqs = [
+  {
+    question: "Can I ask questions before sharing everything about the house?",
+    answer:
+      "Yes. You can start with the basics, ask how the process works, and decide what details you are comfortable sharing after the first conversation.",
+  },
+  {
+    question: "Is calling better than the form?",
+    answer:
+      "Either works. Call or text when timing is urgent, and use the form when you want to send the property address, situation, and preferred follow-up all at once.",
+  },
+  {
+    question: "Will you pressure me to sign right away?",
+    answer:
+      "No. We explain the options, timeline, and offer terms so you can compare them calmly. A direct sale should only move forward when it fits your situation.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildFaqPageJsonLd(contactFaqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Contact", item: "/contact/" },
+  ]),
+];
 ---
 
 <Layout
   title="Contact ACE Properties KC"
-  description="Talk with the ACE Properties KC team about selling your Kansas City house as-is for cash or creative options."
+  description="Talk with the ACE Properties KC team about selling your Kansas City house as-is for cash or payment takeover options."
   canonicalPath="/contact/"
+  jsonLd={jsonLd}
 >
   <section class="section space-y-4">
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Talk with a real person</p>
     <h1 class="text-4xl font-semibold text-primary">Contact ACE Properties KC</h1>
     <p class="text-muted">
-      Share your goals, timelines, or concerns. We respond quickly and walk you through the same process we use on every Kansas City metro property.
+      Share your goals, timelines, or concerns. We respond quickly and walk you through the same process we use on every Kansas City metro property, including cash sale, payoff-at-closing, or payment takeover questions.
     </p>
   </section>
 
@@ -47,12 +78,30 @@ import { SITE } from "../../lib/siteConfig";
         <p class="text-sm text-muted">We respond during standard business hours and check messages after-hours for urgent updates.</p>
         <div class="flex flex-wrap gap-3">
           <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+          <a href="/options/" class="btn btn-ghost text-base">Compare options</a>
           <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base" data-phone-link="contact_page_cta">Call us now</a>
         </div>
       </div>
       <div class="card p-4 sm:p-6">
         <OfferForm heading="Request a call or walkthrough" subheading="Share the address and how you'd like us to follow up." formId="contact-offer-form" />
       </div>
+    </div>
+  </section>
+
+  <OfferConfidencePanel
+    heading="Ask first, then decide what makes sense"
+    intro="Some sellers are ready for a written offer. Others need to talk through timing, payment pressure, family questions, or repairs first. Either path is fine."
+  />
+
+  <section class="section space-y-4">
+    <h2 class="text-3xl font-semibold text-primary">Contact FAQ</h2>
+    <div class="space-y-3">
+      {contactFaqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
     </div>
   </section>
 </Layout>

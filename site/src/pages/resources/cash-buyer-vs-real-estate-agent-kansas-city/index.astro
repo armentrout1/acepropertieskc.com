@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -83,7 +84,7 @@ const jsonLd = [
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
-        <a href="/options/" class="btn btn-ghost text-base">Cash vs creative options</a>
+        <a href="/options/" class="btn btn-ghost text-base">Cash vs payment takeover</a>
       </div>
     </header>
 
@@ -126,6 +127,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Request a comparison</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="fast"
+      heading="Compare sale paths by city, county, and timeline"
+      intro="The best choice changes when repairs, county title details, vacancy, tenants, or payment pressure are involved. Use these local routes to compare the next step with more context."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Cash buyer vs agent FAQ</h2>

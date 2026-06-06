@@ -1,7 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList } from "../../lib/seo";
+import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
 
 const probateChallenges = [
   "Court approval requirements before accepting offers",
@@ -69,6 +70,12 @@ const faqs = [
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  serviceJsonLd({
+    name: "Sell a Probate House in Kansas City",
+    description:
+      "Court-ready as-is offer support for Kansas City probate houses, executor timelines, heir communication, title work, repairs, and clean-out.",
+    path: "/solutions/probate-house/",
+  }),
   buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
@@ -212,6 +219,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="estate"
+    heading="Connect probate property to the right county and local page"
+    intro="Probate sales depend on who can sign, which county court is involved, title requirements, repairs, and clean-out timing. Use these local pages and estate guides before choosing a path."
+  />
 
   <section class="section flex flex-wrap gap-4">
     <a href="/get-offer/" class="btn btn-primary text-base">Start the probate consultation</a>

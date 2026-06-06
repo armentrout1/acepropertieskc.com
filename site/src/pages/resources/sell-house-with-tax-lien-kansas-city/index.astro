@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -137,6 +138,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start a tax-lien review</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Connect tax-lien pressure to local payoff options"
+      intro="Tax liens and sale deadlines depend on title, county, payoff amounts, and whether the house also has repairs or payment pressure. These local routes help narrow the next step."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Tax lien selling FAQ</h2>

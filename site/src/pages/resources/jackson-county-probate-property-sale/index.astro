@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Jackson County Probate Property Sale Guide";
 const description =
-  "A practical guide to selling a probate property in Jackson County, Missouri, including authority to sign, court timelines, title work, repairs, clean-out, and as-is offers.";
+  "Selling a probate property in Jackson County, Missouri? Review signing authority, court timelines, title work, repairs, clean-out, and as-is offers.";
 
 const checklist = [
   "Confirm the personal representative, executor, or administrator has authority to sign",
@@ -132,6 +133,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start the probate conversation</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="estate"
+      heading="Connect Jackson County probate questions to local next steps"
+      intro="Probate sales need clear authority, title status, family alignment, and a property plan. These local links help turn the county guide into the right seller path."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Jackson County probate FAQ</h2>

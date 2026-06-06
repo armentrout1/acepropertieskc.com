@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import OfferConfidencePanel from "../components/OfferConfidencePanel.astro";
 import OfferForm from "../components/OfferForm.astro";
 import { SITE } from "../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
@@ -7,7 +8,7 @@ import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
 const trustPoints = [
   "Local Kansas City team",
   "Sell as-is, no repairs",
-  "No showings or listings",
+  "Payment takeover reviews when appropriate",
   "No commissions or fees",
   "Your timeline, your choice"
 ];
@@ -23,13 +24,13 @@ const steps = [
   },
   {
     title: "Choose an option",
-    body: "Pick a straightforward cash price or a creative structure that keeps payments coming to you."
+    body: "Pick a straightforward cash price or a payment takeover path when the loan and timeline allow."
   }
 ];
 
 const solutions = [
   { title: "Sell House Fast", body: "Speed and certainty with as-is cash offers for any situation.", href: "/solutions/sell-house-fast/" },
-  { title: "Behind on Payments", body: "Compare lender options, payoff-at-closing, cash sale, and backup plans.", href: "/solutions/behind-on-payments/" },
+  { title: "Behind on Payments", body: "Compare lender options, payoff-at-closing, payment takeover, and backup plans.", href: "/solutions/behind-on-payments/" },
   { title: "Facing Foreclosure", body: "Review timing, title, payoffs, housing counseling, and sale options calmly.", href: "/solutions/facing-foreclosure/" },
   { title: "Inherited Home", body: "Coordinate siblings and estates with calm, organized guidance.", href: "/solutions/inherited-house/" },
   { title: "Probate House", body: "Court-ready offers for executors navigating legal processes.", href: "/solutions/probate-house/" },
@@ -49,7 +50,7 @@ const faqs = [
   },
   {
     question: "What if I still owe on the mortgage?",
-    answer: "That's common. We'll verify the payoff with title and structure the option that covers the balance and your proceeds."
+    answer: "That's common. We'll verify the payoff with title and compare a cash sale, payoff-at-closing, or payment takeover option when the loan and timeline allow."
   },
   {
     question: "Are there fees or commissions?",
@@ -73,21 +74,22 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City | Cash & Creative Options"
-  description="Need to sell your Kansas City house fast or as-is? Compare a local cash offer, creative options, repairs, payoffs, and timelines with no pressure."
+  title="Sell My House Fast Kansas City | Cash & Payment Options"
+  description="Need to sell your Kansas City house fast or as-is? Compare a local cash offer, payment takeover options, repairs, payoffs, and timelines with no pressure."
   canonicalPath="/"
   jsonLd={jsonLd}
 >
   <section class="section pt-4">
     <div class="rounded-3xl bg-gradient-to-b from-soft to-white/90 px-6 py-10 shadow-sm sm:px-10">
       <div class="space-y-6">
-        <span class="badge">Creative Home Buyer</span>
+        <span class="badge">Local Kansas City Buyer</span>
         <div class="space-y-4">
           <h1 class="text-4xl font-semibold text-primary md:text-5xl">
           Sell Your Kansas City House Fast or As-Is
           </h1>
           <p class="text-muted">
           Whether you're in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, or anywhere in the metro, we provide local guidance and practical solutions. We work with homeowners facing <a href="/solutions/relocating/" class="text-secondary underline">relocations</a>, <a href="/solutions/inherited-house/" class="text-secondary underline">inherited properties</a>, and situations requiring quick decisions.
+          If the mortgage payment is the pressure point, we can also review <a href="/options/" class="text-secondary underline">cash or payment takeover options</a> before you choose a direction.
         </p>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -193,11 +195,14 @@ const jsonLd = [
         <p class="text-lg font-semibold text-primary">What you can expect</p>
         <ul class="mt-4 space-y-3 text-sm text-muted">
           <li>Weekly updates during title work.</li>
-          <li>Creative deal outlines translated into plain English.</li>
+          <li>Payment takeover outlines translated into plain English.</li>
           <li>Introductions to attorneys or advisors when you want a second opinion.</li>
         </ul>
         <a href="/resources/sell-house-as-is-kansas-city/" class="btn btn-ghost mt-6 w-full sm:w-auto">
           Read the as-is selling guide
+        </a>
+        <a href="/options/" class="btn btn-ghost mt-3 w-full sm:w-auto">
+          Compare cash or takeover
         </a>
         <a href="#get-offer" class="btn btn-primary mt-3 w-full sm:w-auto">
           See your options
@@ -262,6 +267,11 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <OfferConfidencePanel
+    heading="Get clarity before you decide what to do with the house"
+    intro="If you are comparing a direct sale, listing, payment takeover, or simply need a backup plan, these guides explain the next step before you submit the form."
+  />
 
   <section id="get-offer" class="section space-y-6">
     <div class="space-y-2 text-center">

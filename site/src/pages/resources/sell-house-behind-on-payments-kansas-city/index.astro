@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Can I Sell My House if I Am Behind on Payments in Kansas City?";
 const description =
-  "Kansas City homeowner guide for selling when behind on mortgage payments, including payoff statements, arrears, liens, foreclosure timelines, and cash offer options.";
+  "Kansas City guide for selling when behind on payments, including payoff statements, arrears, liens, foreclosure timelines, cash offers, and payment takeover.";
 
 const steps = [
   "Find the current mortgage statement and servicer contact information",
@@ -77,6 +78,7 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Ask about payoff-at-closing</a>
         <a href="/solutions/behind-on-payments/" class="btn btn-ghost text-base">Behind on payments solutions</a>
         <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn btn-outline text-base">Compare all mortgage options</a>
+        <a href="/options/" class="btn btn-outline text-base">Cash vs payment takeover</a>
       </div>
     </header>
 
@@ -108,7 +110,7 @@ const jsonLd = [
           If your goal is to stay, ask your lender about repayment, modification, forbearance, or reinstatement. Selling should be compared against those options, not treated as the only path.
         </p>
         <p class="text-muted">
-          We can still provide a written offer so you understand what selling would look like while you evaluate lender options. The broader <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> explains lender help, housing counseling, payoff-at-closing, and subject-to questions side by side.
+          We can still provide a written offer so you understand what selling would look like while you evaluate lender options. The broader <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">behind on mortgage options guide</a> explains lender help, housing counseling, payoff-at-closing, and payment takeover questions side by side.
         </p>
       </article>
     </section>
@@ -117,11 +119,17 @@ const jsonLd = [
       <div class="mx-auto max-w-3xl space-y-4 text-center">
         <h2 class="text-3xl font-semibold text-primary">Need to know whether a sale can catch the deadline?</h2>
         <p class="text-muted">
-          Send the address, lender status, and any known dates. We can help you understand whether a direct sale timeline is realistic.
+          Send the address, lender status, and any known dates. We can help you understand whether a direct sale, payoff-at-closing, or payment takeover review is realistic.
         </p>
         <a href="/get-offer/" class="btn btn-primary text-base">Check my options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Match your payment deadline to a local KC route"
+      intro="A missed-payment sale depends on title, county timing, lender payoff details, and how quickly the property can close. These local pages connect the guide to the next practical step."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Behind on payments FAQ</h2>

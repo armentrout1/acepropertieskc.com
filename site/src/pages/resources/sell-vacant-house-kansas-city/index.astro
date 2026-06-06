@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -177,6 +178,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Get a vacant house offer</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="vacant"
+      heading="Turn vacant-house costs into a local next step"
+      intro="Vacant homes create different risks by city, county, utilities, security, insurance, and repair condition. These local pages help connect carrying costs to a practical sale path."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Vacant house FAQ</h2>

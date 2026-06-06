@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -122,6 +123,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Get a repair-adjusted offer</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="repairs"
+      heading="Route repair decisions into local city and offer pages"
+      intro="Major repair math changes by neighborhood, buyer pool, title timing, and how much cash the seller wants to spend before selling. Use these links to compare the local next step."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Repair decision FAQ</h2>

@@ -1,5 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -42,7 +44,7 @@ const jsonLd = [
   serviceJsonLd({
     name: "Facing Foreclosure Options in Kansas City",
     description:
-      "Private cash and creative sale options for Kansas City homeowners facing foreclosure, including payoff-at-closing, title coordination, and advisor-reviewed next steps.",
+      "Private cash and payment takeover options for Kansas City homeowners facing foreclosure, including payoff-at-closing, title coordination, and advisor-reviewed next steps.",
     path: "/solutions/facing-foreclosure/",
   }),
   buildFaqPageJsonLd(faqs),
@@ -56,7 +58,7 @@ const jsonLd = [
 
 <Layout
   title="Facing Foreclosure? Sell Your House Fast in Kansas City"
-  description="Facing foreclosure in Kansas City? Compare as-is cash sale, payoff-at-closing, subject-to discussions, and timeline options before deadlines tighten."
+  description="Facing foreclosure in Kansas City? Compare as-is cash sale, payoff-at-closing, payment takeover review, and timeline options before deadlines tighten."
   canonicalPath="/solutions/facing-foreclosure/"
   jsonLd={jsonLd}
 >
@@ -67,6 +69,22 @@ const jsonLd = [
       When a lender is moving toward foreclosure, time matters. A direct sale may be one possible path if title can clear before a deadline, but it should be compared with lender workouts, housing counseling, legal advice, and any option that helps you keep the house if that is your goal.
     </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Urgent payment review"
+    title="Need to know if we can step in before the next deadline?"
+    body="Share the property address, latest lender notice, and any known sale date. We can compare a cash payoff, payment takeover possibility, or backup offer in writing so you know what is realistic."
+    points={[
+      "Auction or sale-date timeline reviewed privately",
+      "Cash payoff and payment takeover paths compared",
+      "Written next steps for lender, title, or advisor review",
+      "No repairs or public listing required to start",
+    ]}
+    formId="facing-foreclosure-offer-form"
+    formHeading="Review foreclosure options"
+    formSubheading="Start with the address, latest notice date, and best contact method."
+    trackingLocation="facing_foreclosure"
+  />
 
   <section class="section">
     <div class="grid gap-6 md:grid-cols-2">
@@ -84,16 +102,19 @@ const jsonLd = [
       </article>
       
       <article class="card space-y-3">
-        <h2 class="text-2xl font-semibold text-primary">Subject-To Options</h2>
+        <h2 class="text-2xl font-semibold text-primary">Payment Takeover Option</h2>
         <p class="text-muted">
-          Subject-to may be discussed when keeping the existing loan in place could solve a payoff or timing problem. This structure carries real seller risk and should be reviewed with your own legal or financial advisor before signing.
+          Payment takeover may be discussed when keeping the existing loan in place could solve a payoff or timing problem. We may be able to step in and make the monthly payment, but this structure carries real seller risk and should be reviewed with your own legal or financial advisor before signing.
         </p>
         <ul class="list-disc list-inside text-sm text-muted space-y-1">
           <li>Payment and arrears plan documented in writing</li>
           <li>Existing mortgage may stay in your name temporarily</li>
+          <li>Payment verification should be discussed before signing</li>
           <li>No new loan may be needed from the buyer</li>
-          <li>Advisor review strongly encouraged</li>
         </ul>
+        <p class="text-sm text-muted">
+          Read the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">payment takeover subject-to guide</a> and the <a href="/options/" class="text-secondary underline">cash or payment takeover options page</a> before deciding.
+        </p>
       </article>
     </div>
   </section>
@@ -112,7 +133,7 @@ const jsonLd = [
         </div>
         <div class="space-y-2">
           <h3 class="font-semibold text-primary">3. Written options</h3>
-          <p class="text-sm text-muted">You can compare a sale, backup offer, or creative discussion with lender and advisor input.</p>
+          <p class="text-sm text-muted">You can compare a sale, backup offer, or payment takeover discussion with lender and advisor input.</p>
         </div>
       </div>
     </div>
@@ -122,7 +143,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Important Considerations</h2>
       <p class="text-muted">
-        Every foreclosure situation is unique. While we can often provide solutions that stop the process, we cannot guarantee specific outcomes. We encourage you to:
+        Every foreclosure situation is unique. We may be able to provide options that help before the process completes, but we cannot guarantee specific outcomes. We encourage you to:
       </p>
       <ul class="list-disc list-inside text-sm text-muted space-y-1">
         <li>Consult with a HUD-approved housing counselor or attorney</li>
@@ -131,7 +152,7 @@ const jsonLd = [
         <li>Consider all alternatives before deciding</li>
       </ul>
       <p class="text-sm text-muted">
-        A neutral starting point is the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a>, which links to HUD and CFPB housing counseling resources.
+        A neutral starting point is the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a>, which links to HUD and CFPB housing counseling resources. If the monthly payment is the main issue, also review our <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to payment takeover guide</a>.
       </p>
       <p class="text-sm text-muted">
         We provide clear, transparent options and help you understand the timeline and consequences of each approach.
@@ -150,6 +171,12 @@ const jsonLd = [
       <a href="/solutions/" class="btn btn-outline text-base">See other solutions</a>
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="payment"
+    heading="Use local foreclosure context before choosing a path"
+    intro="A foreclosure timeline depends on the county, title file, lender notices, payoff numbers, and whether the property needs repairs. These local pages help you compare the right next step."
+  />
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Facing foreclosure FAQ</h2>

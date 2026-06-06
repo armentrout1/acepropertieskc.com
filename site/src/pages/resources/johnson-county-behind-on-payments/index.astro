@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "Johnson County Behind on Payments Guide";
 const description =
-  "A Johnson County KS homeowner guide to late mortgage payments, lender options, HOA items, payoff-at-closing, cash offers, subject-to, and backup sale plans.";
+  "Johnson County KS guide to late mortgage payments, lender options, HOA items, payoff-at-closing, cash offers, payment takeover, and backup sale plans.";
 
 const countyNotes = [
   "Olathe, Overland Park, Shawnee, Lenexa, Prairie Village, Mission, Leawood, Merriam, Gardner, Spring Hill, and De Soto",
@@ -36,7 +37,7 @@ const compareRows = [
     watch: "Offer price versus listing net, title readiness, payoff amount, and move-out terms",
   },
   {
-    path: "Subject-to or creative terms",
+    path: "Payment takeover terms",
     bestFor: "Cases where a normal payoff does not work but the seller understands the ongoing loan risk",
     watch: "Payment verification, insurance, taxes, due-on-sale language, advisor review, and written remedies",
   },
@@ -47,7 +48,7 @@ const actionSteps = [
   "Gather HOA contact information, dues, violations, and any resale packet requirements",
   "Estimate repair needs and whether the house can handle showings or inspections",
   "Compare net proceeds after payoff, arrears, taxes, HOA, repairs, commissions, and holding costs",
-  "Keep advisor review in the loop if foreclosure, subject-to, divorce, probate, or tax issues are involved",
+  "Keep advisor review in the loop if foreclosure, payment takeover, divorce, probate, or tax issues are involved",
 ];
 
 const faqs = [
@@ -67,9 +68,9 @@ const faqs = [
       "Not always. Listing may produce a higher gross price if the home is ready and time is available. A cash offer is strongest when repairs, privacy, certainty, or deadline pressure matter more.",
   },
   {
-    question: "Should I compare subject-to?",
+    question: "Should I compare payment takeover?",
     answer:
-      "You can compare it, but do so carefully. Subject-to may leave the seller tied to the existing loan, so payment tracking, insurance, taxes, loan terms, and advisor review matter.",
+      "You can compare it, but do so carefully. Payment takeover, often called subject-to, may leave the seller tied to the existing loan, so payment tracking, insurance, taxes, loan terms, and advisor review matter.",
   },
 ];
 
@@ -102,11 +103,12 @@ const jsonLd = [
       <p class="badge">Johnson County payment pressure</p>
       <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
       <p class="max-w-3xl text-muted">
-        Falling behind on a Johnson County mortgage can feel urgent, but the best next step still depends on the facts. This guide helps sellers compare lender options, HOA items, payoff-at-closing, listing, cash sale, and creative structures without treating any one path as automatic advice.
+        Falling behind on a Johnson County mortgage can feel urgent, but the best next step still depends on the facts. This guide helps sellers compare lender options, HOA items, payoff-at-closing, listing, cash sale, and payment takeover structures without treating any one path as automatic advice.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Get a Johnson County offer</a>
         <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn btn-ghost text-base">See metro mortgage options</a>
+        <a href="/options/" class="btn btn-outline text-base">Compare cash vs takeover</a>
       </div>
     </header>
 
@@ -153,7 +155,7 @@ const jsonLd = [
           A backup offer gives you a written comparison while you talk to the lender, HOA, family, or advisor. If a modification, refinance, or listing works, great. If it does not, you already know whether selling can pay the loan and create a cleaner exit.
         </p>
         <p class="text-muted">
-          For broader context, review the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to guide</a> and the <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash buyers guide</a>.
+          For broader context, review the <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">payment takeover subject-to guide</a> and the <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash buyers guide</a>.
         </p>
       </article>
     </section>
@@ -167,6 +169,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Compare my Johnson County options</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="payment"
+      heading="Connect Johnson County payment pressure to local options"
+      intro="Johnson County sellers often have HOA, payoff, repair, and title timing details that affect the right path. These links help narrow the next step by city and seller situation."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Johnson County payment FAQ</h2>

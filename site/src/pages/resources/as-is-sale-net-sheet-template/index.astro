@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -84,5 +85,10 @@ const jsonLd = [
         </p>
       </article>
     </section>
+    <LocalDecisionMap
+      variant="repairs"
+      heading="Turn the net sheet into local as-is next steps"
+      intro="After you compare repairs, fees, carrying costs, and timing, use these local pages to connect the numbers to the property location and seller situation."
+    />
   </article>
 </Layout>

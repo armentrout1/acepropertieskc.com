@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -10,7 +11,7 @@ import {
 
 const title = "How to Sell Your House Fast in Kansas City";
 const description =
-  "A Kansas City guide to selling your house fast, including cash offers, title timelines, repairs, tenants, vacant homes, inherited property, and what can slow closing.";
+  "Kansas City guide to selling your house fast, including cash offers, title timelines, repairs, tenants, vacant homes, inherited property, and closing delays.";
 
 const fastSaleSignals = [
   "You need a dependable closing date instead of a long listing process",
@@ -185,6 +186,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Start the fast-sale review</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="fast"
+      heading="Connect fast-sale timing to the right local page"
+      intro="Fast closing depends on title, payoffs, occupancy, repairs, and county details. Use these local pages to see what can speed up or slow down a Kansas City sale."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Fast sale FAQ</h2>

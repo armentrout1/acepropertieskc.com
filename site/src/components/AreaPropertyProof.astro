@@ -1,0 +1,53 @@
+---
+type PropertyType = {
+  title: string;
+  body: string;
+};
+
+type Props = {
+  city: string;
+  county: string;
+  propertyTypes?: PropertyType[];
+};
+
+const { city, county, propertyTypes = [] } = Astro.props as Props;
+
+const defaultPropertyTypes: PropertyType[] = [
+  {
+    title: `${city} as-is houses`,
+    body: "Single-family homes with older systems, clean-out needs, deferred maintenance, or repairs that make listing feel uncertain.",
+  },
+  {
+    title: `${county} inherited homes`,
+    body: "Estate, trust, or family-owned houses where title, signatures, heir coordination, and a clear written option matter.",
+  },
+  {
+    title: "Vacant homes and small rentals",
+    body: "Vacant houses, tenant-occupied properties, duplexes, and rentals where access, leases, utilities, and carrying costs need a practical plan.",
+  },
+];
+
+const cards = propertyTypes.length ? propertyTypes : defaultPropertyTypes;
+---
+
+<section class="section section-alt">
+  <div class="space-y-5">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Local property proof</p>
+      <h2 class="text-3xl font-semibold text-primary">Common property types we review in {city}</h2>
+      <p class="max-w-3xl text-muted">
+        The location matters, but the real decision usually comes down to condition, title, access, payoff details,
+        and how much timeline pressure you are carrying.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {cards.map((card) => (
+        <article class="card bg-white/90">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Property type</p>
+          <h3 class="mt-2 text-xl font-semibold text-primary">{card.title}</h3>
+          <p class="mt-2 text-sm text-muted">{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

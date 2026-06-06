@@ -1,12 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import OfferConfidencePanel from "../../components/OfferConfidencePanel.astro";
 import OfferForm from "../../components/OfferForm.astro";
 import { SITE } from "../../lib/siteConfig";
-import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+import { buildBreadcrumbList, buildFaqPageJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
 const trustPoints = [
   "No repairs or clean-out required",
-  "Cash and creative options explained clearly",
+  "Cash and payment takeover options explained clearly",
   "Flexible closing dates across the Kansas City metro",
   "No commissions or pressure",
 ];
@@ -18,7 +19,7 @@ const steps = [
   },
   {
     title: "Talk through options",
-    body: "We review condition, title questions, payoff needs, and whether cash or creative terms fit best.",
+    body: "We review condition, title questions, payoff needs, and whether cash or payment takeover terms fit best.",
   },
   {
     title: "Choose your next step",
@@ -26,9 +27,33 @@ const steps = [
   },
 ];
 
+const offerFaqs = [
+  {
+    question: "Does requesting an offer mean I have to sell?",
+    answer:
+      "No. The offer form starts a conversation only. You can review the numbers, ask questions, compare other options, and decide whether selling makes sense.",
+  },
+  {
+    question: "Can I ask about payment takeover instead of only cash?",
+    answer:
+      "Yes. If the mortgage payment, payoff, or timeline is the main issue, you can ask us to compare a cash offer with a payment takeover review when that structure may fit.",
+  },
+  {
+    question: "Do I need to know the repair cost before submitting?",
+    answer:
+      "No. Share what you know. We can review condition during a walkthrough or video call and explain how repairs affect the written offer.",
+  },
+  {
+    question: "What if I am behind on mortgage payments?",
+    answer:
+      "Tell us the rough payment status and any deadline you know. We can compare payoff-at-closing, a cash sale, payment takeover questions, and backup options while encouraging you to stay in touch with your lender or counselor.",
+  },
+];
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
+  buildFaqPageJsonLd(offerFaqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Get Offer", item: "/get-offer/" },
@@ -38,7 +63,7 @@ const jsonLd = [
 
 <Layout
   title="Get a Cash Offer for Your Kansas City House"
-  description="Request a no-pressure cash or creative offer from ACE Properties KC. Sell your Kansas City house as-is with clear timelines and local guidance."
+  description="Request a no-pressure cash offer or payment takeover review from ACE Properties KC. Sell your Kansas City house as-is with clear timelines and local guidance."
   canonicalPath="/get-offer/"
   jsonLd={jsonLd}
 >
@@ -94,6 +119,11 @@ const jsonLd = [
     </div>
   </section>
 
+  <OfferConfidencePanel
+    heading="You can ask for numbers without committing"
+    intro="The offer page should help you get clarity, not pressure. Review what happens after the form, how we think about the offer, and which seller situation guide fits before you decide."
+  />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Good fit situations</h2>
@@ -101,7 +131,7 @@ const jsonLd = [
         Homeowners usually reach out when the house needs repairs, an inherited property is creating family pressure, payments are behind, tenants are in place, or a move needs to happen quickly.
       </p>
       <p class="text-muted">
-        If mortgage pressure is part of the decision, the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a> can help you compare lender options, payoff-at-closing, cash sale, and subject-to questions before you submit the form.
+        If mortgage pressure is part of the decision, the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City mortgage options guide</a> can help you compare lender options, payoff-at-closing, cash sale, and payment takeover questions before you submit the form.
       </p>
       <p class="text-muted">
         If a traditional listing is likely to make more sense, we will say that too. The goal is a clear decision, not a rushed one.
@@ -113,11 +143,23 @@ const jsonLd = [
         We look at property condition, comparable sales, repairs, title or payoff items, holding costs, and your preferred timeline. Then we explain how the offer works in plain English.
       </p>
       <p class="text-muted">
-        You can compare a straightforward cash offer with creative options when those protect your timeline or equity. Our <a href="/resources/how-cash-home-buyers-determine-offer-kansas-city/" class="text-secondary underline">offer breakdown guide</a> explains the math we discuss.
+        You can compare a straightforward cash offer with payment takeover options when those protect your timeline or equity. Our <a href="/resources/how-cash-home-buyers-determine-offer-kansas-city/" class="text-secondary underline">offer breakdown guide</a> explains the math we discuss.
       </p>
       <p class="text-muted">
         Want the full sequence before reaching out? Read <a href="/resources/what-happens-after-contact-ace-properties-kc/" class="text-secondary underline">what happens after you contact ACE Properties KC</a>.
       </p>
     </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-3xl font-semibold text-primary">Get-offer FAQ</h2>
+    <div class="space-y-3">
+      {offerFaqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
   </section>
 </Layout>

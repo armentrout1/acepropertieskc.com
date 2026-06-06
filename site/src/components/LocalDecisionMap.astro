@@ -1,0 +1,213 @@
+---
+type LinkItem = {
+  title: string;
+  body: string;
+  href: string;
+};
+
+type Variant = "general" | "payment" | "estate" | "repairs" | "vacant" | "fast";
+
+type Props = {
+  variant?: Variant;
+  heading?: string;
+  intro?: string;
+};
+
+const {
+  variant = "general",
+  heading = "Connect your situation to the local KC path",
+  intro = "Use these local pages and guides to compare the property location, county timeline, and next step before you request an offer.",
+} = Astro.props;
+
+const areaLinks: LinkItem[] = [
+  {
+    title: "Kansas City, MO",
+    body: "Core KC neighborhoods, South KC, Midtown, Brookside, rentals, and older homes.",
+    href: "/areas/kansas-city-mo/",
+  },
+  {
+    title: "ZIP 64131",
+    body: "South Kansas City homes near Waldo, Armour Hills, Red Bridge, and nearby blocks.",
+    href: "/areas/64131/",
+  },
+  {
+    title: "Overland Park",
+    body: "Johnson County repairs, HOA items, relocation timing, and payment-pressure decisions.",
+    href: "/areas/overland-park-ks/",
+  },
+  {
+    title: "Olathe",
+    body: "Inherited homes, family moves, school-year timing, and Johnson County title items.",
+    href: "/areas/olathe-ks/",
+  },
+  {
+    title: "Independence",
+    body: "Jackson County estates, older homes, code items, taxes, and urgent timelines.",
+    href: "/areas/independence-mo/",
+  },
+  {
+    title: "Lee's Summit",
+    body: "Jackson County suburban homes, relocations, divorce timelines, and lake-area property.",
+    href: "/areas/lees-summit-mo/",
+  },
+  {
+    title: "Shawnee",
+    body: "Johnson County homes with repair needs, divorce settlements, and relocation pressure.",
+    href: "/areas/shawnee-ks/",
+  },
+  {
+    title: "Lenexa",
+    body: "Old Town, Falcon Valley, Canyon Creek, and Johnson County closing details.",
+    href: "/areas/lenexa-ks/",
+  },
+];
+
+const countyGuides: LinkItem[] = [
+  {
+    title: "Jackson County foreclosure options",
+    body: "Useful for Kansas City, Independence, Lee's Summit, Raytown, Blue Springs, and Grandview sellers.",
+    href: "/resources/jackson-county-foreclosure-options/",
+  },
+  {
+    title: "Johnson County behind-on-payments guide",
+    body: "Useful for Overland Park, Olathe, Shawnee, Lenexa, Leawood, Mission, and Prairie Village sellers.",
+    href: "/resources/johnson-county-behind-on-payments/",
+  },
+  {
+    title: "Wyandotte County foreclosure options",
+    body: "Useful for Kansas City, KS sellers balancing payment pressure, liens, taxes, repairs, or code notices.",
+    href: "/resources/wyandotte-county-foreclosure-options/",
+  },
+];
+
+const relatedResources: Record<Variant, LinkItem[]> = {
+  general: [
+    {
+      title: "Cash or payment takeover options",
+      body: "Compare a clean cash sale with written flexible options when monthly payments or timing matter.",
+      href: "/options/",
+    },
+    {
+      title: "What happens after contact",
+      body: "See the step-by-step flow from first message to walkthrough, offer review, and closing.",
+      href: "/resources/what-happens-after-contact-ace-properties-kc/",
+    },
+  ],
+  payment: [
+    {
+      title: "Behind on mortgage options",
+      body: "Compare lender help, counseling, payoff-at-closing, payment takeover, and backup sale paths.",
+      href: "/resources/behind-on-mortgage-options-kansas-city/",
+    },
+    {
+      title: "Subject-to payment takeover guide",
+      body: "Plain-English questions to ask before considering someone taking over monthly payments.",
+      href: "/resources/subject-to-real-estate-kansas-city/",
+    },
+  ],
+  estate: [
+    {
+      title: "Inherited house checklist",
+      body: "Coordinate heirs, clean-out, title documents, probate timing, repairs, and sale decisions.",
+      href: "/resources/kansas-city-inherited-house-checklist/",
+    },
+    {
+      title: "Jackson County probate sale guide",
+      body: "Review authority to sign, court timing, offer paperwork, clean-out, and as-is sale options.",
+      href: "/resources/jackson-county-probate-property-sale/",
+    },
+  ],
+  repairs: [
+    {
+      title: "Repairs vs selling as-is",
+      body: "Compare contractor costs, holding time, buyer credits, and as-is net proceeds.",
+      href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    },
+    {
+      title: "As-is sale net sheet",
+      body: "Use a simple framework to compare offer price, commissions, repairs, payoffs, and carrying costs.",
+      href: "/resources/as-is-sale-net-sheet-template/",
+    },
+  ],
+  vacant: [
+    {
+      title: "Vacant house carrying costs",
+      body: "Estimate monthly mortgage, taxes, insurance, utilities, lawn care, security, and repair risk.",
+      href: "/resources/vacant-house-carrying-cost-calculator/",
+    },
+    {
+      title: "Sell with tenants guide",
+      body: "Compare tenant communication, lease handling, showings, closing timing, and quiet sale options.",
+      href: "/resources/sell-house-with-tenants-kansas-city/",
+    },
+  ],
+  fast: [
+    {
+      title: "Fast-sale guide",
+      body: "Understand how title, payoffs, access, and buyer funding affect a quick Kansas City closing.",
+      href: "/resources/sell-house-fast-kansas-city-guide/",
+    },
+    {
+      title: "Cash buyer vs agent",
+      body: "Compare certainty, showings, repairs, commissions, timing, and net proceeds.",
+      href: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
+    },
+  ],
+};
+
+const resources = relatedResources[variant] ?? relatedResources.general;
+---
+
+<section class="section section-alt">
+  <div class="space-y-5">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Local decision map</p>
+      <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
+      <p class="max-w-3xl text-muted">{intro}</p>
+    </div>
+    <div class="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+      <article class="card bg-white/90">
+        <h3 class="text-xl font-semibold text-primary">Start with the closest local page</h3>
+        <p class="mt-2 text-sm text-muted">
+          City and neighborhood pages help narrow the title, county, repair, and closing details that affect your decision.
+        </p>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {areaLinks.map((link) => (
+            <a href={link.href} class="rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary">
+              <span class="block text-sm font-semibold text-primary">{link.title}</span>
+              <span class="mt-1 block text-sm text-muted">{link.body}</span>
+            </a>
+          ))}
+        </div>
+      </article>
+      <div class="grid gap-5">
+        <article class="card bg-white/90">
+          <h3 class="text-xl font-semibold text-primary">County pressure guides</h3>
+          <div class="mt-4 space-y-3">
+            {countyGuides.map((link) => (
+              <a href={link.href} class="block rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary">
+                <span class="block text-sm font-semibold text-primary">{link.title}</span>
+                <span class="mt-1 block text-sm text-muted">{link.body}</span>
+              </a>
+            ))}
+          </div>
+        </article>
+        <article class="card bg-white/90">
+          <h3 class="text-xl font-semibold text-primary">Related next steps</h3>
+          <div class="mt-4 space-y-3">
+            {resources.map((link) => (
+              <a href={link.href} class="block rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary">
+                <span class="block text-sm font-semibold text-primary">{link.title}</span>
+                <span class="mt-1 block text-sm text-muted">{link.body}</span>
+              </a>
+            ))}
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="/get-offer/" class="btn btn-primary">Request an offer</a>
+            <a href="/contact/" class="btn btn-ghost">Ask a question</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

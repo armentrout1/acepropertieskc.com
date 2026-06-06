@@ -1,5 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -18,7 +20,7 @@ const steps = [
   {
     title: "Compare sale and payoff paths",
     body:
-      "We outline cash sales, payoff-at-closing scenarios, or subject-to agreements that may fit if the lender allows temporary payment transfers.",
+      "We outline cash sales, payoff-at-closing scenarios, or payment takeover agreements that may fit if the existing loan can stay in place.",
   },
   {
     title: "Coordinate closing logistics",
@@ -39,9 +41,9 @@ const options = [
       "If you have equity, we can structure an offer where the title company sends payoff funds directly to the lender, covering arrears and fees so you leave with the remainder.",
   },
   {
-    title: "Subject-to may be an option",
+    title: "Payment takeover may be an option",
     body:
-      "When the lender and your situation allow, we can step in to make payments and cover arrears while the existing loan stays in place temporarily. This requires approvals and careful disclosures.",
+      "When the loan and your situation allow, we may be able to step in, make the monthly payments, and address arrears while the existing loan stays in place temporarily. This requires careful documentation and advisor review.",
   },
   {
     title: "Timeline coordination",
@@ -90,7 +92,7 @@ const jsonLd = [
   serviceJsonLd({
     name: "Late Mortgage Payment Options in Kansas City",
     description:
-      "Private cash and creative sale options for Kansas City homeowners with late mortgage payments, including payoff-at-closing and backup offer reviews.",
+      "Private cash and payment takeover options for Kansas City homeowners with late mortgage payments, including payoff-at-closing and backup offer reviews.",
     path: "/solutions/late-payments/",
   }),
   buildFaqPageJsonLd(faqs),
@@ -104,7 +106,7 @@ const jsonLd = [
 
 <Layout
   title="Late Mortgage Payment Options in Kansas City"
-  description="Explore practical options for handling late mortgage payments in the Kansas City metro, from fast sales to payoff-at-closing and subject-to possibilities."
+  description="Explore practical options for handling late mortgage payments in the Kansas City metro, from fast sales to payoff-at-closing and payment takeover possibilities."
   canonicalPath="/solutions/late-payments/"
   jsonLd={jsonLd}
 >
@@ -115,15 +117,31 @@ const jsonLd = [
         Falling behind on payments does not automatically mean foreclosure. In the Kansas City metro, lenders often send multiple notices before scheduling a sale, giving you space to weigh realistic options. ACE Properties KC focuses locally, so we understand how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders process reinstatements and payoff requests. We do not provide legal advice or guarantee outcomes, but we do explain each route clearly so you can select the plan that fits your priorities.
       </p>
       <p class="text-muted">
-        For the full decision tree, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a> before deciding whether to sell.
+        For the full decision tree, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a> and the <a href="/options/" class="text-secondary underline">cash or payment takeover options page</a> before deciding whether to sell.
       </p>
   </section>
+
+  <HighIntentOfferBlock
+    badge="Late payment review"
+    title="Want to know if someone can take over the payment?"
+    body="Share the address, rough payment status, and any lender notices. We can compare a cash sale, payoff-at-closing, payment takeover, or backup offer so you know the next realistic move."
+    points={[
+      "Monthly payment pressure reviewed privately",
+      "Cash payoff and payment takeover paths compared",
+      "Written next steps for co-borrowers or advisors",
+      "No repairs or public listing required to start",
+    ]}
+    formId="late-payments-offer-form"
+    formHeading="Review late-payment options"
+    formSubheading="Start with the address and best contact method."
+    trackingLocation="late_payments"
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">What happens on our first call</h2>
       <p class="text-muted">
-        We gather the details from your lender letters, note any pending deadlines, and discuss whether you want a fast sale, a short runway to move, or a creative structure that may keep payments in place. All follow-ups are sent in writing so you can involve family or advisors.
+        We gather the details from your lender letters, note any pending deadlines, and discuss whether you want a fast sale, a short runway to move, or a payment takeover structure that may keep payments current. All follow-ups are sent in writing so you can involve family or advisors.
       </p>
     </article>
     <article class="card space-y-3">
@@ -191,6 +209,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="payment"
+    heading="Connect late payments to the right county and city path"
+    intro="A late-payment plan can change depending on county title work, HOA balances, taxes, and how quickly a payoff can be ordered. Use these local pages before deciding what to do next."
+  />
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Talk through next steps</h2>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
 import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
 const resources = [
@@ -76,21 +77,21 @@ const resources = [
   {
     title: "Behind on Mortgage Payments? Compare Options",
     description:
-      "A guide to lender options, HUD-approved counseling, payoff-at-closing, cash sale, subject-to, and backup offers.",
+      "A guide to lender options, HUD-approved counseling, payoff-at-closing, cash sale, payment takeover, and backup offers.",
     href: "/resources/behind-on-mortgage-options-kansas-city/",
     category: "Payment pressure",
   },
   {
     title: "Jackson County Foreclosure Options",
     description:
-      "Compare lender workouts, housing counseling, payoff-at-closing, as-is cash sale, subject-to, and backup offers in Jackson County.",
+      "Compare lender workouts, housing counseling, payoff-at-closing, as-is cash sale, payment takeover, and backup offers in Jackson County.",
     href: "/resources/jackson-county-foreclosure-options/",
     category: "County process",
   },
   {
     title: "Johnson County Behind on Payments Guide",
     description:
-      "How Johnson County sellers can compare lender options, HOA items, payoff-at-closing, cash offers, subject-to, and backup sale plans.",
+      "How Johnson County sellers can compare lender options, HOA items, payoff-at-closing, cash offers, payment takeover, and backup sale plans.",
     href: "/resources/johnson-county-behind-on-payments/",
     category: "Payment pressure",
   },
@@ -130,11 +131,11 @@ const resources = [
     category: "Divorce",
   },
   {
-    title: "What Is a Subject-To Deal in Kansas City?",
+    title: "Can Someone Take Over My Mortgage Payments?",
     description:
-      "A plain-English overview of subject-to real estate, seller risks, payment questions, and when cash may be simpler.",
+      "A plain-English overview of payment takeover, subject-to real estate, seller risks, payment questions, and when cash may be simpler.",
     href: "/resources/subject-to-real-estate-kansas-city/",
-    category: "Creative options",
+    category: "Payment takeover",
   },
   {
     title: "What Happens After You Contact ACE Properties KC?",
@@ -213,7 +214,7 @@ const jsonLd = [
 
 <Layout
   title="Kansas City Home Seller Resources | ACE Properties KC"
-  description="Helpful Kansas City home selling guides for as-is sales, inherited houses, repairs, tenants, late payments, and cash offer decisions."
+  description="Helpful Kansas City home selling guides for as-is sales, inherited houses, repairs, tenants, late payments, payment takeover, and cash offer decisions."
   canonicalPath="/resources/"
   jsonLd={jsonLd}
 >
@@ -221,7 +222,7 @@ const jsonLd = [
     <p class="badge">Seller resources</p>
     <h1 class="text-4xl font-semibold text-primary">Kansas City Home Seller Resources</h1>
     <p class="max-w-3xl text-muted">
-      Clear, local guides for homeowners deciding whether to list, sell as-is, request a cash offer, or compare creative options. These resources are written for real situations: repairs, inherited houses, tenants, late payments, relocation, and family timelines.
+      Clear, local guides for homeowners deciding whether to list, sell as-is, request a cash offer, or compare payment takeover options. These resources are written for real situations: repairs, inherited houses, tenants, late payments, relocation, and family timelines.
     </p>
     <div class="flex flex-wrap gap-3">
       <a href="/get-offer/" class="btn btn-primary text-base">Get an offer</a>
@@ -241,6 +242,12 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <LocalDecisionMap
+    variant="general"
+    heading="Turn a guide into a local Kansas City next step"
+    intro="After you read a guide, narrow the decision by city, county, title timing, and seller situation. These links connect resources to the local pages that matter most."
+  />
 
   <section class="section section-alt">
     <div class="mx-auto max-w-3xl space-y-4 text-center">

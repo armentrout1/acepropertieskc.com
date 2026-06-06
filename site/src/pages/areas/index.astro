@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import SellerSituationLinks from "../../components/SellerSituationLinks.astro";
 import { expansionAreas } from "../../data/areaExpansion";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../lib/seo";
 
@@ -95,9 +96,15 @@ const jsonLd = [
     <p class="max-w-3xl text-muted">
       We keep things local so walkthroughs, title work, and closings stay simple. If you are within
       about 30 miles of downtown Kansas City—on either side of the state line—we are happy to review the
-      property, outline next steps, and share whether a cash or creative offer makes the most sense. Whether you need to <a href="/solutions/sell-house-fast/" class="text-secondary underline">sell fast</a>, handle an <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property</a>, or deal with <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs</a>, we provide area-specific guidance.
+      property, outline next steps, and share whether a cash or flexible offer makes the most sense. Whether you need to <a href="/solutions/sell-house-fast/" class="text-secondary underline">sell fast</a>, handle an <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property</a>, or deal with <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs</a>, we provide area-specific guidance.
     </p>
   </section>
+
+  <SellerSituationLinks
+    city="the Kansas City metro"
+    heading="Find the right selling path for your Kansas City area"
+    intro="Use the area pages for local context, then match your situation to the guide that fits the deadline, repair issue, mortgage pressure, or family timeline you are dealing with."
+  />
 
   <section class="section">
     <div class="grid gap-6 md:grid-cols-3">
@@ -143,8 +150,8 @@ const jsonLd = [
         <p class="mt-2 text-sm text-muted">Close quickly for vacant homes or pace things to line up with your next move.</p>
       </li>
       <li class="card bg-white/90">
-        <h3 class="text-lg font-semibold text-primary">Creative options</h3>
-        <p class="mt-2 text-sm text-muted">Blend cash, subject-to, or seller financing when that keeps more equity in your pocket.</p>
+        <h3 class="text-lg font-semibold text-primary">Flexible options</h3>
+        <p class="mt-2 text-sm text-muted">Compare cash, payment takeover, or other written terms when a straight sale is not the only fit.</p>
       </li>
     </ul>
   </section>

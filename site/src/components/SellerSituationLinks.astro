@@ -1,0 +1,97 @@
+---
+type CountyGuide = {
+  label: string;
+  href: string;
+};
+
+type SituationLink = {
+  title: string;
+  body: string;
+  href: string;
+};
+
+type Props = {
+  city?: string;
+  countyGuide?: CountyGuide | null;
+  heading?: string;
+  intro?: string;
+};
+
+const {
+  city = "Kansas City metro",
+  countyGuide = null,
+  heading = `Match your ${city} situation to the right selling path`,
+  intro = "Start with the situation closest to yours, then compare the local guide, documents, and next step before you decide.",
+} = Astro.props;
+
+const links: SituationLink[] = [
+  {
+    title: "Need to sell fast",
+    body: "Compare a quick as-is cash sale with the costs, showings, and timing of listing on the open market.",
+    href: "/solutions/sell-house-fast/",
+  },
+  {
+    title: "Behind on payments",
+    body: "Review payoff-at-closing, payment takeover, and backup sale options before lender deadlines grow.",
+    href: "/solutions/behind-on-payments/",
+  },
+  {
+    title: "Facing foreclosure",
+    body: "Map lender notices, title timing, and whether a sale or payment takeover review can still help.",
+    href: "/solutions/facing-foreclosure/",
+  },
+  {
+    title: "Major repairs",
+    body: "Skip contractor bids and compare a direct as-is offer against repair costs, delays, and buyer credits.",
+    href: "/solutions/needs-repairs/",
+  },
+  {
+    title: "Inherited or probate",
+    body: "Coordinate heirs, probate documents, clean-out, and a written net number before choosing a path.",
+    href: "/solutions/inherited-house/",
+  },
+  {
+    title: "Vacant or tenant-occupied",
+    body: "Reduce carrying costs or tenant disruption with a quieter direct-sale path and clear closing dates.",
+    href: "/solutions/vacant-house/",
+  },
+];
+---
+
+<section class="section">
+  <div class="space-y-5">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller situations</p>
+      <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
+      <p class="max-w-3xl text-muted">{intro}</p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {links.map((item) => (
+        <a href={item.href} class="card h-full transition-all hover:-translate-y-1 hover:shadow-lg">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Guide</p>
+          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm text-muted">{item.body}</p>
+          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Explore path -&gt;</span>
+        </a>
+      ))}
+      {countyGuide && (
+        <a href={countyGuide.href} class="card h-full bg-soft/70 transition-all hover:-translate-y-1 hover:shadow-lg">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">County guide</p>
+          <h3 class="text-xl font-semibold text-primary">{countyGuide.label}</h3>
+          <p class="mt-2 text-sm text-muted">
+            Check the local county timeline, title items, and lender-pressure steps that can affect a sale.
+          </p>
+          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Read guide -&gt;</span>
+        </a>
+      )}
+      <a href="/options/" class="card h-full bg-white/90 transition-all hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Compare options</p>
+        <h3 class="text-xl font-semibold text-primary">Cash or payment takeover</h3>
+        <p class="mt-2 text-sm text-muted">
+          See when a cash offer, payment takeover review, or another written flexible option may fit the situation.
+        </p>
+        <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Compare options -&gt;</span>
+      </a>
+    </div>
+  </div>
+</section>

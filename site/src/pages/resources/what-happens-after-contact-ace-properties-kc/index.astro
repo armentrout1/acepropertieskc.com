@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -23,7 +24,7 @@ const process = [
   },
   {
     title: "We explain the options",
-    body: "You receive a clear cash offer or, when relevant, a creative option. We explain the assumptions, timeline, and seller responsibilities.",
+    body: "You receive a clear cash offer or, when relevant, a payment takeover option. We explain the assumptions, timeline, and seller responsibilities.",
   },
   {
     title: "You decide without pressure",
@@ -128,6 +129,12 @@ const jsonLd = [
         <a href="/get-offer/" class="btn btn-primary text-base">Share property basics</a>
       </div>
     </section>
+
+    <LocalDecisionMap
+      variant="general"
+      heading="Choose the best local path before reaching out"
+      intro="If you are still deciding whether to contact us, these local pages and situation guides help match your question to the right Kansas City next step."
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Contact process FAQ</h2>
