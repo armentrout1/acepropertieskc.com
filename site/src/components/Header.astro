@@ -1,48 +1,64 @@
 ---
 import { SITE } from "../lib/siteConfig";
 
-const navLinks = [
+const desktopNavLinks = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Options", href: "/options/" },
   { label: "Areas", href: "/areas/" },
   { label: "Solutions", href: "/solutions/" },
-  { label: "Resources", href: "/resources/" },
-  { label: "About", href: "/about/" },
-  { label: "Get Offer", href: "/get-offer/" },
+  { label: "Resources", href: "/resources/", class: "hidden xl:inline-flex" },
+  { label: "About", href: "/about/", class: "hidden xl:inline-flex" },
+  { label: "Get Offer", href: "/get-offer/" }
+];
+
+const mobileNavLinks = [
+  ...desktopNavLinks.map(({ label, href }) => ({ label, href })),
   { label: "Contact", href: "/contact/" }
 ];
 ---
 
 <header class="sticky top-0 z-40 border-b border-border/60 bg-white/90 backdrop-blur">
-  <div class="container-shell flex h-16 items-center justify-between">
-    <a href="/" class="flex items-center shrink-0">
+  <div class="mx-auto flex h-16 w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+    <a href="/" class="mr-5 flex shrink-0 items-center lg:mr-8">
       <img
         src="/brand/ace-logo.svg"
         alt="ACE Properties KC"
-        class="h-8 w-auto max-w-[180px] md:h-10 md:max-w-none"
+        class="h-8 w-auto max-w-[170px] md:h-9 lg:h-10 lg:max-w-none"
       />
     </a>
 
-    <nav class="hidden items-center gap-6 text-sm font-medium text-primary md:flex">
-      {navLinks.map((link) => (
-        <a href={link.href} class="transition-colors hover:text-secondary">
-          {link.label}
-        </a>
-      ))}
-    </nav>
+    <div class="hidden min-w-0 flex-1 items-center justify-end gap-3 lg:flex xl:gap-5">
+      <nav class="flex min-w-0 items-center justify-end gap-3 text-[0.8125rem] font-medium text-primary xl:gap-5 xl:text-sm">
+        {desktopNavLinks.map((link) => (
+          <a href={link.href} class:list={["whitespace-nowrap transition-colors hover:text-secondary", link.class]}>
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <a
+        href={`tel:${SITE.phoneTel}`}
+        class="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 xl:px-5"
+        aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
+        data-phone-link="header"
+      >
+        {SITE.phoneDisplay}
+      </a>
+    </div>
 
     <a
       href={`tel:${SITE.phoneTel}`}
-      class="btn btn-ghost hidden md:inline-flex"
-      data-phone-link="header"
+      class="ml-auto hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 sm:inline-flex lg:hidden"
+      aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
+      data-phone-link="header_tablet"
     >
-      Call {SITE.phoneDisplay}
+      {SITE.phoneDisplay}
     </a>
 
     <button
       type="button"
-      class="rounded-full border border-border/80 p-2 text-primary md:hidden"
+      class="ml-auto rounded-full border border-border/80 p-2 text-primary sm:ml-3 lg:hidden"
       aria-label="Toggle navigation"
       aria-expanded="false"
       data-mobile-menu-toggle
@@ -55,9 +71,9 @@ const navLinks = [
     </button>
   </div>
 
-  <div class="md:hidden" data-mobile-menu hidden>
+  <div class="lg:hidden" data-mobile-menu hidden>
     <div class="space-y-4 border-t border-border/80 bg-white px-4 py-4 text-sm font-medium text-primary">
-      {navLinks.map((link) => (
+      {mobileNavLinks.map((link) => (
         <a href={link.href} class="block rounded-md px-2 py-2 transition-colors hover:bg-soft" data-mobile-nav-link>
           {link.label}
         </a>
