@@ -1,28 +1,53 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { webSiteJsonLd, localBusinessJsonLd } from "../../lib/seo";
-
-const jsonLd = [webSiteJsonLd(), localBusinessJsonLd()];
+import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd } from "../../lib/seo";
 
 const fitItems = [
-  "You prefer a sure cash price without inspections or financing delays",
-  "You want to keep collecting payments or equity through a creative agreement",
-  "You need flexibility on move-out because of tenants, travel, or coordinating another purchase",
-  "You would like written breakdowns to share with family, partners, or advisors"
+  "You are behind or worried you may fall behind on mortgage payments",
+  "The mortgage balance makes a normal cash sale hard to structure",
+  "You want to move without bringing money to closing if the numbers allow",
+  "You want a written comparison to review with family, partners, or advisors",
 ];
+
+const safeguardItems = [
+  "Payment expectations are written out before anything is signed",
+  "Title, insurance, taxes, arrears, and lender deadlines are reviewed up front",
+  "You can ask how payments will be verified each month",
+  "We encourage attorney, CPA, lender, or housing counselor review before signing",
+];
+
+const faqs = [
+  {
+    question: "What does a payment takeover option mean?",
+    answer:
+      "In some situations, ACE Properties KC may be able to buy the house while the existing loan stays in place and we step in to make the monthly payments. This is often called a subject-to structure and must be reviewed carefully.",
+  },
+  {
+    question: "Can this help protect my credit?",
+    answer:
+      "It may help reduce further credit damage if it prevents additional missed payments or a completed foreclosure, but it does not erase late marks that already happened. Sellers should review credit, legal, and loan questions with qualified advisors.",
+  },
+  {
+    question: "Is payment takeover right for every seller?",
+    answer:
+      "No. Loan terms, arrears, equity, deadlines, insurance, taxes, and seller risk all matter. We compare it with a cash offer and payoff-at-closing so you can decide what fits.",
+  },
+];
+
+const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)];
 ---
 
 <Layout
-  title="Cash & Creative Home Selling Options | ACE Properties KC"
-  description="Compare cash offers with creative structures for your Kansas City house. Transparent timelines, no repairs, and clear next steps."
+  title="Cash or Payment Takeover Options | ACE Properties KC"
+  description="Compare cash offers and payment takeover options for your Kansas City house, including subject-to structures for sellers behind on mortgage payments."
   canonicalPath="/options/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-4">
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Your options</p>
-    <h1 class="text-4xl font-semibold text-primary">Cash or Creative Options — Choose What Fits</h1>
+    <h1 class="text-4xl font-semibold text-primary">Cash Offer or Payment Takeover Option</h1>
     <p class="text-muted">
-      Every property is different, so we show multiple paths and walk you through the paperwork in plain English. Review the highlights below, then decide whether a cash offer or a creative structure lines up with your goals.
+      If the monthly mortgage payment is the pressure point, a straight cash offer is not always the only path. We can compare a clean as-is cash sale with creative options where we may be able to take over the payments, help catch up arrears, and give you a written plan to review before deciding.
     </p>
   </section>
 
@@ -40,20 +65,20 @@ const fitItems = [
     </article>
 
     <article class="card bg-soft/80">
-      <h2 class="text-2xl font-semibold text-primary">Creative Options</h2>
+      <h2 class="text-2xl font-semibold text-primary">Payment Takeover Option</h2>
       <p class="mt-3 text-muted">
-        When equity, payments, or specific tax goals matter, we discuss strategies such as subject-to, novations, or installment contracts. Everything is documented with third-party professionals, and we encourage you to involve legal or financial counsel before moving forward.
+        In some situations, we may be able to buy the house subject to the existing loan and step in to make the monthly payments for you. This can matter when you are behind, worried about foreclosure, or trying to move without bringing extra money to closing.
       </p>
       <p class="mt-3 text-muted">
-        If keeping an existing loan in place is part of the conversation, start with our <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to guide for Kansas City sellers</a>.
+        A payment takeover can help reduce the pressure of missed payments and may help avoid the additional credit damage of a completed foreclosure, but it is not automatic and it is not right for every loan. Start with our <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">subject-to guide for Kansas City sellers</a> if this is the option you want to understand.
       </p>
       <ul class="mt-4 space-y-2 text-sm text-primary">
-        <li>Potential to keep monthly income or interest.</li>
-        <li>Customized structures for inherited or high-equity homes.</li>
-        <li>Room to solve payoff hurdles without rushing.</li>
+        <li>We may take over the monthly mortgage payment if the structure fits.</li>
+        <li>Arrears, taxes, insurance, and title items are reviewed up front.</li>
+        <li>You receive the cash and creative options side by side.</li>
       </ul>
       <p class="mt-4 text-xs text-muted">
-        Disclosure: Creative agreements can impact taxes, insurance, and mortgage terms. Please consult your attorney or advisor before signing.
+        Disclosure: Payment takeover and subject-to agreements can affect credit, taxes, insurance, and mortgage terms. Please consult your attorney, lender, CPA, or housing counselor before signing.
       </p>
     </article>
   </section>
@@ -74,6 +99,30 @@ const fitItems = [
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Why sellers ask about payment takeover</h2>
+      <p class="text-muted">
+        The homeowner usually wants one simple thing: relief from the monthly payment. If a traditional cash offer cannot solve the payoff cleanly, we can review whether a subject-to or other creative structure gives you a better path.
+      </p>
+      <p class="text-muted">
+        The goal is to stop guessing, see the numbers, and understand whether we can step in before the situation creates more stress or a completed foreclosure.
+      </p>
+    </article>
+
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">How we keep the conversation careful</h2>
+      <ul class="space-y-3 text-sm text-primary">
+        {safeguardItems.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  </section>
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Still deciding if as-is is right?</h2>
       <p class="text-muted">
         If repairs, clean-out, tenants, or timing are the main concern, our as-is selling guide explains how Kansas City sellers compare a direct offer against listing.
@@ -83,7 +132,7 @@ const fitItems = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Want numbers for your property?</h2>
       <p class="text-muted">
-        Share the address and what you are trying to solve. We can outline a cash offer, creative option, or tell you when a traditional listing deserves a closer look.
+        Share the address, rough mortgage balance, and what you are trying to solve. We can outline a cash offer, payment takeover option, or tell you when a traditional listing deserves a closer look.
       </p>
       <p class="text-muted">
         If you want to understand the offer assumptions first, read how <a href="/resources/how-cash-home-buyers-determine-offer-kansas-city/" class="text-secondary underline">cash home buyers determine an offer</a>.
@@ -99,5 +148,17 @@ const fitItems = [
     <a href="/contact/" class="btn btn-ghost text-base">
       Talk with us directly
     </a>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">Payment takeover FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
   </section>
 </Layout>
