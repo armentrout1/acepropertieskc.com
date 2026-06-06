@@ -20,7 +20,7 @@ const mobileNavLinks = [
 
 <header class="sticky top-0 z-40 border-b border-border/60 bg-white/90 backdrop-blur">
   <div class="mx-auto flex h-16 w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-    <a href="/" class="mr-5 flex shrink-0 items-center lg:mr-8">
+    <a href="/" class="flex shrink-0 items-center">
       <img
         src="/brand/ace-logo.svg"
         alt="ACE Properties KC"
@@ -28,24 +28,22 @@ const mobileNavLinks = [
       />
     </a>
 
-    <div class="hidden min-w-0 flex-1 items-center justify-end gap-3 lg:flex xl:gap-5">
-      <nav class="flex min-w-0 items-center justify-end gap-3 text-[0.8125rem] font-medium text-primary xl:gap-5 xl:text-sm">
-        {desktopNavLinks.map((link) => (
-          <a href={link.href} class:list={["whitespace-nowrap transition-colors hover:text-secondary", link.class]}>
-            {link.label}
-          </a>
-        ))}
-      </nav>
+    <nav class="mx-6 hidden min-w-0 flex-1 items-center justify-between gap-4 text-[0.8125rem] font-semibold text-primary lg:flex xl:mx-8 xl:gap-5 xl:text-sm">
+      {desktopNavLinks.map((link) => (
+        <a href={link.href} class:list={["whitespace-nowrap transition-colors hover:text-secondary", link.class]}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
 
-      <a
-        href={`tel:${SITE.phoneTel}`}
-        class="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 xl:px-5"
-        aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
-        data-phone-link="header"
-      >
-        {SITE.phoneDisplay}
-      </a>
-    </div>
+    <a
+      href={`tel:${SITE.phoneTel}`}
+      class="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 lg:inline-flex"
+      aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
+      data-phone-link="header"
+    >
+      {SITE.phoneDisplay}
+    </a>
 
     <a
       href={`tel:${SITE.phoneTel}`}
