@@ -15,6 +15,7 @@ const SENDGRID_API_KEY = getEnv("SENDGRID_API_KEY");
 const SUPPORT_EMAIL = getEnv("CONTACT_FROM_EMAIL") || "info@acepropertieskc.com";
 const NOTIFICATION_EMAIL = getEnv("CONTACT_TO_EMAIL") || "aaron@aprkc.com";
 const REPLY_TO_EMAIL = getEnv("CONTACT_REPLY_TO_EMAIL") || SUPPORT_EMAIL;
+const SITE_URL = "https://acepropertieskc.com";
 
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY);
@@ -57,6 +58,19 @@ function escapeHtml(value: string): string {
 
 function readString(body: Record<string, unknown>, key: string, fallback = ""): string {
   return isNonEmptyString(body[key]) ? body[key].trim() : fallback;
+}
+
+function renderEmailRows(fields: Array<[string, string]>): string {
+  return fields
+    .map(
+      ([label, value]) => `
+        <tr>
+          <td style="padding:10px 12px;border-bottom:1px solid #e6edf2;color:#5f6f80;font-size:13px;width:34%;vertical-align:top;">${escapeHtml(label)}</td>
+          <td style="padding:10px 12px;border-bottom:1px solid #e6edf2;color:#06213f;font-size:14px;font-weight:600;vertical-align:top;">${escapeHtml(value)}</td>
+        </tr>
+      `,
+    )
+    .join("");
 }
 
 async function readRequestBody(request: Request): Promise<Record<string, unknown>> {
@@ -207,14 +221,19 @@ export const POST: APIRoute = async ({ request }) => {
     `Submitted at: ${submittedAt}`,
   ];
 
-  const htmlFields = [
-    ["Address", address],
-    ["Name", name],
-    ["Phone", phone || "Not provided"],
-    ["Email", email || "Not provided"],
+  const propertyFields: Array<[string, string]> = [
+    ["Property address", address],
     ["Situation", situation],
     ["Timeline", timeline],
     ["Notes", notes || "None"],
+  ];
+  const contactFields: Array<[string, string]> = [
+    ["Name", name],
+    ["Phone", phone || "Not provided"],
+    ["Email", email || "Not provided"],
+    ["Consent", consentAccepted ? "Granted" : "Pending"],
+  ];
+  const sourceFields: Array<[string, string]> = [
     ["Landing page", landingPage],
     ["Referrer", referrer],
     ["UTM source", utmSource || "None"],
@@ -225,7 +244,6 @@ export const POST: APIRoute = async ({ request }) => {
     ["GCLID", gclid || "None"],
     ["GBRAID", gbraid || "None"],
     ["WBRAID", wbraid || "None"],
-    ["Consent", consentAccepted ? "Granted" : "Pending"],
     ["Submitted at", submittedAt],
   ];
 
@@ -236,12 +254,65 @@ export const POST: APIRoute = async ({ request }) => {
     subject,
     text: textLines.join("\n"),
     html: `
-      <p><strong>New property inquiry received.</strong></p>
-      <ul>
-        ${htmlFields
-          .map(([label, value]) => `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</li>`)
-          .join("\n")}
-      </ul>
+      <div style="margin:0;padding:0;background:#f4f7fa;font-family:Arial,Helvetica,sans-serif;color:#06213f;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;background:#f4f7fa;">
+          <tr>
+            <td align="center" style="padding:28px 14px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;border-collapse:collapse;background:#ffffff;border:1px solid #dce5ec;border-radius:16px;overflow:hidden;">
+                <tr>
+                  <td style="padding:22px 26px;background:#ffffff;border-bottom:1px solid #e6edf2;">
+                    <img src="${SITE_URL}/brand/ace-logo.svg" width="190" alt="ACE Properties KC" style="display:block;max-width:190px;height:auto;margin-bottom:12px;" />
+                    <div style="font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#087f78;font-weight:700;">New seller lead</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:28px 26px 22px;background:#06213f;color:#ffffff;">
+                    <h1 style="margin:0 0 10px;font-size:28px;line-height:1.2;font-weight:800;color:#ffffff;">New property inquiry received</h1>
+                    <p style="margin:0;color:#d8e6ef;font-size:16px;line-height:1.55;">A Kansas City area seller submitted the offer form. Start with the property and contact details below.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:24px 26px 8px;">
+                    <div style="padding:18px 18px;background:#e9f7f5;border-left:5px solid #087f78;border-radius:12px;">
+                      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#087f78;font-weight:800;margin-bottom:6px;">Property</div>
+                      <div style="font-size:22px;line-height:1.3;color:#06213f;font-weight:800;">${escapeHtml(address)}</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 26px;">
+                    <h2 style="margin:0 0 10px;font-size:17px;color:#06213f;">Property details</h2>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:1px solid #e6edf2;border-radius:12px;overflow:hidden;">
+                      ${renderEmailRows(propertyFields)}
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 26px;">
+                    <h2 style="margin:0 0 10px;font-size:17px;color:#06213f;">Seller contact</h2>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:1px solid #e6edf2;border-radius:12px;overflow:hidden;">
+                      ${renderEmailRows(contactFields)}
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 26px 28px;">
+                    <h2 style="margin:0 0 10px;font-size:17px;color:#06213f;">Lead source</h2>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:1px solid #e6edf2;border-radius:12px;overflow:hidden;">
+                      ${renderEmailRows(sourceFields)}
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:18px 26px;background:#f8fafc;border-top:1px solid #e6edf2;color:#5f6f80;font-size:12px;line-height:1.5;">
+                    Sent by the ACE Properties KC website form. Reply-to is set to ${escapeHtml(REPLY_TO_EMAIL)}.
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
     `,
   };
 
