@@ -171,13 +171,22 @@ const {
     >
       Start my offer conversation
     </button>
+    <p class="text-center text-xs text-muted">
+      Trouble sending?
+      <a href="tel:+18167287548" class="font-semibold text-secondary hover:text-primary">Call 816-728-7548</a>,
+      <a href="sms:+18167287548" class="font-semibold text-secondary hover:text-primary">text us</a>, or
+      <a href="mailto:info@acepropertieskc.com" class="font-semibold text-secondary hover:text-primary">email info@acepropertieskc.com</a>.
+    </p>
   </form>
 </section>
 
 <script is:inline>
   document.querySelectorAll('form[data-offer-form]').forEach(function(form) {
     const errorBanner = form.querySelector('[data-error]');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const submitButtonText = submitButton ? submitButton.textContent : '';
     const startField = form.querySelector('input[name="form_started_at"]');
+    const deliveryFallbackMessage = 'The form could not send right now. Please call or text 816-728-7548, or email info@acepropertieskc.com.';
     const sourceFields = [
       'utm_source',
       'utm_medium',
@@ -302,6 +311,11 @@ const {
 
       // Submit form to API
       try {
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...';
+        }
+
         const response = await fetch('/api/send-email/', {
           method: 'POST',
           headers: {
@@ -311,8 +325,6 @@ const {
         });
 
         if (response.ok) {
-          const result = await response.json();
-          
           // Track successful form submission
           if (typeof window.gtag === 'function') {
             window.gtag('event', 'generate_lead', {
@@ -325,16 +337,39 @@ const {
           // Success - redirect to thank you page
           window.location.href = '/thank-you/';
         } else {
-          // Handle non-OK responses safely
-          const errorText = await response.text();
-          console.error('Form submit failed', response.status, errorText);
-          throw new Error('Something went wrong. Please try again.');
+          let result = null;
+          try {
+            result = await response.json();
+          } catch (parseError) {
+            console.error('Form submit failed with a non-JSON response', response.status, parseError);
+          }
+
+          console.error('Form submit failed', response.status, result);
+
+          if (result?.error === 'validation_error' && result.fields) {
+            throw new Error(Object.values(result.fields).join(' '));
+          }
+
+          if (result?.error === 'rate_limited') {
+            throw new Error('Please wait a moment and try submitting again.');
+          }
+
+          if (result?.error === 'email_disabled' || result?.error === 'email_failed') {
+            throw new Error(deliveryFallbackMessage);
+          }
+
+          throw new Error(deliveryFallbackMessage);
         }
       } catch (error) {
         console.error('Form submission error:', error);
         if (errorBanner) {
           errorBanner.textContent = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
           errorBanner.classList.remove('hidden');
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = submitButtonText;
         }
       }
     });

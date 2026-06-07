@@ -3,9 +3,18 @@ import sgMail from "@sendgrid/mail";
 
 export const prerender = false;
 
-const SENDGRID_API_KEY = import.meta.env.SENDGRID_API_KEY;
-const SUPPORT_EMAIL = "info@acepropertieskc.com";
-const NOTIFICATION_EMAIL = "aaron@aprkc.com";
+const runtimeEnv =
+  (globalThis as typeof globalThis & { process?: { env?: Record<string, string | undefined> } }).process?.env ?? {};
+const buildEnv = import.meta.env as Record<string, string | undefined>;
+
+function getEnv(name: string): string {
+  return runtimeEnv[name] ?? buildEnv[name] ?? "";
+}
+
+const SENDGRID_API_KEY = getEnv("SENDGRID_API_KEY");
+const SUPPORT_EMAIL = getEnv("CONTACT_FROM_EMAIL") || "info@acepropertieskc.com";
+const NOTIFICATION_EMAIL = getEnv("CONTACT_TO_EMAIL") || "aaron@aprkc.com";
+const REPLY_TO_EMAIL = getEnv("CONTACT_REPLY_TO_EMAIL") || SUPPORT_EMAIL;
 
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY);
@@ -50,6 +59,29 @@ function readString(body: Record<string, unknown>, key: string, fallback = ""): 
   return isNonEmptyString(body[key]) ? body[key].trim() : fallback;
 }
 
+async function readRequestBody(request: Request): Promise<Record<string, unknown>> {
+  const contentType = request.headers.get("content-type") ?? "";
+
+  if (contentType.includes("application/json")) {
+    const body = await request.json();
+    return body && typeof body === "object" ? (body as Record<string, unknown>) : {};
+  }
+
+  if (contentType.includes("application/x-www-form-urlencoded") || contentType.includes("multipart/form-data")) {
+    const formData = await request.formData();
+    const body: Record<string, unknown> = {};
+    formData.forEach((value, key) => {
+      if (typeof value === "string") {
+        body[key] = value;
+      }
+    });
+    return body;
+  }
+
+  const body = await request.json();
+  return body && typeof body === "object" ? (body as Record<string, unknown>) : {};
+}
+
 const MIN_SUBMIT_MS = 2500;
 const MAX_BODY_BYTES = 12_000;
 
@@ -61,10 +93,10 @@ export const POST: APIRoute = async ({ request }) => {
 
   let body: Record<string, unknown>;
   try {
-    body = await request.json();
+    body = await readRequestBody(request);
   } catch (err) {
-    console.error("Send email error:", err);
-    return respondJson({ error: "Invalid request" }, 400);
+    console.error("Send email parse error:", err);
+    return respondJson({ ok: false, error: "invalid_request" }, 400);
   }
 
   if (!body || typeof body !== "object") {
@@ -86,6 +118,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const startedRaw = body.form_started_at;
+  const hasStartedAt = (typeof startedRaw === "string" && startedRaw.trim()) || typeof startedRaw === "number";
   let startedAt = Number.NaN;
   if (typeof startedRaw === "string" && startedRaw.trim()) {
     startedAt = Number(startedRaw);
@@ -93,9 +126,9 @@ export const POST: APIRoute = async ({ request }) => {
     startedAt = startedRaw;
   }
 
-  if (!Number.isFinite(startedAt)) {
+  if (hasStartedAt && !Number.isFinite(startedAt)) {
     fieldErrors.form_started_at = "Please try submitting again.";
-  } else {
+  } else if (Number.isFinite(startedAt)) {
     const elapsed = Date.now() - startedAt;
     if (elapsed < MIN_SUBMIT_MS) {
       return respondJson({ ok: false, error: "rate_limited" }, 429);
@@ -199,7 +232,7 @@ export const POST: APIRoute = async ({ request }) => {
   const message = {
     to: NOTIFICATION_EMAIL,
     from: SUPPORT_EMAIL,
-    replyTo: SUPPORT_EMAIL,
+    replyTo: REPLY_TO_EMAIL,
     subject,
     text: textLines.join("\n"),
     html: `

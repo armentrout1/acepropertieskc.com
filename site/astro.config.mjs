@@ -18,6 +18,10 @@ export default defineConfig({
     enabled: false,
   },
   redirects: {
+    "/getoffer/": {
+      status: 301,
+      destination: "/get-offer/",
+    },
     "/services/": {
       status: 301,
       destination: "/solutions/",
