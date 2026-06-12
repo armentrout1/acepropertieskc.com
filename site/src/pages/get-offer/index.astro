@@ -8,8 +8,18 @@ import { buildBreadcrumbList, buildFaqPageJsonLd, localBusinessJsonLd, webSiteJs
 const trustPoints = [
   "No repairs or clean-out required",
   "Cash and payment takeover options explained clearly",
+  "Back taxes, liens, and payoffs reviewed with title",
   "Flexible closing dates across the Kansas City metro",
   "No commissions or pressure",
+];
+
+const problemReviewItems = [
+  "Back taxes, utility balances, liens, or mortgage payoffs that may need to be handled at closing",
+  "A tight two-week to one-month timeline because the decision waited until the last minute",
+  "A little equity that could disappear if repairs, commissions, or another month of payments pile up",
+  "A mortgage payment that may need a payment takeover review instead of only a cash offer",
+  "Furniture, debris, tools, or family contents that you would rather leave for us to handle",
+  "Major repairs, inspection worries, roof issues, foundation concerns, code items, or yard cleanup",
 ];
 
 const steps = [
@@ -75,7 +85,7 @@ const jsonLd = [
           Get a No-Pressure Offer for Your Kansas City House
         </h1>
         <p class="text-muted">
-          Tell us what is going on with the property. We will review the address, ask practical questions, and outline your options without requiring repairs, showings, or a listing commitment.
+          Tell us what is going on with the property. We will review the address, ask practical questions, and outline your options without requiring repairs, inspections, showings, clean-out, or a listing commitment.
         </p>
       </div>
 
@@ -116,6 +126,28 @@ const jsonLd = [
           <p class="mt-2 text-sm text-muted">{step.body}</p>
         </article>
       ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <div class="space-y-3">
+        <p class="badge">What we can review</p>
+        <h2 class="text-3xl font-semibold text-primary">You do not need the house cleaned up or perfectly figured out first</h2>
+        <p class="text-muted">
+          Many sellers reach out when the situation is already uncomfortable. That is okay. Start with what you know, and we can help sort the property condition, payoff, taxes, title items, timing, and whether a cash sale or payment takeover review makes sense.
+        </p>
+      </div>
+      <div class="card bg-soft/70">
+        <ul class="grid gap-3 text-sm text-primary md:grid-cols-2">
+          {problemReviewItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 

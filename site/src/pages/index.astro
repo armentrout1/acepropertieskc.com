@@ -13,6 +13,33 @@ const trustPoints = [
   "Your timeline, your choice"
 ];
 
+const urgentSellerProblems = [
+  {
+    title: "Payment or tax pressure",
+    body:
+      "If you are behind on payments, dealing with back taxes, or running out of time, we can review whether a fast cash sale, payoff-at-closing, or payment takeover conversation fits the numbers.",
+    href: "/solutions/behind-on-payments/",
+  },
+  {
+    title: "A house that needs too much work",
+    body:
+      "You do not need to replace the roof, fix the foundation, update the kitchen, clean everything out, or make the yard perfect before asking for an offer.",
+    href: "/solutions/needs-repairs/",
+  },
+  {
+    title: "Equity trapped in a difficult property",
+    body:
+      "When a normal listing is too slow or expensive, we can compare an as-is offer that accounts for repairs, taxes, payoffs, contents, clean-out, and closing timing.",
+    href: "/resources/as-is-sale-net-sheet-template/",
+  },
+  {
+    title: "A mortgage that needs a different path",
+    body:
+      "When the loan balance or monthly payment is the main issue, we can explain payment takeover options in plain English and encourage advisor review before anyone signs.",
+    href: "/options/",
+  },
+];
+
 const steps = [
   {
     title: "Reach out",
@@ -85,11 +112,10 @@ const jsonLd = [
         <span class="badge">Local Kansas City Buyer</span>
         <div class="space-y-4">
           <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-          Sell Your Kansas City House Fast or As-Is
+          Get Help Selling a Difficult Kansas City House
           </h1>
-          <p class="text-muted">
-          Whether you're in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, or anywhere in the metro, we provide local guidance and practical solutions. We work with homeowners facing <a href="/solutions/relocating/" class="text-secondary underline">relocations</a>, <a href="/solutions/inherited-house/" class="text-secondary underline">inherited properties</a>, and situations requiring quick decisions.
-          If the mortgage payment is the pressure point, we can also review <a href="/options/" class="text-secondary underline">cash or payment takeover options</a> before you choose a direction.
+          <p class="max-w-4xl text-lg leading-8 text-muted">
+          If the house has become the problem, we help you compare practical ways out. ACE Properties KC buys houses as-is across <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, and the surrounding metro. We can review fast cash offers, payoff-at-closing, clean-out needs, back taxes, repair issues, and <a href="/options/" class="text-secondary underline">payment takeover options</a> when the mortgage is the pressure point.
         </p>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -105,9 +131,28 @@ const jsonLd = [
           </a>
         </div>
         <p class="text-sm font-medium text-muted">
-          Serving homeowners across the Kansas City metro with transparent communication and local expertise.
+          No repairs, no public showings, no clean-out requirement, and no pressure to decide before you understand the numbers.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">When the property problem is urgent</p>
+      <h2 class="text-3xl font-semibold text-primary">We buy houses and help sellers compare the cleanest way forward</h2>
+      <p class="text-muted">
+        Some sellers need speed. Others need help protecting remaining equity, stopping more missed payments, paying off tax or title items, or selling a house with everything still inside. The first step is a written comparison, not a high-pressure pitch.
+      </p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2">
+      {urgentSellerProblems.map((item) => (
+        <a href={item.href} class="card bg-white transition hover:-translate-y-1 hover:border-secondary/60">
+          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Compare this option</span>
+        </a>
+      ))}
     </div>
   </section>
 

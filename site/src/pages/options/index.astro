@@ -16,6 +16,29 @@ const safeguardItems = [
   "We encourage attorney, CPA, lender, or housing counselor review before signing",
 ];
 
+const pressureReliefItems = [
+  {
+    title: "Catch-up items",
+    body:
+      "Back payments, taxes, HOA balances, insurance, utilities, or other title items can often be reviewed with the closing team and paid through closing when the numbers allow.",
+  },
+  {
+    title: "Credit-risk timing",
+    body:
+      "A sale or takeover review may help avoid additional damage from more missed payments or a completed foreclosure, but it does not erase past late marks and should be reviewed carefully.",
+  },
+  {
+    title: "Equity protection",
+    body:
+      "When repairs, commissions, and delay would eat up the remaining equity, we compare whether an as-is path preserves more certainty than waiting.",
+  },
+  {
+    title: "Leave the hard stuff",
+    body:
+      "Furniture, debris, repairs, clean-out, inspections, roof work, yard cleanup, and code follow-up can be included in the as-is conversation instead of becoming your next project.",
+  },
+];
+
 const faqs = [
   {
     question: "What does a payment takeover option mean?",
@@ -47,8 +70,26 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)
     <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Your options</p>
     <h1 class="text-4xl font-semibold text-primary">Cash Offer or Payment Takeover Option</h1>
     <p class="text-muted">
-      If the monthly mortgage payment is the pressure point, a straight cash offer is not always the only path. We can compare a clean as-is cash sale with payment takeover options where we may be able to take over the payments, help catch up arrears, and give you a written plan to review before deciding.
+      If the monthly mortgage payment is the pressure point, a straight cash offer is not always the only path. We can compare a clean as-is cash sale with payment takeover options where we may be able to take over the payments, help catch up arrears or taxes when the structure allows, and give you a written plan to review before deciding.
     </p>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Pressure relief options</p>
+      <h2 class="text-3xl font-semibold text-primary">The goal is to solve the property problem before it gets more expensive</h2>
+      <p class="text-muted">
+        Sellers often contact us when the deadline is close, the house needs work, payments or taxes are behind, and there is still some equity worth protecting. We help compare what can realistically happen fast.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {pressureReliefItems.map((item) => (
+        <article class="card bg-white">
+          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
