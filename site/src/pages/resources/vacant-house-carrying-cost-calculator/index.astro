@@ -4,13 +4,142 @@ import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
+  buildFaqPageJsonLd,
   localBusinessJsonLd,
   webSiteJsonLd,
 } from "../../../lib/seo";
 
 const title = "Vacant House Carrying Cost Calculator";
 const description =
-  "Estimate vacant Kansas City house costs, including mortgage, taxes, insurance, utilities, lawn care, security, repairs, and time on market.";
+  "Estimate vacant Kansas City house carrying costs, including mortgage payments, taxes, insurance, utilities, lawn care, security, repairs, and time before closing.";
+
+const calculatorFields = [
+  {
+    name: "mortgage",
+    label: "Monthly mortgage or loan payment",
+    help: "Principal, interest, or any payment still due while the house sits.",
+    value: "$0",
+    type: "money",
+  },
+  {
+    name: "taxes",
+    label: "Monthly taxes and insurance",
+    help: "Use a monthly estimate for property tax, insurance, HOA, or escrow costs.",
+    value: "$350",
+    type: "money",
+  },
+  {
+    name: "utilities",
+    label: "Monthly utilities",
+    help: "Electric, gas, water, sewer, trash, winter heat, or minimum service fees.",
+    value: "$250",
+    type: "money",
+  },
+  {
+    name: "maintenance",
+    label: "Lawn, snow, security, or maintenance",
+    help: "Mowing, snow removal, lock changes, cameras, pest control, and check-ins.",
+    value: "$200",
+    type: "money",
+  },
+  {
+    name: "months",
+    label: "Expected months before closing",
+    help: "Include cleanup, repair bids, listing prep, buyer financing, title, and closing time.",
+    value: "4",
+    type: "number",
+  },
+  {
+    name: "oneTime",
+    label: "One-time repairs, clean-out, or surprises",
+    help: "Clean-out, vandalism, plumbing leaks, city notices, insurance deductibles, or repairs.",
+    value: "$5,000",
+    type: "money",
+  },
+];
+
+const costCategories = [
+  {
+    title: "Money that leaves every month",
+    body:
+      "Mortgage payments, taxes, insurance, utilities, lawn care, security, and basic maintenance can keep stacking even when nobody is living in the house.",
+  },
+  {
+    title: "Costs that show up suddenly",
+    body:
+      "A vacant property can create surprise costs from leaks, frozen pipes, break-ins, vandalism, code letters, insurance deductibles, or emergency repairs.",
+  },
+  {
+    title: "Time that changes the net",
+    body:
+      "A higher sale price can look better on paper, but extra months of payments, repairs, concessions, and stress can reduce the number you actually keep.",
+  },
+];
+
+const riskCards = [
+  {
+    title: "Break-ins and theft",
+    body:
+      "Vacant houses can attract people looking for copper, appliances, tools, or an easy place to enter. Even one break-in can create repair, insurance, and security costs.",
+  },
+  {
+    title: "Water, weather, and utility problems",
+    body:
+      "A small leak, frozen line, failed sump pump, or HVAC issue can sit unnoticed until the damage is much larger than it would have been in an occupied home.",
+  },
+  {
+    title: "Insurance changes",
+    body:
+      "Some policies limit or change coverage after a property is vacant. Sellers should ask their insurance agent how vacancy affects claims, deductibles, and required coverage.",
+  },
+  {
+    title: "City, HOA, and lawn notices",
+    body:
+      "Tall grass, trash, unsecured doors, exterior damage, and code complaints can create fines or required repairs before a buyer or lender is comfortable.",
+  },
+  {
+    title: "Unauthorized occupants",
+    body:
+      "If someone enters and refuses to leave, removing them may require a formal legal process. Squatter and adverse-possession rules vary by state, so ask a local attorney if this becomes an issue.",
+  },
+  {
+    title: "Longer title and sale timelines",
+    body:
+      "Inherited property, liens, payoff delays, repairs, clean-out, and buyer financing can extend the timeline while the house keeps costing money.",
+  },
+];
+
+const reduceRiskSteps = [
+  "Confirm whether the insurance policy still covers a vacant property.",
+  "Keep utilities set safely for the season, especially water and heat in winter.",
+  "Secure doors, windows, sheds, garages, and visible entry points.",
+  "Schedule lawn care, snow removal, mail pickup, and regular walkthroughs.",
+  "Document condition with photos before repairs, clean-out, or showings.",
+  "Compare the monthly holding cost against a realistic as-is sale timeline.",
+];
+
+const faqs = [
+  {
+    question: "What are carrying costs on a vacant house?",
+    answer:
+      "Carrying costs are the monthly and one-time expenses you keep paying while the house is vacant. They can include mortgage payments, taxes, insurance, utilities, lawn care, security, repairs, clean-out, and closing delays.",
+  },
+  {
+    question: "Why can a vacant house get expensive so quickly?",
+    answer:
+      "Vacant houses can have ongoing payments plus sudden problems such as leaks, vandalism, break-ins, city notices, insurance changes, and emergency repairs. The longer the timeline, the more those costs can reduce your net.",
+  },
+  {
+    question: "Should I repair a vacant house before selling it?",
+    answer:
+      "Sometimes, but only after comparing repair cost, time, risk, and the likely resale price. If the repairs are large or the property is difficult to manage from a distance, an as-is sale may be worth comparing.",
+  },
+  {
+    question: "Can someone move into a vacant house without permission?",
+    answer:
+      "Unauthorized occupancy can happen, and removing someone may involve a legal process depending on the facts and location. This page is not legal advice; if that happens, talk with a local attorney or proper local authority quickly.",
+  },
+];
 
 const jsonLd = [
   webSiteJsonLd(),
@@ -20,7 +149,9 @@ const jsonLd = [
     description,
     path: "/resources/vacant-house-carrying-cost-calculator/",
     datePublished: "2026-05-12",
+    dateModified: "2026-06-07",
   }),
+  buildFaqPageJsonLd(faqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Resources", item: "/resources/" },
@@ -30,7 +161,7 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Vacant House Carrying Cost Calculator"
+  title="Vacant House Carrying Cost Calculator | Kansas City"
   description={description}
   canonicalPath="/resources/vacant-house-carrying-cost-calculator/"
   jsonLd={jsonLd}
@@ -38,67 +169,154 @@ const jsonLd = [
   <article class="section space-y-10">
     <header class="space-y-5">
       <p class="badge">Vacant house calculator</p>
-      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
-      <p class="max-w-3xl text-muted">
-        Vacant houses keep costing money while you decide. Use this quick calculator to estimate how much time, repairs, and monthly expenses may affect your net.
+      <h1 class="max-w-4xl text-4xl font-semibold text-primary md:text-5xl">
+        Calculate What a Vacant Kansas City House Costs You Each Month
+      </h1>
+      <p class="max-w-3xl text-lg text-muted">
+        A vacant house can look quiet from the street while the bills, risk, and timeline keep moving. Use this calculator to compare waiting, repairing, listing, or selling the property as-is.
       </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Compare an as-is offer</a>
+        <a href="/resources/sell-vacant-house-kansas-city/" class="btn btn-ghost text-base">Read the vacant house guide</a>
+      </div>
     </header>
 
-    <section class="grid gap-8 lg:grid-cols-[0.95fr_1fr]">
-      <form class="card space-y-4" data-carrying-cost-calculator>
-        <h2 class="text-2xl font-semibold text-primary">Estimate costs</h2>
-        <label class="block space-y-1 text-sm font-medium text-primary">
-          Monthly mortgage or loan payment
-          <input name="mortgage" type="number" min="0" value="0" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
-        </label>
-        <label class="block space-y-1 text-sm font-medium text-primary">
-          Monthly taxes and insurance
-          <input name="taxes" type="number" min="0" value="350" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
-        </label>
-        <label class="block space-y-1 text-sm font-medium text-primary">
-          Monthly utilities
-          <input name="utilities" type="number" min="0" value="250" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
-        </label>
-        <label class="block space-y-1 text-sm font-medium text-primary">
-          Lawn, snow, security, or maintenance
-          <input name="maintenance" type="number" min="0" value="200" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
-        </label>
-        <label class="block space-y-1 text-sm font-medium text-primary">
-          Expected months before closing
-          <input name="months" type="number" min="1" value="4" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
-        </label>
-        <label class="block space-y-1 text-sm font-medium text-primary">
-          One-time repairs, clean-out, or holding surprises
-          <input name="oneTime" type="number" min="0" value="5000" class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none" />
-        </label>
+    <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <form class="card space-y-5 p-5 sm:p-6" data-carrying-cost-calculator>
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Estimate the drag</p>
+          <h2 class="text-2xl font-semibold text-primary">Carrying cost inputs</h2>
+          <p class="text-sm text-muted">
+            Click any field to highlight it, type the number, and the calculator will format dollars without cents.
+          </p>
+        </div>
+
+        <div class="grid gap-3">
+          {calculatorFields.map((field) => (
+            <label class="block rounded-xl border border-border/80 bg-white p-4 transition focus-within:border-secondary focus-within:bg-soft/50 focus-within:shadow-sm">
+              <span class="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <span class="text-sm font-semibold text-primary">{field.label}</span>
+                <span class="max-w-sm text-xs leading-relaxed text-muted sm:text-right">{field.help}</span>
+              </span>
+              <input
+                name={field.name}
+                type="text"
+                inputmode={field.type === "money" ? "numeric" : "decimal"}
+                autocomplete="off"
+                value={field.value}
+                data-money-field={field.type === "money" ? "true" : undefined}
+                data-number-field={field.type === "number" ? "true" : undefined}
+                class="mt-3 h-12 w-full rounded-lg border border-transparent bg-soft/70 px-3 text-right text-xl font-semibold tabular-nums text-primary outline-none transition focus:border-secondary focus:bg-white focus:ring-2 focus:ring-secondary/30"
+              />
+            </label>
+          ))}
+        </div>
       </form>
 
-      <div class="card bg-soft/70 space-y-5">
-        <h2 class="text-2xl font-semibold text-primary">Estimated holding cost</h2>
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl bg-white p-5">
-            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Monthly cost</p>
-            <p class="mt-2 text-3xl font-semibold text-primary" data-monthly-result>$0</p>
+      <aside class="space-y-5">
+        <div class="card bg-primary p-5 text-white sm:p-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-accent">Estimated holding cost</p>
+          <div class="mt-5 grid gap-4">
+            <div class="rounded-xl bg-white/10 p-5">
+              <p class="text-sm font-semibold uppercase tracking-wide text-white/70">Monthly cost</p>
+              <p class="mt-2 text-4xl font-semibold tabular-nums text-white" data-monthly-result>$0</p>
+            </div>
+            <div class="rounded-xl bg-white p-5 text-primary">
+              <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Total before closing</p>
+              <p class="mt-2 text-4xl font-semibold tabular-nums text-primary" data-total-result>$0</p>
+            </div>
           </div>
-          <div class="rounded-2xl bg-white p-5">
-            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Total before closing</p>
-            <p class="mt-2 text-3xl font-semibold text-primary" data-total-result>$0</p>
+          <p class="mt-5 text-sm leading-relaxed text-white/75">
+            This is not a valuation. It is a decision tool for comparing delay, repairs, listing prep, and an as-is sale.
+          </p>
+        </div>
+
+        <div class="card space-y-3 bg-soft/70">
+          <h2 class="text-xl font-semibold text-primary">What this number helps you decide</h2>
+          <p class="text-sm text-muted">
+            If the house will sit for several months, the "waiting cost" can become part of the sale decision. Compare the total against repair bids, agent commissions, concessions, clean-out, and the stress of managing a vacant property.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/get-offer/" class="btn btn-primary text-base">Compare an as-is offer</a>
+            <a href="/solutions/vacant-house/" class="btn btn-ghost text-base">Vacant house solutions</a>
           </div>
         </div>
-        <p class="text-muted">
-          This estimate is not a formal valuation. It is a decision tool to compare waiting, repairing, listing, or selling as-is.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a href="/get-offer/" class="btn btn-primary text-base">Compare an as-is offer</a>
-          <a href="/solutions/vacant-house/" class="btn btn-ghost text-base">Vacant house solutions</a>
+      </aside>
+    </section>
+
+    <section class="grid gap-5 md:grid-cols-3">
+      {costCategories.map((item) => (
+        <article class="card space-y-2">
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm text-muted">{item.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="section-alt rounded-3xl px-5 py-8 sm:px-8">
+      <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div class="space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Vacant property risks</p>
+          <h2 class="text-3xl font-semibold text-primary">What can happen while nobody is watching the house?</h2>
+          <p class="text-muted">
+            The monthly payment is only one part of the risk. Vacant houses can create problems that are harder to control because nobody is there every day to catch them early.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2">
+          {riskCards.map((risk) => (
+            <article class="rounded-xl border border-border/80 bg-white p-4">
+              <h3 class="text-lg font-semibold text-primary">{risk.title}</h3>
+              <p class="mt-2 text-sm text-muted">{risk.body}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
+
+    <section class="grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+      <article class="card space-y-4">
+        <h2 class="text-3xl font-semibold text-primary">Ways to reduce vacant-house exposure</h2>
+        <p class="text-muted">
+          If you are not ready to sell yet, the goal is to shorten the period where small issues can become expensive problems. Start with the basics, then compare whether holding, repairing, listing, or selling as-is is worth the trade-off.
+        </p>
+        <ul class="grid gap-3 text-sm text-primary sm:grid-cols-2">
+          {reduceRiskSteps.map((step) => (
+            <li class="flex items-start gap-3 rounded-xl border border-border/70 bg-soft/60 p-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+      <aside class="card space-y-4 bg-soft/70">
+        <p class="badge">Kansas City seller note</p>
+        <h2 class="text-2xl font-semibold text-primary">The question is not just price. It is timing and risk.</h2>
+        <p class="text-sm text-muted">
+          A vacant house might bring a better number after cleaning, repairs, and listing. It might also cost several more months of payments, utilities, and surprise repairs. The calculator helps you put a number on the delay before you decide.
+        </p>
+        <a href="/resources/investor-offer-vs-mls-net-sheet-kansas-city/" class="btn btn-ghost text-base">
+          Compare offer vs listing net
+        </a>
+      </aside>
+    </section>
+
     <LocalDecisionMap
       variant="vacant"
       heading="Turn carrying costs into a local vacant-house plan"
       intro="Once the monthly cost is clear, the next decision is local: city, county, repairs, utilities, insurance, and timeline. Use these links to compare the next step."
     />
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Vacant house carrying cost FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
   </article>
 </Layout>
 
@@ -107,21 +325,100 @@ const jsonLd = [
   const monthlyResult = document.querySelector('[data-monthly-result]');
   const totalResult = document.querySelector('[data-total-result]');
   const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  const moneyFields = form?.querySelectorAll('[data-money-field]');
+  const numberFields = form?.querySelectorAll('[data-number-field]');
+  let calculatorStartedTracked = false;
+  let calculatorResultTracked = false;
+
+  function trackCalculatorEvent(eventName, payload = {}) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, {
+        page_path: window.location.pathname,
+        page_title: document.title,
+        calculator_id: 'vacant_house_carrying_cost',
+        ...payload,
+      });
+    }
+  }
+
+  function trackCalculatorStart() {
+    if (calculatorStartedTracked) {
+      return;
+    }
+
+    calculatorStartedTracked = true;
+    trackCalculatorEvent('calculator_start');
+  }
+
+  function readCurrency(value) {
+    const number = Number(String(value || '').replace(/[^\d]/g, ''));
+    return Number.isFinite(number) && number > 0 ? number : 0;
+  }
+
+  function formatCurrencyInput(field) {
+    field.value = formatter.format(readCurrency(field.value));
+  }
+
+  function selectInput(field) {
+    window.setTimeout(() => field.select(), 0);
+  }
 
   function readNumber(name) {
     const field = form?.querySelector(`[name="${name}"]`);
-    const value = Number(field?.value || 0);
+    const value = Number(String(field?.value || '').replace(/[^\d.]/g, ''));
     return Number.isFinite(value) && value > 0 ? value : 0;
   }
 
+  function readMoney(name) {
+    const field = form?.querySelector(`[name="${name}"]`);
+    return readCurrency(field?.value);
+  }
+
   function updateCalculator() {
-    const monthly = readNumber('mortgage') + readNumber('taxes') + readNumber('utilities') + readNumber('maintenance');
+    const monthly = readMoney('mortgage') + readMoney('taxes') + readMoney('utilities') + readMoney('maintenance');
     const months = Math.max(1, readNumber('months'));
-    const total = monthly * months + readNumber('oneTime');
+    const total = monthly * months + readMoney('oneTime');
 
     if (monthlyResult) monthlyResult.textContent = formatter.format(monthly);
     if (totalResult) totalResult.textContent = formatter.format(total);
+
+    if (calculatorStartedTracked && !calculatorResultTracked && total > 0) {
+      calculatorResultTracked = true;
+      trackCalculatorEvent('calculator_result_view', {
+        monthly_cost: monthly,
+        expected_months: months,
+        total_cost: total,
+      });
+    }
   }
+
+  moneyFields?.forEach((field) => {
+    formatCurrencyInput(field);
+    field.addEventListener('focus', () => {
+      trackCalculatorStart();
+      field.value = String(readCurrency(field.value) || '');
+      selectInput(field);
+    });
+    field.addEventListener('input', () => {
+      updateCalculator();
+    });
+    field.addEventListener('blur', () => {
+      formatCurrencyInput(field);
+      updateCalculator();
+    });
+  });
+
+  numberFields?.forEach((field) => {
+    field.addEventListener('focus', () => {
+      trackCalculatorStart();
+      selectInput(field);
+    });
+    field.addEventListener('blur', () => {
+      const value = Math.max(1, readNumber(field.name));
+      field.value = String(value);
+      updateCalculator();
+    });
+  });
 
   form?.addEventListener('input', updateCalculator);
   updateCalculator();

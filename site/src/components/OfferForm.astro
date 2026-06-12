@@ -222,19 +222,24 @@ const {
     });
 
     let formStartedTracked = false;
+    const trackFormEvent = (eventName, payload = {}) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, {
+          form_id: form.id,
+          page_path: window.location.pathname,
+          page_title: document.title,
+          ...payload
+        });
+      }
+    };
+
     form.addEventListener('focusin', function() {
       if (formStartedTracked) {
         return;
       }
 
       formStartedTracked = true;
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'form_start', {
-          form_id: form.id,
-          page_path: window.location.pathname,
-          page_title: document.title
-        });
-      }
+      trackFormEvent('form_start');
     });
 
     form.addEventListener('submit', async function(event) {
@@ -283,6 +288,10 @@ const {
       }
 
       if (errors.length > 0) {
+        trackFormEvent('form_validation_error', {
+          error_count: errors.length
+        });
+
         if (errorBanner) {
           errorBanner.textContent = errors.join(' ');
           errorBanner.classList.remove('hidden');
@@ -310,6 +319,14 @@ const {
       }
 
       // Submit form to API
+      let submitErrorTracked = false;
+      const trackSubmitError = (errorType) => {
+        submitErrorTracked = true;
+        trackFormEvent('form_submit_error', {
+          error_type: errorType
+        });
+      };
+
       try {
         if (submitButton) {
           submitButton.disabled = true;
@@ -326,13 +343,9 @@ const {
 
         if (response.ok) {
           // Track successful form submission
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'generate_lead', {
-              lead_type: 'offer_form',
-              page_path: window.location.pathname,
-              page_title: document.title
-            });
-          }
+          trackFormEvent('generate_lead', {
+            lead_type: 'offer_form'
+          });
           
           // Success - redirect to thank you page
           window.location.href = '/thank-you/';
@@ -347,21 +360,28 @@ const {
           console.error('Form submit failed', response.status, result);
 
           if (result?.error === 'validation_error' && result.fields) {
+            trackSubmitError('validation_error');
             throw new Error(Object.values(result.fields).join(' '));
           }
 
           if (result?.error === 'rate_limited') {
+            trackSubmitError('rate_limited');
             throw new Error('Please wait a moment and try submitting again.');
           }
 
           if (result?.error === 'email_disabled' || result?.error === 'email_failed') {
+            trackSubmitError(result.error);
             throw new Error(deliveryFallbackMessage);
           }
 
+          trackSubmitError('unknown_response');
           throw new Error(deliveryFallbackMessage);
         }
       } catch (error) {
         console.error('Form submission error:', error);
+        if (!submitErrorTracked) {
+          trackSubmitError('submit_exception');
+        }
         if (errorBanner) {
           errorBanner.textContent = error instanceof Error ? error.message : 'Failed to send message. Please try again.';
           errorBanner.classList.remove('hidden');
