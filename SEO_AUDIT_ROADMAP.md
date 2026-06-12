@@ -111,8 +111,8 @@ Checklist:
   - [x] Add stronger "who this is for" copy for vacant, inherited, repairs, tenants, behind on payments, relocation, and probate.
 - [ ] Strengthen near-win city pages.
   - [x] Shawnee, KS: add more local seller-situation proof and stronger CTA language.
-  - [ ] Olathe, KS: add more local seller-situation proof and stronger CTA language.
-  - [ ] Overland Park, KS: add more local seller-situation proof and stronger CTA language.
+  - [x] Olathe, KS: add more local seller-situation proof and stronger CTA language.
+  - [x] Overland Park, KS: add more local seller-situation proof and stronger CTA language.
 - [ ] Review Search Console coverage examples.
   - [ ] Identify the 4 not-found URLs and redirect any with impressions or crawl value.
   - [ ] Inspect the soft 404 and either strengthen the page or redirect it.

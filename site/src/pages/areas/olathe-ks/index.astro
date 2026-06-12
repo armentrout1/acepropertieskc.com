@@ -28,6 +28,24 @@ const situations = [
   "Rental properties where tenant coordination adds complexity",
 ];
 
+const olatheFastSaleProof = [
+  {
+    title: "Skip repair bids and showings",
+    body:
+      "We review Olathe homes as-is, including older systems, foundation concerns, clean-out needs, and unfinished updates.",
+  },
+  {
+    title: "Plan around Johnson County details",
+    body:
+      "HOA packets, payoff statements, title timing, and school-calendar moves are discussed before you make a decision.",
+  },
+  {
+    title: "Compare cash with listing",
+    body:
+      "You get a written comparison so you can weigh speed, certainty, repairs, commissions, concessions, and another month of holding costs.",
+  },
+];
+
 const steps = [
   {
     title: "Share your timeline",
@@ -86,21 +104,21 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Olathe KS | Cash Home Buyers"
-  description="Local cash home buyers in Olathe KS. Sell as-is with no repairs, showings, or commissions and compare a written offer on your timeline."
+  title="Sell My House Fast Olathe KS | Cash Offer"
+  description="Need to sell your Olathe KS house fast? Compare an as-is cash offer with no repairs, no showings, no commissions, and flexible Johnson County timing."
   canonicalPath="/areas/olathe-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Olathe, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Olathe, KS With a Cash Buyer</h1>
-      <p class="text-muted">
-        Olathe homeowners value clear communication and predictable outcomes. If you are searching for how to sell my house fast in Olathe, comparing we-buy-houses Olathe buyers, or trying to avoid repairs and showings, we provide straightforward cash and flexible options without pressure. Our local team understands Johnson County requirements and keeps every step transparent.
+      <p class="badge">Sell fast in Olathe, Kansas</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Olathe, KS Without Repairs or Showings</h1>
+      <p class="text-lg leading-8 text-muted">
+        If your Olathe house needs repairs, a fast relocation plan, estate coordination, or a clean backup option before listing, we can review it as-is and give you a written local offer. You choose the timeline, and we explain the Johnson County title, HOA, payoff, and closing details before anything is signed.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">Get an Olathe offer</a>
-        <a href="/solutions/sell-house-fast/" class="btn btn-ghost text-base">Compare fast-sale options</a>
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a fast Olathe offer</a>
+        <a href="tel:+18167287548" class="btn btn-ghost text-base" data-phone-link="olathe_hero">Call 816-728-7548</a>
       </div>
     </div>
     <OfferForm
@@ -109,6 +127,24 @@ const jsonLd = [
       heading="Request an Olathe offer"
       subheading="Start with the address and the best way to reach you."
     />
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Quick answer</p>
+      <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for an Olathe cash offer before fixing the house.</h2>
+      <p class="text-muted">
+        A direct sale is useful when repairs, relocation, family timing, or lender pressure make a normal listing feel risky. We give you a plain comparison so you can decide whether speed, certainty, or the open market makes the most sense.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {olatheFastSaleProof.map((item) => (
+        <article class="card bg-white">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="section">
