@@ -89,6 +89,52 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
 - [ ] Find pages with clicks but no leads and improve CTAs/form placement.
 - [ ] Track legacy 404s and redirect anything with impressions, links, or crawl activity.
 
+## Phase 2A: Search Console Optimization - June 2026
+
+Data source: Search Console exports dated June 11, 2026.
+
+Current search signal:
+
+- Total web search performance: 23 clicks and 8,546 impressions over the exported 3-month range.
+- Biggest impression opportunity: `/solutions/sell-house-fast/` with 3,264 impressions, 1 click, and average position around 49.9.
+- Top query opportunity: `sell my house fast kansas city` with 780 impressions, 0 clicks, and average position around 53.2.
+- Near-win city pages: Shawnee, Olathe, and Overland Park are getting impressions and should receive the next local-content upgrades.
+- Coverage cleanup still matters: 4 not-found URLs, 1 soft 404, 55 discovered/currently not indexed, and 10 crawled/currently not indexed.
+
+Checklist:
+
+- [x] Rework `/solutions/sell-house-fast/` for the "sell my house fast Kansas City" query cluster.
+  - [x] Rewrite title and meta description for higher CTR.
+  - [x] Strengthen first-screen promise: no repairs, no showings, local buyer, clear cash/flexible options.
+  - [x] Add a scannable quick-answer block above or near the first form.
+  - [x] Add city-specific internal links to Olathe, Overland Park, Shawnee, Independence, and Kansas City, MO.
+  - [x] Add stronger "who this is for" copy for vacant, inherited, repairs, tenants, behind on payments, relocation, and probate.
+- [ ] Strengthen near-win city pages.
+  - [x] Shawnee, KS: add more local seller-situation proof and stronger CTA language.
+  - [ ] Olathe, KS: add more local seller-situation proof and stronger CTA language.
+  - [ ] Overland Park, KS: add more local seller-situation proof and stronger CTA language.
+- [ ] Review Search Console coverage examples.
+  - [ ] Identify the 4 not-found URLs and redirect any with impressions or crawl value.
+  - [ ] Inspect the soft 404 and either strengthen the page or redirect it.
+  - [ ] Review "crawled - currently not indexed" examples for thinness, duplication, or weak internal links.
+  - [ ] Review "discovered - currently not indexed" examples and improve internal linking to priority URLs.
+- [x] Add calculator engagement analytics.
+  - [x] Track `calculator_start`.
+  - [x] Track `calculator_result_view`.
+- [x] Add form friction analytics.
+  - [x] Track `form_validation_error`.
+  - [x] Track `form_submit_error`.
+- [ ] In GA4, mark key lead-intent events.
+  - [ ] `generate_lead`
+  - [ ] `phone_click`
+  - [ ] `sms_click`
+  - [ ] `calculator_result_view`
+- [ ] Build local authority signals.
+  - [ ] Google Business Profile updates/posts/photos.
+  - [ ] Real review acquisition workflow.
+  - [ ] Foundational citations: Bing Places, Apple Business Connect, Facebook, Yelp, relevant local directories.
+  - [ ] Local partnership/link outreach list.
+
 ## Phase 3: Conversion Foundation
 
 - [x] Create `/get-offer/` as the primary conversion page.

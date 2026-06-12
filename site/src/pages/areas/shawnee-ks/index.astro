@@ -28,6 +28,24 @@ const situations = [
   "Senior downsizing to retirement communities or assisted living",
 ];
 
+const shawneeFastSaleProof = [
+  {
+    title: "No repairs before the walkthrough",
+    body:
+      "Older Shawnee homes can need roofs, foundations, windows, HVAC, or cosmetic work. We review the property as-is so you do not have to spend money first.",
+  },
+  {
+    title: "A written Shawnee net comparison",
+    body:
+      "See how a direct offer compares with listing costs, commissions, repairs, concessions, and another month of holding the house.",
+  },
+  {
+    title: "Local Johnson County title timing",
+    body:
+      "We plan around payoff statements, HOA items, estate paperwork, and family schedules so the closing path is clear before you decide.",
+  },
+];
+
 const steps = [
   {
     title: "Share your Shawnee story",
@@ -86,21 +104,21 @@ const jsonLd = [
 ---
 
 <Layout
-  title="We Buy Houses Shawnee KS | Cash Home Buyers"
-  description="Local cash home buyers in Shawnee KS. Sell as-is with no repairs, showings, or commissions and compare a written offer on your timeline."
+  title="Sell My House Fast Shawnee KS | Cash Offer"
+  description="Need to sell your Shawnee KS house fast? Compare an as-is cash offer with no repairs, no showings, no commissions, and a clear local closing plan."
   canonicalPath="/areas/shawnee-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Shawnee, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">We Buy Houses in Shawnee, KS for Cash</h1>
-      <p class="text-muted">
-        Shawnee homeowners value straightforward solutions when property decisions become complex. If you are searching for how to sell my house fast in Shawnee KS, or comparing we-buy-houses Shawnee buyers before listing, we provide clear cash and flexible options without pressure. Our local team understands Johnson County processes and keeps every step transparent.
+      <p class="badge">Sell fast in Shawnee, Kansas</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Shawnee, KS Without Repairs or Showings</h1>
+      <p class="text-lg leading-8 text-muted">
+        If you need to sell a Shawnee house fast, you should be able to compare a real local offer before paying for repairs, cleaning out the property, or scheduling public showings. ACE Properties KC reviews inherited houses, vacant homes, repair-heavy properties, divorce situations, and relocation timelines across Shawnee and Johnson County.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">Get a Shawnee offer</a>
-        <a href="/solutions/sell-house-fast/" class="btn btn-ghost text-base">Compare fast-sale options</a>
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a fast Shawnee offer</a>
+        <a href="tel:+18167287548" class="btn btn-ghost text-base" data-phone-link="shawnee_hero">Call 816-728-7548</a>
       </div>
     </div>
     <OfferForm
@@ -109,6 +127,24 @@ const jsonLd = [
       heading="Request a Shawnee offer"
       subheading="Start with the address and the best way to reach you."
     />
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Quick answer</p>
+      <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for a Shawnee cash offer before fixing the house.</h2>
+      <p class="text-muted">
+        A fast sale is usually about certainty: what you net, who handles repairs, when closing can happen, and whether the buyer can follow through. We put those items in writing so you can compare the offer against listing on the MLS.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {shawneeFastSaleProof.map((item) => (
+        <article class="card bg-white">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
   </section>
 
   <section class="section">

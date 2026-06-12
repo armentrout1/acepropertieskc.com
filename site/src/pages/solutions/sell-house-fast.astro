@@ -20,6 +20,25 @@ const situations = [
   "Simplifying complex family or financial situations",
 ];
 
+const fastPathProof = [
+  {
+    title: "No repairs first",
+    body: "We review the house as-is, including roof, foundation, clean-out, updates, tenants, or unfinished projects.",
+  },
+  {
+    title: "No public showings",
+    body: "Skip open houses, repeated walkthroughs, sign calls, and the stress of keeping the property ready for buyers.",
+  },
+  {
+    title: "Clear closing options",
+    body: "Compare a direct cash offer with flexible timing or payment-takeover review when the mortgage is the pressure point.",
+  },
+  {
+    title: "Local KC decision help",
+    body: "We connect the sale plan to the city, county, title, payoff, occupancy, and repair details that can affect closing.",
+  },
+];
+
 const steps = [
   {
     title: "Quick property assessment",
@@ -172,17 +191,45 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City | Cash Home Buyers"
-  description="Need to sell your Kansas City house fast? Compare a no-pressure as-is cash offer with no repairs, showings, commissions, or listing delays."
+  title="Sell My House Fast Kansas City | No Repairs"
+  description="Need to sell your Kansas City house fast? Compare an as-is cash offer with no repairs, showings, commissions, or listing delays."
   canonicalPath="/solutions/sell-house-fast/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-4">
-    <p class="badge">Speed & Certainty Solutions</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Kansas City</h1>
-    <p class="text-muted">
+    <p class="badge">Sell fast without repairs</p>
+    <h1 class="max-w-4xl text-4xl font-semibold text-primary md:text-5xl">
+      Sell My House Fast in Kansas City Without Repairs or Showings
+    </h1>
+    <p class="max-w-4xl text-lg text-muted">
       If you need to sell a house fast in Kansas City, the real question is not just how quickly someone can make an offer. It is whether the buyer can explain title timing, repairs, closing costs, occupancy, and your net clearly enough for you to make a good decision. Whether you are in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, or anywhere in the metro, we provide cash and flexible options so you can compare an as-is sale against listing without repairs, showings, or pressure.
     </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="/get-offer/" class="btn btn-primary text-base">Get a fast local offer</a>
+      <a href="tel:+18167287548" class="btn btn-ghost text-base" data-phone-link="sell_fast_hero">
+        Call 816-728-7548
+      </a>
+    </div>
+  </section>
+
+  <section class="section-alt rounded-3xl px-5 py-8 sm:px-8">
+    <div class="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+      <div class="space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Quick answer</p>
+        <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for a fast Kansas City offer before fixing anything.</h2>
+        <p class="text-muted">
+          The first step is not a listing agreement or a repair bid. It is a plain comparison: what the house could sell for as-is, what waiting may cost, and what timeline actually solves the problem.
+        </p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {fastPathProof.map((item) => (
+          <article class="rounded-xl border border-border/80 bg-white p-4">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm text-muted">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock
@@ -273,18 +320,28 @@ const jsonLd = [
           <h3 class="text-lg font-semibold text-primary mb-2">Common Speed Triggers</h3>
           <ul class="space-y-2 text-sm text-muted">
             {speedReasons.map((reason) => (
-              <li>• {reason}</li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
+                <span>{reason}</span>
+              </li>
             ))}
           </ul>
         </div>
         <div>
           <h3 class="text-lg font-semibold text-primary mb-2">Fast Sale Benefits</h3>
           <ul class="space-y-2 text-sm text-muted">
-            <li>• Guaranteed closing dates</li>
-            <li>• No repairs or renovations</li>
-            <li>• Skip showings and open houses</li>
-            <li>• Avoid listing uncertainties</li>
-            <li>• Simplified moving logistics</li>
+            {[
+              "Guaranteed closing dates",
+              "No repairs or renovations",
+              "Skip showings and open houses",
+              "Avoid listing uncertainties",
+              "Simplified moving logistics",
+            ].map((benefit) => (
+              <li class="flex items-start gap-2">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
+                <span>{benefit}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
