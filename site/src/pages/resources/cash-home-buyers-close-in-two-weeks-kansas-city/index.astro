@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -131,15 +132,23 @@ const jsonLd = [
       </p>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Want to know if your house can close fast?</h2>
-        <p class="text-muted">
-          Send the address and your timing goal. We will help identify what title and closing may need before promising a date.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Check my closing timeline</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Fast closing check"
+      title="Need to know if your house can close in two weeks?"
+      body="Send the address, timing goal, and any known title, payoff, tenant, estate, or repair issues. We can tell you what may need to happen before a fast closing is realistic."
+      points={[
+        "Title, payoff, and seller-readiness checklist reviewed",
+        "As-is path with no repairs or showings required",
+        "Flexible closing if two weeks is too tight",
+        "Written next step before you commit",
+      ]}
+      formId="two-week-close-resource-form"
+      formHeading="Check my fast-closing timeline"
+      formSubheading="Start with the address and your ideal closing date."
+      defaultSituation="sell fast"
+      pageContext="two week closing resource"
+      trackingLocation="two_week_close_resource"
+    />
 
     <LocalDecisionMap
       variant="fast"

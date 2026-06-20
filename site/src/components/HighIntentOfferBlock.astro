@@ -10,6 +10,8 @@ type Props = {
   formId: string;
   formHeading: string;
   formSubheading?: string;
+  defaultSituation?: string;
+  pageContext?: string;
   trackingLocation?: string;
 };
 
@@ -25,6 +27,8 @@ const {
   formId,
   formHeading,
   formSubheading = "Start with the address and the best way to reach you.",
+  defaultSituation = "as-is cash",
+  pageContext = "",
   trackingLocation = formId,
 } = Astro.props;
 ---
@@ -53,5 +57,13 @@ const {
       </a>
     </div>
   </div>
-  <OfferForm compact formId={formId} heading={formHeading} subheading={formSubheading} />
+  <OfferForm
+    compact
+    includeCompactNotes
+    formId={formId}
+    heading={formHeading}
+    subheading={formSubheading}
+    defaultSituation={defaultSituation}
+    pageContext={pageContext || trackingLocation}
+  />
 </section>

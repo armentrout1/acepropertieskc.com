@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -192,15 +193,23 @@ const jsonLd = [
       </article>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Want both options explained side by side?</h2>
-        <p class="text-muted">
-          We can outline a cash offer and any payment takeover structure that may fit, then encourage you to review it with your own advisors.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Request options for my house</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Payment takeover review"
+      title="Want cash and payment takeover compared side by side?"
+      body="Send the address, payment status, and what you know about the loan. We can review whether a cash offer, payoff-at-closing, or payment takeover structure may fit before you sign anything."
+      points={[
+        "Monthly payment, arrears, taxes, and insurance questions reviewed",
+        "Cash offer compared with payment takeover when relevant",
+        "Seller risk explained in plain English",
+        "No repairs or listing prep needed to start",
+      ]}
+      formId="subject-to-resource-form"
+      formHeading="Compare cash and payment takeover"
+      formSubheading="Share the address and the best way to reach you."
+      defaultSituation="payment takeover"
+      pageContext="subject-to resource"
+      trackingLocation="subject_to_resource"
+    />
 
     <LocalDecisionMap
       variant="payment"

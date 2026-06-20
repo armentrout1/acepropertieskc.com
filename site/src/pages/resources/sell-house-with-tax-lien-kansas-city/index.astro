@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -129,15 +130,23 @@ const jsonLd = [
       </ul>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Need to know if a sale can work before the deadline?</h2>
-        <p class="text-muted">
-          Send the address, county, and any deadline notice. We will help you understand what title may need before promising a closing date.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Start a tax-lien review</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Tax-lien sale review"
+      title="Want to know if a sale can clear the lien before the deadline?"
+      body="Send the address, county, and any deadline notice you have. We can review whether a direct sale can work with title, taxes, payoffs, and any repair or clean-out needs."
+      points={[
+        "Tax payoff and title timing reviewed early",
+        "As-is offer path for urgent deadlines",
+        "Clean-out, repairs, and contents can be part of the offer",
+        "Written next steps before you decide",
+      ]}
+      formId="tax-lien-resource-form"
+      formHeading="Start a tax-lien review"
+      formSubheading="Share the address, deadline, and best way to reach you."
+      defaultSituation="tax lien"
+      pageContext="tax lien resource"
+      trackingLocation="tax_lien_resource"
+    />
 
     <LocalDecisionMap
       variant="payment"

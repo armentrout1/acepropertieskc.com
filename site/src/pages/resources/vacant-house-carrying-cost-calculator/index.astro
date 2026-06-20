@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import OfferForm from "../../../components/OfferForm.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -230,6 +231,16 @@ const jsonLd = [
             This is not a valuation. It is a decision tool for comparing delay, repairs, listing prep, and an as-is sale.
           </p>
         </div>
+
+        <OfferForm
+          compact
+          includeCompactNotes
+          formId="vacant-calculator-offer-form"
+          heading="Compare this cost with an as-is offer"
+          subheading="Share the address and what is making the vacant house hard to hold."
+          defaultSituation="vacant"
+          pageContext="vacant house carrying cost calculator"
+        />
 
         <div class="card space-y-3 bg-soft/70">
           <h2 class="text-xl font-semibold text-primary">What this number helps you decide</h2>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -222,15 +223,23 @@ const jsonLd = [
       </div>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Need a written backup option while you talk to the lender?</h2>
-        <p class="text-muted">
-          Send the address, rough payment status, and any known dates. We can outline whether a direct sale, payoff-at-closing, or payment takeover option is realistic and encourage you to review it with your own advisors.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Compare my options</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Mortgage pressure review"
+      title="Want to compare payoff-at-closing with payment takeover?"
+      body="Send the address, timeline, and what you know about the payment status. We can review whether a cash sale, payoff-at-closing, or payment takeover conversation is realistic while you keep lender and advisor options open."
+      points={[
+        "Back payments, payoff, taxes, and title items reviewed",
+        "Cash and payment takeover options compared in plain English",
+        "No repairs, clean-out, or listing prep required to start",
+        "Clear next steps before you commit to anything",
+      ]}
+      formId="mortgage-options-resource-form"
+      formHeading="Ask about mortgage-pressure options"
+      formSubheading="Start with the address and the best way to reach you."
+      defaultSituation="behind"
+      pageContext="behind on mortgage resource"
+      trackingLocation="mortgage_options_resource"
+    />
 
     <LocalDecisionMap
       variant="payment"

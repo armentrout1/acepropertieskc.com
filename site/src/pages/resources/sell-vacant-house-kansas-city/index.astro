@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -169,15 +170,23 @@ const jsonLd = [
       </article>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Want to know what the vacant house could sell for as-is?</h2>
-        <p class="text-muted">
-          Send the address and a quick note about condition, utilities, and your timeline. We will help you compare an as-is offer with the costs of waiting.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Get a vacant house offer</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Vacant house offer"
+      title="Compare the vacant-house carrying cost against an as-is offer"
+      body="Send the address, how long it has been vacant, and any known repair, utility, insurance, or code concerns. We can help you compare holding the house with selling it as-is."
+      points={[
+        "No clean-out required to start the conversation",
+        "Utilities, insurance, code, and security concerns reviewed",
+        "Repairs and contents can be included in the as-is path",
+        "Flexible closing date around title and move-out needs",
+      ]}
+      formId="vacant-house-resource-form"
+      formHeading="Request a vacant-house review"
+      formSubheading="Start with the address and what is making the house hard to hold."
+      defaultSituation="vacant"
+      pageContext="sell vacant house resource"
+      trackingLocation="vacant_house_resource"
+    />
 
     <LocalDecisionMap
       variant="vacant"

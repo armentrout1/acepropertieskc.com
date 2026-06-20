@@ -4,6 +4,9 @@ type Props = {
   subheading?: string;
   formId?: string;
   compact?: boolean;
+  includeCompactNotes?: boolean;
+  defaultSituation?: string;
+  pageContext?: string;
 };
 
 const {
@@ -11,7 +14,12 @@ const {
   subheading = "We'll review the basics and follow up shortly.",
   formId = "offer-form",
   compact = false,
+  includeCompactNotes = false,
+  defaultSituation = "as-is cash",
+  pageContext = "",
 } = Astro.props as Props;
+
+const showNotes = !compact || includeCompactNotes;
 ---
 
 <section class:list={["w-full rounded-2xl border border-border/70 bg-white shadow-sm", compact ? "p-5" : "p-6"]} aria-labelledby={`${formId}-title`}>
@@ -50,19 +58,19 @@ const {
           name="situation"
           class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
         >
-          <option value="as-is cash">As-is cash</option>
-          <option value="sell fast">Sell house fast</option>
-          <option value="inherited">Inherited</option>
-          <option value="probate">Probate</option>
-          <option value="repairs">Needs repairs</option>
-          <option value="vacant">Vacant house</option>
-          <option value="divorce">Divorce</option>
-          <option value="tenants">Tenants in place</option>
-          <option value="behind">Behind on payments</option>
-          <option value="payment takeover">Can you take over my payments?</option>
-          <option value="foreclosure">Facing foreclosure</option>
-          <option value="tax lien">Tax lien</option>
-          <option value="other">Other</option>
+          <option value="as-is cash" selected={defaultSituation === "as-is cash"}>As-is cash</option>
+          <option value="sell fast" selected={defaultSituation === "sell fast"}>Sell house fast</option>
+          <option value="inherited" selected={defaultSituation === "inherited"}>Inherited</option>
+          <option value="probate" selected={defaultSituation === "probate"}>Probate</option>
+          <option value="repairs" selected={defaultSituation === "repairs"}>Needs repairs</option>
+          <option value="vacant" selected={defaultSituation === "vacant"}>Vacant house</option>
+          <option value="divorce" selected={defaultSituation === "divorce"}>Divorce</option>
+          <option value="tenants" selected={defaultSituation === "tenants"}>Tenants in place</option>
+          <option value="behind" selected={defaultSituation === "behind"}>Behind on payments</option>
+          <option value="payment takeover" selected={defaultSituation === "payment takeover"}>Can you take over my payments?</option>
+          <option value="foreclosure" selected={defaultSituation === "foreclosure"}>Facing foreclosure</option>
+          <option value="tax lien" selected={defaultSituation === "tax lien"}>Tax lien</option>
+          <option value="other" selected={defaultSituation === "other"}>Other</option>
         </select>
       </div>
 
@@ -119,13 +127,27 @@ const {
       />
     </div>
 
-    {!compact && (
+    <div class="space-y-1">
+      <label for={`${formId}-contact-preference`} class="text-sm font-medium text-primary">Best way to reach you</label>
+      <select
+        id={`${formId}-contact-preference`}
+        name="contact_preference"
+        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+      >
+        <option value="any">Any is fine</option>
+        <option value="text">Text me first</option>
+        <option value="call">Call me first</option>
+        <option value="email">Email me first</option>
+      </select>
+    </div>
+
+    {showNotes && (
       <div class="space-y-1">
         <label for={`${formId}-notes`} class="text-sm font-medium text-primary">Anything we should know?</label>
         <textarea
           id={`${formId}-notes`}
           name="notes"
-          rows="4"
+          rows={compact ? "2" : "4"}
           placeholder="Repairs, tenants, timing, probate, mortgage payoff, payment takeover, or anything else on your mind"
           class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
         ></textarea>
@@ -152,6 +174,7 @@ const {
     </div>
 
     <input type="hidden" name="form_started_at" value="" />
+    <input type="hidden" name="page_context" value={pageContext} />
     <input type="hidden" name="landing_page" value="" />
     <input type="hidden" name="referrer" value="" />
     <input type="hidden" name="utm_source" value="" />

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
   articleJsonLd,
   buildBreadcrumbList,
@@ -115,15 +116,23 @@ const jsonLd = [
       </article>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Need to know whether a sale can catch the deadline?</h2>
-        <p class="text-muted">
-          Send the address, lender status, and any known dates. We can help you understand whether a direct sale, payoff-at-closing, or payment takeover review is realistic.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Check my options</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Payment deadline review"
+      title="Need to know if selling can catch the deadline?"
+      body="Send the address, lender status, and any known dates. We can help you compare payoff-at-closing, a direct as-is sale, or payment takeover review without requiring repairs or showings first."
+      points={[
+        "Late payments and payoff timing reviewed",
+        "Title, taxes, and recorded lien questions organized early",
+        "Fast as-is sale path when the timeline is tight",
+        "Payment takeover reviewed only when it may fit",
+      ]}
+      formId="behind-payments-resource-form"
+      formHeading="Check my payment-pressure options"
+      formSubheading="Share the address and the best way to reach you."
+      defaultSituation="behind"
+      pageContext="sell house behind on payments resource"
+      trackingLocation="behind_payments_resource"
+    />
 
     <LocalDecisionMap
       variant="payment"

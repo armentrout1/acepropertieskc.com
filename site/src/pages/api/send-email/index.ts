@@ -180,6 +180,8 @@ export const POST: APIRoute = async ({ request }) => {
   const name = readString(body, "name", "Not provided");
   const situation = readString(body, "situation", "Not provided");
   const timeline = readString(body, "timeline", "Not provided");
+  const contactPreference = readString(body, "contact_preference", "Any is fine");
+  const pageContext = readString(body, "page_context");
   const notes = readString(body, "notes");
   const landingPage = readString(body, "landing_page", "Not captured");
   const referrer = readString(body, "referrer", "Direct or not captured");
@@ -204,9 +206,11 @@ export const POST: APIRoute = async ({ request }) => {
     `Name: ${name}`,
     `Phone: ${phone || "Not provided"}`,
     `Email: ${email || "Not provided"}`,
+    `Best contact method: ${contactPreference}`,
     `Situation: ${situation}`,
     `Timeline: ${timeline}`,
     `Notes: ${notes || "None"}`,
+    `Page context: ${pageContext || "None"}`,
     `Landing page: ${landingPage}`,
     `Referrer: ${referrer}`,
     `UTM source: ${utmSource || "None"}`,
@@ -231,9 +235,11 @@ export const POST: APIRoute = async ({ request }) => {
     ["Name", name],
     ["Phone", phone || "Not provided"],
     ["Email", email || "Not provided"],
+    ["Best contact method", contactPreference],
     ["Consent", consentAccepted ? "Granted" : "Pending"],
   ];
   const sourceFields: Array<[string, string]> = [
+    ["Page context", pageContext || "None"],
     ["Landing page", landingPage],
     ["Referrer", referrer],
     ["UTM source", utmSource || "None"],
