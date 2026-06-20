@@ -29,7 +29,7 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up
 - Google still shows legacy URLs such as `/services/` and `/contact-local-home-buyers/`. Fixed locally: legacy redirects now point to the closest modern pages.
 - The repo had 13 npm audit vulnerabilities, including high-severity advisories in `axios`, `h3`, `rollup`, `vite`, `picomatch`, and `svgo`. Fixed locally: dependencies now audit clean after Astro 6 upgrade.
 - `src/lib/siteConfig.ts` now uses `info@acepropertieskc.com` without a code TODO. Still confirm the final public email and align it across schema, footer, API sender, Google Business Profile, citations, and Search Console.
-- Form delivery depends on `SENDGRID_API_KEY`. Production API returned `200 {"ok":true}` for a QA lead; still confirm the QA email arrived in the destination inbox.
+- Form delivery depends on `SENDGRID_API_KEY`. Production API returned `200 {"ok":true}` for a QA lead, and the QA email arrived in the destination inbox.
 - `src/pages/api/send-email/index.ts` interpolated user input into HTML email without escaping. Fixed locally: email HTML now escapes lead fields.
 - There was no dedicated `/get-offer/` landing page. Fixed locally: page exists and CTAs now route there from most pages.
 - Fixed locally: `/resources/` now exists with a first wave of high-intent seller guides for Kansas City.
@@ -53,12 +53,12 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up
   - `npm audit --audit-level=moderate`
 - [x] Escape HTML in SendGrid email body.
 - [x] Add request body size limits or guardrails for `/api/send-email/`.
-- [ ] Confirm Railway production env vars and inbox delivery:
+- [x] Confirm Railway production env vars and inbox delivery:
   - `SENDGRID_API_KEY`
   - verified sender identity for `info@acepropertieskc.com`
   - any future CRM/webhook secrets
   - [x] Production API accepted a valid QA lead.
-  - [ ] Confirm the QA lead email arrived in the destination inbox.
+  - [x] Confirm the QA lead email arrived in the destination inbox.
 - [x] Update `site/README.md`; it still contains Astro starter content.
 - [x] Remove unused starter files/components if not referenced:
   - `src/components/Welcome.astro`
@@ -364,9 +364,9 @@ Target query clusters:
 - [x] Exclude `/thank-you/` from the sitemap.
 - [x] Fix npm audit vulnerabilities.
 - [x] Harden the email HTML output.
-- [ ] Confirm SendGrid production delivery.
+- [x] Confirm SendGrid production delivery.
   - [x] Production form API accepted a valid QA lead.
-  - [ ] Confirm the QA lead email arrived in the destination inbox.
+  - [x] Confirm the QA lead email arrived in the destination inbox.
 - [x] Create `/get-offer/`.
 - [x] Add landing-page/referrer/UTM capture to the form.
 - [ ] Build the first Search Console query-to-page map once GSC data is exported.

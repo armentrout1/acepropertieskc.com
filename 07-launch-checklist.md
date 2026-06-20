@@ -39,7 +39,7 @@
 - [x] `sitemap-0.xml` returned 200
 - [x] Live form validation works in the browser
 - [x] Live form API accepted QA lead with UTM/GCLID/GBRAID/WBRAID fields
-- [ ] Confirm QA lead email arrived in the destination inbox
+- [x] Confirm QA lead email arrived in the destination inbox
 
 ## Post-launch (first 7 days)
 - [ ] Submit sitemap in Search Console
