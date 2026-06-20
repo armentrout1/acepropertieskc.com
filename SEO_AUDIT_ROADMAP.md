@@ -1,9 +1,10 @@
 # ACE Properties KC SEO Audit and Roadmap
 
 Audit date: May 11, 2026  
-Latest generated-output audit: June 6, 2026
+Latest generated-output audit: June 20, 2026
+Latest live QA pass: June 20, 2026
 Repo: `armentrout1/acepropertieskc.com`  
-Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pull\acepropertieskc.com`
+Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up\work\acepropertieskc.com`
 
 ## Current Snapshot
 
@@ -11,14 +12,16 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
 - Build passes.
 - Custom `seo:preflight` passes.
 - Robots.txt is live and allows crawling.
-- XML sitemap output includes 86 indexable page URLs plus the sitemap index.
+- XML sitemap output includes 103 indexable page URLs plus the sitemap index.
 - Strong existing base: homepage, areas hub, 8 area pages, solutions hub, 13 solution pages, contact, options, privacy, terms, thank-you, 404.
 - Expanded local/content base now includes the resources hub, 28 resource articles/tools, 13 solution pages, 8 core area pages, and 27 dynamic metro expansion area pages.
 - Dynamic metro expansion pages now include neighborhood focus, common seller situations, explicit property-type proof, county/title notes, and nearby internal links.
 - GA4 tag is installed: `G-NTFNNJTML7`.
-- Offer form posts to SendGrid-backed API.
+- Offer form posts to SendGrid-backed API; production API accepted a clearly labeled QA lead on June 20, 2026.
+- Generated lead audit passes with 75 offer forms across 74 pages and 12 required lead routes covered.
 - Primary organic target is clear: motivated Kansas City homeowners who need to sell as-is, fast, inherited, probate, foreclosure, repair-heavy, vacant, tenant-occupied, behind on payments, or relocation.
 - Latest generated HTML audit found no sitemap pollution, JSON-LD parse errors, missing H1s, title-length issues, meta-description issues, missing canonicals, or missing offer/contact paths on indexable pages.
+- Live QA confirmed homepage, `/get-offer/`, paid landing page, cash-buyer-vs-agent guide, `/thank-you/`, robots, sitemap index, and sitemap file return `200`.
 
 ## Highest-Priority Findings
 
@@ -26,7 +29,7 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
 - Google still shows legacy URLs such as `/services/` and `/contact-local-home-buyers/`. Fixed locally: legacy redirects now point to the closest modern pages.
 - The repo had 13 npm audit vulnerabilities, including high-severity advisories in `axios`, `h3`, `rollup`, `vite`, `picomatch`, and `svgo`. Fixed locally: dependencies now audit clean after Astro 6 upgrade.
 - `src/lib/siteConfig.ts` now uses `info@acepropertieskc.com` without a code TODO. Still confirm the final public email and align it across schema, footer, API sender, Google Business Profile, citations, and Search Console.
-- Form delivery depends on `SENDGRID_API_KEY`. Confirm production env vars, verified sender/domain authentication, and lead notifications.
+- Form delivery depends on `SENDGRID_API_KEY`. Production API returned `200 {"ok":true}` for a QA lead; still confirm the QA email arrived in the destination inbox.
 - `src/pages/api/send-email/index.ts` interpolated user input into HTML email without escaping. Fixed locally: email HTML now escapes lead fields.
 - There was no dedicated `/get-offer/` landing page. Fixed locally: page exists and CTAs now route there from most pages.
 - Fixed locally: `/resources/` now exists with a first wave of high-intent seller guides for Kansas City.
@@ -50,16 +53,19 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-05-11\okay-i-need-you-to-pu
   - `npm audit --audit-level=moderate`
 - [x] Escape HTML in SendGrid email body.
 - [x] Add request body size limits or guardrails for `/api/send-email/`.
-- [ ] Confirm Railway production env vars:
+- [ ] Confirm Railway production env vars and inbox delivery:
   - `SENDGRID_API_KEY`
   - verified sender identity for `info@acepropertieskc.com`
   - any future CRM/webhook secrets
+  - [x] Production API accepted a valid QA lead.
+  - [ ] Confirm the QA lead email arrived in the destination inbox.
 - [x] Update `site/README.md`; it still contains Astro starter content.
 - [x] Remove unused starter files/components if not referenced:
   - `src/components/Welcome.astro`
   - `src/assets/astro.svg`
   - `src/assets/background.svg`
 - [x] Add a CI check that runs build, SEO preflight, and audit.
+- [x] Add a generated lead audit to CI for key lead routes, form fields, UTM/GCLID capture, thank-you redirect, and tracking hooks.
 
 ## Phase 2: Indexing and Search Console Cleanup
 
@@ -159,6 +165,7 @@ Checklist:
 - [x] Add a clear privacy/consent line below form submission.
 - [x] Add reusable high-intent offer block with call, text, proof points, and compact form for priority seller pages.
 - [x] Tag `/get-offer/` hero SMS click for analytics.
+- [x] Live browser QA confirmed `/get-offer/` form visibility, UTM population, and client-side validation.
 
 ## Phase 4: Local SEO and Trust
 
@@ -358,6 +365,8 @@ Target query clusters:
 - [x] Fix npm audit vulnerabilities.
 - [x] Harden the email HTML output.
 - [ ] Confirm SendGrid production delivery.
+  - [x] Production form API accepted a valid QA lead.
+  - [ ] Confirm the QA lead email arrived in the destination inbox.
 - [x] Create `/get-offer/`.
 - [x] Add landing-page/referrer/UTM capture to the form.
 - [ ] Build the first Search Console query-to-page map once GSC data is exported.

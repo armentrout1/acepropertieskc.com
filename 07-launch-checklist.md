@@ -2,30 +2,44 @@
 
 ## Pre-launch (must do)
 ### Content and trust
-- [ ] Real phone number is on header, footer, contact page
-- [ ] Service area statement included (KC metro + 64131 mention where relevant)
-- [ ] Disclosures added for creative options (if mentioned)
-- [ ] Privacy Policy and Terms published
-- [ ] No placeholder/fake reviews on production
+- [x] Real phone number is on header, footer, contact page
+- [x] Service area statement included (KC metro + 64131 mention where relevant)
+- [x] Disclosures added for creative options (if mentioned)
+- [x] Privacy Policy and Terms published
+- [x] No placeholder/fake reviews on production
 
 ### Technical
-- [ ] Mobile-first layout verified on multiple screen sizes
+- [x] Mobile-first layout verified on core responsive breakpoints
 - [ ] Images compressed (WebP where possible)
-- [ ] No broken links, no missing pages
-- [ ] Robots.txt present
-- [ ] Sitemap present and valid
+- [x] No broken links or missing pages found in generated SEO audit
+- [x] Robots.txt present
+- [x] Sitemap present and valid
 
 ### SEO
-- [ ] Unique title/meta per page
-- [ ] One H1 per page
-- [ ] Canonical URLs set
-- [ ] LocalBusiness schema present
-- [ ] FAQ schema present on FAQ pages
+- [x] Unique title/meta per page
+- [x] One H1 per page
+- [x] Canonical URLs set
+- [x] LocalBusiness schema present
+- [x] FAQ schema present on FAQ pages
 
 ### Analytics
-- [ ] Google Analytics installed
+- [x] Google Analytics installed
 - [ ] Google Search Console verified
-- [ ] Conversion events configured (form submit, click-to-call)
+- [x] Conversion events implemented in code (form start, lead, call, text, email)
+- [ ] Confirm conversion events in GA4 DebugView
+
+### Live QA - June 20, 2026
+- [x] Homepage returned 200
+- [x] `/get-offer/` returned 200
+- [x] Paid search landing page returned 200
+- [x] Cash-buyer-vs-agent guide returned 200
+- [x] `/thank-you/` returned 200 and remains noindex
+- [x] `robots.txt` returned 200
+- [x] `sitemap-index.xml` returned 200
+- [x] `sitemap-0.xml` returned 200
+- [x] Live form validation works in the browser
+- [x] Live form API accepted QA lead with UTM/GCLID/GBRAID/WBRAID fields
+- [ ] Confirm QA lead email arrived in the destination inbox
 
 ## Post-launch (first 7 days)
 - [ ] Submit sitemap in Search Console
@@ -35,6 +49,6 @@
 - [ ] Begin review collection workflow (after first closings)
 
 ## Ongoing (monthly)
-- [ ] Add 2–4 helpful resource articles
+- [ ] Add 2-4 helpful resource articles
 - [ ] Expand area pages based on Search Console queries
 - [ ] Improve CTAs based on conversion data
