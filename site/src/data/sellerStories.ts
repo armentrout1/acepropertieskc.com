@@ -1,6 +1,8 @@
 export type SellerStory = {
   slug: string;
   title: string;
+  seoTitle: string;
+  seoDescription: string;
   eyebrow: string;
   location: string;
   summary: string;
@@ -19,6 +21,9 @@ export const sellerStories: SellerStory[] = [
   {
     slug: "river-market-condo-payment-takeover",
     title: "River Market Condo With a Payment-Takeover Structure",
+    seoTitle: "Payment Takeover Seller Story | ACE Properties KC",
+    seoDescription:
+      "See how ACE helped a River Market condo seller compare a creative payment-takeover structure when a standard sale did not fit.",
     eyebrow: "Creative sale structure",
     location: "River Market / Downtown Kansas City",
     summary:
@@ -45,6 +50,9 @@ export const sellerStories: SellerStory[] = [
   {
     slug: "inherited-original-condition-house",
     title: "Inherited House in Original Condition",
+    seoTitle: "Inherited As-Is House Story | ACE Properties KC",
+    seoDescription:
+      "See how ACE helps heirs compare a simple as-is sale for an inherited Kansas City house needing repairs, clean-out, or yard work.",
     eyebrow: "Inherited as-is property",
     location: "Kansas City metro",
     summary:
@@ -71,6 +79,9 @@ export const sellerStories: SellerStory[] = [
   {
     slug: "out-of-state-creative-solution",
     title: "Helping an Owner Who Needed Someone Else to Carry the Payments",
+    seoTitle: "Creative Payment Help Story | ACE Properties KC",
+    seoDescription:
+      "See how ACE reviewed a creative payment path for an owner who needed relief from carrying a house she could not stay in.",
     eyebrow: "Out-of-state creative help",
     location: "Outside Missouri",
     summary:

@@ -18,7 +18,7 @@ const jsonLd = [
   localBusinessJsonLd(),
   articleJsonLd({
     title: story.title,
-    description: story.summary,
+    description: story.seoDescription,
     path: canonicalPath,
     datePublished: "2026-06-20",
   }),
@@ -31,8 +31,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title={`${story.title} | ACE Properties KC`}
-  description={story.summary}
+  title={story.seoTitle}
+  description={story.seoDescription}
   canonicalPath={canonicalPath}
   jsonLd={jsonLd}
 >
