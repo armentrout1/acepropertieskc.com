@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import OfferConfidencePanel from "../components/OfferConfidencePanel.astro";
 import OfferForm from "../components/OfferForm.astro";
 import TrustProofStrip from "../components/TrustProofStrip.astro";
+import SellerReviewStrip from "../components/SellerReviewStrip.astro";
 import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
@@ -282,6 +283,11 @@ const jsonLd = [
       ))}
     </div>
   </section>
+
+  <SellerReviewStrip
+    heading="Real seller reviews, added only with permission"
+    intro="ACE will publish only approved reviews with real seller permission and source details."
+  />
 
   <section class="section section-alt">
     <div class="grid gap-8 md:grid-cols-2">

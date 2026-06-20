@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CreativePromisePanel from "../../components/CreativePromisePanel.astro";
 import OfferConfidencePanel from "../../components/OfferConfidencePanel.astro";
 import OfferForm from "../../components/OfferForm.astro";
 import { SITE } from "../../lib/siteConfig";
@@ -117,6 +118,15 @@ const jsonLd = [
       />
     </div>
   </section>
+
+  <CreativePromisePanel
+    eyebrow="Before you commit"
+    heading="Ask for cash and creative options in one conversation"
+    intro="Some sellers only need a simple as-is cash number. Others need help comparing payoff-at-closing, payment pressure, inherited-house issues, or a payment takeover structure. The offer request can start with either path."
+    primaryLabel="Keep filling out the form"
+    primaryHref="#get-offer-form"
+    trackingLocation="get_offer_creative_promise"
+  />
 
   <section class="section section-alt">
     <div class="grid gap-6 md:grid-cols-3">

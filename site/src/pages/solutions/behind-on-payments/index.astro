@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
@@ -115,6 +116,16 @@ const jsonLd = [
     formHeading="Review payment-related options"
     formSubheading="Start privately with the address and best contact method."
     trackingLocation="behind_on_payments"
+  />
+
+  <CreativePromisePanel
+    eyebrow="Payment-pressure options"
+    heading="Do not choose blind when the mortgage is the pressure point"
+    intro="When payments are late or deadlines are close, the right answer may be a cash sale, payoff-at-closing, a written backup plan, or a payment takeover review. ACE walks through the options and the risk before any commitment."
+    storySlug="out-of-state-creative-solution"
+    primaryLabel="Review payment options"
+    primaryHref="#behind-on-payments-offer-form"
+    trackingLocation="behind_payments_creative_promise"
   />
 
   <section class="section grid gap-8 md:grid-cols-2">

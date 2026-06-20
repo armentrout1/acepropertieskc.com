@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import OfferForm from "../../components/OfferForm.astro";
+import SellerReviewStrip from "../../components/SellerReviewStrip.astro";
 import { sellerStories } from "../../data/sellerStories";
 import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
@@ -87,4 +88,9 @@ const jsonLd = [
       </p>
     </article>
   </section>
+
+  <SellerReviewStrip
+    heading="Reviews from sellers ACE has helped"
+    intro="Only real reviews with permission should appear here."
+  />
 </Layout>

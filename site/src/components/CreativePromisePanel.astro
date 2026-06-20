@@ -1,0 +1,74 @@
+---
+import CreativeHomeBuyerSeal from "./CreativeHomeBuyerSeal.astro";
+import { SITE } from "../lib/siteConfig";
+import { getSellerStory } from "../data/sellerStories";
+
+type Props = {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  points?: string[];
+  storySlug?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  trackingLocation?: string;
+};
+
+const {
+  eyebrow = "ACE Promise",
+  heading = "Creative options when a standard cash offer is not enough",
+  intro =
+    "ACE Properties KC compares cash, payoff-at-closing, and creative payment options when the seller's situation calls for more than a one-size-fits-all answer.",
+  points = [
+    "Cash and flexible options compared side by side",
+    "Payment pressure, title items, taxes, and repairs reviewed up front",
+    "Plain-English terms before you decide",
+    "The first conversation is not a contract",
+  ],
+  storySlug = "river-market-condo-payment-takeover",
+  primaryHref = "/get-offer/",
+  primaryLabel = "Compare my options",
+  trackingLocation = "creative_promise",
+} = Astro.props as Props;
+
+const story = getSellerStory(storySlug);
+---
+
+<section class="section">
+  <div class="grid gap-6 rounded-3xl border border-border/70 bg-white p-5 shadow-sm lg:grid-cols-[auto_1fr] lg:items-center lg:p-6">
+    <div class="flex items-center gap-4">
+      <CreativeHomeBuyerSeal compact />
+      <div class="space-y-2">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">{eyebrow}</p>
+        <h2 class="text-2xl font-semibold text-primary">{heading}</h2>
+        <p class="max-w-3xl text-sm leading-6 text-muted">{intro}</p>
+      </div>
+    </div>
+
+    <div class="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div class="grid gap-3 sm:grid-cols-2">
+        {points.map((point) => (
+          <div class="rounded-md border border-border bg-soft/70 p-3 text-sm text-primary">
+            {point}
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+        <a href={primaryHref} class="btn btn-primary whitespace-nowrap">{primaryLabel}</a>
+        <a
+          href={`tel:${SITE.phoneTel}`}
+          class="btn btn-ghost whitespace-nowrap"
+          data-phone-link={`${trackingLocation}_call`}
+        >
+          Call {SITE.phoneDisplay}
+        </a>
+        {story && (
+          <a href={`/seller-stories/${story.slug}/`} class="btn btn-outline whitespace-nowrap">
+            Related story
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { SITE } from "../lib/siteConfig";
+---
+
+<div class="fixed bottom-5 right-5 z-50 hidden md:block" aria-label="Quick contact options">
+  <nav class="flex items-center gap-2 rounded-full border border-border bg-white/95 p-2 shadow-lg backdrop-blur">
+    <a
+      href={`tel:${SITE.phoneTel}`}
+      class="inline-flex h-11 min-w-20 items-center justify-center rounded-full bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+      data-phone-link="desktop_sticky_cta"
+    >
+      Call
+    </a>
+    <a
+      href={`sms:${SITE.smsTel}`}
+      class="inline-flex h-11 min-w-20 items-center justify-center rounded-full border border-secondary/40 px-4 text-sm font-semibold text-secondary transition-colors hover:bg-secondary/5"
+      data-sms-link="desktop_sticky_cta"
+    >
+      Text
+    </a>
+    <a
+      href="/get-offer/"
+      class="inline-flex h-11 min-w-24 items-center justify-center rounded-full bg-secondary px-4 text-sm font-semibold text-white transition-colors hover:bg-secondary/90"
+    >
+      Get Offer
+    </a>
+  </nav>
+</div>

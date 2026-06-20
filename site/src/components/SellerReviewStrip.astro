@@ -1,0 +1,41 @@
+---
+import { approvedSellerReviews } from "../data/reviews";
+
+type Props = {
+  heading?: string;
+  intro?: string;
+};
+
+const {
+  heading = "What sellers say about ACE",
+  intro = "Only approved, real seller reviews appear here.",
+} = Astro.props as Props;
+---
+
+{approvedSellerReviews.length > 0 && (
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller reviews</p>
+      <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
+      <p class="text-muted">{intro}</p>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-3">
+      {approvedSellerReviews.map((review) => (
+        <figure class="card bg-white">
+          <blockquote class="text-sm leading-6 text-primary">"{review.text}"</blockquote>
+          <figcaption class="mt-4 border-t border-border pt-4">
+            <p class="font-semibold text-primary">{review.reviewer}</p>
+            <p class="text-sm text-muted">{review.location}</p>
+            <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-secondary">{review.situation}</p>
+            {review.sourceUrl && (
+              <a href={review.sourceUrl} class="mt-3 inline-flex text-sm font-semibold text-secondary underline">
+                {review.sourceLabel ?? "Review source"}
+              </a>
+            )}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}

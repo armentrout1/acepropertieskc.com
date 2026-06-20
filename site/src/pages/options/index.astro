@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CreativePromisePanel from "../../components/CreativePromisePanel.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd } from "../../lib/seo";
 
 const fitItems = [
@@ -73,6 +74,14 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)
       If the monthly mortgage payment is the pressure point, a straight cash offer is not always the only path. We can compare a clean as-is cash sale with payment takeover options where we may be able to take over the payments, help catch up arrears or taxes when the structure allows, and give you a written plan to review before deciding.
     </p>
   </section>
+
+  <CreativePromisePanel
+    eyebrow="Cash plus creative options"
+    heading="Compare the cleanest way out before choosing"
+    intro="A direct cash offer may be the right answer. If the mortgage, payoff, timing, or repair burden makes that hard, ACE can also review creative payment structures and explain the trade-offs before you sign."
+    primaryLabel="Start my options review"
+    trackingLocation="options_creative_promise"
+  />
 
   <section class="section section-alt space-y-5">
     <div class="max-w-3xl space-y-3">
