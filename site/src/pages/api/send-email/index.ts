@@ -160,8 +160,16 @@ export const POST: APIRoute = async ({ request }) => {
     fieldErrors.consent = "Consent is required.";
   }
 
-  const phone = readString(body, "phone");
-  const email = readString(body, "email");
+  const contact = readString(body, "contact");
+  let phone = readString(body, "phone");
+  let email = readString(body, "email");
+  if (!phone && !email && contact) {
+    if (contact.includes("@")) {
+      email = contact;
+    } else {
+      phone = contact;
+    }
+  }
   if (!phone && !email) {
     fieldErrors.contact = "Provide a phone or email.";
   }
@@ -206,6 +214,7 @@ export const POST: APIRoute = async ({ request }) => {
     `Name: ${name}`,
     `Phone: ${phone || "Not provided"}`,
     `Email: ${email || "Not provided"}`,
+    `Raw contact entry: ${contact || "None"}`,
     `Best contact method: ${contactPreference}`,
     `Situation: ${situation}`,
     `Timeline: ${timeline}`,
@@ -235,6 +244,7 @@ export const POST: APIRoute = async ({ request }) => {
     ["Name", name],
     ["Phone", phone || "Not provided"],
     ["Email", email || "Not provided"],
+    ["Raw contact entry", contact || "None"],
     ["Best contact method", contactPreference],
     ["Consent", consentAccepted ? "Granted" : "Pending"],
   ];

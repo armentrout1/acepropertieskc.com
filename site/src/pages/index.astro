@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import OfferConfidencePanel from "../components/OfferConfidencePanel.astro";
 import OfferForm from "../components/OfferForm.astro";
+import TrustProofStrip from "../components/TrustProofStrip.astro";
+import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
 
@@ -107,32 +109,79 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <section class="section pt-4">
-    <div class="rounded-3xl bg-gradient-to-b from-soft to-white/90 px-6 py-10 shadow-sm sm:px-10">
-      <div class="space-y-6">
-        <span class="badge">Local Kansas City Buyer</span>
-        <div class="space-y-4">
-          <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-          Get Help Selling a Difficult Kansas City House
-          </h1>
-          <p class="max-w-4xl text-lg leading-8 text-muted">
-          If the house has become the problem, we help you compare practical ways out. ACE Properties KC buys houses as-is across <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, and the surrounding metro. We can review fast cash offers, payoff-at-closing, clean-out needs, back taxes, repair issues, and <a href="/options/" class="text-secondary underline">payment takeover options</a> when the mortgage is the pressure point.
-        </p>
+    <div class="rounded-3xl bg-gradient-to-b from-soft to-white/90 px-6 py-8 shadow-sm sm:px-10 lg:py-10">
+      <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+        <div class="space-y-6">
+          <span class="badge">Local Kansas City Buyer</span>
+          <div class="space-y-4">
+            <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+              Get Help Selling a Difficult Kansas City House
+            </h1>
+            <p class="max-w-4xl text-lg leading-8 text-muted">
+              If the house has become the problem, we help you compare practical ways out. ACE Properties KC buys houses as-is across <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, and the surrounding metro. We can review fast cash offers, payoff-at-closing, clean-out needs, back taxes, repair issues, and <a href="/options/" class="text-secondary underline">payment takeover options</a> when the mortgage is the pressure point.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#get-offer" class="btn btn-primary text-base">
+              Get My Offer
+            </a>
+            <a
+              href={`tel:${SITE.phoneTel}`}
+              class="btn btn-ghost text-base"
+              data-phone-link="homepage_hero"
+            >
+              Call {SITE.phoneDisplay}
+            </a>
+          </div>
+          <div class="grid gap-3 text-sm font-medium text-primary sm:grid-cols-2">
+            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">No repairs or clean-out required</div>
+            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">Cash and creative options reviewed</div>
+            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">The first form is not a contract</div>
+            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">Call or text a local KC buyer</div>
+          </div>
+          <p class="text-sm font-medium text-muted">
+            No repairs, no public showings, no clean-out requirement, and no pressure to decide before you understand the numbers.
+          </p>
         </div>
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href="#get-offer" class="btn btn-primary text-base">
-            Get My Offer
-          </a>
-          <a
-            href={`tel:${SITE.phoneTel}`}
-            class="btn btn-ghost text-base"
-            data-phone-link="homepage_hero"
-          >
-            Call {SITE.phoneDisplay}
-          </a>
+        <div class="lg:pl-4">
+          <OfferForm
+            mini
+            formId="homepage-mini-offer-form"
+            heading="Start with the address"
+            subheading="Share the address and one way to reach you. We will review cash and flexible options before asking for anything else."
+            defaultSituation="options review"
+            pageContext="homepage_hero_mini"
+            buttonLabel="See my options"
+          />
         </div>
-        <p class="text-sm font-medium text-muted">
-          No repairs, no public showings, no clean-out requirement, and no pressure to decide before you understand the numbers.
+      </div>
+    </div>
+  </section>
+
+  <TrustProofStrip />
+
+  <section class="section pt-0">
+    <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+      <div class="card bg-primary text-white">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent">Real local conversation</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white">Talk through the numbers before you decide</h2>
+        <p class="mt-3 text-sm leading-6 text-white/80">
+          ACE is built for sellers who need more than a generic cash number. If a payment takeover, payoff-at-closing, inherited house, or repair-heavy sale might fit, we explain the trade-offs in plain English.
         </p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="card">
+          <p class="text-sm font-semibold text-secondary">1. Send the address</p>
+          <p class="mt-2 text-sm text-muted">Start with a low-friction review so we can see the property and local market.</p>
+        </div>
+        <div class="card">
+          <p class="text-sm font-semibold text-secondary">2. Compare paths</p>
+          <p class="mt-2 text-sm text-muted">We review cash, payoff, title, repairs, timeline, and creative options when appropriate.</p>
+        </div>
+        <div class="card">
+          <p class="text-sm font-semibold text-secondary">3. Choose calmly</p>
+          <p class="mt-2 text-sm text-muted">You decide whether to move forward after you understand the numbers and structure.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -205,6 +254,30 @@ const jsonLd = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl space-y-2">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller stories</p>
+        <h2 class="text-3xl font-semibold text-primary">Real examples of flexible problem solving</h2>
+        <p class="text-muted">
+          When the property, payment, or family situation is complicated, the right answer may be more nuanced than a standard cash offer.
+        </p>
+      </div>
+      <a href="/seller-stories/" class="btn btn-ghost">View all stories</a>
+    </div>
+    <div class="grid gap-5 lg:grid-cols-3">
+      {sellerStories.slice(0, 3).map((story) => (
+        <a href={`/seller-stories/${story.slug}/`} class="card bg-white transition hover:-translate-y-1 hover:border-secondary/60">
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary">{story.eyebrow}</p>
+          <h3 class="mt-3 text-xl font-semibold text-primary">{story.title}</h3>
+          <p class="mt-2 text-sm font-medium text-muted">{story.location}</p>
+          <p class="mt-4 text-sm leading-6 text-muted">{story.summary}</p>
+          <span class="mt-5 inline-flex text-sm font-semibold text-secondary">Read the story</span>
         </a>
       ))}
     </div>

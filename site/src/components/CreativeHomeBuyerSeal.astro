@@ -1,0 +1,29 @@
+---
+type Props = {
+  compact?: boolean;
+  className?: string;
+};
+
+const { compact = false, className = "" } = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "relative inline-flex shrink-0 items-center justify-center rounded-full border-2 border-accent bg-white text-center shadow-sm",
+    compact ? "h-28 w-28 p-3" : "h-36 w-36 p-4",
+    className,
+  ]}
+  aria-label="ACE Properties KC creative home buyer brand promise"
+>
+  <div class="absolute inset-2 rounded-full border border-secondary/30"></div>
+  <div class="relative space-y-1">
+    <p class="text-[0.58rem] font-bold uppercase tracking-[0.22em] text-secondary">ACE Promise</p>
+    <p class:list={[compact ? "text-base" : "text-lg", "font-heading font-extrabold leading-tight text-primary"]}>
+      Creative <br />Home Buyer
+    </p>
+    <p class="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-muted">KC Metro</p>
+    <p class="mx-auto mt-1 max-w-[7rem] rounded-full bg-soft px-2 py-1 text-[0.56rem] font-bold uppercase tracking-[0.12em] text-secondary">
+      Cash + Flexible Options
+    </p>
+  </div>
+</div>

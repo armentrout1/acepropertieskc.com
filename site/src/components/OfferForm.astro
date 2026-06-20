@@ -4,9 +4,11 @@ type Props = {
   subheading?: string;
   formId?: string;
   compact?: boolean;
+  mini?: boolean;
   includeCompactNotes?: boolean;
   defaultSituation?: string;
   pageContext?: string;
+  buttonLabel?: string;
 };
 
 const {
@@ -14,15 +16,20 @@ const {
   subheading = "We'll review the basics and follow up shortly.",
   formId = "offer-form",
   compact = false,
+  mini = false,
   includeCompactNotes = false,
   defaultSituation = "as-is cash",
   pageContext = "",
+  buttonLabel,
 } = Astro.props as Props;
 
-const showNotes = !compact || includeCompactNotes;
+const showNotes = !mini && (!compact || includeCompactNotes);
+const resolvedButtonLabel = buttonLabel ?? (mini ? "See my options" : "Start my offer conversation");
+const sectionPadding = mini || compact ? "p-5" : "p-6";
+const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
 ---
 
-<section class:list={["w-full rounded-2xl border border-border/70 bg-white shadow-sm", compact ? "p-5" : "p-6"]} aria-labelledby={`${formId}-title`}>
+<section class:list={["w-full rounded-2xl border border-border/70 bg-white shadow-sm", sectionPadding]} aria-labelledby={`${formId}-title`}>
   <div class="space-y-1">
     <p
       id={`${formId}-badge`}
@@ -30,11 +37,11 @@ const showNotes = !compact || includeCompactNotes;
     >
       Get a no-pressure consultation
     </p>
-    <h3 id={`${formId}-title`} class:list={[compact ? "text-xl" : "text-2xl", "font-semibold text-primary"]}>{heading}</h3>
+    <h3 id={`${formId}-title`} class:list={[compact || mini ? "text-xl" : "text-2xl", "font-semibold text-primary"]}>{heading}</h3>
     <p class="text-sm text-muted">{subheading}</p>
   </div>
 
-  <form id={formId} data-offer-form method="post" action="/api/send-email/" class:list={[compact ? "mt-5 space-y-4" : "mt-6 space-y-5"]} novalidate>
+  <form id={formId} data-offer-form method="post" action="/api/send-email/" class={formSpacing} novalidate>
     <div class="space-y-1">
       <label for={`${formId}-address`} class="text-sm font-medium text-primary">
         Property address<span class="text-accent">*</span>
@@ -50,96 +57,120 @@ const showNotes = !compact || includeCompactNotes;
       />
     </div>
 
-    <div class:list={["grid gap-4", compact ? "md:grid-cols-1" : "md:grid-cols-2"]}>
-      <div class="space-y-1">
-        <label for={`${formId}-situation`} class="text-sm font-medium text-primary">Situation</label>
-        <select
-          id={`${formId}-situation`}
-          name="situation"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-        >
-          <option value="as-is cash" selected={defaultSituation === "as-is cash"}>As-is cash</option>
-          <option value="sell fast" selected={defaultSituation === "sell fast"}>Sell house fast</option>
-          <option value="inherited" selected={defaultSituation === "inherited"}>Inherited</option>
-          <option value="probate" selected={defaultSituation === "probate"}>Probate</option>
-          <option value="repairs" selected={defaultSituation === "repairs"}>Needs repairs</option>
-          <option value="vacant" selected={defaultSituation === "vacant"}>Vacant house</option>
-          <option value="divorce" selected={defaultSituation === "divorce"}>Divorce</option>
-          <option value="tenants" selected={defaultSituation === "tenants"}>Tenants in place</option>
-          <option value="behind" selected={defaultSituation === "behind"}>Behind on payments</option>
-          <option value="payment takeover" selected={defaultSituation === "payment takeover"}>Can you take over my payments?</option>
-          <option value="foreclosure" selected={defaultSituation === "foreclosure"}>Facing foreclosure</option>
-          <option value="tax lien" selected={defaultSituation === "tax lien"}>Tax lien</option>
-          <option value="other" selected={defaultSituation === "other"}>Other</option>
-        </select>
-      </div>
+    {mini ? (
+      <>
+        <div class="space-y-1">
+          <label for={`${formId}-contact`} class="text-sm font-medium text-primary">
+            Phone or email<span class="text-accent">*</span>
+          </label>
+          <input
+            id={`${formId}-contact`}
+            name="contact"
+            type="text"
+            required
+            aria-describedby={`${formId}-error`}
+            placeholder="Phone or email"
+            class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+          />
+        </div>
+        <input type="hidden" name="situation" value={defaultSituation} />
+        <input type="hidden" name="timeline" value="not sure yet" />
+        <input type="hidden" name="contact_preference" value="Any is fine" />
+      </>
+    ) : (
+      <>
+        <div class:list={["grid gap-4", compact ? "md:grid-cols-1" : "md:grid-cols-2"]}>
+          <div class="space-y-1">
+            <label for={`${formId}-situation`} class="text-sm font-medium text-primary">Situation</label>
+            <select
+              id={`${formId}-situation`}
+              name="situation"
+              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            >
+              <option value="as-is cash" selected={defaultSituation === "as-is cash"}>As-is cash</option>
+              <option value="sell fast" selected={defaultSituation === "sell fast"}>Sell house fast</option>
+              <option value="inherited" selected={defaultSituation === "inherited"}>Inherited</option>
+              <option value="probate" selected={defaultSituation === "probate"}>Probate</option>
+              <option value="repairs" selected={defaultSituation === "repairs"}>Needs repairs</option>
+              <option value="vacant" selected={defaultSituation === "vacant"}>Vacant house</option>
+              <option value="divorce" selected={defaultSituation === "divorce"}>Divorce</option>
+              <option value="tenants" selected={defaultSituation === "tenants"}>Tenants in place</option>
+              <option value="behind" selected={defaultSituation === "behind"}>Behind on payments</option>
+              <option value="payment takeover" selected={defaultSituation === "payment takeover"}>Can you take over my payments?</option>
+              <option value="foreclosure" selected={defaultSituation === "foreclosure"}>Facing foreclosure</option>
+              <option value="tax lien" selected={defaultSituation === "tax lien"}>Tax lien</option>
+              <option value="other" selected={defaultSituation === "other"}>Other</option>
+            </select>
+          </div>
 
-      <div class="space-y-1">
-        <label for={`${formId}-timeline`} class="text-sm font-medium text-primary">Timeline</label>
-        <select
-          id={`${formId}-timeline`}
-          name="timeline"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-        >
-          <option value="asap">ASAP</option>
-          <option value="2-4 weeks">2-4 weeks</option>
-          <option value="1-3 months">1-3 months</option>
-          <option value="flexible">Flexible</option>
-        </select>
-      </div>
-    </div>
+          <div class="space-y-1">
+            <label for={`${formId}-timeline`} class="text-sm font-medium text-primary">Timeline</label>
+            <select
+              id={`${formId}-timeline`}
+              name="timeline"
+              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            >
+              <option value="asap">ASAP</option>
+              <option value="2-4 weeks">2-4 weeks</option>
+              <option value="1-3 months">1-3 months</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+        </div>
 
-    <div class:list={["grid gap-4", compact ? "md:grid-cols-1" : "md:grid-cols-2"]}>
-      <div class="space-y-1">
-        <label for={`${formId}-name`} class="text-sm font-medium text-primary">Name (optional)</label>
-        <input
-          id={`${formId}-name`}
-          name="name"
-          type="text"
-          placeholder="Your name"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-        />
-      </div>
+        <div class:list={["grid gap-4", compact ? "md:grid-cols-1" : "md:grid-cols-2"]}>
+          <div class="space-y-1">
+            <label for={`${formId}-name`} class="text-sm font-medium text-primary">Name (optional)</label>
+            <input
+              id={`${formId}-name`}
+              name="name"
+              type="text"
+              placeholder="Your name"
+              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            />
+          </div>
 
-      <div class="space-y-1">
-        <label for={`${formId}-phone`} class="text-sm font-medium text-primary">Phone</label>
-        <input
-          id={`${formId}-phone`}
-          name="phone"
-          type="tel"
-          inputmode="tel"
-          aria-describedby={`${formId}-error`}
-          placeholder="816-728-7548"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-        />
-      </div>
-    </div>
+          <div class="space-y-1">
+            <label for={`${formId}-phone`} class="text-sm font-medium text-primary">Phone</label>
+            <input
+              id={`${formId}-phone`}
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              aria-describedby={`${formId}-error`}
+              placeholder="816-728-7548"
+              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            />
+          </div>
+        </div>
 
-    <div class="space-y-1">
-      <label for={`${formId}-email`} class="text-sm font-medium text-primary">Email</label>
-      <input
-        id={`${formId}-email`}
-        name="email"
-        type="email"
-        aria-describedby={`${formId}-error`}
-        placeholder="you@example.com"
-        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-      />
-    </div>
+        <div class="space-y-1">
+          <label for={`${formId}-email`} class="text-sm font-medium text-primary">Email</label>
+          <input
+            id={`${formId}-email`}
+            name="email"
+            type="email"
+            aria-describedby={`${formId}-error`}
+            placeholder="you@example.com"
+            class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+          />
+        </div>
 
-    <div class="space-y-1">
-      <label for={`${formId}-contact-preference`} class="text-sm font-medium text-primary">Best way to reach you</label>
-      <select
-        id={`${formId}-contact-preference`}
-        name="contact_preference"
-        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-      >
-        <option value="any">Any is fine</option>
-        <option value="text">Text me first</option>
-        <option value="call">Call me first</option>
-        <option value="email">Email me first</option>
-      </select>
-    </div>
+        <div class="space-y-1">
+          <label for={`${formId}-contact-preference`} class="text-sm font-medium text-primary">Best way to reach you</label>
+          <select
+            id={`${formId}-contact-preference`}
+            name="contact_preference"
+            class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+          >
+            <option value="any">Any is fine</option>
+            <option value="text">Text me first</option>
+            <option value="call">Call me first</option>
+            <option value="email">Email me first</option>
+          </select>
+        </div>
+      </>
+    )}
 
     {showNotes && (
       <div class="space-y-1">
@@ -192,7 +223,7 @@ const showNotes = !compact || includeCompactNotes;
       type="submit"
       class="w-full rounded-xl bg-secondary px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2"
     >
-      Start my offer conversation
+      {resolvedButtonLabel}
     </button>
     <p class="text-center text-xs text-muted">
       Trouble sending?
@@ -205,6 +236,11 @@ const showNotes = !compact || includeCompactNotes;
 
 <script is:inline>
   document.querySelectorAll('form[data-offer-form]').forEach(function(form) {
+    if (form.dataset.offerFormBound === 'true') {
+      return;
+    }
+    form.dataset.offerFormBound = 'true';
+
     const errorBanner = form.querySelector('[data-error]');
     const submitButton = form.querySelector('button[type="submit"]');
     const submitButtonText = submitButton ? submitButton.textContent : '';
@@ -271,16 +307,18 @@ const showNotes = !compact || includeCompactNotes;
       const errors = [];
 
       const address = (formData.get('address') || '').toString().trim();
+      const contact = (formData.get('contact') || '').toString().trim();
       const phone = (formData.get('phone') || '').toString().trim();
       const email = (formData.get('email') || '').toString().trim();
       const addressInput = form.querySelector('input[name="address"]');
+      const contactInput = form.querySelector('input[name="contact"]');
       const phoneInput = form.querySelector('input[name="phone"]');
       const emailInput = form.querySelector('input[name="email"]');
       const consentInput = form.querySelector('input[name="consent"]');
       const consentChecked = consentInput ? consentInput.checked : false;
       const invalidFields = [];
 
-      [addressInput, phoneInput, emailInput, consentInput].forEach((field) => {
+      [addressInput, contactInput, phoneInput, emailInput, consentInput].forEach((field) => {
         if (field) {
           field.removeAttribute('aria-invalid');
         }
@@ -300,13 +338,17 @@ const showNotes = !compact || includeCompactNotes;
         }
       }
 
-      if (!phone && !email) {
+      if (!phone && !email && !contact) {
         errors.push('Share at least one way to reach you: phone or email.');
-        if (phoneInput) {
-          invalidFields.push(phoneInput);
-        }
-        if (emailInput) {
-          invalidFields.push(emailInput);
+        if (contactInput) {
+          invalidFields.push(contactInput);
+        } else {
+          if (phoneInput) {
+            invalidFields.push(phoneInput);
+          }
+          if (emailInput) {
+            invalidFields.push(emailInput);
+          }
         }
       }
 
@@ -335,6 +377,14 @@ const showNotes = !compact || includeCompactNotes;
           payload[key] = value;
         }
       });
+
+      if (!payload.phone && !payload.email && typeof payload.contact === 'string') {
+        if (payload.contact.includes('@')) {
+          payload.email = payload.contact;
+        } else {
+          payload.phone = payload.contact;
+        }
+      }
 
       payload.consent = consentChecked;
       if (startField && typeof payload.form_started_at !== 'string') {

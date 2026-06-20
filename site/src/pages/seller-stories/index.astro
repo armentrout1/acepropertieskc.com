@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import OfferForm from "../../components/OfferForm.astro";
+import { sellerStories } from "../../data/sellerStories";
+import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Seller Stories", item: "/seller-stories/" },
+  ]),
+];
+---
+
+<Layout
+  title="Seller Stories | ACE Properties KC"
+  description="Real-world examples of how ACE Properties KC helps homeowners compare cash, as-is, inherited-house, and creative sale options."
+  canonicalPath="/seller-stories/"
+  jsonLd={jsonLd}
+>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-5">
+      <p class="badge">Seller stories</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+        Real situations need more than a generic cash offer
+      </h1>
+      <p class="text-lg leading-8 text-muted">
+        These privacy-safe stories show how ACE Properties KC thinks through complicated property problems: inherited homes, payment pressure, condos that will not sell, and creative structures when a normal sale does not fit.
+      </p>
+      <p class="text-sm text-muted">
+        Some identifying details are generalized. We only publish names, photos, reviews, or exact addresses when the seller has given permission.
+      </p>
+    </div>
+    <OfferForm
+      mini
+      formId="seller-stories-mini-offer-form"
+      heading="Have a similar situation?"
+      subheading="Send the address and one way to reach you. We will help you compare realistic options."
+      defaultSituation="story follow-up"
+      pageContext="seller_stories_index"
+      buttonLabel="Compare my options"
+    />
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Proof through problems solved</p>
+      <h2 class="text-3xl font-semibold text-primary">Start with the story that feels closest to yours</h2>
+      <p class="text-muted">
+        The point is not to force every seller into the same structure. The point is to understand the pressure, the property, the payoff, and the timeline before choosing a path.
+      </p>
+    </div>
+    <div class="grid gap-5 lg:grid-cols-3">
+      {sellerStories.map((story) => (
+        <a href={`/seller-stories/${story.slug}/`} class="card bg-white transition hover:-translate-y-1 hover:border-secondary/60">
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary">{story.eyebrow}</p>
+          <h3 class="mt-3 text-xl font-semibold text-primary">{story.title}</h3>
+          <p class="mt-2 text-sm font-medium text-muted">{story.location}</p>
+          <p class="mt-4 text-sm leading-6 text-muted">{story.summary}</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {story.tags.map((tag) => (
+              <span class="rounded-full bg-soft px-3 py-1 text-xs font-semibold text-secondary">{tag}</span>
+            ))}
+          </div>
+          <span class="mt-5 inline-flex text-sm font-semibold text-secondary">Read story</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-6 md:grid-cols-2">
+    <article class="card">
+      <h2 class="text-2xl font-semibold text-primary">Have a review or story to add?</h2>
+      <p class="mt-3 text-muted">
+        If ACE helped you or someone you know, a few honest sentences can help the next homeowner feel safer reaching out.
+      </p>
+      <p class="mt-3 text-sm text-muted">
+        Useful reviews mention what was going on, how the conversation felt, and whether the options were explained clearly.
+      </p>
+    </article>
+    <article class="card bg-primary text-white">
+      <h2 class="text-2xl font-semibold text-white">What we will not fake</h2>
+      <p class="mt-3 text-sm leading-6 text-white/80">
+        Reviews, seller names, exact property details, and third-party badges should be real. Until then, these stories stay framed as privacy-safe examples and ACE's own experience.
+      </p>
+    </article>
+  </section>
+</Layout>
