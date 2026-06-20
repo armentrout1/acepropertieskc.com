@@ -1,5 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
@@ -97,6 +99,16 @@ const jsonLd = [
       ))}
     </section>
 
+    <CreativePromisePanel
+      eyebrow="Compare before deciding"
+      heading="The better path is the one with the clearest net"
+      intro="ACE can compare a direct as-is number against the listing path so sellers can see repairs, time, commissions, concessions, and certainty side by side."
+      storySlug="inherited-original-condition-house"
+      primaryLabel="Request a comparison"
+      primaryHref="#cash-buyer-vs-agent-form"
+      trackingLocation="cash_buyer_vs_agent_creative_promise"
+    />
+
     <section class="grid gap-8 md:grid-cols-2">
       <article class="card space-y-3">
         <h2 class="text-2xl font-semibold text-primary">What to include in your listing net</h2>
@@ -118,15 +130,23 @@ const jsonLd = [
       </article>
     </section>
 
-    <section class="section-alt px-6">
-      <div class="mx-auto max-w-3xl space-y-4 text-center">
-        <h2 class="text-3xl font-semibold text-primary">Want a side-by-side view?</h2>
-        <p class="text-muted">
-          Share the address and condition. We can help you compare a direct offer with the likely listing path so you can make a calm decision.
-        </p>
-        <a href="/get-offer/" class="btn btn-primary text-base">Request a comparison</a>
-      </div>
-    </section>
+    <HighIntentOfferBlock
+      badge="Sale path comparison"
+      title="Want a real net sheet before choosing cash or an agent?"
+      body="Send the address, condition, and timeline. ACE can compare a direct as-is path with likely listing costs so you can see the tradeoff clearly."
+      points={[
+        "Direct offer compared with listing net",
+        "Repairs, commissions, concessions, and holding costs considered",
+        "Cash and creative options reviewed when the situation calls for it",
+        "No obligation from the first comparison",
+      ]}
+      formId="cash-buyer-vs-agent-form"
+      formHeading="Compare my sale paths"
+      formSubheading="Share the address and one way to reach you."
+      defaultSituation="cash buyer vs agent"
+      pageContext="cash buyer vs agent resource"
+      trackingLocation="cash_buyer_vs_agent"
+    />
 
     <LocalDecisionMap
       variant="fast"

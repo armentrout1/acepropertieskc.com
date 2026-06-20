@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import { SITE } from "../../../lib/siteConfig";
@@ -17,7 +18,7 @@ const faqs = [
     a: "Not always. Lenders follow set timelines, but sales can pause if arrears are cured or a sale closes before the auction.",
   },
   {
-    q: "Can I still sell if I’m in foreclosure?",
+    q: "Can I still sell if I am in foreclosure?",
     a: "Yes. We work through licensed title companies to pay arrears and liens from sale proceeds before the lender finalizes the process.",
   },
   {
@@ -30,7 +31,7 @@ const faqs = [
   },
   {
     q: "How quickly can we close?",
-    a: "Cash deals frequently close within 7–14 days once title is clear, and we adjust timelines if the lender needs proof sooner.",
+    a: "Cash deals frequently close within 7-14 days once title is clear, and we adjust timelines if the lender needs proof sooner.",
   },
   {
     q: "What should I have ready before we talk?",
@@ -86,6 +87,16 @@ const jsonLd = [
     trackingLocation="facing_foreclosure"
   />
 
+  <CreativePromisePanel
+    eyebrow="Careful payment-pressure review"
+    heading="Compare cash, payoff, lender options, and creative paths carefully"
+    intro="Foreclosure pressure can make any fast answer sound tempting. ACE keeps the conversation practical: title, payoff, sale date, seller risk, and advisor review before any structure is treated as the answer."
+    storySlug="river-market-condo-payment-takeover"
+    primaryLabel="Review payment options"
+    primaryHref="#facing-foreclosure-offer-form"
+    trackingLocation="facing_foreclosure_creative_promise"
+  />
+
   <section class="section">
     <div class="grid gap-6 md:grid-cols-2">
       <article class="card space-y-3">
@@ -94,7 +105,7 @@ const jsonLd = [
           A cash sale may close quickly once title is ready and can use closing proceeds to pay the mortgage, arrears, taxes, and recorded liens. The timeline depends on title, lender payoff figures, all required signatures, and any court or auction date.
         </p>
         <ul class="list-disc list-inside text-sm text-muted space-y-1">
-          <li>No repairs needed – sell as-is</li>
+          <li>No repairs needed - sell as-is</li>
           <li>No real estate commissions</li>
           <li>We pay all closing costs</li>
           <li>Close on your timeline</li>

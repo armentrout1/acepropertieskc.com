@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../../lib/seo";
@@ -104,6 +105,16 @@ const jsonLd = [
     formHeading="Start an inherited-house review"
     formSubheading="Share the address and preferred contact method."
     trackingLocation="inherited_house"
+  />
+
+  <CreativePromisePanel
+    eyebrow="Inherited property options"
+    heading="As-is does not have to mean unclear"
+    intro="Families can compare a clean cash sale, a delayed closing, clean-out help, and other practical paths without turning the house into a remodel project first."
+    storySlug="inherited-original-condition-house"
+    primaryLabel="Compare inherited options"
+    primaryHref="#inherited-house-offer-form"
+    trackingLocation="inherited_house_creative_promise"
   />
 
   <section class="section grid gap-8 md:grid-cols-2">
