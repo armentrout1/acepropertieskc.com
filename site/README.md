@@ -11,6 +11,7 @@ npm install
 npm run dev
 npm run build
 npm run seo:preflight
+npm run lead:audit
 npm audit --audit-level=moderate
 ```
 
@@ -22,6 +23,13 @@ npm audit --audit-level=moderate
 - Keep `/thank-you/` out of the sitemap.
 - Route conversion CTAs to `/get-offer/` unless the page intentionally uses an on-page form.
 - Use real reviews only; do not add review schema without visible, verified reviews.
+
+## Lead Guardrails
+
+- Run `npm run build` before `npm run lead:audit`.
+- The lead audit scans generated HTML for offer forms, UTM/GCLID/GBRAID/WBRAID capture fields, landing page/referrer fields, consent, honeypot protection, and live error regions.
+- The audit also checks the generated output for GA4 lead events, click events, optional Google Ads conversion hooks, optional Meta contact hooks, and the `/thank-you/` redirect.
+- Key lead routes must keep an offer form, including the homepage, `/get-offer/`, paid-search landing pages, seller stories, contact page, and the cash-buyer-vs-agent comparison guide.
 
 ## Production Notes
 

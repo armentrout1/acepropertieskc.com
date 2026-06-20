@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "seo:preflight": "npm run build && node scripts/seo-preflight.mjs",
-    "seo:audit": "node scripts/generated-seo-audit.mjs"
+    "seo:audit": "node scripts/generated-seo-audit.mjs",
+    "lead:audit": "node scripts/generated-lead-audit.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.4",

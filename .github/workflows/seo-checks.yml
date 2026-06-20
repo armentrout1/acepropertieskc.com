@@ -35,5 +35,8 @@ jobs:
       - name: Generated SEO audit
         run: npm run seo:audit
 
+      - name: Generated lead audit
+        run: npm run lead:audit
+
       - name: Dependency audit
         run: npm audit --audit-level=moderate
