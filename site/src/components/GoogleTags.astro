@@ -1,0 +1,34 @@
+---
+const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "G-NTFNNJTML7";
+const googleAdsId = import.meta.env.PUBLIC_GOOGLE_ADS_ID;
+
+const conversionLabels = {
+  lead: import.meta.env.PUBLIC_GOOGLE_ADS_LEAD_CONVERSION_LABEL,
+  phone: import.meta.env.PUBLIC_GOOGLE_ADS_PHONE_CONVERSION_LABEL,
+  sms: import.meta.env.PUBLIC_GOOGLE_ADS_SMS_CONVERSION_LABEL,
+  email: import.meta.env.PUBLIC_GOOGLE_ADS_EMAIL_CONVERSION_LABEL,
+};
+
+const googleAdsConversions = googleAdsId
+  ? Object.fromEntries(
+      Object.entries(conversionLabels)
+        .filter(([, label]) => Boolean(label))
+        .map(([eventName, label]) => [eventName, `${googleAdsId}/${label}`])
+    )
+  : {};
+---
+
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+<script is:inline define:vars={{ ga4Id, googleAdsId, googleAdsConversions }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  window.__aceGoogleAdsConversions = googleAdsConversions || {};
+
+  gtag('js', new Date());
+  gtag('config', ga4Id);
+
+  if (googleAdsId) {
+    gtag('config', googleAdsId);
+  }
+</script>

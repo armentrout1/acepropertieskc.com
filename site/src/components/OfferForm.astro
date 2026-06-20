@@ -289,6 +289,19 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
           page_title: document.title,
           ...payload
         });
+
+        const googleAdsSendTo = eventName === 'generate_lead'
+          ? window.__aceGoogleAdsConversions?.lead
+          : '';
+
+        if (googleAdsSendTo) {
+          window.gtag('event', 'conversion', {
+            send_to: googleAdsSendTo,
+            form_id: form.id,
+            page_path: window.location.pathname,
+            lead_type: payload.lead_type || 'offer_form'
+          });
+        }
       }
 
       if (typeof window.fbq === 'function') {

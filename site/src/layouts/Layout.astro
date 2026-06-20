@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import MobileCtaBar from "../components/MobileCtaBar.astro";
 import DesktopCtaBar from "../components/DesktopCtaBar.astro";
 import ClickTracking from "../components/ClickTracking.astro";
+import GoogleTags from "../components/GoogleTags.astro";
 import MetaPixel from "../components/MetaPixel.astro";
 import Seo from "../components/Seo.astro";
 import { SITE } from "../lib/siteConfig";
@@ -33,15 +34,7 @@ const {
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTFNNJTML7"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'G-NTFNNJTML7');
-		</script>
+		<GoogleTags />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

@@ -25,6 +25,17 @@
       }
     };
 
+    const trackGoogleAdsConversion = (conversionName, payload = {}) => {
+      const sendTo = window.__aceGoogleAdsConversions?.[conversionName];
+      if (sendTo && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: sendTo,
+          page_path: window.location.pathname,
+          ...payload,
+        });
+      }
+    };
+
     document.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
       if (!target) {
@@ -41,6 +52,9 @@
         trackMetaContact('phone', {
           link_location: linkLocation,
         });
+        trackGoogleAdsConversion('phone', {
+          link_location: linkLocation,
+        });
         return;
       }
 
@@ -54,6 +68,9 @@
         trackMetaContact('sms', {
           link_location: linkLocation,
         });
+        trackGoogleAdsConversion('sms', {
+          link_location: linkLocation,
+        });
         return;
       }
 
@@ -65,6 +82,9 @@
           email: emailLink.href.replace('mailto:', ''),
         });
         trackMetaContact('email', {
+          link_location: linkLocation,
+        });
+        trackGoogleAdsConversion('email', {
           link_location: linkLocation,
         });
       }
