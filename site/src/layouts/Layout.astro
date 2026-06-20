@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import MobileCtaBar from "../components/MobileCtaBar.astro";
 import DesktopCtaBar from "../components/DesktopCtaBar.astro";
 import ClickTracking from "../components/ClickTracking.astro";
+import MetaPixel from "../components/MetaPixel.astro";
 import Seo from "../components/Seo.astro";
 import { SITE } from "../lib/siteConfig";
 
@@ -55,6 +56,7 @@ const {
 		/>
 	</head>
 	<body class="min-h-screen bg-white text-base text-primary">
+		<MetaPixel />
 		<Header variant={headerVariant} />
 		<main class="container-shell flex-1 pb-20 pt-8 md:pb-0">
 			<slot />

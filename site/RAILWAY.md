@@ -4,7 +4,7 @@
 - **Build & deploy:** Use Dockerfile (Node SSR). The Docker build runs `npm ci`, `npm run build`, and starts the Node server.
 - **Start command:** `npm start` (runs `node dist/server/entry.mjs`)
 - **Health check:** `/robots.txt` or `/` - both work with SSR
-- **Environment variables:** `SENDGRID_API_KEY` (required for email API)
+- **Environment variables:** `SENDGRID_API_KEY` (required for email API); `PUBLIC_META_PIXEL_ID` (optional, enables Meta Pixel page views plus Lead/Contact events)
 
 ## Node SSR Configuration
 

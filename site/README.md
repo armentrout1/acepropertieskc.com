@@ -26,3 +26,5 @@ npm audit --audit-level=moderate
 ## Production Notes
 
 The email API requires `SENDGRID_API_KEY` and a verified sender for `info@acepropertieskc.com`. GA4 is installed through `G-NTFNNJTML7`; mark `generate_lead` as a key event in GA4 after deployment.
+
+Set `PUBLIC_META_PIXEL_ID` in production to enable Meta Pixel page views plus Lead/Contact events from offer forms, phone clicks, text clicks, and email clicks. Leave it unset until the Meta Business account and pixel are approved.

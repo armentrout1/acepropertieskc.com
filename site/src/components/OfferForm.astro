@@ -290,6 +290,26 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
           ...payload
         });
       }
+
+      if (typeof window.fbq === 'function') {
+        const metaPayload = {
+          content_name: form.id,
+          page_path: window.location.pathname,
+          page_title: document.title,
+          ...payload
+        };
+
+        if (eventName === 'generate_lead') {
+          window.fbq('track', 'Lead', metaPayload);
+        } else if (eventName === 'form_start') {
+          window.fbq('track', 'Contact', {
+            contact_method: 'form',
+            ...metaPayload
+          });
+        } else {
+          window.fbq('trackCustom', `ace_${eventName}`, metaPayload);
+        }
+      }
     };
 
     form.addEventListener('focusin', function() {

@@ -15,6 +15,16 @@
       }
     };
 
+    const trackMetaContact = (contactMethod, payload = {}) => {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Contact', {
+          contact_method: contactMethod,
+          page_path: window.location.pathname,
+          ...payload,
+        });
+      }
+    };
+
     document.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
       if (!target) {
@@ -23,27 +33,39 @@
 
       const phoneLink = target.closest('a[data-phone-link]');
       if (phoneLink) {
+        const linkLocation = phoneLink.getAttribute('data-phone-link');
         trackClick('phone_click', {
-          link_location: phoneLink.getAttribute('data-phone-link'),
+          link_location: linkLocation,
           phone_number: phoneLink.href.replace('tel:', ''),
+        });
+        trackMetaContact('phone', {
+          link_location: linkLocation,
         });
         return;
       }
 
       const smsLink = target.closest('a[data-sms-link]');
       if (smsLink) {
+        const linkLocation = smsLink.getAttribute('data-sms-link');
         trackClick('sms_click', {
-          link_location: smsLink.getAttribute('data-sms-link'),
+          link_location: linkLocation,
           phone_number: smsLink.href.replace('sms:', ''),
+        });
+        trackMetaContact('sms', {
+          link_location: linkLocation,
         });
         return;
       }
 
       const emailLink = target.closest('a[data-email-link]');
       if (emailLink) {
+        const linkLocation = emailLink.getAttribute('data-email-link');
         trackClick('email_click', {
-          link_location: emailLink.getAttribute('data-email-link'),
+          link_location: linkLocation,
           email: emailLink.href.replace('mailto:', ''),
+        });
+        trackMetaContact('email', {
+          link_location: linkLocation,
         });
       }
     });
