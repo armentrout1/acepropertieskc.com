@@ -1,6 +1,13 @@
 ---
 import { SITE } from "../lib/siteConfig";
 
+type Props = {
+  variant?: "default" | "landing";
+};
+
+const { variant = "default" } = Astro.props as Props;
+const isLanding = variant === "landing";
+
 const desktopNavLinks = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/#how-it-works" },
@@ -29,48 +36,82 @@ const mobileNavLinks = [
       />
     </a>
 
-    <nav class="mx-6 hidden min-w-0 flex-1 items-center justify-between gap-4 text-[0.8125rem] font-semibold text-primary lg:flex xl:mx-8 xl:gap-5 xl:text-sm">
-      {desktopNavLinks.map((link) => (
-        <a href={link.href} class:list={["whitespace-nowrap transition-colors hover:text-secondary", link.class]}>
-          {link.label}
+    {!isLanding && (
+      <nav class="mx-6 hidden min-w-0 flex-1 items-center justify-between gap-4 text-[0.8125rem] font-semibold text-primary lg:flex xl:mx-8 xl:gap-5 xl:text-sm">
+        {desktopNavLinks.map((link) => (
+          <a href={link.href} class:list={["whitespace-nowrap transition-colors hover:text-secondary", link.class]}>
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    )}
+
+    {isLanding ? (
+      <div class="ml-auto hidden items-center gap-2 sm:flex">
+        <a
+          href={`tel:${SITE.phoneTel}`}
+          class="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+          aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
+          data-phone-link="landing_header"
+        >
+          {SITE.phoneDisplay}
         </a>
-      ))}
-    </nav>
+        <a
+          href={`sms:${SITE.smsTel}`}
+          class="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-primary/30 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 md:inline-flex"
+          data-sms-link="landing_header"
+        >
+          Text
+        </a>
+        <a
+          href="/get-offer/"
+          class="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 px-4 py-2 text-sm font-semibold text-secondary transition-colors hover:bg-secondary/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60 focus-visible:ring-offset-2 md:inline-flex"
+        >
+          Get Offer
+        </a>
+      </div>
+    ) : (
+      <a
+        href={`tel:${SITE.phoneTel}`}
+        class="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 lg:inline-flex"
+        aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
+        data-phone-link="header"
+      >
+        {SITE.phoneDisplay}
+      </a>
+    )}
 
     <a
       href={`tel:${SITE.phoneTel}`}
-      class="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 lg:inline-flex"
-      aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
-      data-phone-link="header"
-    >
-      {SITE.phoneDisplay}
-    </a>
-
-    <a
-      href={`tel:${SITE.phoneTel}`}
-      class="ml-auto hidden shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 sm:inline-flex lg:hidden"
+      class:list={[
+        "ml-auto shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+        isLanding ? "inline-flex sm:hidden" : "hidden sm:inline-flex lg:hidden",
+      ]}
       aria-label={`Call ACE Properties KC at ${SITE.phoneDisplay}`}
       data-phone-link="header_tablet"
     >
-      {SITE.phoneDisplay}
+      {isLanding ? "Call" : SITE.phoneDisplay}
     </a>
 
-    <button
-      type="button"
-      class="ml-auto rounded-full border border-border/80 p-2 text-primary sm:ml-3 lg:hidden"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      data-mobile-menu-toggle
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" x2="21" y1="6" y2="6"></line>
-        <line x1="3" x2="21" y1="12" y2="12"></line>
-        <line x1="3" x2="21" y1="18" y2="18"></line>
-      </svg>
-    </button>
+    {!isLanding && (
+      <button
+        type="button"
+        class="ml-auto rounded-full border border-border/80 p-2 text-primary sm:ml-3 lg:hidden"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        data-mobile-menu-toggle
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" x2="21" y1="6" y2="6"></line>
+          <line x1="3" x2="21" y1="12" y2="12"></line>
+          <line x1="3" x2="21" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    )}
   </div>
 
-  <div class="lg:hidden" data-mobile-menu hidden>
+  {!isLanding && (
+    <div class="lg:hidden" data-mobile-menu hidden>
     <div class="space-y-4 border-t border-border/80 bg-white px-4 py-4 text-sm font-medium text-primary">
       {mobileNavLinks.map((link) => (
         <a href={link.href} class="block rounded-md px-2 py-2 transition-colors hover:bg-soft" data-mobile-nav-link>
@@ -87,6 +128,7 @@ const mobileNavLinks = [
       </a>
     </div>
   </div>
+  )}
 </header>
 
 <script is:inline>

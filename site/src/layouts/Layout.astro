@@ -15,6 +15,7 @@ type Props = {
   noindex?: boolean;
   robots?: string;
   jsonLd?: object[];
+  headerVariant?: "default" | "landing";
 };
 
 const {
@@ -24,6 +25,7 @@ const {
   noindex,
   robots,
   jsonLd,
+  headerVariant = "default",
 } = Astro.props;
 ---
 
@@ -53,7 +55,7 @@ const {
 		/>
 	</head>
 	<body class="min-h-screen bg-white text-base text-primary">
-		<Header />
+		<Header variant={headerVariant} />
 		<main class="container-shell flex-1 pb-20 pt-8 md:pb-0">
 			<slot />
 		</main>
