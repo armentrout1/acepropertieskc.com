@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
+import { longTailResourceCards } from "../../data/longTailResources";
 import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
 const resources = [
@@ -202,6 +203,8 @@ const resources = [
   },
 ];
 
+const allResources = [...longTailResourceCards, ...resources];
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
@@ -232,7 +235,7 @@ const jsonLd = [
 
   <section class="section">
     <div class="grid gap-6 md:grid-cols-2">
-      {resources.map((resource) => (
+      {allResources.map((resource) => (
         <a href={resource.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
           <p class="text-sm font-semibold uppercase tracking-wide text-secondary">{resource.category}</p>
           <h2 class="mt-2 text-2xl font-semibold text-primary">{resource.title}</h2>
