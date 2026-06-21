@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import SellerSituationLinks from "../../components/SellerSituationLinks.astro";
 import { expansionAreas } from "../../data/areaExpansion";
+import { SITE } from "../../lib/siteConfig";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../lib/seo";
 
 const areaLinks = [
@@ -54,6 +55,16 @@ const areaLinks = [
 
 const featuredAreaLinks = areaLinks.slice(0, 8);
 const nearbyAreaLinks = areaLinks.slice(8);
+const nearbyAreaGroups = [
+  {
+    heading: "Missouri cities",
+    items: nearbyAreaLinks.filter((area) => area.title.endsWith(", MO")),
+  },
+  {
+    heading: "Kansas cities",
+    items: nearbyAreaLinks.filter((area) => area.title.endsWith(", KS")),
+  },
+].filter((group) => group.items.length > 0);
 
 const faqs = [
   {
@@ -90,26 +101,43 @@ const jsonLd = [
   canonicalPath="/areas/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-5">
-    <p class="badge">Service area</p>
-    <h1 class="text-4xl font-black text-primary md:text-5xl">Areas We Buy in the Kansas City Metro</h1>
-    <p class="max-w-3xl text-lg leading-8 text-muted">
-      We keep things local so walkthroughs, title work, and closings stay simple. If the property is within about 30 miles of downtown Kansas City, on either side of the state line, we can review it and explain whether a cash or flexible offer makes sense.
-    </p>
-  </section>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell grid gap-8 py-12 md:py-16 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+      <div class="space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Kansas City metro</span>
+          <span class="v3-pill">MO and KS</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="max-w-4xl space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.12em] text-accent">Service area</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Areas We Buy in the Kansas City Metro</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Start with the city or ZIP. If the property is within about 30 miles of downtown Kansas City, we can review it as-is and explain whether a cash or flexible offer makes sense.
+          </p>
+        </div>
+      </div>
 
-  <SellerSituationLinks
-    city="the Kansas City metro"
-    heading="Find the right selling path for your Kansas City area"
-    intro="Use the area pages for local context, then match your situation to the deadline, repair issue, mortgage pressure, or family timeline you are dealing with."
-  />
+      <div class="rounded-[2rem] border border-white/12 bg-white p-5 text-primary shadow-2xl md:p-6">
+        <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Not sure if we buy there?</p>
+        <h2 class="mt-3 text-2xl font-black text-primary">Send the address and we will confirm.</h2>
+        <p class="mt-2 text-sm leading-6 text-muted">
+          You do not need to know the county, condition, or exact next step before reaching out.
+        </p>
+        <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          <a href="/get-offer/" class="btn btn-primary justify-center text-base">Check my address</a>
+          <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost justify-center text-base" data-phone-link="areas_hero">Call {SITE.phoneDisplay}</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section space-y-8">
     <div class="max-w-3xl space-y-3">
-      <p class="badge">Where we work most often</p>
-      <h2 class="text-3xl font-black text-primary">Start with the core Kansas City metro</h2>
+      <p class="badge">Find your area</p>
+      <h2 class="text-3xl font-black text-primary md:text-4xl">Start with the core Kansas City metro</h2>
       <p class="text-muted">
-        These are the first local pages most sellers need. If your city is not here, use the compact city list below or send the address and we will confirm fit.
+        These are the first local pages most sellers need. Choose the closest city or ZIP, then send the address if you want us to confirm fit.
       </p>
     </div>
 
@@ -127,26 +155,52 @@ const jsonLd = [
     </div>
 
     {nearbyAreaLinks.length > 0 && (
-      <div class="rounded-[2rem] border border-border/70 bg-soft/70 p-6 shadow-sm">
-        <div class="max-w-2xl space-y-2">
-          <h2 class="text-2xl font-black text-primary">More nearby cities</h2>
-          <p class="text-sm leading-6 text-muted">
-            We are building deeper pages for these communities too. The address is still the fastest way to confirm a fit.
-          </p>
-        </div>
-        <div class="mt-5 flex flex-wrap gap-3">
-          {nearbyAreaLinks.map((area) => (
-            <a
-              href={area.href}
-              class="rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-primary transition hover:border-secondary/60 hover:text-secondary"
-            >
-              {area.title}
-            </a>
-          ))}
-        </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        {nearbyAreaGroups.map((group) => (
+          <div class="rounded-[2rem] border border-border/70 bg-soft/70 p-6 shadow-sm">
+            <div class="space-y-2">
+              <h2 class="text-2xl font-black text-primary">{group.heading}</h2>
+              <p class="text-sm leading-6 text-muted">
+                More nearby pages for sellers comparing an as-is sale, inherited house, repairs, tenants, or payment pressure.
+              </p>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-3">
+              {group.items.map((area) => (
+                <a
+                  href={area.href}
+                  class="rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-primary transition hover:border-secondary/60 hover:text-secondary"
+                >
+                  {area.title}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     )}
+
+    <div class="rounded-[2rem] border border-secondary/25 bg-primary p-6 text-white shadow-xl md:p-8">
+      <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div class="max-w-3xl space-y-2">
+          <p class="text-sm font-black uppercase tracking-[0.12em] text-accent">Address check</p>
+          <h2 class="text-3xl font-black text-white">Do not see your city?</h2>
+          <p class="text-white/78">
+            Send the property address anyway. We will tell you plainly whether ACE can review it or whether a different local path makes more sense.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="/get-offer/" class="btn bg-white text-primary hover:bg-white/90">Send the address</a>
+          <a href="/contact/" class="btn border border-white/40 text-white hover:bg-white/10">Ask a question</a>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <SellerSituationLinks
+    city="the Kansas City metro"
+    heading="Have the location? Now match the situation."
+    intro="Once you know the area fits, compare the seller problem: repairs, late payments, inherited property, tenants, vacancy, timing, or title questions."
+  />
 
   <section class="section section-alt space-y-6">
     <div class="space-y-3">
