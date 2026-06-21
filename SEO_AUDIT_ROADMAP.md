@@ -311,7 +311,7 @@ Checklist:
 - [x] V3 mobile polish pass:
   - [x] Homepage form visible above the first mobile fold.
   - [x] `/get-offer/` form visible above the first mobile fold.
-  - [x] `/direct-buyer-vs-wholesaler/` mobile hero tightened so the address-first form starts sooner.
+  - [x] `/direct-buyer-vs-wholesaler/` mobile hero tightened so the address field starts within the first mobile fold.
   - [x] No horizontal overflow found in live mobile checks.
 
 ## Phase 8: Authority and Links
