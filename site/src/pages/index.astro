@@ -142,28 +142,28 @@ const jsonLd = [
     />
     <div class="absolute inset-0 bg-gradient-to-r from-primary/88 via-primary/58 to-primary/20"></div>
     <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-cream to-transparent"></div>
-    <div class="container-shell relative grid min-h-[calc(100vh-7rem)] gap-10 py-12 md:min-h-[680px] md:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-      <div class="space-y-7">
-        <div class="flex flex-wrap gap-3">
+    <div class="container-shell relative grid min-h-[calc(100vh-7rem)] gap-8 py-8 md:min-h-[680px] md:gap-10 md:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+      <div class="flex flex-col gap-5 md:gap-7">
+        <div class="order-4 flex flex-wrap gap-3 md:order-none">
           {heroProofPills.map((pill) => (
             <span class="v3-pill">{pill}</span>
           ))}
         </div>
 
-        <div class="max-w-4xl space-y-5">
+        <div class="order-1 max-w-4xl space-y-3 md:space-y-5">
           <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Local Kansas City direct buyer</p>
-          <h1 class="text-5xl font-black leading-[1.02] text-white md:text-6xl lg:text-7xl">
+          <h1 class="text-4xl font-black leading-[1.04] text-white md:text-6xl lg:text-7xl">
             Sell Your Kansas City House As-Is
           </h1>
-          <p class="max-w-3xl text-xl leading-8 text-white/88 md:text-2xl md:leading-9">
+          <p class="max-w-3xl text-lg leading-7 text-white/88 md:text-2xl md:leading-9">
             Get a cash offer or creative option from a local buyer who has been buying directly from sellers since {SITE.buyerSince}.
           </p>
-          <p class="max-w-3xl text-base leading-7 text-white/76 md:text-lg">
+          <p class="max-w-3xl text-sm leading-6 text-white/76 md:text-lg md:leading-7">
             No repairs, no commissions, no clean-out requirement, and no pressure to decide before you understand the numbers.
           </p>
         </div>
 
-        <div class="max-w-4xl">
+        <div class="order-2 max-w-4xl">
           <OfferForm
             addressFirst
             formId="homepage-address-first-form"
@@ -175,7 +175,7 @@ const jsonLd = [
           />
         </div>
 
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="order-3 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
             href={`tel:${SITE.phoneTel}`}
             class="btn bg-white text-primary hover:bg-white/90"
