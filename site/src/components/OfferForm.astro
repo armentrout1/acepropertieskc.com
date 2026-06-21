@@ -26,7 +26,7 @@ const {
 } = Astro.props as Props;
 
 const showNotes = !addressFirst && !mini && (!compact || includeCompactNotes);
-const resolvedButtonLabel = buttonLabel ?? (mini ? "See my options" : "Start my offer conversation");
+const resolvedButtonLabel = buttonLabel ?? (addressFirst ? "See My Options" : mini ? "See my options" : "Start my offer conversation");
 const sectionPadding = addressFirst ? "p-3 sm:p-4" : mini || compact ? "p-5" : "p-6";
 const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
 ---
@@ -74,7 +74,7 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
           data-address-next
           class="btn btn-primary min-h-14 px-7 text-base sm:min-w-44"
         >
-          See My Options
+          {resolvedButtonLabel}
         </button>
       </div>
     ) : (
