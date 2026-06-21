@@ -50,16 +50,16 @@ const guideLinks: LinkItem[] = [
   <div class="space-y-6">
     <div class="space-y-2">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller confidence</p>
-      <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
+      <h2 class="text-3xl font-black text-primary">{heading}</h2>
       <p class="max-w-3xl text-muted">{intro}</p>
     </div>
     <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-      <article class="card bg-white/90">
-        <h3 class="text-xl font-semibold text-primary">Clear expectations</h3>
+      <article class="rounded-[2rem] bg-white p-6 shadow-sm">
+        <h3 class="text-2xl font-black text-primary">Clear expectations</h3>
         <ul class="mt-4 space-y-3 text-sm text-primary">
           {expectations.map((item) => (
-            <li class="flex items-start gap-3">
-              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <li class="flex items-start gap-3 rounded-[1.15rem] bg-cream p-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary"></span>
               <span>{item}</span>
             </li>
           ))}
@@ -69,12 +69,12 @@ const guideLinks: LinkItem[] = [
           <a href="/contact/" class="btn btn-ghost">Ask first</a>
         </div>
       </article>
-      <article class="card bg-white/90">
-        <h3 class="text-xl font-semibold text-primary">Read before deciding</h3>
+      <article class="rounded-[2rem] bg-white p-6 shadow-sm">
+        <h3 class="text-2xl font-black text-primary">Read before deciding</h3>
         <div class="mt-4 grid gap-3 sm:grid-cols-2">
           {guideLinks.map((link) => (
-            <a href={link.href} class="rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary">
-              <span class="block text-sm font-semibold text-primary">{link.title}</span>
+            <a href={link.href} class="rounded-[1.15rem] border border-border/60 bg-soft/60 p-4 transition hover:border-secondary">
+              <span class="block text-sm font-black text-primary">{link.title}</span>
               <span class="mt-1 block text-sm text-muted">{link.body}</span>
             </a>
           ))}

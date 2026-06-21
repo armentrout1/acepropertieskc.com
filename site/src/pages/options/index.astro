@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import CreativePromisePanel from "../../components/CreativePromisePanel.astro";
+import OfferForm from "../../components/OfferForm.astro";
+import { SITE } from "../../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd } from "../../lib/seo";
 
 const fitItems = [
@@ -15,6 +17,30 @@ const safeguardItems = [
   "Title, insurance, taxes, arrears, and lender deadlines are reviewed up front",
   "You can ask how payments will be verified each month",
   "We encourage attorney, CPA, lender, or housing counselor review before signing",
+];
+
+const optionCards = [
+  {
+    label: "Cash offer",
+    title: "Fast as-is purchase",
+    body:
+      "Best when speed, simplicity, and certainty matter more than testing the retail market. ACE reviews repairs, clean-out, title, payoff, and timeline before putting numbers in front of you.",
+    points: ["No repairs first", "No showings", "Clear closing timeline"],
+  },
+  {
+    label: "Creative option",
+    title: "Payment-takeover review",
+    body:
+      "Best when the existing mortgage, payoff, or monthly payment is the real pressure point. We can review whether a subject-to style structure may fit and explain the trade-offs plainly.",
+    points: ["Loan pressure reviewed", "Terms in writing", "Advisor review encouraged"],
+  },
+  {
+    label: "Direct buyer",
+    title: "Prepared to close",
+    body:
+      "Best when you want to know who is actually buying. ACE has been buying houses directly from sellers since 2016 and is not built around making you wait for another investor to appear.",
+    points: ["Direct buyer", "Since 2016", "No assignment-first pitch"],
+  },
 ];
 
 const pressureReliefItems = [
@@ -67,12 +93,44 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)
   canonicalPath="/options/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Your options</p>
-    <h1 class="text-4xl font-semibold text-primary">Cash Offer or Payment Takeover Option</h1>
-    <p class="text-muted">
-      If the monthly mortgage payment is the pressure point, a straight cash offer is not always the only path. We can compare a clean as-is cash sale with payment takeover options where we may be able to take over the payments, help catch up arrears or taxes when the structure allows, and give you a written plan to review before deciding.
-    </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell grid gap-10 py-14 md:py-20 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+      <div class="space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Cash offer</span>
+          <span class="v3-pill">Payment takeover review</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="max-w-4xl space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Cash plus creative options</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
+            Compare a Cash Offer With Creative Payment Options
+          </h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            If the monthly payment, payoff, repairs, or timing are the hard part, a straight cash offer is not always the only path to review.
+          </p>
+          <p class="max-w-3xl text-base leading-7 text-white/72">
+            ACE can compare an as-is cash purchase with payment-takeover or payoff-at-closing structures when the numbers and risk make sense.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href={`tel:${SITE.phoneTel}`} class="btn bg-white text-primary hover:bg-white/90" data-phone-link="options_hero">
+            Call {SITE.phoneDisplay}
+          </a>
+          <a href="/direct-buyer-vs-wholesaler/" class="btn border border-white/40 text-white hover:bg-white/10">
+            Why direct buyer matters
+          </a>
+        </div>
+      </div>
+      <OfferForm
+        addressFirst
+        formId="options-address-first-form"
+        heading="Start with the address"
+        subheading="We will ask for your contact on the next step and then compare cash and creative paths."
+        defaultSituation="payment takeover"
+        pageContext="options_v3_address_first"
+      />
+    </div>
   </section>
 
   <CreativePromisePanel
@@ -101,55 +159,57 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)
     </div>
   </section>
 
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card">
-      <h2 class="text-2xl font-semibold text-primary">Cash Offer (As-Is)</h2>
-      <p class="mt-3 text-muted">
-        Ideal when you want certainty and a quick exit. We purchase the property as-is, cover standard closing costs, and can close in as little as two weeks once title is ready.
+  <section class="section space-y-6">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Choose the path that fits the problem</p>
+      <h2 class="text-3xl font-black text-primary">A good offer should make the next step easier to understand</h2>
+      <p class="text-muted">
+        Some sellers need a clean cash sale. Others need to protect timing, payment history, or remaining equity. ACE lays out the differences before asking you to commit.
       </p>
-      <ul class="mt-4 space-y-2 text-sm text-primary">
-        <li>One walk-through, no open houses or repairs.</li>
-        <li>Clear HUD/settlement statement before signing.</li>
-        <li>Flexible closing date to match your move.</li>
-      </ul>
-    </article>
-
-    <article class="card bg-soft/80">
-      <h2 class="text-2xl font-semibold text-primary">Payment Takeover Option</h2>
-      <p class="mt-3 text-muted">
-        In some situations, we may be able to buy the house subject to the existing loan and step in to make the monthly payments for you. This can matter when you are behind, worried about foreclosure, or trying to move without bringing extra money to closing.
-      </p>
-      <p class="mt-3 text-muted">
-        A payment takeover can help reduce the pressure of missed payments and may help avoid the additional credit damage of a completed foreclosure, but it is not automatic and it is not right for every loan. Start with our <a href="/resources/subject-to-real-estate-kansas-city/" class="text-secondary underline">payment takeover subject-to guide</a> if this is the option you want to understand.
-      </p>
-      <ul class="mt-4 space-y-2 text-sm text-primary">
-        <li>We may take over the monthly mortgage payment if the structure fits.</li>
-        <li>Arrears, taxes, insurance, and title items are reviewed up front.</li>
-        <li>You receive the cash and payment takeover options side by side.</li>
-      </ul>
-      <p class="mt-4 text-xs text-muted">
-        Disclosure: Payment takeover and subject-to agreements can affect credit, taxes, insurance, and mortgage terms. Please consult your attorney, lender, CPA, or housing counselor before signing.
-      </p>
-    </article>
+    </div>
+    <div class="grid gap-5 lg:grid-cols-3">
+      {optionCards.map((item) => (
+        <article class="rounded-[1.75rem] border border-border/60 bg-white p-6 shadow-sm">
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-secondary">{item.label}</p>
+          <h3 class="mt-3 text-2xl font-black text-primary">{item.title}</h3>
+          <p class="mt-3 text-sm leading-6 text-muted">{item.body}</p>
+          <ul class="mt-5 flex flex-wrap gap-2">
+            {item.points.map((point) => (
+              <li class="rounded-full bg-soft px-3 py-1.5 text-xs font-bold text-primary">{point}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+    <p class="max-w-4xl text-xs leading-5 text-muted">
+      Disclosure: Payment takeover and subject-to agreements can affect credit, taxes, insurance, and mortgage terms. Please consult your attorney, lender, CPA, or housing counselor before signing.
+    </p>
   </section>
 
   <section class="section">
-    <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">When this is a fit</h2>
-      <ul class="mt-4 space-y-3 text-sm text-primary">
-        {fitItems.map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+    <div class="rounded-[2rem] bg-white p-6 shadow-sm md:p-8">
+      <div class="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+        <div class="space-y-3">
+          <p class="badge">When creative may fit</p>
+          <h2 class="text-3xl font-black text-primary">Payment takeover is a tool, not a magic answer</h2>
+          <p class="text-muted">
+            We only want this conversation when it actually fits the loan, timing, seller risk, and property numbers.
+          </p>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-2">
+          {fitItems.map((item) => (
+            <div class="rounded-[1.25rem] bg-cream p-4 text-sm font-medium leading-6 text-primary">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Why sellers ask about payment takeover</h2>
+      <h2 class="text-2xl font-black text-primary">Why sellers ask about payment takeover</h2>
       <p class="text-muted">
         The homeowner usually wants one simple thing: relief from the monthly payment. If a traditional cash offer cannot solve the payoff cleanly, we can review whether a subject-to or other payment takeover structure gives you a better path.
       </p>
@@ -159,11 +219,11 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)
     </article>
 
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How we keep the conversation careful</h2>
+      <h2 class="text-2xl font-black text-primary">How we keep the conversation careful</h2>
       <ul class="space-y-3 text-sm text-primary">
         {safeguardItems.map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+          <li class="flex items-start gap-3 rounded-[1.1rem] bg-soft/70 p-3">
+            <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary"></span>
             <span>{item}</span>
           </li>
         ))}

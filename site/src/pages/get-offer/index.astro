@@ -79,38 +79,43 @@ const jsonLd = [
   canonicalPath="/get-offer/"
   jsonLd={jsonLd}
 >
-  <section class="section grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-    <div class="space-y-6">
-      <p class="badge">Get an offer</p>
-      <div class="space-y-4">
-        <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-          Get a No-Pressure Offer for Your Kansas City House
-        </h1>
-        <p class="text-muted">
-          Tell us what is going on with the property. We will review the address, ask practical questions, and outline your options without requiring repairs, inspections, showings, clean-out, or a listing commitment.
-        </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell grid gap-10 py-14 md:py-20 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+      <div class="space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">No repairs</span>
+          <span class="v3-pill">No commissions</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="max-w-4xl space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Get an offer</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
+            Get a No-Pressure Offer for Your Kansas City House
+          </h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Tell us what is going on with the property. We will review the address, ask practical questions, and outline cash or creative options without requiring repairs, showings, clean-out, or a listing commitment.
+          </p>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          {trustPoints.map((point) => (
+            <div class="flex items-start gap-3 rounded-[1.25rem] bg-white/92 p-4 text-sm font-medium text-primary">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{point}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href={`tel:${SITE.phoneTel}`} class="btn bg-white text-primary hover:bg-white/90" data-phone-link="get_offer_hero">
+            Call {SITE.phoneDisplay}
+          </a>
+          <a href={`sms:${SITE.smsTel}`} class="btn border border-white/40 text-white hover:bg-white/10" data-sms-link="get_offer_hero">
+            Text us
+          </a>
+        </div>
       </div>
 
-      <div class="grid gap-3 sm:grid-cols-2">
-        {trustPoints.map((point) => (
-          <div class="flex items-start gap-3 rounded-2xl border border-border/70 bg-soft/60 p-4 text-sm text-primary">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{point}</span>
-          </div>
-        ))}
-      </div>
-
-      <div class="flex flex-wrap gap-3">
-        <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost text-base" data-phone-link="get_offer_hero">
-          Call {SITE.phoneDisplay}
-        </a>
-        <a href={`sms:${SITE.smsTel}`} class="btn btn-ghost text-base" data-sms-link="get_offer_hero">
-          Text us
-        </a>
-      </div>
-    </div>
-
-    <div class="card p-4 sm:p-6">
       <OfferForm
         heading="Start your offer conversation"
         subheading="A local team member will review the details and follow up with clear next steps."
