@@ -316,6 +316,33 @@ Checklist:
   - [x] No horizontal overflow found in live mobile checks.
   - [x] Latest roadmap/mobile QA status pushed to `main` and verified by GitHub Actions SEO Checks.
 
+### Sitewide Visual and Content QA - June 21, 2026
+
+Latest rendered audit scope:
+
+- Desktop default viewport and mobile 390px viewport.
+- Sampled priority routes: `/`, `/options/`, `/direct-buyer-vs-wholesaler/`, `/get-offer/`, `/solutions/`, `/solutions/behind-on-payments/`, `/solutions/inherited-house/`, `/areas/`, `/areas/kansas-city-mo/`, `/resources/`, `/resources/subject-to-real-estate-kansas-city/`, `/seller-stories/`, and `/about/`.
+
+Checklist:
+
+- [x] Confirmed the live `/options/` page had a broken promise-panel layout where CTA/story cards collapsed into an unreadable narrow rail.
+- [x] Fixed the shared `CreativePromisePanel` layout so proof cards and CTA buttons have stable width on desktop and stack cleanly on mobile.
+- [x] Hardened `TrustProofStrip` against the same `auto + 1fr` grid behavior.
+- [x] Local desktop and mobile rendered audit after the fix found no horizontal overflow on sampled priority routes.
+- [ ] Do a seller-friendly edit pass on `/options/` below the hero: keep the fixed promise panel, then reduce repetitive sections so the page feels like a clear comparison path, not a long explanation.
+- [ ] Tighten long paragraphs on `/areas/kansas-city-mo/`; generated content scan found 8 long paragraphs over 260 characters.
+- [ ] Tighten long paragraphs on `/solutions/inherited-house/`; several sections read like long-form guidance and need more scannable seller steps.
+- [ ] Review `/areas/`, `/direct-buyer-vs-wholesaler/`, and `/resources/subject-to-real-estate-kansas-city/` for run-on paragraphs and repeated explanations.
+- [ ] Prioritize next editorial fixes by long-paragraph count:
+  - `/areas/kansas-city-mo/` - 8 long paragraphs
+  - `/areas/independence-mo/` - 5 long paragraphs
+  - `/solutions/inherited-house/` - 4 long paragraphs
+  - `/solutions/divorce/` - 4 long paragraphs
+  - `/areas/lees-summit-mo/` - 4 long paragraphs
+  - `/areas/shawnee-ks/`, `/areas/olathe-ks/`, `/areas/lenexa-ks/`, `/solutions/needs-repairs/`, `/solutions/tenant-occupied/` - 3 long paragraphs each
+- [ ] Add a recurring visual QA rule: avoid `auto + 1fr` layout grids for mixed headline/action sections unless the content width is explicitly constrained.
+- [ ] Editorial rule for future pages: one job per section, 2-3 sentence max paragraphs, convert risk/legal/detail-heavy content into cards, lists, or FAQs.
+
 ## Phase 8: Authority and Links
 
 - [ ] Build local links through partnerships:
