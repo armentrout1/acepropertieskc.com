@@ -1,8 +1,8 @@
 # ACE Properties KC SEO Audit and Roadmap
 
 Audit date: May 11, 2026  
-Latest generated-output audit: June 20, 2026
-Latest live QA pass: June 20, 2026
+Latest generated-output audit: June 21, 2026
+Latest live QA pass: June 21, 2026
 Repo: `armentrout1/acepropertieskc.com`  
 Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up\work\acepropertieskc.com`
 
@@ -12,16 +12,17 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up
 - Build passes.
 - Custom `seo:preflight` passes.
 - Robots.txt is live and allows crawling.
-- XML sitemap output includes 103 indexable page URLs plus the sitemap index.
+- XML sitemap output includes 106 indexable page URLs plus the sitemap index.
 - Strong existing base: homepage, areas hub, 8 area pages, solutions hub, 13 solution pages, contact, options, privacy, terms, thank-you, 404.
 - Expanded local/content base now includes the resources hub, 28 resource articles/tools, 13 solution pages, 8 core area pages, and 27 dynamic metro expansion area pages.
 - Dynamic metro expansion pages now include neighborhood focus, common seller situations, explicit property-type proof, county/title notes, and nearby internal links.
 - GA4 tag is installed: `G-NTFNNJTML7`.
 - Offer form posts to SendGrid-backed API; production API accepted a clearly labeled QA lead on June 20, 2026.
-- Generated lead audit passes with 75 offer forms across 74 pages and 12 required lead routes covered.
+- Generated lead audit passes with 81 offer forms across 79 pages and 12 required lead routes covered.
 - Primary organic target is clear: motivated Kansas City homeowners who need to sell as-is, fast, inherited, probate, foreclosure, repair-heavy, vacant, tenant-occupied, behind on payments, or relocation.
 - Latest generated HTML audit found no sitemap pollution, JSON-LD parse errors, missing H1s, title-length issues, meta-description issues, missing canonicals, or missing offer/contact paths on indexable pages.
-- Live QA confirmed homepage, `/get-offer/`, paid landing page, cash-buyer-vs-agent guide, `/thank-you/`, robots, sitemap index, and sitemap file return `200`.
+- Live QA confirmed homepage, `/get-offer/`, `/direct-buyer-vs-wholesaler/`, `/thank-you/`, robots, sitemap index, and sitemap file return `200`.
+- Latest GitHub Actions SEO Checks run on `main` passed for commit `10d1275`.
 
 ## Highest-Priority Findings
 
@@ -166,6 +167,7 @@ Checklist:
 - [x] Add reusable high-intent offer block with call, text, proof points, and compact form for priority seller pages.
 - [x] Tag `/get-offer/` hero SMS click for analytics.
 - [x] Live browser QA confirmed `/get-offer/` form visibility, UTM population, and client-side validation.
+- [x] Live browser QA confirmed the homepage and `/get-offer/` address-first forms are above the fold on mobile and desktop, with no visible consent-checkbox friction.
 
 ## Phase 4: Local SEO and Trust
 
@@ -306,6 +308,11 @@ Checklist:
   - [x] form error announcements
   - button labels
   - color contrast
+- [x] V3 mobile polish pass:
+  - [x] Homepage form visible above the first mobile fold.
+  - [x] `/get-offer/` form visible above the first mobile fold.
+  - [x] `/direct-buyer-vs-wholesaler/` mobile hero tightened so the address-first form starts sooner.
+  - [x] No horizontal overflow found in live mobile checks.
 
 ## Phase 8: Authority and Links
 
