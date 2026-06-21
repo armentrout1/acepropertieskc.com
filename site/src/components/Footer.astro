@@ -1,78 +1,140 @@
 ---
 import { SITE } from "../lib/siteConfig";
+
+const startLinks = [
+  { label: "Home", href: "/" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Get an Offer", href: "/get-offer/" },
+  { label: "Cash vs Creative Options", href: "/options/" },
+  { label: "All Seller Situations", href: "/solutions/" },
+];
+
+const proofLinks = [
+  { label: "Direct Buyer vs Wholesaler", href: "/direct-buyer-vs-wholesaler/" },
+  { label: "Seller Stories", href: "/seller-stories/" },
+  { label: "Seller Resources", href: "/resources/" },
+  { label: "About ACE", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+const areaLinks = [
+  { label: "Kansas City, MO", href: "/areas/kansas-city-mo/" },
+  { label: "Overland Park, KS", href: "/areas/overland-park-ks/" },
+  { label: "Olathe, KS", href: "/areas/olathe-ks/" },
+  { label: "Independence, MO", href: "/areas/independence-mo/" },
+  { label: "View All Areas", href: "/areas/" },
+];
+
+const situationLinks = [
+  { label: "Sell House Fast", href: "/solutions/sell-house-fast/" },
+  { label: "Behind on Payments", href: "/solutions/behind-on-payments/" },
+  { label: "Inherited House", href: "/solutions/inherited-house/" },
+  { label: "Needs Repairs", href: "/solutions/needs-repairs/" },
+  { label: "Facing Foreclosure", href: "/solutions/facing-foreclosure/" },
+];
+
+const trustChips = [
+  "Buying direct since 2016",
+  "Cash or creative options",
+  "No repairs or clean-out required",
+];
 ---
 
-<footer class="border-t border-border/60 bg-soft py-12 text-sm text-muted">
-  <div class="container-shell space-y-10">
-    <div class="flex flex-col gap-6 rounded-[2rem] bg-white/85 p-6 text-primary shadow-sm md:flex-row md:items-center md:justify-between">
-      <div class="flex items-center gap-4">
-        <img src="/brand/ace-mark.svg" alt={`${SITE.name} mark`} class="h-12 w-12" loading="lazy" decoding="async" />
-        <div>
-          <p class="text-lg font-black text-primary">{SITE.name}</p>
-          <p class="text-muted text-sm">Buying Kansas City houses directly since {SITE.buyerSince}</p>
+<footer class="border-t border-primary/20 bg-primary text-sm text-white">
+  <div class="container-shell py-12 md:py-16">
+    <div class="grid gap-8 rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-2xl shadow-primary/20 md:p-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+      <div class="space-y-5">
+        <div class="flex flex-wrap gap-2">
+          {trustChips.map((chip) => (
+            <span class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.08em] text-white/90">
+              {chip}
+            </span>
+          ))}
+        </div>
+        <div class="max-w-3xl space-y-3">
+          <p class="text-sm font-black uppercase tracking-[0.12em] text-accent">ACE Properties KC</p>
+          <h2 class="text-3xl font-black leading-tight text-white md:text-4xl">
+            Ready to compare a real offer path?
+          </h2>
+          <p class="text-base leading-7 text-white/80">
+            Share the address, ask your questions, or call us directly. We buy Kansas City houses as-is and explain cash or flexible options before you decide.
+          </p>
         </div>
       </div>
-      <p class="max-w-2xl text-sm text-muted">
-        Quiet, local support for sellers across {SITE.serviceArea}. We keep your options transparent and your timeline in focus - no pressure, no surprises.
-      </p>
-    </div>
 
-    <div class="grid gap-8 md:grid-cols-4">
-      <div class="space-y-3 text-primary">
-        <p class="text-base font-semibold">Always local to the KC metro.</p>
-        <p>
-          We buy houses as-is, stay communicative during title and escrow, and let you decide the pace.
-          Repairs, contents, tax items, payment pressure, and clean-out needs can all be part of the conversation.
-        </p>
-        <p class="font-medium">Service area: {SITE.serviceArea}</p>
-      </div>
-
-      <div class="space-y-2 text-primary">
-        <p class="text-base font-semibold">Popular Areas</p>
-        <nav class="flex flex-col gap-2">
-          <a href="/areas/kansas-city-mo/" class="transition-colors hover:text-secondary">Kansas City, MO</a>
-          <a href="/areas/overland-park-ks/" class="transition-colors hover:text-secondary">Overland Park, KS</a>
-          <a href="/areas/olathe-ks/" class="transition-colors hover:text-secondary">Olathe, KS</a>
-          <a href="/areas/" class="transition-colors hover:text-secondary">View All Areas -></a>
-        </nav>
-      </div>
-
-      <div class="space-y-2 text-primary">
-        <p class="text-base font-semibold">Common Situations</p>
-        <nav class="flex flex-col gap-2">
-          <a href="/solutions/sell-house-fast/" class="transition-colors hover:text-secondary">Sell House Fast</a>
-          <a href="/solutions/behind-on-payments/" class="transition-colors hover:text-secondary">Behind on Payments</a>
-          <a href="/solutions/facing-foreclosure/" class="transition-colors hover:text-secondary">Facing Foreclosure</a>
-          <a href="/solutions/probate-house/" class="transition-colors hover:text-secondary">Probate Property</a>
-          <a href="/solutions/inherited-house/" class="transition-colors hover:text-secondary">Inherited House</a>
-          <a href="/solutions/" class="transition-colors hover:text-secondary">View All Solutions -></a>
-        </nav>
-      </div>
-
-      <div class="space-y-2 text-primary">
-        <p class="text-base font-semibold">Quick Links</p>
-        <nav class="flex flex-col gap-2">
-          <a href="/options/" class="transition-colors hover:text-secondary">Cash vs Creative Options</a>
-          <a href="/direct-buyer-vs-wholesaler/" class="transition-colors hover:text-secondary">Direct Buyer vs Wholesaler</a>
-          <a href="/resources/" class="transition-colors hover:text-secondary">Seller Resources</a>
-          <a href="/resources/sell-house-fast-kansas-city-guide/" class="transition-colors hover:text-secondary">Fast Sale Guide</a>
-          <a href="/resources/sell-vacant-house-kansas-city/" class="transition-colors hover:text-secondary">Vacant House Guide</a>
-          <a href="/resources/behind-on-mortgage-options-kansas-city/" class="transition-colors hover:text-secondary">Mortgage Options Guide</a>
-          <a href="/resources/jackson-county-foreclosure-options/" class="transition-colors hover:text-secondary">Jackson County Foreclosure Guide</a>
-          <a href="/resources/johnson-county-behind-on-payments/" class="transition-colors hover:text-secondary">Johnson County Payment Guide</a>
-          <a href="/resources/wyandotte-county-foreclosure-options/" class="transition-colors hover:text-secondary">Wyandotte County Foreclosure Guide</a>
-          <a href="/seller-stories/" class="transition-colors hover:text-secondary">Seller Stories</a>
-          <a href="/about/" class="transition-colors hover:text-secondary">About ACE Properties KC</a>
-          <a href="/get-offer/" class="transition-colors hover:text-secondary">Get an Offer</a>
-          <a href="/privacy/" class="transition-colors hover:text-secondary">Privacy Policy</a>
-          <a href="/terms/" class="transition-colors hover:text-secondary">Terms</a>
-          <a href="/contact/" class="transition-colors hover:text-secondary">Contact</a>
-        </nav>
+      <div class="rounded-[1.5rem] border border-white/10 bg-white p-5 text-primary shadow-xl">
+        <div class="flex items-center gap-4">
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-soft">
+            <img src="/brand/ace-mark.svg" alt={`${SITE.name} mark`} class="h-10 w-10" loading="lazy" decoding="async" />
+          </span>
+          <div>
+            <p class="text-xl font-black">{SITE.name}</p>
+            <p class="text-sm font-semibold text-muted">Local Kansas City direct buyer</p>
+          </div>
+        </div>
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          <a href="/get-offer/" class="btn btn-primary justify-center text-base">Get My Offer</a>
+          <a href={`tel:${SITE.phoneTel}`} class="btn btn-ghost justify-center text-base" data-phone-link="footer_cta">Call {SITE.phoneDisplay}</a>
+        </div>
+        <a href={`sms:${SITE.smsTel}`} class="mt-3 inline-flex w-full justify-center rounded-full border border-secondary/25 px-4 py-3 text-sm font-black text-secondary transition hover:bg-secondary/5" data-sms-link="footer_cta">
+          Text ACE
+        </a>
       </div>
     </div>
-  </div>
 
-  <div class="container-shell mt-10 border-t border-border/60 pt-4 text-xs text-muted">
-    <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <nav class="rounded-[1.5rem] border border-white/10 bg-white/10 p-5" aria-label="Start here">
+        <p class="text-base font-black text-white">Start Here</p>
+        <div class="mt-4 flex flex-col gap-2">
+          {startLinks.map((link) => (
+            <a href={link.href} class="rounded-full px-3 py-2 font-bold text-white/75 transition hover:bg-white/10 hover:text-white">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <nav class="rounded-[1.5rem] border border-white/10 bg-white/10 p-5" aria-label="Trust and proof">
+        <p class="text-base font-black text-white">Trust & Proof</p>
+        <div class="mt-4 flex flex-col gap-2">
+          {proofLinks.map((link) => (
+            <a href={link.href} class="rounded-full px-3 py-2 font-bold text-white/75 transition hover:bg-white/10 hover:text-white">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <nav class="rounded-[1.5rem] border border-white/10 bg-white/10 p-5" aria-label="Popular areas">
+        <p class="text-base font-black text-white">Popular Areas</p>
+        <div class="mt-4 flex flex-col gap-2">
+          {areaLinks.map((link) => (
+            <a href={link.href} class="rounded-full px-3 py-2 font-bold text-white/75 transition hover:bg-white/10 hover:text-white">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <nav class="rounded-[1.5rem] border border-white/10 bg-white/10 p-5" aria-label="Common seller situations">
+        <p class="text-base font-black text-white">Common Situations</p>
+        <div class="mt-4 flex flex-col gap-2">
+          {situationLinks.map((link) => (
+            <a href={link.href} class="rounded-full px-3 py-2 font-bold text-white/75 transition hover:bg-white/10 hover:text-white">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-4 border-t border-white/10 pt-5 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
+      <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+      <nav class="flex flex-wrap gap-4">
+        <a href="/privacy/" class="transition hover:text-white">Privacy</a>
+        <a href="/terms/" class="transition hover:text-white">Terms</a>
+        <a href="/contact/" class="transition hover:text-white">Contact</a>
+      </nav>
+    </div>
   </div>
 </footer>

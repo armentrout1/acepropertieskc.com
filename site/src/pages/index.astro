@@ -1,9 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import OfferConfidencePanel from "../components/OfferConfidencePanel.astro";
 import OfferForm from "../components/OfferForm.astro";
 import TrustProofStrip from "../components/TrustProofStrip.astro";
-import SellerReviewStrip from "../components/SellerReviewStrip.astro";
 import CreativeHomeBuyerSeal from "../components/CreativeHomeBuyerSeal.astro";
 import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
@@ -80,15 +78,22 @@ const steps = [
   }
 ];
 
-const solutions = [
-  { title: "Sell House Fast", body: "Speed and certainty with as-is cash offers for any situation.", href: "/solutions/sell-house-fast/" },
-  { title: "Behind on Payments", body: "Compare lender options, payoff-at-closing, payment takeover, and backup plans.", href: "/solutions/behind-on-payments/" },
-  { title: "Facing Foreclosure", body: "Review timing, title, payoffs, housing counseling, and sale options calmly.", href: "/solutions/facing-foreclosure/" },
-  { title: "Inherited Home", body: "Coordinate siblings and estates with calm, organized guidance.", href: "/solutions/inherited-house/" },
-  { title: "Probate House", body: "Court-ready offers for executors navigating legal processes.", href: "/solutions/probate-house/" },
-  { title: "Vacant House", body: "Stop carrying costs and sell empty properties as-is.", href: "/solutions/vacant-house/" },
-  { title: "Relocating", body: "Job transfer sales with remote coordination and timing.", href: "/solutions/relocating/" },
-  { title: "Major Repairs", body: "Skip contractors. We handle updates so you don't front costs.", href: "/solutions/needs-repairs/" }
+const quickLinks = [
+  {
+    title: "Cash or creative options",
+    body: "Compare a simple cash sale with payment-takeover or payoff-at-closing paths.",
+    href: "/options/",
+  },
+  {
+    title: "Direct buyer vs wholesaler",
+    body: "Know whether the buyer is prepared to close or still needs to sell the contract.",
+    href: "/direct-buyer-vs-wholesaler/",
+  },
+  {
+    title: "Areas we buy",
+    body: "See the Kansas City metro cities and neighborhoods ACE reviews.",
+    href: "/areas/",
+  },
 ];
 
 const faqs = [
@@ -226,29 +231,27 @@ const jsonLd = [
   <TrustProofStrip />
 
   <section class="full-bleed bg-white">
-    <div class="container-shell grid gap-8 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+    <div class="container-shell grid gap-8 py-14 md:py-20 lg:grid-cols-[1fr_0.88fr] lg:items-start">
       <div class="space-y-6">
-        <div class="grid gap-5 sm:grid-cols-[auto_1fr] sm:items-center">
-          <CreativeHomeBuyerSeal compact className="mx-auto sm:mx-0" />
-          <div>
-            <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">ACE Promise</p>
-            <h2 class="mt-2 text-3xl font-black text-primary md:text-4xl">We make offers we intend to close.</h2>
-          </div>
+        <div class="max-w-3xl space-y-3">
+          <p class="badge">When the house is the problem</p>
+          <h2 class="text-3xl font-black text-primary md:text-4xl">Choose the path that solves the real pressure point</h2>
+          <p class="text-muted">
+            Some sellers need speed. Others need relief from repairs, payments, taxes, or family decisions. Start with the problem and ACE will compare practical options.
+          </p>
         </div>
-        <p class="max-w-3xl text-muted">
-          Some buyers still have to market or assign the contract after a seller signs. If that end buyer does not show up, the deal can get delayed, renegotiated, or fall apart. ACE is built around buying directly, explaining the numbers, and closing under clear written terms.
-        </p>
-        <div class="grid gap-3 md:grid-cols-3">
-          {directBuyerProof.map((item) => (
-            <div class="rounded-[1.5rem] border border-border/70 bg-cream px-5 py-4 shadow-sm">
-              <p class="text-base font-black text-primary">{item.label}</p>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {urgentSellerProblems.map((item) => (
+            <a href={item.href} class="rounded-[1.5rem] border border-border/60 bg-cream p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-secondary/60">
+              <h3 class="text-xl font-black text-primary">{item.title}</h3>
               <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-            </div>
+              <span class="mt-4 inline-flex text-sm font-black text-secondary">Compare this path</span>
+            </a>
           ))}
         </div>
         <div class="flex flex-wrap gap-3">
-          <a href="/direct-buyer-vs-wholesaler/" class="btn btn-primary">Direct buyer vs wholesaler</a>
-          <a href="/get-offer/" class="btn btn-ghost">Start with my address</a>
+          <a href="/get-offer/" class="btn btn-primary">Start with my address</a>
+          <a href="/solutions/" class="btn btn-ghost">See seller situations</a>
         </div>
       </div>
 
@@ -264,47 +267,6 @@ const jsonLd = [
           ))}
         </ol>
       </div>
-    </div>
-  </section>
-
-  <section class="section section-alt space-y-6">
-    <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">When the property problem is urgent</p>
-      <h2 class="text-3xl font-semibold text-primary">We buy houses and help sellers compare the cleanest way forward</h2>
-      <p class="text-muted">
-        Some sellers need speed. Others need help protecting remaining equity, stopping more missed payments, paying off tax or title items, or selling a house with everything still inside. The first step is a written comparison, not a high-pressure pitch.
-      </p>
-    </div>
-    <div class="grid gap-5 md:grid-cols-2">
-      {urgentSellerProblems.map((item) => (
-        <a href={item.href} class="rounded-[1.75rem] border border-border/60 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
-          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Compare this option</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section space-y-6">
-    <div class="space-y-2">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Options for real situations</p>
-      <h2 class="text-3xl font-semibold text-primary">Solutions we walk through every week</h2>
-      <p class="text-muted">Choose the path that fits your timing, financing, and comfort level. We outline pros and trade-offs before you sign.</p>
-    </div>
-    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-      {solutions.map((solution) => (
-        <a href={solution.href} class="rounded-[1.75rem] border border-border/60 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
-          <h3 class="text-xl font-semibold text-primary">{solution.title}</h3>
-          <p class="mt-2 text-sm text-muted">{solution.body}</p>
-          <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary">
-            Learn more
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </span>
-        </a>
-      ))}
     </div>
   </section>
 
@@ -351,96 +313,20 @@ const jsonLd = [
     </div>
   </section>
 
-  <SellerReviewStrip
-    heading="Real seller reviews, added only with permission"
-    intro="ACE will publish only approved reviews with real seller permission and source details."
-  />
-
-  <section class="section section-alt">
-    <div class="grid gap-8 md:grid-cols-2">
-      <div class="space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Why homeowners choose options</p>
-          <h2 class="text-3xl font-semibold text-primary">Control, transparency, and local expertise</h2>
-        <p class="text-muted">
-          Whether you need a <a href="/solutions/sell-house-fast/" class="text-secondary underline">fast cash sale</a>, help with a <a href="/solutions/probate-house/" class="text-secondary underline">probate house</a>, or want to sell a <a href="/solutions/vacant-house/" class="text-secondary underline">vacant property</a>, we lay out side-by-side comparisons so the decision is yours.
-        </p>
-        <p class="text-muted">
-          If you are comparing a direct sale against listing, read our <a href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/" class="text-secondary underline">cash buyer vs real estate agent guide</a>.
-        </p>
-        <ul class="space-y-3 text-sm text-primary">
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            Clear pricing backed by written breakdowns before contracts.
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            Title, escrow, and legal partners who work across Jackson, Johnson, and Clay Counties.
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            Flexible occupancy so you can stay put while packing or coordinating movers.
-          </li>
-        </ul>
-      </div>
-      <div class="card bg-white/90">
-        <p class="text-lg font-semibold text-primary">What you can expect</p>
-        <ul class="mt-4 space-y-3 text-sm text-muted">
-          <li>Weekly updates during title work.</li>
-          <li>Payment takeover outlines translated into plain English.</li>
-          <li>Introductions to attorneys or advisors when you want a second opinion.</li>
-        </ul>
-        <a href="/resources/sell-house-as-is-kansas-city/" class="btn btn-ghost mt-6 w-full sm:w-auto">
-          Read the as-is selling guide
-        </a>
-        <a href="/options/" class="btn btn-ghost mt-3 w-full sm:w-auto">
-          Compare cash or takeover
-        </a>
-        <a href="#get-offer" class="btn btn-primary mt-3 w-full sm:w-auto">
-          See your options
-        </a>
-      </div>
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Helpful next reads</p>
+      <h2 class="text-3xl font-semibold text-primary">Keep the decision simple</h2>
+      <p class="text-muted">Use these pages when you want a little more context before sending the address.</p>
     </div>
-  </section>
-
-  <section class="section space-y-6">
-    <div class="space-y-2">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Featured areas</p>
-      <h2 class="text-3xl font-semibold text-primary">Serving Kansas City metro homeowners</h2>
-      <p class="text-muted">We buy houses across the Kansas City metro. Explore area-specific insights and market knowledge.</p>
-    </div>
-    <div class="grid gap-4 md:grid-cols-4">
-      <a href="/areas/kansas-city-mo/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Kansas City, MO</h3>
-        <p class="mt-2 text-sm text-muted">Midtown, Brookside, and south side properties</p>
-      </a>
-      <a href="/areas/overland-park-ks/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Overland Park, KS</h3>
-        <p class="mt-2 text-sm text-muted">Johnson County's largest city</p>
-      </a>
-      <a href="/areas/olathe-ks/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Olathe, KS</h3>
-        <p class="mt-2 text-sm text-muted">Family neighborhoods and relocations</p>
-      </a>
-      <a href="/areas/independence-mo/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Independence, MO</h3>
-        <p class="mt-2 text-sm text-muted">Historic properties and estates</p>
-      </a>
-      <a href="/areas/lees-summit-mo/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Lee's Summit, MO</h3>
-        <p class="mt-2 text-sm text-muted">Growing Jackson County suburb</p>
-      </a>
-      <a href="/areas/shawnee-ks/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Shawnee, KS</h3>
-        <p class="mt-2 text-sm text-muted">Established Johnson County community</p>
-      </a>
-      <a href="/areas/lenexa-ks/" class="card transition hover:-translate-y-1 hover:border-secondary/60">
-        <h3 class="text-lg font-semibold text-primary">Lenexa, KS</h3>
-        <p class="mt-2 text-sm text-muted">Planned communities and growth</p>
-      </a>
-      <a href="/areas/" class="card transition hover:-translate-y-1 hover:border-secondary/60 bg-soft">
-        <h3 class="text-lg font-semibold text-primary">See all areas</h3>
-        <p class="mt-2 text-sm text-muted">View complete service area</p>
-      </a>
+    <div class="grid gap-4 md:grid-cols-3">
+      {quickLinks.map((link) => (
+        <a href={link.href} class="rounded-[1.5rem] border border-border/60 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-secondary/60">
+          <h3 class="text-xl font-black text-primary">{link.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{link.body}</p>
+          <span class="mt-4 inline-flex text-sm font-black text-secondary">Open page</span>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -458,12 +344,6 @@ const jsonLd = [
       ))}
     </div>
   </section>
-
-  <OfferConfidencePanel
-    heading="Get clarity before you decide what to do with the house"
-    intro="If you are comparing a direct sale, listing, payment takeover, or simply need a backup plan, these guides explain the next step before you submit the form."
-  />
-
   <section id="get-offer" class="section space-y-6">
     <div class="space-y-2 text-center">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Get an offer</p>

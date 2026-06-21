@@ -42,7 +42,7 @@ const areaLinks = [
   },
   {
     title: "Lenexa, KS",
-    body: "Planned community with historic district and modern developments. Popular with relocating families.",
+    body: "Planned community with historic district and modern developments.",
     href: "/areas/lenexa-ks/",
   },
   ...expansionAreas.map((area) => ({
@@ -52,14 +52,14 @@ const areaLinks = [
   })),
 ];
 
-const placeholderCards: string[] = [
-];
+const featuredAreaLinks = areaLinks.slice(0, 8);
+const nearbyAreaLinks = areaLinks.slice(8);
 
 const faqs = [
   {
     question: "How far outside Kansas City will you look at a property?",
     answer:
-      "Most homes within roughly 30 miles of downtown Kansas City are on our radar. If you are a bit farther out, still reach out—we will confirm what travel or partner support looks like before promising anything.",
+      "Most homes within roughly 30 miles of downtown Kansas City are on our radar. If you are farther out, still reach out and we will confirm fit before promising anything.",
   },
   {
     question: "Do you focus on certain price points or property types?",
@@ -91,77 +91,92 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <section class="section space-y-5">
-    <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Service area</p>
-    <h1 class="text-4xl font-semibold text-primary">Areas We Buy in the Kansas City Metro</h1>
-    <p class="max-w-3xl text-muted">
-      We keep things local so walkthroughs, title work, and closings stay simple. If you are within
-      about 30 miles of downtown Kansas City—on either side of the state line—we are happy to review the
-      property, outline next steps, and share whether a cash or flexible offer makes the most sense. Whether you need to <a href="/solutions/sell-house-fast/" class="text-secondary underline">sell fast</a>, handle an <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property</a>, or deal with <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs</a>, we provide area-specific guidance.
+    <p class="badge">Service area</p>
+    <h1 class="text-4xl font-black text-primary md:text-5xl">Areas We Buy in the Kansas City Metro</h1>
+    <p class="max-w-3xl text-lg leading-8 text-muted">
+      We keep things local so walkthroughs, title work, and closings stay simple. If the property is within about 30 miles of downtown Kansas City, on either side of the state line, we can review it and explain whether a cash or flexible offer makes sense.
     </p>
   </section>
 
   <SellerSituationLinks
     city="the Kansas City metro"
     heading="Find the right selling path for your Kansas City area"
-    intro="Use the area pages for local context, then match your situation to the guide that fits the deadline, repair issue, mortgage pressure, or family timeline you are dealing with."
+    intro="Use the area pages for local context, then match your situation to the deadline, repair issue, mortgage pressure, or family timeline you are dealing with."
   />
 
-  <section class="section">
-    <div class="grid gap-6 md:grid-cols-3">
-      {areaLinks.map((area) => (
-        <a href={area.href} class="card h-full transition-all hover:-translate-y-1 hover:shadow-lg">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Featured area</p>
-          <h2 class="text-2xl font-semibold text-primary">{area.title}</h2>
-          <p class="mt-2 text-sm text-muted">{area.body}</p>
-          <span class="mt-4 inline-flex items-center text-sm font-semibold text-secondary">
-            Explore details →
+  <section class="section space-y-8">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Where we work most often</p>
+      <h2 class="text-3xl font-black text-primary">Start with the core Kansas City metro</h2>
+      <p class="text-muted">
+        These are the first local pages most sellers need. If your city is not here, use the compact city list below or send the address and we will confirm fit.
+      </p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {featuredAreaLinks.map((area) => (
+        <a href={area.href} class="rounded-[1.5rem] border border-border/70 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-secondary/50 hover:shadow-lg">
+          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Featured area</p>
+          <h2 class="mt-2 text-2xl font-black text-primary">{area.title}</h2>
+          <p class="mt-2 text-sm leading-6 text-muted">{area.body}</p>
+          <span class="mt-4 inline-flex items-center text-sm font-bold text-secondary">
+            Explore details
           </span>
         </a>
       ))}
+    </div>
 
-      {placeholderCards.map((name) => (
-        <div class="card h-full border border-dashed border-border/80 bg-soft/60 text-muted" aria-disabled="true">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Coming soon</p>
-          <h2 class="text-2xl font-semibold text-primary/70">{name}</h2>
-          <p class="mt-2 text-sm">
-            We are compiling recent purchases and insights for this area. Reach out if you need information sooner.
+    {nearbyAreaLinks.length > 0 && (
+      <div class="rounded-[2rem] border border-border/70 bg-soft/70 p-6 shadow-sm">
+        <div class="max-w-2xl space-y-2">
+          <h2 class="text-2xl font-black text-primary">More nearby cities</h2>
+          <p class="text-sm leading-6 text-muted">
+            We are building deeper pages for these communities too. The address is still the fastest way to confirm a fit.
           </p>
         </div>
-      ))}
-    </div>
+        <div class="mt-5 flex flex-wrap gap-3">
+          {nearbyAreaLinks.map((area) => (
+            <a
+              href={area.href}
+              class="rounded-full border border-border bg-white px-4 py-2 text-sm font-bold text-primary transition hover:border-secondary/60 hover:text-secondary"
+            >
+              {area.title}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
   </section>
 
   <section class="section section-alt space-y-6">
     <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How we approach each neighborhood</h2>
-      <p class="text-muted">
-        Every block has different permitting rules, HOA nuances, and buyer expectations. We document what we learn so
-        you get clear answers about walkthrough access, closing timelines, and whether we can keep tenants or family
-        members in place for a period after closing. Common situations include <a href="/solutions/probate-house/" class="text-secondary underline">probate sales</a>, <a href="/solutions/vacant-house/" class="text-secondary underline">vacant properties</a>, and <a href="/solutions/relocating/" class="text-secondary underline">job relocations</a>.
+      <h2 class="text-2xl font-black text-primary">How we approach each neighborhood</h2>
+      <p class="max-w-3xl text-muted">
+        Every block has different permitting rules, HOA expectations, title items, and buyer expectations. We keep the local conversation practical: what can close, what may slow things down, and what needs to be handled before money changes hands.
       </p>
     </div>
     <ul class="grid gap-4 md:grid-cols-3">
       <li class="card bg-white/90">
-        <h3 class="text-lg font-semibold text-primary">Straight answers</h3>
+        <h3 class="text-lg font-black text-primary">Straight answers</h3>
         <p class="mt-2 text-sm text-muted">Know when title can clear, what repairs matter, and what paperwork is needed.</p>
       </li>
       <li class="card bg-white/90">
-        <h3 class="text-lg font-semibold text-primary">Flexible timelines</h3>
+        <h3 class="text-lg font-black text-primary">Flexible timelines</h3>
         <p class="mt-2 text-sm text-muted">Close quickly for vacant homes or pace things to line up with your next move.</p>
       </li>
       <li class="card bg-white/90">
-        <h3 class="text-lg font-semibold text-primary">Flexible options</h3>
+        <h3 class="text-lg font-black text-primary">Flexible options</h3>
         <p class="mt-2 text-sm text-muted">Compare cash, payment takeover, or other written terms when a straight sale is not the only fit.</p>
       </li>
     </ul>
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-semibold text-primary">Area FAQ</h2>
+    <h2 class="text-2xl font-black text-primary">Area FAQ</h2>
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <summary class="cursor-pointer text-base font-black text-primary">{faq.question}</summary>
           <p class="mt-2 text-sm text-muted">{faq.answer}</p>
         </details>
       ))}
