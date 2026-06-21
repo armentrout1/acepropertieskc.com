@@ -117,10 +117,13 @@ const jsonLd = [
       </div>
 
       <OfferForm
-        heading="Start your offer conversation"
-        subheading="A local team member will review the details and follow up with clear next steps."
-        formId="get-offer-form"
-        pageContext="get offer page"
+        addressFirst
+        heading="Start with the address"
+        subheading="We will ask for phone or email on the next step, then review cash and creative options."
+        formId="get-offer-address-first-form"
+        defaultSituation="options review"
+        pageContext="get offer address first"
+        buttonLabel="See my options"
       />
     </div>
   </section>
@@ -129,8 +132,8 @@ const jsonLd = [
     eyebrow="Before you commit"
     heading="Ask for cash and creative options in one conversation"
     intro="Some sellers only need a simple as-is cash number. Others need help comparing payoff-at-closing, payment pressure, inherited-house issues, or a payment takeover structure. The offer request can start with either path."
-    primaryLabel="Keep filling out the form"
-    primaryHref="#get-offer-form"
+    primaryLabel="Use the detailed form"
+    primaryHref="#detailed-offer-form"
     trackingLocation="get_offer_creative_promise"
   />
 
@@ -144,6 +147,25 @@ const jsonLd = [
         </article>
       ))}
     </div>
+  </section>
+
+  <section id="detailed-offer-form" class="section grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+    <div class="space-y-4">
+      <p class="badge">Detailed offer form</p>
+      <h2 class="text-3xl font-semibold text-primary">Ready to share more than the address?</h2>
+      <p class="text-muted">
+        Use the full form when you already know the situation, timing, contact preference, or notes that would help us respond with better context.
+      </p>
+      <p class="text-sm text-muted">
+        The quick form above is still the fastest way to start. This detailed form is for sellers who want to send more in one pass.
+      </p>
+    </div>
+    <OfferForm
+      heading="Start your offer conversation"
+      subheading="A local team member will review the details and follow up with clear next steps."
+      formId="get-offer-form"
+      pageContext="get offer detailed form"
+    />
   </section>
 
   <section class="section">
