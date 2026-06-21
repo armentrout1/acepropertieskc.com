@@ -73,6 +73,10 @@ function hasNamedField(html, name) {
   return new RegExp(`\\bname=["']${name}["']`, "i").test(html);
 }
 
+function getNamedFieldTag(html, name) {
+  return html.match(new RegExp(`<[^>]+\\bname=["']${name}["'][^>]*>`, "i"))?.[0] ?? "";
+}
+
 function routeFromHtmlFile(file) {
   const relative = path.relative(root, file).replaceAll(path.sep, "/");
 
@@ -117,12 +121,17 @@ function assertForm(route, form, index, issues) {
     issues.forms.push(`${label} is missing a phone/email contact path.`);
   }
 
-  if (!hasNamedField(form, "consent")) {
+  const consentField = getNamedFieldTag(form, "consent");
+  if (!consentField) {
     issues.forms.push(`${label} is missing the consent field.`);
   }
 
-  if (!/\bname=["']consent["'][^>]*\brequired\b/i.test(form)) {
-    issues.forms.push(`${label} consent field must be required.`);
+  const consentType = getAttribute(consentField, "type").toLowerCase();
+  const consentValue = getAttribute(consentField, "value").toLowerCase();
+  const consentIsRequired = /\brequired\b/i.test(consentField);
+  const consentIsImplied = consentType === "hidden" && consentValue === "true";
+  if (consentField && !consentIsRequired && !consentIsImplied) {
+    issues.forms.push(`${label} consent field must be required or hidden with value="true".`);
   }
 
   if (!hasNamedField(form, "website")) {
