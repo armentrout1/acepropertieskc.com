@@ -9,15 +9,6 @@ import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
 
-const trustPoints = [
-  `Buying direct since ${SITE.buyerSince}`,
-  "Local Kansas City team",
-  "Sell as-is, no repairs",
-  "Payment takeover reviews when appropriate",
-  "No commissions or fees",
-  "Your timeline, your choice"
-];
-
 const heroProofPills = [
   `Buying direct since ${SITE.buyerSince}`,
   "Cash or creative options",
@@ -289,43 +280,11 @@ const jsonLd = [
     </div>
     <div class="grid gap-5 md:grid-cols-2">
       {urgentSellerProblems.map((item) => (
-        <a href={item.href} class="card bg-white transition hover:-translate-y-1 hover:border-secondary/60">
+        <a href={item.href} class="rounded-[1.75rem] border border-border/60 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
           <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
           <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
           <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Compare this option</span>
         </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="card">
-      <div class="grid gap-4 text-sm font-medium text-primary sm:grid-cols-5">
-        {trustPoints.map((point) => (
-          <div class="flex items-center gap-2" role="listitem">
-            <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{point}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="how-it-works" class="section space-y-6">
-    <div class="space-y-2">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">How it works</p>
-      <h2 class="text-3xl font-semibold text-primary">Simple conversations, clear next steps</h2>
-      <p class="text-muted">
-        We guide you through each phase so you always know what documents are needed, who is handling title work, and when you get paid.
-      </p>
-    </div>
-    <div class="grid gap-6 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card" aria-label={`Step ${index + 1}`}>
-          <p class="text-xs font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
-        </div>
       ))}
     </div>
   </section>
@@ -338,7 +297,7 @@ const jsonLd = [
     </div>
     <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
       {solutions.map((solution) => (
-        <a href={solution.href} class="card transition hover:-translate-y-1 hover:border-secondary/60">
+        <a href={solution.href} class="rounded-[1.75rem] border border-border/60 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
           <h3 class="text-xl font-semibold text-primary">{solution.title}</h3>
           <p class="mt-2 text-sm text-muted">{solution.body}</p>
           <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary">
@@ -372,6 +331,25 @@ const jsonLd = [
           <p class="mt-4 text-sm leading-6 text-muted">{story.summary}</p>
           <span class="mt-5 inline-flex text-sm font-semibold text-secondary">Read the story</span>
         </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section space-y-6">
+    <div class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">How it works</p>
+      <h2 class="text-3xl font-semibold text-primary">Simple conversations, clear next steps</h2>
+      <p class="max-w-3xl text-muted">
+        We guide each phase so you know what details are needed, who is handling title work, and when you get paid.
+      </p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <div class="rounded-[1.75rem] border border-border/60 bg-white/90 p-6 shadow-sm" aria-label={`Step ${index + 1}`}>
+          <p class="text-xs font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </div>
       ))}
     </div>
   </section>
@@ -495,7 +473,7 @@ const jsonLd = [
       <h2 class="text-3xl font-semibold text-primary">Share the property basics</h2>
       <p class="text-muted">No pressure. We'll confirm details and discuss next steps.</p>
     </div>
-    <div class="card p-4 sm:p-6">
+    <div class="mx-auto max-w-3xl">
       <OfferForm pageContext="homepage" />
     </div>
   </section>
