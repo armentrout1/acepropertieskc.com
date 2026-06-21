@@ -256,12 +256,9 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
 
     {!addressFirst && (
       <>
-        <label class="flex items-start gap-3 text-sm text-primary">
-          <input id={`${formId}-consent`} name="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-border/80 focus-visible:ring-2 focus-visible:ring-secondary/40" aria-describedby={`${formId}-error`} required />
-          <span>I agree to be contacted about my request.</span>
-        </label>
-        <p class="text-xs text-muted">
-          We use your information only to respond to this property request. No obligation, no spam, and no sale of your details.
+        <input type="hidden" name="consent" value="true" />
+        <p class="text-xs leading-5 text-muted">
+          By submitting, you authorize ACE Properties KC to contact you about this property. Reply STOP to opt out.
         </p>
       </>
     )}
@@ -469,7 +466,7 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
       const phoneInput = form.querySelector('input[name="phone"]');
       const emailInput = form.querySelector('input[name="email"]');
       const consentInput = form.querySelector('input[name="consent"]');
-      const consentChecked = impliedConsent || (consentInput ? consentInput.checked : false);
+      const consentChecked = impliedConsent || (consentInput ? consentInput.getAttribute('value') === 'true' || consentInput.checked : false);
       const invalidFields = [];
 
       [addressInput, contactInput, phoneInput, emailInput, consentInput].forEach((field) => {
