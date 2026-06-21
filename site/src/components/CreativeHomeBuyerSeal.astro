@@ -9,26 +9,26 @@ const { compact = false, className = "" } = Astro.props as Props;
 
 <div
   class:list={[
-    "relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-accent bg-white text-center shadow-[0_18px_36px_rgba(11,36,64,0.22)] ring-4 ring-white/90",
-    compact ? "h-32 w-32 p-4" : "h-40 w-40 p-5",
+    "relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border-[4px] border-accent bg-white text-center shadow-[0_22px_44px_rgba(11,36,64,0.24)] ring-4 ring-white/90",
+    compact ? "h-36 w-36 p-4" : "h-44 w-44 p-5",
     className,
   ]}
   aria-label="ACE Properties KC creative home buyer brand promise"
 >
-  <div class="absolute inset-[0.45rem] rounded-full border-2 border-secondary/45"></div>
-  <div class="absolute left-1/2 top-2 h-1.5 w-14 -translate-x-1/2 rounded-full bg-accent"></div>
-  <div class="absolute bottom-1.5 left-1/2 h-1 w-12 -translate-x-1/2 rounded-full bg-secondary"></div>
-  <div class="relative space-y-1.5">
+  <div class="absolute inset-[0.52rem] rounded-full border-2 border-secondary/45"></div>
+  <div class="absolute left-1/2 top-2.5 h-1.5 w-16 -translate-x-1/2 rounded-full bg-accent"></div>
+  <div class="absolute bottom-2 left-1/2 h-1 w-14 -translate-x-1/2 rounded-full bg-secondary"></div>
+  <div class="relative flex flex-col items-center justify-center gap-1.5 pt-1">
     <p
       class:list={[
-        compact ? "text-[1.14rem]" : "text-[1.42rem]",
-        "font-heading font-black leading-[0.95] text-primary [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
+        compact ? "text-[1.12rem]" : "text-[1.36rem]",
+        "font-heading font-black leading-[0.98] text-primary [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
       ]}
     >
       Creative <br />Home Buyer
     </p>
-    <p class="text-[0.64rem] font-black uppercase tracking-[0.12em] text-primary/70">KC Metro</p>
-    <p class="mx-auto mt-1 max-w-[5.4rem] rounded-full bg-secondary px-2 py-1.5 text-[0.52rem] font-black uppercase leading-[1.05] tracking-[0.08em] text-white shadow-sm ring-2 ring-accent/30">
+    <p class="text-[0.68rem] font-black uppercase tracking-[0.1em] text-primary/70">KC Metro</p>
+    <p class="mx-auto mt-1 w-[6.6rem] rounded-full bg-secondary px-2 py-2 text-[0.58rem] font-black uppercase leading-[1.08] tracking-[0.06em] text-white shadow-sm ring-2 ring-accent/30">
       Cash + Flexible<br />Options
     </p>
   </div>
