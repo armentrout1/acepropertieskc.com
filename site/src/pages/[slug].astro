@@ -25,6 +25,31 @@ const nextSteps = [
   "Compare cash, payoff, as-is, and creative options when they apply.",
   "Decide only after you understand the numbers, timing, and trade-offs.",
 ];
+const pageFaqs = [
+  ...page.faqs,
+  {
+    question: "Is ACE a direct buyer or a wholesaler?",
+    answer:
+      "ACE's goal is to buy directly when we make an offer. Some wholesalers get a house under contract and then try to assign or sell that contract to another buyer. That can create risk if the end buyer never appears. We explain the difference before you decide.",
+  },
+];
+const supportLinks = [
+  {
+    label: "Direct buyer vs wholesaler",
+    href: "/direct-buyer-vs-wholesaler/",
+    body: "See why the buyer's ability and intent to close matters before you sign.",
+  },
+  {
+    label: page.relatedGuide.label,
+    href: page.relatedGuide.href,
+    body: "Read the deeper local guide for this seller situation.",
+  },
+  {
+    label: "Start with the address",
+    href: `#${formId}`,
+    body: "Use the quick form when you are ready for ACE to review the property.",
+  },
+];
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
@@ -33,7 +58,7 @@ const jsonLd = [
     description: page.description,
     path: canonicalPath,
   }),
-  buildFaqPageJsonLd(page.faqs),
+  buildFaqPageJsonLd(pageFaqs),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: page.headline, item: canonicalPath },
@@ -137,6 +162,24 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Helpful next steps</p>
+      <h2 class="text-3xl font-semibold text-primary">Keep the decision simple</h2>
+      <p class="text-muted">
+        If you are comparing cash buyers, agents, or wholesalers, use these pages to check the promise, the process, and the next move.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {supportLinks.map((link) => (
+        <a href={link.href} class="group rounded-[1.6rem] border border-border/70 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-secondary/40 hover:shadow-md">
+          <span class="text-base font-black text-primary group-hover:text-secondary">{link.label}</span>
+          <span class="mt-2 block text-sm leading-6 text-muted">{link.body}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section class="full-bleed bg-white">
     <div class="container-shell grid gap-6 py-14 md:grid-cols-[0.9fr_1.1fr] md:py-20">
       <article class="rounded-[2rem] bg-primary p-6 text-white shadow-sm md:p-8">
@@ -170,7 +213,7 @@ const jsonLd = [
   <section class="section space-y-4">
     <h2 class="text-3xl font-semibold text-primary">{page.eyebrow} FAQ</h2>
     <div class="space-y-3">
-      {page.faqs.map((faq) => (
+      {pageFaqs.map((faq) => (
         <details class="card">
           <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
           <p class="mt-2 text-sm text-muted">{faq.answer}</p>
