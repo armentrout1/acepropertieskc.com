@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
   localBusinessJsonLd,
@@ -94,12 +95,30 @@ const jsonLd = [
   canonicalPath="/solutions/behind-on-payments/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-5">
-    <p class="badge">Past-Due Mortgage Support</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell a House Behind on Payments in Kansas City</h1>
-    <p class="text-muted">
-      Falling behind on payments feels heavy, but it does not have to be chaotic. We focus solely on the Kansas City metro, so we already know how local lenders, title companies, and counties move through arrears and foreclosure timelines. Our goal is to listen first, share plain-language options, and help you keep every deadline visible.
-    </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell py-14 md:py-20">
+      <div class="max-w-5xl space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Past-due mortgage support</span>
+          <span class="v3-pill">Payoff and arrears review</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Private payment review</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Sell a House Behind on Payments in Kansas City</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Falling behind feels heavy, but the next step does not have to be chaotic. ACE can compare a cash sale, payoff-at-closing path, payment-takeover review, or backup offer before fees and deadlines keep growing.
+          </p>
+          <p class="max-w-3xl text-sm leading-6 text-white/70">
+            We are local to the Kansas City metro and keep lender, title, arrears, and timeline questions visible from the first conversation.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#behind-on-payments-offer-form" class="btn bg-white text-primary hover:bg-white/90">Review payment options</a>
+          <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn border border-white/40 text-white hover:bg-white/10">Read the guide</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock

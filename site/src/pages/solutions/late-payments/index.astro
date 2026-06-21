@@ -110,15 +110,30 @@ const jsonLd = [
   canonicalPath="/solutions/late-payments/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-5">
-    <p class="badge">Late Payment Relief</p>
-    <h1 class="text-4xl font-semibold text-primary">Support for Late Mortgage Payments</h1>
-      <p class="text-muted">
-        Falling behind on payments does not automatically mean foreclosure. In the Kansas City metro, lenders often send multiple notices before scheduling a sale, giving you space to weigh realistic options. ACE Properties KC focuses locally, so we understand how Jackson, Clay, Platte, Johnson, and Wyandotte County lenders process reinstatements and payoff requests. We do not provide legal advice or guarantee outcomes, but we do explain each route clearly so you can select the plan that fits your priorities.
-      </p>
-      <p class="text-muted">
-        For the full decision tree, read the <a href="/resources/behind-on-mortgage-options-kansas-city/" class="text-secondary underline">Kansas City behind-on-mortgage options guide</a> and the <a href="/options/" class="text-secondary underline">cash or payment takeover options page</a> before deciding whether to sell.
-      </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell py-14 md:py-20">
+      <div class="max-w-5xl space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Late payment relief</span>
+          <span class="v3-pill">Cash or payment review</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Early mortgage-pressure options</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Support for Late Mortgage Payments</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Falling behind does not automatically mean foreclosure. Earlier conversations give you more room to compare lender help, a direct cash sale, payoff-at-closing, or a payment-takeover review.
+          </p>
+          <p class="max-w-3xl text-sm leading-6 text-white/70">
+            We do not provide legal advice or guarantee outcomes. We keep the routes plain so you can choose what fits your priorities.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#late-payments-offer-form" class="btn bg-white text-primary hover:bg-white/90">Review late-payment options</a>
+          <a href="/resources/behind-on-mortgage-options-kansas-city/" class="btn border border-white/40 text-white hover:bg-white/10">Read mortgage options</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock
