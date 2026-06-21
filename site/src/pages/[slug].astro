@@ -19,6 +19,12 @@ const { page } = Astro.props as { page: PaidLandingPage };
 const canonicalPath = `/${page.slug}/`;
 const formId = `${page.slug}-landing-form`;
 const story = getSellerStory(page.storySlug);
+const nextSteps = [
+  "Start with the property address so we can review the right local context.",
+  "Share phone or email on the next step so a real person can follow up.",
+  "Compare cash, payoff, as-is, and creative options when they apply.",
+  "Decide only after you understand the numbers, timing, and trade-offs.",
+];
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
@@ -42,38 +48,45 @@ const jsonLd = [
   jsonLd={jsonLd}
   headerVariant="landing"
 >
-  <section class="section grid gap-8 pt-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-    <div class="space-y-6">
-      <p class="badge">{page.eyebrow}</p>
-      <div class="space-y-4">
-        <h1 class="text-4xl font-semibold text-primary md:text-5xl">{page.headline}</h1>
-        <p class="text-lg leading-8 text-muted">{page.lead}</p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell grid gap-8 py-14 md:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+      <div class="space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">{page.eyebrow}</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+          <span class="v3-pill">Address-first review</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Kansas City seller options</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">{page.headline}</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">{page.lead}</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {page.proofPoints.map((point) => (
+            <span class="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-bold text-white">{point}</span>
+          ))}
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href={`tel:${SITE.phoneTel}`} class="btn bg-white text-primary hover:bg-white/90" data-phone-link={`${page.slug}_hero_call`}>
+            Call {SITE.phoneDisplay}
+          </a>
+          <a href={`sms:${SITE.smsTel}`} class="btn border border-white/40 text-white hover:bg-white/10" data-sms-link={`${page.slug}_hero_sms`}>
+            Text us
+          </a>
+          <a href="/contact/" class="btn border border-white/40 text-white hover:bg-white/10">Ask first</a>
+        </div>
       </div>
-      <div class="grid gap-3 text-sm text-primary sm:grid-cols-2">
-        {page.proofPoints.map((point) => (
-          <div class="rounded-md border border-border bg-soft/70 p-3">{point}</div>
-        ))}
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a href={`tel:${SITE.phoneTel}`} class="btn btn-secondary text-base" data-phone-link={`${page.slug}_hero_call`}>
-          Call {SITE.phoneDisplay}
-        </a>
-        <a href={`sms:${SITE.smsTel}`} class="btn btn-ghost text-base" data-sms-link={`${page.slug}_hero_sms`}>
-          Text us
-        </a>
-        <a href="/contact/" class="btn btn-outline text-base">Ask first</a>
-      </div>
-    </div>
 
-    <OfferForm
-      mini
-      formId={formId}
-      heading={page.formHeading}
-      subheading={page.formSubheading}
-      defaultSituation={page.defaultSituation}
-      pageContext={`paid_landing_${page.slug}`}
-      buttonLabel={page.buttonLabel}
-    />
+      <OfferForm
+        addressFirst
+        formId={formId}
+        heading={page.formHeading}
+        subheading={page.formSubheading}
+        defaultSituation={page.defaultSituation}
+        pageContext={`paid_landing_${page.slug}`}
+        buttonLabel={page.buttonLabel}
+      />
+    </div>
   </section>
 
   <CreativePromisePanel
@@ -100,7 +113,7 @@ const jsonLd = [
       </div>
       <div class="grid gap-3 sm:grid-cols-2">
         {page.situationBullets.map((item) => (
-          <div class="card bg-white">
+          <div class="rounded-[1.5rem] border border-border/70 bg-white px-5 py-4 shadow-sm">
             <p class="text-sm text-primary">{item}</p>
           </div>
         ))}
@@ -124,25 +137,32 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="section grid gap-6 md:grid-cols-2">
-    <article class="card">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">What happens next</p>
-      <h2 class="mt-3 text-2xl font-semibold text-primary">The form starts a private review</h2>
-      <p class="mt-3 text-muted">
-        Send the address and one way to reach you. ACE can review property condition, title questions, timing, payoff pressure, and whether a cash or flexible structure fits before asking you to make a decision.
-      </p>
-      <div class="mt-5 flex flex-wrap gap-3">
-        <a href={`#${formId}`} class="btn btn-primary">Start with the address</a>
-        <a href={page.relatedGuide.href} class="btn btn-outline">{page.relatedGuide.label}</a>
-      </div>
-    </article>
-    <article class="card bg-primary text-white">
-      <p class="text-sm font-semibold uppercase tracking-wide text-accent">No fake pressure</p>
-      <h2 class="mt-3 text-2xl font-semibold text-white">You can compare, ask questions, and pause</h2>
-      <p class="mt-3 text-sm leading-6 text-white/80">
-        A landing page should make it easier to reach out, not harder to think. The first conversation is not a contract, and seller details stay private unless you choose to move forward.
-      </p>
-    </article>
+  <section class="full-bleed bg-white">
+    <div class="container-shell grid gap-6 py-14 md:grid-cols-[0.9fr_1.1fr] md:py-20">
+      <article class="rounded-[2rem] bg-primary p-6 text-white shadow-sm md:p-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent">What happens next</p>
+        <h2 class="mt-3 text-3xl font-black text-white">The form starts a private review</h2>
+        <p class="mt-3 text-sm leading-6 text-white/80">
+          Send the address and one way to reach you. ACE can review property condition, title questions, timing, payoff pressure, and whether a cash or flexible structure fits before asking you to make a decision.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href={`#${formId}`} class="btn bg-white text-primary hover:bg-white/90">Start with the address</a>
+          <a href={page.relatedGuide.href} class="btn border border-white/40 text-white hover:bg-white/10">{page.relatedGuide.label}</a>
+        </div>
+      </article>
+      <article class="rounded-[2rem] border border-border/70 bg-cream p-6 shadow-sm md:p-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">No fake pressure</p>
+        <h2 class="mt-3 text-3xl font-black text-primary">You can compare, ask questions, and pause</h2>
+        <ol class="mt-5 space-y-3">
+          {nextSteps.map((step, index) => (
+            <li class="flex gap-3 rounded-[1.35rem] bg-white p-4 text-primary shadow-sm">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-black text-white">{index + 1}</span>
+              <span class="pt-1 text-sm leading-6">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </article>
+    </div>
   </section>
 
   <SellerReviewStrip />
