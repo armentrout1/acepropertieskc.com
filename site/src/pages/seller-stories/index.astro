@@ -4,6 +4,7 @@ import OfferForm from "../../components/OfferForm.astro";
 import SellerReviewStrip from "../../components/SellerReviewStrip.astro";
 import { sellerStories } from "../../data/sellerStories";
 import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+import { SITE } from "../../lib/siteConfig";
 
 const jsonLd = [
   webSiteJsonLd(),
@@ -21,31 +22,43 @@ const jsonLd = [
   canonicalPath="/seller-stories/"
   jsonLd={jsonLd}
 >
-  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
-    <div class="space-y-5">
-      <p class="badge">Seller stories</p>
-      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-        Real situations need more than a generic cash offer
-      </h1>
-      <p class="text-lg leading-8 text-muted">
-        These privacy-safe stories show how ACE Properties KC thinks through complicated property problems: inherited homes, payment pressure, condos that will not sell, and creative structures when a normal sale does not fit.
-      </p>
-      <p class="text-sm text-muted">
-        Some identifying details are generalized. We only publish names, photos, reviews, or exact addresses when the seller has given permission.
-      </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell grid gap-8 py-14 md:py-20 lg:grid-cols-[1fr_0.86fr] lg:items-center">
+      <div class="space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Privacy-safe examples</span>
+          <span class="v3-pill">Cash and creative options</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Seller stories</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
+            Real situations need more than a generic cash offer
+          </h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            These stories show how ACE thinks through inherited homes, payment pressure, rentals, condos, and creative structures when a normal sale does not fit.
+          </p>
+          <p class="max-w-2xl text-sm leading-6 text-white/70">
+            Identifying details stay generalized unless the seller gives permission. We would rather be careful and real than over-polished and fake.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#seller-story-grid" class="btn bg-white text-primary hover:bg-white/90">Browse stories</a>
+          <a href="/direct-buyer-vs-wholesaler/" class="btn border border-white/40 text-white hover:bg-white/10">Why direct buying matters</a>
+        </div>
+      </div>
+      <OfferForm
+        addressFirst
+        formId="seller-stories-address-first-form"
+        heading="Have a similar situation?"
+        subheading="Start with the property address. We can compare realistic options before asking for the full story."
+        defaultSituation="story follow-up"
+        pageContext="seller_stories_index"
+      />
     </div>
-    <OfferForm
-      mini
-      formId="seller-stories-mini-offer-form"
-      heading="Have a similar situation?"
-      subheading="Send the address and one way to reach you. We will help you compare realistic options."
-      defaultSituation="story follow-up"
-      pageContext="seller_stories_index"
-      buttonLabel="Compare my options"
-    />
   </section>
 
-  <section class="section section-alt space-y-6">
+  <section id="seller-story-grid" class="section section-alt space-y-6">
     <div class="max-w-3xl space-y-2">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Proof through problems solved</p>
       <h2 class="text-3xl font-semibold text-primary">Start with the story that feels closest to yours</h2>
@@ -55,14 +68,14 @@ const jsonLd = [
     </div>
     <div class="grid gap-5 lg:grid-cols-3">
       {sellerStories.map((story) => (
-        <a href={`/seller-stories/${story.slug}/`} class="card bg-white transition hover:-translate-y-1 hover:border-secondary/60">
+        <a href={`/seller-stories/${story.slug}/`} class="card bg-white transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
           <p class="text-xs font-semibold uppercase tracking-wide text-secondary">{story.eyebrow}</p>
           <h3 class="mt-3 text-xl font-semibold text-primary">{story.title}</h3>
           <p class="mt-2 text-sm font-medium text-muted">{story.location}</p>
           <p class="mt-4 text-sm leading-6 text-muted">{story.summary}</p>
           <div class="mt-5 flex flex-wrap gap-2">
             {story.tags.map((tag) => (
-              <span class="rounded-full bg-soft px-3 py-1 text-xs font-semibold text-secondary">{tag}</span>
+              <span class="rounded-full border border-secondary/15 bg-soft px-3 py-1 text-xs font-semibold text-secondary">{tag}</span>
             ))}
           </div>
           <span class="mt-5 inline-flex text-sm font-semibold text-secondary">Read story</span>
