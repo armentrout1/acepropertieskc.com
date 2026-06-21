@@ -2,6 +2,7 @@
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import { SITE } from "../../../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../../lib/seo";
 
 const repairTypes = [
@@ -82,15 +83,30 @@ const jsonLd = [
   canonicalPath="/solutions/needs-repairs/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-5">
-    <p class="badge">Major Repairs & Renovations</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell a House That Needs Repairs in Kansas City</h1>
-    <p class="text-muted">
-      When repairs stack up, it can feel like you are stuck choosing between expensive contractors and a discounted sale. ACE Properties KC buys homes across the metro exactly as they sit. We evaluate the true scope, explain what it costs us to fix, and give you clear offers without lectures about deferred maintenance.
-    </p>
-    <p class="text-muted">
-      We stay nearby, focusing on neighborhoods you will find on the <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a>, and <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a> pages. That means we already know which installers are responsive, how quickly inspections can be scheduled, and which title companies can keep closing dates flexible while work finishes.
-    </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell py-14 md:py-20">
+      <div class="max-w-5xl space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Sell as-is</span>
+          <span class="v3-pill">No contractor bids first</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Major repairs and renovations</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Sell a Kansas City House That Needs Repairs</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Roof, foundation, HVAC, clean-out, dated interiors, unfinished projects, or code issues can all be reviewed as part of a direct as-is offer.
+          </p>
+          <p class="max-w-3xl text-sm leading-6 text-white/70">
+            ACE buys homes across the metro exactly as they sit. We explain what repairs mean for the offer without asking you to spend money first.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#repairs-offer-form" class="btn bg-white text-primary hover:bg-white/90">Get an as-is repair offer</a>
+          <a href="/resources/major-repairs-vs-selling-as-is-kansas-city/" class="btn border border-white/40 text-white hover:bg-white/10">Read repair guide</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock

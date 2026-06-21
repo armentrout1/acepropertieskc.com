@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import { SITE } from "../../../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../../lib/seo";
 
 const checklist = [
@@ -83,12 +84,27 @@ const jsonLd = [
   canonicalPath="/solutions/inherited-house/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-5">
-    <p class="badge">Estate & Inheritance Support</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell an Inherited House in Kansas City</h1>
-    <p class="text-muted">
-      Estates come with paperwork, family emotions, and logistics. Our Kansas City team focuses on service-area homes, so we already know which title companies, clean-out crews, and attorneys keep things moving. Whether you just received letters testamentary or have been maintaining a vacant bungalow for years, we help you evaluate the property's condition, settle obligations, and either sell for cash or consider flexible terms that preserve income for the heirs.
-    </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell py-14 md:py-20">
+      <div class="max-w-5xl space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Inherited house</span>
+          <span class="v3-pill">No clean-out required</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Estate and inheritance support</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Sell an Inherited House in Kansas City Without Remodeling It First</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Estates come with paperwork, family emotions, contents, repairs, taxes, and title questions. ACE can review the house as-is and help the family compare a direct cash purchase with other practical paths.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#inherited-house-offer-form" class="btn bg-white text-primary hover:bg-white/90">Start inherited-house review</a>
+          <a href="/seller-stories/inherited-original-condition-house/" class="btn border border-white/40 text-white hover:bg-white/10">Read a related story</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock
