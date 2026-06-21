@@ -2,6 +2,7 @@
 import Layout from "../../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
   localBusinessJsonLd,
@@ -96,12 +97,30 @@ const jsonLd = [
   canonicalPath="/solutions/tenant-occupied/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-5">
-    <p class="badge">Tenant-Focused Sale Support</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell a Tenant-Occupied Property in Kansas City</h1>
-    <p class="text-muted">
-      Selling a rental becomes more complex when good tenants are still in place or when rent is overdue and communication has slowed. ACE Properties KC buys within the metro only, so we understand local notice requirements, Section 8 paperwork, and how to coordinate timelines that respect renters. Our focus is keeping the process calm for you and the household inside the home.
-    </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell py-14 md:py-20">
+      <div class="max-w-5xl space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Tenant-in-place options</span>
+          <span class="v3-pill">Rental house sale</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Tenant-focused sale support</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Sell a Tenant-Occupied Property in Kansas City</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            You do not always have to evict first, disturb a good tenant, or turn a rental into a public-showing project. ACE can review a direct sale with the tenant in place or a calmer possession plan.
+          </p>
+          <p class="max-w-3xl text-sm leading-6 text-white/70">
+            We focus on keeping the process steady for the owner, manager, and household inside the property.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#tenant-occupied-offer-form" class="btn bg-white text-primary hover:bg-white/90">Review tenant sale options</a>
+          <a href="/resources/sell-house-with-tenants-kansas-city/" class="btn border border-white/40 text-white hover:bg-white/10">Read tenant-sale guide</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock

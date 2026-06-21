@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
+import { SITE } from "../../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
 
 const carryingCosts = [
@@ -90,12 +91,30 @@ const jsonLd = [
   canonicalPath="/solutions/vacant-house/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Stop Monthly Carrying Costs</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell a Vacant House in Kansas City</h1>
-    <p class="text-muted">
-      Vacant houses drain resources through monthly carrying costs while exposing you to weather damage, vandalism, and code violations. Whether your property in <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/lees-summit-mo/" class="text-secondary underline">Lee's Summit</a>, or anywhere in the metro has been sitting empty for months or years, we provide cash offers that let you stop the expenses and move forward without repairs or cleanup.
-    </p>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell py-14 md:py-20">
+      <div class="max-w-5xl space-y-6">
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Stop carrying costs</span>
+          <span class="v3-pill">No clean-out first</span>
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+        </div>
+        <div class="space-y-4">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Vacant house support</p>
+          <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">Sell a Vacant House in Kansas City</h1>
+          <p class="max-w-3xl text-lg leading-8 text-white/82">
+            Empty houses can drain money through utilities, insurance, taxes, yard care, code notices, weather damage, and security worries. ACE can review the property as-is and help you stop the monthly drag.
+          </p>
+          <p class="max-w-3xl text-sm leading-6 text-white/70">
+            No repairs, no public showings, and no clean-out required before the first conversation.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="#vacant-house-offer-form" class="btn bg-white text-primary hover:bg-white/90">Get vacant-house options</a>
+          <a href="/resources/vacant-house-carrying-cost-calculator/" class="btn border border-white/40 text-white hover:bg-white/10">Estimate carrying costs</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <HighIntentOfferBlock
@@ -137,18 +156,22 @@ const jsonLd = [
           <h3 class="text-lg font-semibold text-primary mb-2">Monthly Carrying Costs</h3>
           <ul class="space-y-2 text-sm text-muted">
             {carryingCosts.map((cost) => (
-              <li>• {cost}</li>
+              <li class="flex items-start gap-3 rounded-2xl border border-border/70 bg-white/80 px-4 py-3 shadow-sm">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary"></span>
+                <span>{cost}</span>
+              </li>
             ))}
           </ul>
         </div>
         <div>
           <h3 class="text-lg font-semibold text-primary mb-2">Risk Factors</h3>
           <ul class="space-y-2 text-sm text-muted">
-            <li>• Weather damage from neglect</li>
-            <li>• Vandalism and break-ins</li>
-            <li>• City code violations</li>
-            <li>• Insurance complications</li>
-            <li>• Neighborhood complaints</li>
+            {["Weather damage from neglect", "Vandalism and break-ins", "City code violations", "Insurance complications", "Neighborhood complaints"].map((risk) => (
+              <li class="flex items-start gap-3 rounded-2xl border border-border/70 bg-white/80 px-4 py-3 shadow-sm">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary"></span>
+                <span>{risk}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
