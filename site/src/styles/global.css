@@ -5,14 +5,27 @@
   --color-secondary: #0F766E;
   --color-accent: #F59E0B;
   --color-text: #111827;
-  --color-muted: #6B7280;
+  --color-muted: #4B5563;
   --color-border: #E5E7EB;
   --color-soft: #F3F4F6;
   --color-warm: #FFF7ED;
   --color-cream: #FFFBF4;
 
-  --font-heading: "Poppins", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.55;
+  --text-base: 1.03125rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.65;
+
+  --font-weight-medium: 600;
+  --font-weight-semibold: 700;
+  --font-weight-bold: 800;
+
+  --font-heading: "Manrope", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
 }
 
 :root {
@@ -20,7 +33,7 @@
   --c-secondary: #0F766E;
   --c-accent: #F59E0B;
   --c-text: #111827;
-  --c-muted: #6B7280;
+  --c-muted: #4B5563;
   --c-border: #E5E7EB;
   --c-soft: #F3F4F6;
   --c-warm: #FFF7ED;
@@ -35,19 +48,24 @@
   }
 
   body {
-    font-family: var(--font-body, Inter), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family: var(--font-body, "Source Sans 3"), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 500;
     color: var(--c-text);
     background: #fffcf7;
-    line-height: 1.55;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: var(--font-heading, Poppins), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family: var(--font-heading, Manrope), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 800;
     color: var(--c-primary);
     line-height: 1.15;
+    letter-spacing: 0;
   }
 }
 
@@ -93,7 +111,7 @@
   }
 
   .badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-secondary/25 bg-white/90 px-4 py-1.5 text-[0.72rem] font-bold uppercase tracking-[0.18em] text-secondary shadow-sm;
+    @apply inline-flex items-center gap-2 rounded-full border border-secondary/25 bg-white/90 px-4 py-1.5 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-secondary shadow-sm;
   }
 
   .cta-safe-area {
