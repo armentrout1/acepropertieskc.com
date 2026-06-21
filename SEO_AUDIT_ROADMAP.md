@@ -23,7 +23,7 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up
 - Primary organic target is clear: motivated Kansas City homeowners who need to sell as-is, fast, inherited, probate, foreclosure, repair-heavy, vacant, tenant-occupied, behind on payments, or relocation.
 - Latest generated HTML audit found no sitemap pollution, JSON-LD parse errors, missing H1s, title-length issues, meta-description issues, missing canonicals, or missing offer/contact paths on indexable pages.
 - Live QA confirmed homepage, `/get-offer/`, `/direct-buyer-vs-wholesaler/`, `/thank-you/`, robots, sitemap index, and sitemap file return `200`.
-- Latest GitHub Actions SEO Checks run on `main` passed for commit `bc0efec`.
+- Latest GitHub Actions SEO Checks run on `main` passed after the final roadmap/mobile QA push.
 
 ## Highest-Priority Findings
 
@@ -314,7 +314,7 @@ Checklist:
   - [x] `/get-offer/` form visible above the first mobile fold.
   - [x] `/direct-buyer-vs-wholesaler/` mobile hero tightened so the address field starts within the first mobile fold.
   - [x] No horizontal overflow found in live mobile checks.
-  - [x] Latest roadmap/mobile QA status pushed to `main` and verified by GitHub Actions SEO Checks on commit `bc0efec`.
+  - [x] Latest roadmap/mobile QA status pushed to `main` and verified by GitHub Actions SEO Checks.
 
 ## Phase 8: Authority and Links
 
