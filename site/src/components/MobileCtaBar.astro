@@ -6,13 +6,13 @@ const phoneTel = SITE.phoneTel;
 const smsTel = SITE.smsTel;
 ---
 
-<div class="fixed bottom-0 left-0 right-0 z-50 bg-primary md:hidden">
-  <div class="cta-safe-area flex items-center justify-around px-2">
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-primary/95 shadow-2xl backdrop-blur md:hidden">
+  <div class="cta-safe-area flex items-center justify-around gap-2 px-3 py-2">
     <!-- Call -->
     <a
       href={`tel:${phoneTel}`}
       aria-label={`Call ${phoneDisplay}`}
-      class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
+      class="flex min-h-14 flex-1 flex-col items-center justify-center gap-1 rounded-full text-white transition-colors hover:bg-white/10 hover:text-accent"
       data-phone-link="mobile_cta"
     >
       <svg
@@ -35,7 +35,7 @@ const smsTel = SITE.smsTel;
     <a
       href={`sms:${smsTel}`}
       aria-label={`Text ${phoneDisplay}`}
-      class="flex flex-col items-center gap-1 text-white hover:text-accent transition-colors"
+      class="flex min-h-14 flex-1 flex-col items-center justify-center gap-1 rounded-full text-white transition-colors hover:bg-white/10 hover:text-accent"
       data-sms-link="mobile_cta"
     >
       <svg
@@ -57,7 +57,7 @@ const smsTel = SITE.smsTel;
     <!-- Get Offer -->
     <a
       href="/get-offer/"
-      class="flex flex-col items-center gap-1 px-4 py-2 bg-accent text-primary rounded-lg hover:bg-amber-400 transition-colors"
+      class="flex min-h-14 flex-1 flex-col items-center justify-center gap-1 rounded-full bg-accent px-4 py-2 text-primary transition-colors hover:bg-amber-400"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -8,6 +8,8 @@
   --color-muted: #6B7280;
   --color-border: #E5E7EB;
   --color-soft: #F3F4F6;
+  --color-warm: #FFF7ED;
+  --color-cream: #FFFBF4;
 
   --font-heading: "Poppins", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -21,6 +23,9 @@
   --c-muted: #6B7280;
   --c-border: #E5E7EB;
   --c-soft: #F3F4F6;
+  --c-warm: #FFF7ED;
+  --c-cream: #FFFBF4;
+  --shadow-soft: 0 18px 60px rgba(11, 36, 64, 0.12);
 }
 
 @layer base {
@@ -32,7 +37,7 @@
   body {
     font-family: var(--font-body, Inter), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color: var(--c-text);
-    background: #fff;
+    background: #fffcf7;
     line-height: 1.55;
   }
 
@@ -48,19 +53,19 @@
 
 @layer components {
   .container-shell {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   .section {
-    @apply py-12 md:py-16;
+    @apply py-14 md:py-20;
   }
 
   .section-alt {
-    @apply rounded-3xl bg-soft/70 py-12 md:py-16;
+    @apply rounded-[2rem] bg-soft/70 py-14 md:py-20;
   }
 
   .card {
-    @apply rounded-3xl border border-border/70 bg-white/95 p-6 shadow-sm backdrop-blur;
+    @apply rounded-[1.75rem] border border-border/70 bg-white/95 p-6 shadow-sm backdrop-blur;
   }
 
   .btn,
@@ -68,7 +73,7 @@
   .btn-secondary,
   .btn-ghost,
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .btn-primary {
@@ -88,10 +93,36 @@
   }
 
   .badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-white/80 px-4 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-secondary;
+    @apply inline-flex items-center gap-2 rounded-full border border-secondary/25 bg-white/90 px-4 py-1.5 text-[0.72rem] font-bold uppercase tracking-[0.18em] text-secondary shadow-sm;
   }
 
   .cta-safe-area {
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+  }
+
+  .full-bleed {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+  }
+
+  .v3-pill {
+    @apply inline-flex items-center justify-center rounded-full border border-white/30 bg-white/90 px-4 py-2 text-sm font-bold text-primary shadow-sm;
+  }
+
+  .v3-soft-panel {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .v3-form-field {
+    @apply min-h-14 w-full rounded-full border border-border/70 bg-white px-5 text-base text-primary shadow-sm transition focus:border-secondary focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/20;
+  }
+
+  .v3-form-select {
+    @apply min-h-14 w-full rounded-2xl border border-border/70 bg-white px-5 py-3 text-base text-primary shadow-sm transition focus:border-secondary focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/20;
+  }
+
+  .v3-form-textarea {
+    @apply w-full rounded-2xl border border-border/70 bg-white px-5 py-4 text-base text-primary shadow-sm transition focus:border-secondary focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/20;
   }
 }

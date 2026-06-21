@@ -39,6 +39,7 @@ export function localBusinessJsonLd(): object {
     logo: `${SITE.baseUrl}/brand/ace-logo.svg`,
     image: `${SITE.baseUrl}/og-default.svg`,
     priceRange: "$$",
+    foundingDate: SITE.buyerSince,
     description: SITE.defaultDescription,
     areaServed: [
       { "@type": "City", name: "Kansas City", addressRegion: "MO" },

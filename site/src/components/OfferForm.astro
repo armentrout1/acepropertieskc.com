@@ -5,6 +5,7 @@ type Props = {
   formId?: string;
   compact?: boolean;
   mini?: boolean;
+  addressFirst?: boolean;
   includeCompactNotes?: boolean;
   defaultSituation?: string;
   pageContext?: string;
@@ -17,20 +18,21 @@ const {
   formId = "offer-form",
   compact = false,
   mini = false,
+  addressFirst = false,
   includeCompactNotes = false,
   defaultSituation = "as-is cash",
   pageContext = "",
   buttonLabel,
 } = Astro.props as Props;
 
-const showNotes = !mini && (!compact || includeCompactNotes);
+const showNotes = !addressFirst && !mini && (!compact || includeCompactNotes);
 const resolvedButtonLabel = buttonLabel ?? (mini ? "See my options" : "Start my offer conversation");
-const sectionPadding = mini || compact ? "p-5" : "p-6";
-const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
+const sectionPadding = addressFirst ? "p-3 sm:p-4" : mini || compact ? "p-5" : "p-6";
+const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
 ---
 
-<section class:list={["w-full rounded-2xl border border-border/70 bg-white shadow-sm", sectionPadding]} aria-labelledby={`${formId}-title`}>
-  <div class="space-y-1">
+<section class:list={["w-full bg-white shadow-sm", addressFirst ? "rounded-[2rem] border border-white/70 v3-soft-panel" : "rounded-2xl border border-border/70", sectionPadding]} aria-labelledby={`${formId}-title`}>
+  <div class:list={["space-y-1", addressFirst && "px-2 pt-2 sm:px-3"]}>
     <p
       id={`${formId}-badge`}
       class="inline-flex rounded-full bg-soft px-3 py-1 text-xs font-semibold uppercase tracking-wide text-secondary"
@@ -41,23 +43,90 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
     <p class="text-sm text-muted">{subheading}</p>
   </div>
 
-  <form id={formId} data-offer-form method="post" action="/api/send-email/" class={formSpacing} novalidate>
-    <div class="space-y-1">
-      <label for={`${formId}-address`} class="text-sm font-medium text-primary">
-        Property address<span class="text-accent">*</span>
-      </label>
-      <input
-        id={`${formId}-address`}
-        name="address"
-        type="text"
-        required
-        aria-describedby={`${formId}-error`}
-        placeholder="123 Main St, Kansas City"
-        class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
-      />
-    </div>
+  <form
+    id={formId}
+    data-offer-form
+    data-address-first={addressFirst ? "true" : "false"}
+    data-implied-consent={addressFirst ? "true" : "false"}
+    method="post"
+    action="/api/send-email/"
+    class={formSpacing}
+    novalidate
+  >
+    {addressFirst ? (
+      <div class="grid gap-3 sm:grid-cols-[1fr_auto]">
+        <div class="space-y-1">
+          <label for={`${formId}-address`} class="sr-only">
+            Property address
+          </label>
+          <input
+            id={`${formId}-address`}
+            name="address"
+            type="text"
+            required
+            aria-describedby={`${formId}-error`}
+            placeholder="Enter your property address"
+            class="v3-form-field"
+          />
+        </div>
+        <button
+          type="button"
+          data-address-next
+          class="btn btn-primary min-h-14 px-7 text-base sm:min-w-44"
+        >
+          See My Options
+        </button>
+      </div>
+    ) : (
+      <div class="space-y-1">
+        <label for={`${formId}-address`} class="text-sm font-medium text-primary">
+          Property address<span class="text-accent">*</span>
+        </label>
+        <input
+          id={`${formId}-address`}
+          name="address"
+          type="text"
+          required
+          aria-describedby={`${formId}-error`}
+          placeholder="123 Main St, Kansas City"
+          class="v3-form-field"
+        />
+      </div>
+    )}
 
-    {mini ? (
+    {addressFirst ? (
+      <div data-address-next-panel class="hidden rounded-[1.5rem] border border-border/60 bg-soft/60 p-4">
+        <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+          <div class="space-y-1">
+            <label for={`${formId}-contact`} class="text-sm font-bold text-primary">
+              Where should we send the next step?<span class="text-accent">*</span>
+            </label>
+            <input
+              id={`${formId}-contact`}
+              name="contact"
+              type="text"
+              required
+              aria-describedby={`${formId}-error`}
+              placeholder="Phone or email"
+              class="v3-form-field"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary min-h-14 px-7 text-base md:min-w-44"
+          >
+            Send Details
+          </button>
+        </div>
+        <input type="hidden" name="situation" value={defaultSituation} />
+        <input type="hidden" name="timeline" value="not sure yet" />
+        <input type="hidden" name="contact_preference" value="Any is fine" />
+        <input type="hidden" name="consent" value="true" />
+        <p class="mt-3 text-xs leading-5 text-muted">
+          By submitting, you authorize ACE Properties KC to contact you about this property. Reply STOP to opt out.
+        </p>
+      </div>
+    ) : mini ? (
       <>
         <div class="space-y-1">
           <label for={`${formId}-contact`} class="text-sm font-medium text-primary">
@@ -70,7 +139,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
             required
             aria-describedby={`${formId}-error`}
             placeholder="Phone or email"
-            class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            class="v3-form-field"
           />
         </div>
         <input type="hidden" name="situation" value={defaultSituation} />
@@ -85,7 +154,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
             <select
               id={`${formId}-situation`}
               name="situation"
-              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+              class="v3-form-select"
             >
               <option value="as-is cash" selected={defaultSituation === "as-is cash"}>As-is cash</option>
               <option value="sell fast" selected={defaultSituation === "sell fast"}>Sell house fast</option>
@@ -108,7 +177,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
             <select
               id={`${formId}-timeline`}
               name="timeline"
-              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+              class="v3-form-select"
             >
               <option value="asap">ASAP</option>
               <option value="2-4 weeks">2-4 weeks</option>
@@ -126,7 +195,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
               name="name"
               type="text"
               placeholder="Your name"
-              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+              class="v3-form-field"
             />
           </div>
 
@@ -139,7 +208,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
               inputmode="tel"
               aria-describedby={`${formId}-error`}
               placeholder="816-728-7548"
-              class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+              class="v3-form-field"
             />
           </div>
         </div>
@@ -152,7 +221,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
             type="email"
             aria-describedby={`${formId}-error`}
             placeholder="you@example.com"
-            class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            class="v3-form-field"
           />
         </div>
 
@@ -161,7 +230,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
           <select
             id={`${formId}-contact-preference`}
             name="contact_preference"
-            class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+            class="v3-form-select"
           >
             <option value="any">Any is fine</option>
             <option value="text">Text me first</option>
@@ -180,18 +249,22 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
           name="notes"
           rows={compact ? "2" : "4"}
           placeholder="Repairs, tenants, timing, probate, mortgage payoff, payment takeover, or anything else on your mind"
-          class="w-full rounded-xl border border-border/80 px-4 py-3 text-sm focus:border-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+          class="v3-form-textarea"
         ></textarea>
       </div>
     )}
 
-    <label class="flex items-start gap-3 text-sm text-primary">
-      <input id={`${formId}-consent`} name="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-border/80 focus-visible:ring-2 focus-visible:ring-secondary/40" aria-describedby={`${formId}-error`} required />
-      <span>I agree to be contacted about my request.</span>
-    </label>
-    <p class="text-xs text-muted">
-      We use your information only to respond to this property request. No obligation, no spam, and no sale of your details.
-    </p>
+    {!addressFirst && (
+      <>
+        <label class="flex items-start gap-3 text-sm text-primary">
+          <input id={`${formId}-consent`} name="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-border/80 focus-visible:ring-2 focus-visible:ring-secondary/40" aria-describedby={`${formId}-error`} required />
+          <span>I agree to be contacted about my request.</span>
+        </label>
+        <p class="text-xs text-muted">
+          We use your information only to respond to this property request. No obligation, no spam, and no sale of your details.
+        </p>
+      </>
+    )}
 
     <div aria-hidden="true" class="sr-only">
       <label for={`${formId}-website`}>Website</label>
@@ -219,12 +292,14 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
 
     <p id={`${formId}-error`} data-error class="hidden rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600" aria-live="polite" role="status"></p>
 
-    <button
-      type="submit"
-      class="w-full rounded-xl bg-secondary px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2"
-    >
-      {resolvedButtonLabel}
-    </button>
+    {!addressFirst && (
+      <button
+        type="submit"
+        class="w-full rounded-full bg-secondary px-5 py-4 text-center text-base font-bold text-white transition-colors hover:bg-secondary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2"
+      >
+        {resolvedButtonLabel}
+      </button>
+    )}
     <p class="text-center text-xs text-muted">
       Trouble sending?
       <a href="tel:+18167287548" class="font-semibold text-secondary hover:text-primary">Call 816-728-7548</a>,
@@ -245,6 +320,10 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
     const submitButton = form.querySelector('button[type="submit"]');
     const submitButtonText = submitButton ? submitButton.textContent : '';
     const startField = form.querySelector('input[name="form_started_at"]');
+    const addressFirst = form.dataset.addressFirst === 'true';
+    const impliedConsent = form.dataset.impliedConsent === 'true';
+    const addressNextButton = form.querySelector('[data-address-next]');
+    const addressNextPanel = form.querySelector('[data-address-next-panel]');
     const deliveryFallbackMessage = 'The form could not send right now. Please call or text 816-728-7548, or email info@acepropertieskc.com.';
     const sourceFields = [
       'utm_source',
@@ -334,8 +413,50 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
       trackFormEvent('form_start');
     });
 
+    if (addressFirst && addressNextButton && addressNextPanel) {
+      addressNextButton.addEventListener('click', function() {
+        const addressInput = form.querySelector('input[name="address"]');
+        const address = addressInput ? addressInput.value.trim() : '';
+
+        if (!address) {
+          trackFormEvent('form_validation_error', {
+            error_count: 1,
+            step: 'address_first'
+          });
+
+          if (errorBanner) {
+            errorBanner.textContent = 'Please provide the property address.';
+            errorBanner.classList.remove('hidden');
+          }
+
+          if (addressInput) {
+            addressInput.setAttribute('aria-invalid', 'true');
+            addressInput.focus();
+          }
+          return;
+        }
+
+        if (addressInput) {
+          addressInput.removeAttribute('aria-invalid');
+        }
+        if (errorBanner) {
+          errorBanner.classList.add('hidden');
+          errorBanner.textContent = '';
+        }
+
+        addressNextPanel.classList.remove('hidden');
+        addressNextButton.classList.add('hidden');
+        form.querySelector('input[name="contact"]')?.focus();
+      });
+    }
+
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
+      if (addressFirst && addressNextPanel?.classList.contains('hidden')) {
+        addressNextButton?.click();
+        return;
+      }
+
       const formData = new FormData(form);
       const errors = [];
 
@@ -348,7 +469,7 @@ const formSpacing = mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
       const phoneInput = form.querySelector('input[name="phone"]');
       const emailInput = form.querySelector('input[name="email"]');
       const consentInput = form.querySelector('input[name="consent"]');
-      const consentChecked = consentInput ? consentInput.checked : false;
+      const consentChecked = impliedConsent || (consentInput ? consentInput.checked : false);
       const invalidFields = [];
 
       [addressInput, contactInput, phoneInput, emailInput, consentInput].forEach((field) => {

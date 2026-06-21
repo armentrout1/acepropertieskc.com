@@ -1,0 +1,190 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import OfferForm from "../../components/OfferForm.astro";
+import { SITE } from "../../lib/siteConfig";
+import { buildBreadcrumbList, buildFaqPageJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
+
+const comparisonRows = [
+  {
+    topic: "Who is buying?",
+    direct: "The person or company making the offer intends to buy the house.",
+    wholesaler: "The buyer may sign a contract and then look for another investor to take it.",
+    ace: "ACE makes offers with the intent to buy directly.",
+  },
+  {
+    topic: "What happens after signing?",
+    direct: "Title, inspections, payoffs, and closing steps move forward with the actual buyer.",
+    wholesaler: "The deal may be marketed to other investors or listed on an investor site.",
+    ace: "ACE works toward closing under the written terms instead of relying on a last-minute buyer search.",
+  },
+  {
+    topic: "What can go wrong?",
+    direct: "Normal title or inspection issues can still come up, but the buyer is already identified.",
+    wholesaler: "If no end buyer wants the deal, the contract can be delayed, renegotiated, assigned, or cancelled.",
+    ace: "ACE is prepared to explain the path, the timeline, and the closing ability before you rely on the offer.",
+  },
+  {
+    topic: "Best fit",
+    direct: "Sellers who want certainty and a real buyer across the table.",
+    wholesaler: "Sellers who are comfortable with assignment risk and understand who ultimately funds closing.",
+    ace: "Sellers who want a local direct buyer, cash or creative options, and plain-English terms.",
+  },
+];
+
+const buyerQuestions = [
+  "Are you the actual buyer or are you planning to assign the contract?",
+  "Will my property be marketed to other investors after I sign?",
+  "Is closing dependent on a partner, funding source, or another buyer approving the deal?",
+  "Can you explain exactly what happens if you cannot find your end buyer?",
+  "Can you show proof of funds or closing ability before I rely on the offer?",
+  "Who will be my point of contact with title and closing?",
+];
+
+const faqs = [
+  {
+    question: "Is every wholesaler bad?",
+    answer:
+      "No. Some wholesalers are transparent and useful. The concern is when a seller believes they have a committed buyer, but the contract is really being shopped to other investors after signing.",
+  },
+  {
+    question: "Can ACE ever work with partners or private funding?",
+    answer:
+      "Yes, most real estate buyers use title companies, lenders, private capital, contractors, or advisors. The difference is that ACE makes offers with the intent to buy directly instead of making the seller's closing dependent on finding a different buyer for the contract.",
+  },
+  {
+    question: "Why does this matter to a seller?",
+    answer:
+      "If the buyer still has to resell or assign the contract, the seller can lose time if the deal is rejected by the next investor. That matters when there are moving deadlines, estate deadlines, late payments, code issues, or tax pressure.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Direct Buyer vs Wholesaler", item: "/direct-buyer-vs-wholesaler/" },
+  ]),
+  buildFaqPageJsonLd(faqs),
+];
+---
+
+<Layout
+  title="Direct Home Buyer vs Wholesaler in Kansas City | ACE Properties KC"
+  description="Compare a direct Kansas City home buyer with a wholesaler. Learn why ACE Properties KC makes offers with the intent to buy and close directly."
+  canonicalPath="/direct-buyer-vs-wholesaler/"
+  jsonLd={jsonLd}
+>
+  <section class="full-bleed bg-primary text-white">
+    <div class="container-shell grid gap-10 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Direct buyer clarity</p>
+        <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
+          Direct Home Buyer vs Wholesaler in Kansas City
+        </h1>
+        <p class="max-w-3xl text-lg leading-8 text-white/82">
+          A seller should know whether the person making the offer is actually prepared to buy the house or whether the contract still has to be sold to another investor.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
+          <span class="v3-pill">Cash or creative options</span>
+          <span class="v3-pill">Clear written terms</span>
+        </div>
+      </div>
+      <OfferForm
+        addressFirst
+        formId="direct-buyer-address-form"
+        heading="Ask if your property is a direct-buy fit"
+        subheading="Start with the address. We will follow up with clear next steps."
+        defaultSituation="direct buyer review"
+        pageContext="direct_buyer_vs_wholesaler_hero"
+      />
+    </div>
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+    <div class="card bg-white">
+      <p class="badge">The simple difference</p>
+      <h2 class="mt-4 text-3xl font-black text-primary">A direct buyer is prepared to buy. A wholesaler may still need to sell the deal.</h2>
+      <p class="mt-4 text-muted">
+        Some investors put a house under contract and then market that contract to other buyers. That can work when everyone understands it. The risk is when the seller thinks the deal is locked in, but closing depends on another buyer saying yes later.
+      </p>
+      <p class="mt-4 text-muted">
+        ACE Properties KC makes offers with the intent to buy directly. If we make an offer, we want you to understand who is closing, what the terms mean, and what happens next.
+      </p>
+    </div>
+
+    <div class="grid gap-4">
+      {comparisonRows.map((row) => (
+        <article class="rounded-[1.5rem] border border-border/60 bg-white p-5 shadow-sm">
+          <h3 class="text-xl font-black text-primary">{row.topic}</h3>
+          <div class="mt-4 grid gap-3 lg:grid-cols-3">
+            <div class="rounded-2xl bg-cream p-4">
+              <p class="text-xs font-black uppercase tracking-[0.14em] text-secondary">Direct buyer</p>
+              <p class="mt-2 text-sm leading-6 text-muted">{row.direct}</p>
+            </div>
+            <div class="rounded-2xl bg-soft p-4">
+              <p class="text-xs font-black uppercase tracking-[0.14em] text-muted">Wholesaler</p>
+              <p class="mt-2 text-sm leading-6 text-muted">{row.wholesaler}</p>
+            </div>
+            <div class="rounded-2xl bg-primary p-4 text-white">
+              <p class="text-xs font-black uppercase tracking-[0.14em] text-accent">ACE</p>
+              <p class="mt-2 text-sm leading-6 text-white/82">{row.ace}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Questions to ask any buyer</p>
+      <h2 class="text-3xl font-black text-primary">Before you count on an offer, ask who is actually closing</h2>
+      <p class="text-muted">
+        These questions are fair. A serious buyer should be able to answer them without making you feel like you are being difficult.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {buyerQuestions.map((question) => (
+        <div class="rounded-[1.5rem] border border-border/60 bg-white p-5 shadow-sm">
+          <p class="text-base font-bold text-primary">{question}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-2">
+    <article class="card">
+      <h2 class="text-3xl font-black text-primary">Why ACE says this plainly</h2>
+      <p class="mt-4 text-muted">
+        Sellers often contact home buyers during stressful moments: inherited property, repairs, rental-house fatigue, late payments, tax pressure, relocation, or a house that has become too much to manage. A deal falling apart late can make that worse.
+      </p>
+      <p class="mt-4 text-muted">
+        Since {SITE.buyerSince}, ACE has bought houses from individual sellers in real situations, including cash purchases, rental properties, inherited houses, and creative payment structures. The goal is not to create a clever contract. The goal is to solve the seller's property problem and close clearly.
+      </p>
+    </article>
+    <article class="card bg-primary text-white">
+      <h2 class="text-3xl font-black text-white">Cash offer or creative option, the terms should be clear.</h2>
+      <p class="mt-4 text-white/82">
+        A direct cash offer may be the cleanest path. In other situations, payment takeover, payoff-at-closing, or a flexible timeline may deserve a careful look. Either way, you should understand the offer before you rely on it.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn bg-white text-primary hover:bg-white/90">Get an offer</a>
+        <a href="/options/" class="btn border border-white/40 text-white hover:bg-white/10">Compare options</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-3xl font-black text-primary">Direct buyer FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-bold text-primary">{faq.question}</summary>
+          <p class="mt-3 text-sm leading-6 text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>

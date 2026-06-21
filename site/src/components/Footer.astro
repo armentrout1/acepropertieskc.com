@@ -4,12 +4,12 @@ import { SITE } from "../lib/siteConfig";
 
 <footer class="border-t border-border/60 bg-soft py-12 text-sm text-muted">
   <div class="container-shell space-y-10">
-    <div class="flex flex-col gap-6 rounded-3xl bg-white/80 p-6 text-primary shadow-sm md:flex-row md:items-center md:justify-between">
+    <div class="flex flex-col gap-6 rounded-[2rem] bg-white/85 p-6 text-primary shadow-sm md:flex-row md:items-center md:justify-between">
       <div class="flex items-center gap-4">
         <img src="/brand/ace-mark.svg" alt={`${SITE.name} mark`} class="h-12 w-12" loading="lazy" decoding="async" />
         <div>
-          <p class="text-lg font-semibold text-primary">{SITE.name}</p>
-          <p class="text-muted text-sm">Creative Kansas City home buyer</p>
+          <p class="text-lg font-black text-primary">{SITE.name}</p>
+          <p class="text-muted text-sm">Buying Kansas City houses directly since {SITE.buyerSince}</p>
         </div>
       </div>
       <p class="max-w-2xl text-sm text-muted">
@@ -53,6 +53,7 @@ import { SITE } from "../lib/siteConfig";
         <p class="text-base font-semibold">Quick Links</p>
         <nav class="flex flex-col gap-2">
           <a href="/options/" class="transition-colors hover:text-secondary">Cash vs Creative Options</a>
+          <a href="/direct-buyer-vs-wholesaler/" class="transition-colors hover:text-secondary">Direct Buyer vs Wholesaler</a>
           <a href="/resources/" class="transition-colors hover:text-secondary">Seller Resources</a>
           <a href="/resources/sell-house-fast-kansas-city-guide/" class="transition-colors hover:text-secondary">Fast Sale Guide</a>
           <a href="/resources/sell-vacant-house-kansas-city/" class="transition-colors hover:text-secondary">Vacant House Guide</a>

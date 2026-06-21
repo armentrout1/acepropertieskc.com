@@ -19,6 +19,64 @@ export type SellerStory = {
 
 export const sellerStories: SellerStory[] = [
   {
+    slug: "rental-house-cash-purchase",
+    title: "Rental House Sold Directly for Cash",
+    seoTitle: "Rental House Cash Purchase Story | ACE Properties KC",
+    seoDescription:
+      "See how ACE Properties KC helps landlords sell rental houses directly for cash without repairing or preparing the property for a public listing.",
+    eyebrow: "Direct cash purchase",
+    location: "Kansas City metro",
+    summary:
+      "A rental-house owner wanted a simple sale without making improvements, coordinating a public listing, or turning the property into another project. ACE reviewed the house as-is and purchased directly for cash.",
+    challenge:
+      "The seller had been renting the property and did not want to put more time or money into repairs, showings, clean-up, or a long retail listing process.",
+    approach: [
+      "Reviewed the rental-house condition, tenant or occupancy considerations, and the seller's preferred timeline.",
+      "Made the conversation about direct cash purchase terms instead of asking the seller to prepare the house for the market.",
+      "Accounted for as-is condition, timing, and closing needs in the offer math.",
+      "Worked toward a direct close without the seller needing to find a retail buyer or investor buyer.",
+    ],
+    outcome:
+      "The seller was able to move on from the rental property with a direct cash sale and without turning the property into another repair project.",
+    privacyNote:
+      "Details are summarized for privacy. This story reflects the type of rental-house cash purchase ACE has handled since 2016.",
+    tags: ["Rental house", "Cash purchase", "As-is sale"],
+    relatedLinks: [
+      { label: "Sell a house with tenants", href: "/resources/sell-house-with-tenants-kansas-city/" },
+      { label: "Sell as-is in Kansas City", href: "/resources/sell-house-as-is-kansas-city/" },
+      { label: "Direct buyer vs wholesaler", href: "/direct-buyer-vs-wholesaler/" },
+    ],
+  },
+  {
+    slug: "subject-to-payment-help-2017",
+    title: "Payment-Takeover Help Dating Back to 2017",
+    seoTitle: "2017 Payment Takeover Help Story | ACE Properties KC",
+    seoDescription:
+      "See how ACE has experience reviewing creative payment-takeover paths for sellers who need relief from monthly house payments.",
+    eyebrow: "Creative payment help",
+    location: "Kansas City area",
+    summary:
+      "A homeowner needed help with a house payment situation where a standard sale was not the only path to review. ACE helped structure a creative payment solution so the seller could move forward.",
+    challenge:
+      "The monthly payment and timing were the real pressure points. The seller needed a practical path that addressed the payment burden instead of only talking about a one-time cash price.",
+    approach: [
+      "Reviewed the house, loan pressure, seller timeline, and what outcome would actually solve the problem.",
+      "Compared a straightforward sale against a creative payment-takeover structure.",
+      "Focused on clear expectations, payment responsibility, and written terms before moving forward.",
+      "Kept the seller's practical relief at the center of the conversation.",
+    ],
+    outcome:
+      "The seller had a path that addressed the payment problem directly and gave them a way to move forward without being stuck in a one-option conversation.",
+    privacyNote:
+      "Details are intentionally broad. This story should be expanded only with seller permission and any legally appropriate documentation.",
+    tags: ["Subject-to", "Payment takeover", "Creative options"],
+    relatedLinks: [
+      { label: "Cash or payment takeover options", href: "/options/" },
+      { label: "Subject-to guide", href: "/resources/subject-to-real-estate-kansas-city/" },
+      { label: "Behind on mortgage options", href: "/resources/behind-on-mortgage-options-kansas-city/" },
+    ],
+  },
+  {
     slug: "river-market-condo-payment-takeover",
     title: "River Market Condo With a Payment-Takeover Structure",
     seoTitle: "Payment Takeover Seller Story | ACE Properties KC",
@@ -56,17 +114,17 @@ export const sellerStories: SellerStory[] = [
     eyebrow: "Inherited as-is property",
     location: "Kansas City metro",
     summary:
-      "A family inherited a house after the parents passed away. The home was dated, the yard needed work, and the heirs did not want to remodel or manage a long repair process.",
+      "A family inherited a house after the parents passed away. The home was dated, the yard needed work, and the heirs did not want to remodel or manage a long repair process. ACE reviewed the property as-is and helped create a direct purchase path.",
     challenge:
       "The property had original finishes, deferred exterior work, and overgrown trees. The family wanted a simple path without coordinating contractors, clean-out, staging, or a public listing.",
     approach: [
       "Looked at the home as-is instead of asking the family to make repairs first.",
       "Discussed clean-out, exterior work, and repair costs as part of the offer math.",
-      "Helped the sellers compare certainty and simplicity against a longer retail listing process.",
+      "Helped the sellers compare a direct purchase against a longer retail listing process.",
       "Kept the conversation focused on net proceeds and the family's timeline.",
     ],
     outcome:
-      "The family had a clearer path to sell without remodeling the house or taking on the full burden of preparing it for the open market.",
+      "The family had a clearer path to sell directly without remodeling the house or taking on the full burden of preparing it for the open market.",
     privacyNote:
       "This is a privacy-safe story draft based on a common inherited-house situation ACE has handled. Exact identifying details should be added only with permission.",
     tags: ["Inherited house", "As-is sale", "Needs repairs"],

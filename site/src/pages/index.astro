@@ -4,16 +4,40 @@ import OfferConfidencePanel from "../components/OfferConfidencePanel.astro";
 import OfferForm from "../components/OfferForm.astro";
 import TrustProofStrip from "../components/TrustProofStrip.astro";
 import SellerReviewStrip from "../components/SellerReviewStrip.astro";
+import CreativeHomeBuyerSeal from "../components/CreativeHomeBuyerSeal.astro";
 import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../lib/seo";
 
 const trustPoints = [
+  `Buying direct since ${SITE.buyerSince}`,
   "Local Kansas City team",
   "Sell as-is, no repairs",
   "Payment takeover reviews when appropriate",
   "No commissions or fees",
   "Your timeline, your choice"
+];
+
+const heroProofPills = [
+  `Buying direct since ${SITE.buyerSince}`,
+  "Cash or creative options",
+  "No repairs or clean-out",
+  "Not a contract",
+];
+
+const directBuyerProof = [
+  {
+    label: "Direct buyer",
+    body: "ACE makes offers with the intent to buy, not just shop your contract around.",
+  },
+  {
+    label: "Actually closes",
+    body: "If we make an offer, we are prepared to close under the written terms.",
+  },
+  {
+    label: "Flexible structures",
+    body: "Cash, payoff-at-closing, inherited houses, rentals, and payment-takeover conversations can all be reviewed.",
+  },
 ];
 
 const urgentSellerProblems = [
@@ -109,57 +133,110 @@ const jsonLd = [
   canonicalPath="/"
   jsonLd={jsonLd}
 >
-  <section class="section pt-4">
-    <div class="rounded-3xl bg-gradient-to-b from-soft to-white/90 px-6 py-8 shadow-sm sm:px-10 lg:py-10">
-      <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-        <div class="space-y-6">
-          <span class="badge">Local Kansas City Buyer</span>
-          <div class="space-y-4">
-            <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-              Get Help Selling a Difficult Kansas City House
-            </h1>
-            <p class="max-w-4xl text-lg leading-8 text-muted">
-              If the house has become the problem, we help you compare practical ways out. ACE Properties KC buys houses as-is across <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City</a>, <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, and the surrounding metro. We can review fast cash offers, payoff-at-closing, clean-out needs, back taxes, repair issues, and <a href="/options/" class="text-secondary underline">payment takeover options</a> when the mortgage is the pressure point.
-            </p>
-          </div>
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#get-offer" class="btn btn-primary text-base">
-              Get My Offer
-            </a>
-            <a
-              href={`tel:${SITE.phoneTel}`}
-              class="btn btn-ghost text-base"
-              data-phone-link="homepage_hero"
-            >
-              Call {SITE.phoneDisplay}
-            </a>
-          </div>
-          <div class="grid gap-3 text-sm font-medium text-primary sm:grid-cols-2">
-            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">No repairs or clean-out required</div>
-            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">Cash and creative options reviewed</div>
-            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">The first form is not a contract</div>
-            <div class="rounded-2xl border border-border/70 bg-white/80 p-3">Call or text a local KC buyer</div>
-          </div>
-          <p class="text-sm font-medium text-muted">
-            No repairs, no public showings, no clean-out requirement, and no pressure to decide before you understand the numbers.
+  <section class="full-bleed relative overflow-hidden bg-primary text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(245,158,11,0.24),transparent_28%),linear-gradient(115deg,#081d34_0%,#0b2440_44%,#0f766e_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-cream to-transparent"></div>
+    <div class="container-shell relative grid min-h-[calc(100vh-7rem)] gap-10 py-12 md:min-h-[680px] md:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+      <div class="space-y-7">
+        <div class="flex flex-wrap gap-3">
+          {heroProofPills.map((pill) => (
+            <span class="v3-pill">{pill}</span>
+          ))}
+        </div>
+
+        <div class="max-w-4xl space-y-5">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">Local Kansas City direct buyer</p>
+          <h1 class="text-5xl font-black leading-[1.02] text-white md:text-6xl lg:text-7xl">
+            Sell Your Kansas City House As-Is
+          </h1>
+          <p class="max-w-3xl text-xl leading-8 text-white/88 md:text-2xl md:leading-9">
+            Get a cash offer or creative option from a local buyer who has been buying directly from sellers since {SITE.buyerSince}.
+          </p>
+          <p class="max-w-3xl text-base leading-7 text-white/76 md:text-lg">
+            No repairs, no commissions, no clean-out requirement, and no pressure to decide before you understand the numbers.
           </p>
         </div>
-        <div class="lg:pl-4">
+
+        <div class="max-w-4xl">
           <OfferForm
-            mini
-            formId="homepage-mini-offer-form"
+            addressFirst
+            formId="homepage-address-first-form"
             heading="Start with the address"
-            subheading="Share the address and one way to reach you. We will review cash and flexible options before asking for anything else."
+            subheading="We will ask for your contact on the next step, then review cash and creative options."
             defaultSituation="options review"
-            pageContext="homepage_hero_mini"
+            pageContext="homepage_v3_address_first"
             buttonLabel="See my options"
           />
         </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href={`tel:${SITE.phoneTel}`}
+            class="btn bg-white text-primary hover:bg-white/90"
+            data-phone-link="homepage_v3_hero"
+          >
+            Call {SITE.phoneDisplay}
+          </a>
+          <a
+            href={`sms:${SITE.smsTel}`}
+            class="btn border border-white/40 text-white hover:bg-white/10"
+            data-sms-link="homepage_v3_hero"
+          >
+            Text ACE
+          </a>
+        </div>
       </div>
+
+      <aside class="relative">
+        <div class="rounded-[2.5rem] border border-white/20 bg-white/12 p-5 shadow-2xl backdrop-blur md:p-7">
+          <div class="flex items-center gap-4">
+            <CreativeHomeBuyerSeal compact className="border-white/70" />
+            <div>
+              <p class="text-sm font-black uppercase tracking-[0.18em] text-accent">ACE Promise</p>
+              <h2 class="mt-2 text-3xl font-black leading-tight text-white">We buy direct and intend to close.</h2>
+            </div>
+          </div>
+
+          <div class="mt-7 grid gap-4">
+            {directBuyerProof.map((item) => (
+              <div class="rounded-[1.5rem] border border-white/15 bg-white/90 p-5 text-primary shadow-sm">
+                <p class="text-base font-black">{item.label}</p>
+                <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-7 rounded-[1.5rem] bg-primary/80 p-5">
+            <p class="text-sm font-bold uppercase tracking-[0.15em] text-accent">Not a wholesaler-first pitch</p>
+            <p class="mt-2 text-sm leading-6 text-white/82">
+              Some buyers sign a contract and then still have to find another investor to buy it. ACE is built around making offers we are prepared to purchase ourselves.
+            </p>
+            <a href="/direct-buyer-vs-wholesaler/" class="mt-4 inline-flex text-sm font-black text-white underline underline-offset-4">
+              See how direct buyers compare
+            </a>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
   <TrustProofStrip />
+
+  <section class="section pt-0">
+    <div class="grid gap-6 rounded-[2rem] bg-white p-5 shadow-sm md:p-7 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div class="max-w-4xl space-y-3">
+        <p class="badge">Direct buyer difference</p>
+        <h2 class="text-3xl font-black text-primary md:text-4xl">We are not trying to lock up your house and hope another buyer appears.</h2>
+        <p class="text-muted">
+          Some buyers still have to market or assign the contract after a seller signs. If that end buyer does not show up, the deal can get delayed, renegotiated, or fall apart. ACE makes offers with the intent to buy directly and close under clear written terms.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+        <a href="/direct-buyer-vs-wholesaler/" class="btn btn-primary">Direct buyer vs wholesaler</a>
+        <a href="/get-offer/" class="btn btn-ghost">Start with my address</a>
+      </div>
+    </div>
+  </section>
 
   <section class="section pt-0">
     <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">

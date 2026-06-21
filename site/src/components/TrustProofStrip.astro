@@ -4,6 +4,10 @@ import { SITE } from "../lib/siteConfig";
 
 const proofItems = [
   {
+    label: `Buying direct since ${SITE.buyerSince}`,
+    body: "Cash purchases, inherited homes, rental-house purchases, and creative structures are part of ACE's real history.",
+  },
+  {
     label: "Local KC operator",
     body: "Direct conversations with ACE Properties KC, not a call-center handoff.",
   },
@@ -22,22 +26,22 @@ const proofItems = [
 ];
 ---
 
-<section class="section pt-0">
-  <div class="grid gap-5 rounded-3xl border border-border/70 bg-white p-5 shadow-sm lg:grid-cols-[auto_1fr] lg:items-center">
+<section class="section pt-8">
+  <div class="grid gap-6 rounded-[2rem] border border-border/60 bg-white p-5 shadow-sm lg:grid-cols-[auto_1fr] lg:items-center lg:p-7">
     <div class="flex items-center gap-4">
       <CreativeHomeBuyerSeal compact />
       <div class="space-y-2 lg:max-w-xs">
         <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Built for complicated seller situations</p>
-        <h2 class="text-2xl font-semibold text-primary">A flexible local buyer, not a one-option pitch</h2>
+        <h2 class="text-2xl font-black text-primary">A flexible local buyer, not a one-option pitch</h2>
         <p class="text-sm text-muted">
           Call or text {SITE.phoneDisplay} when you want a plain-English review before deciding.
         </p>
       </div>
     </div>
-    <div class="grid gap-3 sm:grid-cols-2">
+    <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
       {proofItems.map((item) => (
-        <div class="rounded-2xl border border-border/70 bg-soft/60 p-4">
-          <p class="text-sm font-semibold text-primary">{item.label}</p>
+        <div class="rounded-[1.35rem] border border-border/60 bg-cream p-4">
+          <p class="text-sm font-black text-primary">{item.label}</p>
           <p class="mt-1 text-sm leading-6 text-muted">{item.body}</p>
         </div>
       ))}
