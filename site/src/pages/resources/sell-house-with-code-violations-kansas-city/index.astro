@@ -1,0 +1,203 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Sell a House With Code Violations in Kansas City";
+const description =
+  "Kansas City guide to selling a house with code violations, city notices, tall grass, boarded windows, repairs, liens, vacant risk, and as-is offers.";
+
+const noticeTypes = [
+  "Tall grass, trash, debris, or exterior maintenance notices",
+  "Boarded windows, open structure, or unsafe building concerns",
+  "Unpermitted work, open permits, or failed repair follow-up",
+  "Vacant-house complaints, break-ins, or insurance pressure",
+  "Back taxes, utilities, liens, or title items connected to the property",
+  "Roof, foundation, electrical, plumbing, HVAC, or clean-out issues",
+];
+
+const decisionSteps = [
+  {
+    title: "Find the notice deadline",
+    body: "Look for the city, county, or municipal deadline on the letter. A deadline does not always mean you are out of options, but it changes how fast you should compare them.",
+  },
+  {
+    title: "Separate repair cost from sale value",
+    body: "Code work can snowball when a house is vacant, dated, or hard to insure. Compare the likely net from repairing first against selling as-is before spending cash.",
+  },
+  {
+    title: "Check title, taxes, and payoffs",
+    body: "A title company can help identify recorded liens, taxes, mortgage payoff, judgments, and other items that may need to be paid at closing.",
+  },
+  {
+    title: "Get any as-is terms in writing",
+    body: "A buyer should explain price, closing date, inspection terms, clean-out responsibility, and whether they will handle repairs or code follow-up after closing.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Can I sell a Kansas City house with code violations?",
+    answer:
+      "Often, yes. A code violation does not automatically prevent a sale. The key is understanding the notice, title status, repair responsibility, and whether the buyer is willing to purchase the property as-is.",
+  },
+  {
+    question: "Do I have to fix city violations before selling?",
+    answer:
+      "Not always. Some buyers may require repairs, but a direct as-is buyer may price the issue into the offer and take responsibility after closing if the contract and local requirements allow it.",
+  },
+  {
+    question: "What if the property is vacant or has been broken into?",
+    answer:
+      "Vacancy can increase carrying costs, insurance risk, vandalism, and city complaints. That is one reason some sellers compare a quick as-is sale against waiting, repairing, or listing.",
+  },
+  {
+    question: "Can liens, taxes, or utility balances be paid at closing?",
+    answer:
+      "Recorded taxes, payoffs, and many liens are commonly reviewed by title and may be paid from proceeds when there is enough equity. The exact answer depends on the title file and payoff amounts.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/sell-house-with-code-violations-kansas-city/",
+    datePublished: "2026-06-22",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Sell a House With Code Violations in Kansas City", item: "/resources/sell-house-with-code-violations-kansas-city/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell House With Code Violations Kansas City | As-Is Help"
+  description={description}
+  canonicalPath="/resources/sell-house-with-code-violations-kansas-city/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Code violations and city notices</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        A city notice can make a house feel urgent fast. Maybe the grass is overgrown, windows are boarded, the house is vacant, repairs were never finished, or a rental has become too much to manage. This guide helps Kansas City sellers compare repair, listing, and direct as-is sale paths before the problem gets more expensive.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Ask for an as-is review</a>
+        <a href="/resources/major-repairs-vs-selling-as-is-kansas-city/" class="btn btn-ghost text-base">Compare repairs vs as-is</a>
+      </div>
+    </header>
+
+    <section class="card bg-soft/70">
+      <h2 class="text-2xl font-semibold text-primary">Common Kansas City code-violation situations</h2>
+      <p class="mt-2 text-sm text-muted">
+        You do not need to have everything organized before asking questions. Start by gathering any city letters, photos, repair bids, tax bills, mortgage statements, or utility notices you already have.
+      </p>
+      <ul class="mt-5 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {noticeTypes.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">The real question is not just the violation. It is the total cost of waiting.</h2>
+      <p class="text-muted">
+        A code notice can be the first visible problem, but the hidden cost is often bigger: monthly payments, utilities, insurance, mowing, repairs, clean-out, missed rent, break-in risk, and the time it takes to coordinate everything. That is why sellers often compare an as-is offer against fixing the property before listing.
+      </p>
+      <p class="text-muted">
+        If the house is also vacant, use the <a href="/resources/vacant-house-carrying-cost-calculator/" class="text-secondary underline">vacant house carrying cost calculator</a> to put numbers on the delay. If taxes or liens are involved, read the <a href="/resources/sell-house-with-tax-lien-kansas-city/" class="text-secondary underline">tax lien sale guide</a> before deciding.
+      </p>
+    </section>
+
+    <section class="grid gap-5 md:grid-cols-2">
+      {decisionSteps.map((step, index) => (
+        <article class="card">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
+          <h3 class="mt-2 text-xl font-semibold text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm text-muted">{step.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When repairing first may make sense</h2>
+        <p class="text-muted">
+          Repairing first may be worth it if the violations are small, the house is occupied and secure, you have money for the work, and the property can list cleanly after the repairs. In that case, a traditional agent may help you reach a higher price.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">When an as-is sale may be the cleaner path</h2>
+        <p class="text-muted">
+          Selling as-is may fit when the repair list is uncertain, the house is vacant, the timeline is tight, the seller is out of town, payment pressure is building, or the house needs a full clean-out before it can even be shown.
+        </p>
+      </article>
+    </section>
+
+    <HighIntentOfferBlock
+      badge="Code notice review"
+      title="Want to know whether the house can be sold as-is?"
+      body="Send the address, the notice details you have, and the best way to reach you. We can review whether a cash or flexible option fits before you spend more money on repairs."
+      points={[
+        "No repair requirement before the first conversation",
+        "We can review vacant, inherited, rental, and repair-heavy houses",
+        "Written options so you can compare selling against fixing first",
+        "Closing through title with payoff and lien review",
+      ]}
+      formId="code-violations-resource-form"
+      formHeading="Request a code-notice review"
+      formSubheading="Start with the property address and what the city notice says."
+      defaultSituation="needs repairs"
+      pageContext="sell house with code violations resource"
+      trackingLocation="code_violations_resource"
+    />
+
+    <LocalDecisionMap
+      variant="repairs"
+      heading="Connect code violations to the right local selling path"
+      intro="Code notices often overlap with repairs, vacant-house costs, tax balances, payment pressure, and city-specific timing. These links help narrow the next step."
+    />
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Kansas City code violation sale FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="text-2xl font-semibold text-primary">Related guides for difficult properties</h2>
+      <div class="mt-4 grid gap-3 text-sm md:grid-cols-3">
+        <a href="/solutions/needs-repairs/" class="text-secondary underline">House needs repairs</a>
+        <a href="/solutions/vacant-house/" class="text-secondary underline">Vacant house</a>
+        <a href="/resources/sell-house-as-is-kansas-city/" class="text-secondary underline">Sell as-is guide</a>
+        <a href="/resources/wyandotte-county-distressed-property-sale/" class="text-secondary underline">Wyandotte distressed property</a>
+        <a href="/areas/64131/" class="text-secondary underline">64131 / Red Bridge</a>
+        <a href="/areas/66109/" class="text-secondary underline">66109 / Western KCK</a>
+      </div>
+    </section>
+  </article>
+</Layout>
