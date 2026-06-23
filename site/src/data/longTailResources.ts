@@ -1338,6 +1338,139 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-rental-house-with-bad-tenant-kansas-city",
+    title: "Sell Rental House With Bad Tenant Kansas City | ACE",
+    description:
+      "Kansas City landlord guide to selling a rental with nonpaying tenants, damage, access issues, lease problems, eviction timing, and as-is options.",
+    category: "Tenant-occupied",
+    badge: "Landlord issue",
+    headline: "Sell a Rental House With a Bad Tenant in Kansas City",
+    intro:
+      "A difficult tenant situation can turn a rental house into a monthly drain. If rent is behind, access is limited, damage is growing, or eviction timing is unclear, a direct as-is sale may be worth comparing before the situation gets more expensive.",
+    primaryCta: {
+      label: "Review my rental house",
+      href: "#sell-rental-house-with-bad-tenant-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Read tenant sale guide",
+      href: "/resources/sell-house-with-tenants-kansas-city/",
+    },
+    quickAnswer: {
+      title: "Can a landlord sell before the tenant issue is fully fixed?",
+      body:
+        "Kansas City landlords can often ask for an as-is review before the tenant issue is perfectly resolved. The lease, notices, rent ledger, deposit, access, possession status, and local legal process all matter, so written records and professional advice are important.",
+      bullets: [
+        "A sale may be reviewed with the tenant still in place",
+        "Nonpayment, damage, and access issues should be disclosed early",
+        "Lease, deposit, rent, and notice records help avoid closing surprises",
+        "Legal timing should be checked with the right local professional",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Landlord pressure",
+        title: "What makes bad-tenant sales complicated",
+        body:
+          "The property may still have value, but the buyer needs to understand the occupancy risk before closing. Nonpayment, denied access, tenant-caused damage, abandoned items, utilities, code complaints, and lease terms all change the plan.",
+        bullets: [
+          "Unpaid rent or inconsistent payments",
+          "Limited walkthrough access or missing keys",
+          "Tenant damage, deferred repairs, or safety issues",
+          "Lease, deposit, notice, or possession questions",
+          "Showings and inspections that may escalate the situation",
+        ],
+      },
+      {
+        eyebrow: "Process clarity",
+        title: "Eviction timing is a legal and practical question",
+        body:
+          "ACE cannot replace advice from a Kansas City landlord-tenant attorney, property manager, or court professional. What we can do is compare sale options around the current lease, notices, court dates, rent status, and possession plan so you can see whether waiting or selling now makes more sense.",
+        bullets: [
+          "Collect the lease or occupancy agreement",
+          "Pull the rent ledger and deposit records",
+          "Save notices, court dates, and attorney or manager updates",
+          "Document damage, denied access, or abandoned property issues",
+        ],
+      },
+      {
+        eyebrow: "As-is exit",
+        title: "Selling as-is may reduce the landlord's next project",
+        body:
+          "Waiting for vacancy can mean more mortgage payments, insurance, utilities, repairs, cleanup, legal fees, and lost rent. A direct buyer may be able to take over the property with clear written terms, then handle repairs, clean-out, tenant coordination, or possession after closing.",
+      },
+    ],
+    comparison: {
+      heading: "Wait for vacancy vs selling with the tenant issue",
+      intro:
+        "There is no one-size-fits-all answer. The right move depends on lease status, condition, equity, carrying costs, legal timing, and how much more risk you want to carry.",
+      items: [
+        {
+          title: "Wait for vacancy",
+          body:
+            "May fit if legal timing is already moving, rent loss is manageable, and you believe repairs and a traditional listing will produce enough extra net.",
+        },
+        {
+          title: "Sell with the issue",
+          body:
+            "May fit if the property is draining cash, access is difficult, damage is growing, or you want the sale terms to include the current tenant reality.",
+        },
+        {
+          title: "Compare both",
+          body:
+            "Putting an as-is offer beside the cost of waiting gives you a decision based on numbers instead of frustration.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details for a bad-tenant rental review",
+      items: [
+        "Lease, month-to-month agreement, or occupancy details",
+        "Rent ledger, payment status, and security deposit amount",
+        "Notices, court dates, attorney notes, or property manager updates",
+        "Known damage, photos, access problems, or utility issues",
+        "Mortgage payoff, taxes, insurance, and ideal closing timeline",
+      ],
+    },
+    storySlug: "rental-house-cash-purchase",
+    decisionVariant: "vacant",
+    offerBlock: {
+      badge: "Landlord review",
+      title: "Want to compare selling before the tenant issue is fully resolved?",
+      body:
+        "Send the address, lease status, rent situation, access details, and condition concerns. ACE can review whether an as-is rental purchase is realistic.",
+      points: [
+        "Tenant status reviewed clearly",
+        "Lease, rent, and deposit details organized",
+        "Damage and access issues included",
+        "Title, payoff, and timeline reviewed",
+      ],
+      formHeading: "Review my rental house",
+      defaultSituation: "tenant occupied",
+    },
+    faqs: [
+      {
+        question: "Can I sell a rental with a nonpaying tenant in Kansas City?",
+        answer:
+          "Yes, it may be possible to sell with a tenant issue, but the lease, notices, rent status, possession, deposits, and local process need to be reviewed before closing.",
+      },
+      {
+        question: "Do I need to evict before asking for an offer?",
+        answer:
+          "Not always. Some landlords ask for an as-is offer while they are still comparing eviction timing, vacancy, repairs, and sale options. Legal advice is still important when notices or court action are involved.",
+      },
+      {
+        question: "What if the tenant damaged the house?",
+        answer:
+          "Tenant damage can be included in an as-is review. Photos, repair notes, access details, and utility status help the buyer understand the real condition.",
+      },
+      {
+        question: "Can ACE buy with lease or possession issues?",
+        answer:
+          "ACE can review rentals with lease, rent, access, or possession complications and explain whether a direct purchase path makes sense for the property.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
