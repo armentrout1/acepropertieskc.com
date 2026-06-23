@@ -816,6 +816,132 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-house-with-foundation-problems-kansas-city",
+    title: "Sell House With Foundation Problems Kansas City | ACE",
+    description:
+      "Kansas City guide to selling a house with foundation problems, cracks, water damage, bowed walls, repair bids, and as-is cash offer options.",
+    category: "Repairs",
+    badge: "Foundation problems",
+    headline: "Sell a House With Foundation Problems in Kansas City",
+    intro:
+      "Foundation problems can stop a normal sale fast. Cracks, bowing walls, basement water, sloping floors, or a large repair bid can make buyers nervous and make financing harder. ACE can review the house as-is before you spend money on repairs.",
+    primaryCta: {
+      label: "Review foundation options",
+      href: "#sell-house-with-foundation-problems-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Compare repairs vs as-is",
+      href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    },
+    quickAnswer: {
+      title: "You can ask for an as-is review before fixing the foundation",
+      body:
+        "A foundation issue does not automatically mean you have to repair before selling. The right choice depends on repair scope, equity, time, buyer financing risk, and whether the seller wants to manage a major project.",
+      bullets: [
+        "Foundation bids can be compared against an as-is offer",
+        "Basement water and wall movement can be part of the review",
+        "A direct buyer may not require retail-ready repairs",
+        "Title, payoff, and closing timeline still matter",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Common signs",
+        title: "What sellers usually notice first",
+        body:
+          "Foundation concerns often start with visible symptoms. The exact repair scope may need a contractor or engineer, but you can still compare selling paths before hiring everyone.",
+        bullets: [
+          "Stair-step cracks in brick or block",
+          "Bowed basement walls or wall anchors",
+          "Water entering the basement after storms",
+          "Sloping floors, sticking doors, or gaps around trim",
+        ],
+      },
+      {
+        eyebrow: "Offer math",
+        title: "A repair bid is not the same as your selling decision",
+        body:
+          "A $20,000 or $40,000 bid can change the plan, but the real question is your net after repairs, commissions, holding costs, buyer concessions, and time. An as-is number gives you a comparison point.",
+        bullets: [
+          "Repair cost and uncertainty",
+          "Months of holding costs while work is scheduled",
+          "Buyer inspection and appraisal risk",
+          "Whether repairs actually increase your final net",
+        ],
+      },
+      {
+        eyebrow: "As-is path",
+        title: "Selling as-is may be cleaner when the project is too big",
+        body:
+          "If the property is vacant, inherited, behind on maintenance, or already has other repairs, foundation work may be one more project you do not want to manage. A direct sale can shift that repair responsibility to the buyer after closing.",
+      },
+    ],
+    comparison: {
+      heading: "Foundation repair vs selling as-is",
+      intro:
+        "Both paths can be reasonable. Use real numbers and timing, not just the highest possible retail price.",
+      items: [
+        {
+          title: "Repair first",
+          body:
+            "May fit when you have cash, contractor confidence, time, and a realistic chance that repairs will raise your net more than they cost.",
+        },
+        {
+          title: "Sell as-is",
+          body:
+            "May fit when the repair scope is uncertain, the house has other issues, the seller wants certainty, or the property is hard to show.",
+        },
+        {
+          title: "Get both numbers",
+          body:
+            "A repair bid and an as-is offer give you a clearer comparison than guessing what a future buyer might do.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details for a foundation review",
+      items: [
+        "Photos of cracks, basement walls, water entry, or floor slope",
+        "Any contractor, engineer, waterproofing, or piering bids",
+        "Whether the basement is finished, wet, vacant, or full of belongings",
+        "Mortgage payoff, taxes, insurance, and timing pressure if known",
+      ],
+    },
+    storySlug: "inherited-original-condition-house",
+    decisionVariant: "repairs",
+    offerBlock: {
+      badge: "Foundation issue review",
+      title: "Want the foundation issue reviewed before you repair it?",
+      body:
+        "Send the address and what you know about the foundation. ACE can compare an as-is option against repairing and listing so you have a real decision point.",
+      points: [
+        "No foundation repair required to start",
+        "Repair bids and photos can be reviewed",
+        "As-is cash and flexible options compared",
+        "Closing through title with payoff review",
+      ],
+      formHeading: "Review my foundation issue",
+      defaultSituation: "needs repairs",
+    },
+    faqs: [
+      {
+        question: "Can I sell a house with foundation problems in Kansas City?",
+        answer:
+          "Yes, many houses with foundation issues can still be sold. A direct as-is buyer can review cracks, wall movement, water entry, and repair bids before making an offer.",
+      },
+      {
+        question: "Do I need an engineer report before asking for an offer?",
+        answer:
+          "No. If you already have one, it helps. If not, you can still start with photos, known symptoms, and any repair bids you have.",
+      },
+      {
+        question: "Will a foundation problem stop buyer financing?",
+        answer:
+          "It can. Some retail buyers, lenders, or insurers may have concerns. That is one reason sellers compare an as-is cash path against repairing before listing.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
