@@ -1074,6 +1074,138 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-house-full-of-stuff-kansas-city",
+    title: "Sell House Full of Stuff Kansas City | ACE",
+    description:
+      "Kansas City guide to selling a house full of belongings, furniture, trash, garage items, inherited contents, or heavy clean-out needs.",
+    category: "Clean-out",
+    badge: "Heavy clean-out",
+    headline: "Sell a House Full of Stuff in Kansas City",
+    intro:
+      "A house full of belongings can make a normal sale feel impossible. Furniture, garage items, basement storage, old appliances, debris, or inherited contents can delay showings and overwhelm families. ACE can review the property as-is before you rent dumpsters or spend weekends cleaning it out.",
+    primaryCta: {
+      label: "Review a clean-out offer",
+      href: "#sell-house-full-of-stuff-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Read the clean-out guide",
+      href: "/resources/clean-out-house-before-selling-kansas-city/",
+    },
+    quickAnswer: {
+      title: "You may not need to empty the house before selling",
+      body:
+        "If you sell directly as-is, belongings and clean-out can be included in the offer conversation. You should still remove valuables, personal documents, family photos, medications, firearms, and anything private or sentimental before closing.",
+      bullets: [
+        "Furniture, garage contents, tools, and storage items can be reviewed",
+        "Inherited contents can be handled without rushing the family",
+        "Clean-out cost can be compared against an as-is offer",
+        "No public showings or staged listing prep required to start",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Common situations",
+        title: "Why sellers get stuck before even asking for an offer",
+        body:
+          "Many sellers think they have to make the house empty before anyone will look at it. That delay can keep taxes, insurance, utilities, lawn care, mortgage payments, and family stress running longer than necessary.",
+        bullets: [
+          "Inherited house with decades of belongings",
+          "Vacant house with furniture, tools, or garage items left behind",
+          "Rental property with abandoned items after move-out",
+          "Seller is out of town and cannot manage repeated clean-out trips",
+        ],
+      },
+      {
+        eyebrow: "Offer math",
+        title: "Clean-out has a cost, but so does waiting",
+        body:
+          "A direct buyer will account for labor, dumpsters, donation runs, disposal, and time. But the seller should compare that against the cost of doing it alone, delaying the sale, and possibly still needing repairs before listing.",
+        bullets: [
+          "Dumpster, labor, hauling, and disposal cost",
+          "Utilities, insurance, taxes, and lawn care while cleaning",
+          "Time spent sorting belongings and coordinating helpers",
+          "Whether the clean-out will actually raise the final net",
+        ],
+      },
+      {
+        eyebrow: "Respectful process",
+        title: "Keep what matters and leave what does not",
+        body:
+          "A practical as-is sale does not mean losing control. The seller can remove personal, private, and sentimental items first, then discuss what can remain after closing as part of the written offer.",
+      },
+    ],
+    comparison: {
+      heading: "Clean out first vs sell with contents",
+      intro:
+        "The best choice depends on the value of the items, family bandwidth, timing, and whether a cleaner house will really improve the seller's net.",
+      items: [
+        {
+          title: "Clean out first",
+          body:
+            "May fit when the items have clear value, the seller has local help, and the house is otherwise ready enough to list or show.",
+        },
+        {
+          title: "Sell with contents",
+          body:
+            "May fit when the clean-out is too large, the seller is out of town, the house also needs repairs, or family coordination is slowing everything down.",
+        },
+        {
+          title: "Compare both",
+          body:
+            "A clean-out quote and an as-is offer help show whether emptying the house is worth the cost, time, and stress.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details for a clean-out review",
+      items: [
+        "Photos or video of main rooms, basement, garage, attic, and yard",
+        "Whether anything valuable, private, or sentimental still needs removed",
+        "Whether the house is inherited, vacant, tenant-left, or owner-occupied",
+        "Known repairs, code notices, utilities, water damage, or access issues",
+        "Mortgage payoff, taxes, insurance, and timeline pressure if known",
+      ],
+    },
+    storySlug: "inherited-original-condition-house",
+    decisionVariant: "estate",
+    offerBlock: {
+      badge: "Clean-out included",
+      title: "Want an offer before cleaning everything out?",
+      body:
+        "Send the address and describe what is inside. ACE can review a clean-out-inclusive as-is option so you can compare it against emptying the house first.",
+      points: [
+        "No full clean-out required to start",
+        "Belongings, furniture, garage, and basement items reviewed",
+        "Repairs and contents can be discussed together",
+        "Written closing path through title",
+      ],
+      formHeading: "Review my clean-out situation",
+      defaultSituation: "clean-out needed",
+    },
+    faqs: [
+      {
+        question: "Can I sell a house full of belongings in Kansas City?",
+        answer:
+          "Yes. Many as-is sales include furniture, garage items, basement storage, tools, debris, or inherited contents. The buyer should explain clean-out responsibility in writing.",
+      },
+      {
+        question: "Will leaving everything lower the offer?",
+        answer:
+          "Usually the buyer accounts for clean-out cost, labor, dumpsters, disposal, and time. It can still make sense if cleaning everything out would delay the sale or cost more than it helps.",
+      },
+      {
+        question: "What should I remove before selling?",
+        answer:
+          "Remove valuables, legal documents, financial records, medications, firearms, jewelry, family photos, keepsakes, and anything private or sentimental.",
+      },
+      {
+        question: "Can ACE help with an inherited house full of stuff?",
+        answer:
+          "Yes. Inherited houses often need time for family keepsakes and personal items. ACE can review what can stay, what should be removed, and how clean-out affects the as-is offer.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
