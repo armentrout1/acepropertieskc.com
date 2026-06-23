@@ -1206,6 +1206,138 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-fire-damaged-house-kansas-city",
+    title: "Sell Fire Damaged House Kansas City | ACE",
+    description:
+      "Kansas City guide to selling a fire-damaged house with smoke damage, insurance claims, code issues, repairs, and as-is offer options.",
+    category: "Repairs",
+    badge: "Fire damage",
+    headline: "Sell a Fire-Damaged House in Kansas City",
+    intro:
+      "Fire damage can make a normal sale feel overwhelming. Smoke odor, water from firefighting, boarded windows, electrical concerns, insurance claims, and city code questions can all slow a traditional listing. ACE can review the property as-is before you spend money on cleanup or repairs.",
+    primaryCta: {
+      label: "Review fire damage options",
+      href: "#sell-fire-damaged-house-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Compare repairs vs as-is",
+      href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    },
+    quickAnswer: {
+      title: "You can ask for an as-is review before repairing fire damage",
+      body:
+        "A fire-damaged house may still be sellable as-is. The best path depends on insurance status, repair scope, safety concerns, whether the house is vacant, city requirements, payoff, taxes, and how quickly the seller needs a clean next step.",
+      bullets: [
+        "Smoke, soot, water, and boarded openings can be reviewed",
+        "Open or denied insurance claims can be discussed",
+        "Code, safety, and utility issues can affect timing",
+        "A direct offer gives you a comparison before repairs",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Scope",
+        title: "Fire damage is rarely just one repair item",
+        body:
+          "Even a contained fire can create smoke, odor, electrical, drywall, flooring, roof, window, plumbing, and water concerns. That is why sellers should compare the full project, not just the first contractor estimate.",
+        bullets: [
+          "Smoke odor, soot, and interior cleanup",
+          "Water damage from fire response",
+          "Electrical, HVAC, roof, or structural concerns",
+          "Board-up, security, and vacant-house risk",
+        ],
+      },
+      {
+        eyebrow: "Insurance",
+        title: "Insurance may help, but the claim can control the timeline",
+        body:
+          "Some sellers have an active claim, some have a denial, and some are unsure whether coverage applies. Claim documents, deductibles, repair scopes, and unfinished work should be reviewed before deciding whether to repair, list, or sell as-is.",
+        bullets: [
+          "Claim number, adjuster scope, and payment status",
+          "Deductible, depreciation, or supplement questions",
+          "Whether repairs have started or stalled",
+          "Title, payoff, and seller net after claim questions",
+        ],
+      },
+      {
+        eyebrow: "As-is path",
+        title: "Selling as-is may be cleaner when the project keeps growing",
+        body:
+          "If the house is vacant, boarded, unsafe to show, full of belongings, or tied to code notices, repairing first may become a larger commitment than the seller wants. A direct sale can move repair responsibility to the buyer after closing.",
+      },
+    ],
+    comparison: {
+      heading: "Repair fire damage vs selling as-is",
+      intro:
+        "Both options can make sense. The key is comparing real cost, time, risk, and seller net instead of guessing.",
+      items: [
+        {
+          title: "Repair first",
+          body:
+            "May fit when insurance is paying, the scope is clear, the seller can manage contractors, and the finished house is likely to sell for enough to justify the work.",
+        },
+        {
+          title: "Sell as-is",
+          body:
+            "May fit when the claim is uncertain, the house is vacant or unsafe to show, repairs are extensive, or the seller wants a simpler closing path.",
+        },
+        {
+          title: "Compare both",
+          body:
+            "An as-is offer beside the insurance scope and repair estimates gives the seller a practical decision point.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details for a fire damage review",
+      items: [
+        "Photos or video of damaged rooms, exterior, roof, windows, and utilities",
+        "Insurance claim documents, adjuster scope, or denial if available",
+        "Any board-up, code, fire department, or city notice documents",
+        "Whether utilities are on and whether the house is occupied or vacant",
+        "Mortgage payoff, taxes, insurance, and timeline pressure if known",
+      ],
+    },
+    storySlug: "inherited-original-condition-house",
+    decisionVariant: "repairs",
+    offerBlock: {
+      badge: "Fire damage review",
+      title: "Want the fire damage reviewed before you repair it?",
+      body:
+        "Send the address and what happened. ACE can compare an as-is option against insurance timing, cleanup, repairs, and listing so you can decide with clearer numbers.",
+      points: [
+        "No cleanup required to start",
+        "Smoke, water, and repair scope reviewed",
+        "Insurance and code details can be included",
+        "Closing through title with payoff review",
+      ],
+      formHeading: "Review my fire-damaged house",
+      defaultSituation: "needs repairs",
+    },
+    faqs: [
+      {
+        question: "Can I sell a fire-damaged house in Kansas City?",
+        answer:
+          "Yes. A fire-damaged house may be sold as-is if the buyer understands the condition and title can close. Smoke, water, board-up, code, and insurance details should be reviewed early.",
+      },
+      {
+        question: "Do I need to finish the insurance claim before asking for an offer?",
+        answer:
+          "No. If you have claim documents, they help. If the claim is still open or uncertain, an as-is offer can give you another option to compare.",
+      },
+      {
+        question: "Will fire damage stop a normal buyer from getting financing?",
+        answer:
+          "It can. Safety, habitability, appraisal, and insurance concerns may make traditional financing harder. That is one reason sellers compare an as-is direct sale before repairing.",
+      },
+      {
+        question: "Can ACE buy a boarded or vacant fire-damaged house?",
+        answer:
+          "Yes. ACE can review boarded, vacant, inherited, or repair-heavy properties and explain whether a direct as-is option fits the situation.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
