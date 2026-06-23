@@ -1471,6 +1471,139 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-house-before-moving-kansas-city",
+    title: "Sell House Before Moving Kansas City | ACE",
+    description:
+      "Kansas City relocation selling guide for job transfers, out-of-state moves, dual housing payments, remote closings, repairs, clean-out, and flexible dates.",
+    category: "Relocation",
+    badge: "Move timeline",
+    headline: "Sell Your House Before Moving Out of Kansas City",
+    intro:
+      "A move can turn a normal house sale into a timing problem. If a job transfer, family move, new home purchase, military move, or out-of-state relocation is creating pressure, a direct as-is sale can help you compare certainty against listing delays.",
+    primaryCta: {
+      label: "Review my move timeline",
+      href: "#sell-house-before-moving-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Relocation solution page",
+      href: "/solutions/relocating/",
+    },
+    quickAnswer: {
+      title: "Can I sell before I move or after I already left?",
+      body:
+        "Yes. A Kansas City seller can often compare a remote or flexible-closing sale before leaving town, after moving out, or while coordinating a new home purchase. The key details are title readiness, payoff, repairs, occupancy, clean-out, and the closing date you need.",
+      bullets: [
+        "Remote walkthroughs and electronic signing may reduce return trips",
+        "Closing can be planned around a job start date or new home purchase",
+        "Clean-out and repairs can sometimes be included in the as-is offer",
+        "Vacancy, insurance, utilities, and lawn care should be counted while waiting",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Timing pressure",
+        title: "Why moving sellers need a clearer sale plan",
+        body:
+          "Traditional listings can work well when there is time to prep, show, negotiate, inspect, appraise, and wait on financing. Relocation gets harder when the move date arrives before the house is ready for that process.",
+        bullets: [
+          "A new job start date is already set",
+          "You are buying or renting in another city",
+          "The house needs repairs before it will show well",
+          "You may be paying two housing costs at once",
+          "You need flexibility around possession and move-out",
+        ],
+      },
+      {
+        eyebrow: "Remote sale",
+        title: "What can be handled after you leave Kansas City",
+        body:
+          "If you already moved, the sale can still be organized. Photos, video walkthroughs, utility status, title documents, payoff details, and mobile notary coordination can reduce the need to travel back just to sell the house.",
+        bullets: [
+          "Video or photo walkthroughs for condition review",
+          "Electronic documents when title allows",
+          "Mobile notary planning for out-of-area signatures",
+          "Local access coordination for keys, utilities, and final walkthrough",
+        ],
+      },
+      {
+        eyebrow: "As-is option",
+        title: "Repairs and clean-out do not have to delay the move",
+        body:
+          "A move can expose the work left behind: garage items, basement storage, dated rooms, yard work, code letters, or repairs you cannot manage from another city. A direct as-is option can include those items so you can compare a simpler sale against doing the work first.",
+      },
+    ],
+    comparison: {
+      heading: "List after moving vs sell before the move",
+      intro:
+        "Both choices can make sense. The right comparison is not just price; it is price, time, stress, carrying costs, and the risk of managing a vacant house from somewhere else.",
+      items: [
+        {
+          title: "List after moving",
+          body:
+            "May fit when the house is clean, secure, easy to show, and you have reliable local help for repairs, lawn care, utilities, and access.",
+        },
+        {
+          title: "Sell before moving",
+          body:
+            "May fit when you want a known closing date, fewer showings, no repair project, and less risk of paying two households.",
+        },
+        {
+          title: "Compare both",
+          body:
+            "A written as-is offer beside a realistic listing net can show whether waiting is worth the extra coordination.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details for a relocation sale review",
+      items: [
+        "Move date, job start date, or new home closing date",
+        "Whether the house is occupied, vacant, or about to be vacant",
+        "Known repairs, clean-out needs, utilities, and lawn or security concerns",
+        "Mortgage payoff, taxes, HOA, insurance, and monthly carrying costs",
+        "Whether remote signing, mobile notary, or local key access will be needed",
+      ],
+    },
+    storySlug: "out-of-state-creative-solution",
+    decisionVariant: "fast",
+    offerBlock: {
+      badge: "Relocation review",
+      title: "Need a sale plan that works around your move?",
+      body:
+        "Send the address, move date, occupancy status, and what still needs handled at the house. ACE can compare a direct as-is option with your listing timeline.",
+      points: [
+        "Closing date reviewed around your move",
+        "Remote coordination and signing needs discussed",
+        "Repairs, clean-out, and vacancy issues included",
+        "Payoff, title, and carrying costs considered",
+      ],
+      formHeading: "Review my relocation sale",
+      defaultSituation: "relocating",
+    },
+    faqs: [
+      {
+        question: "Can I sell my Kansas City house after moving out of state?",
+        answer:
+          "Yes. Many sale steps can be coordinated remotely with photos, video, title documents, electronic communication, and mobile notary planning when available.",
+      },
+      {
+        question: "Can I choose the closing date around my move?",
+        answer:
+          "Often yes. A direct sale can usually compare faster closing, delayed closing, or a short possession plan depending on title, occupancy, and the agreement.",
+      },
+      {
+        question: "Do I need to clean out the house before relocating?",
+        answer:
+          "Not always. Personal, private, valuable, and sentimental items should be removed, but leftover furniture, garage items, and cleanup can sometimes be included in an as-is offer.",
+      },
+      {
+        question: "What if I am paying for two houses?",
+        answer:
+          "Then carrying costs matter. Mortgage, utilities, insurance, taxes, lawn care, repairs, and vacancy risk should be compared against the net from waiting to list.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
