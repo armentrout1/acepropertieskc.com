@@ -942,6 +942,138 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-house-with-water-damage-kansas-city",
+    title: "Sell House With Water Damage Kansas City | ACE",
+    description:
+      "Kansas City guide to selling a house with water damage, leaks, frozen pipes, mold concerns, insurance claims, and as-is offer options.",
+    category: "Repairs",
+    badge: "Water damage",
+    headline: "Sell a House With Water Damage in Kansas City",
+    intro:
+      "Water damage can turn a normal sale into a repair project fast. Roof leaks, frozen pipes, failed sump pumps, basement water, plumbing breaks, or mold concerns can make buyers nervous and slow down financing. ACE can review the house as-is before you spend money on cleanup.",
+    primaryCta: {
+      label: "Review water damage options",
+      href: "#sell-house-with-water-damage-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Compare repairs vs as-is",
+      href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    },
+    quickAnswer: {
+      title: "You can compare an as-is offer before paying for remediation",
+      body:
+        "Water damage does not always mean you need to fully repair before selling. The right choice depends on the source, whether the home is vacant, insurance status, mold concerns, repair bids, buyer financing risk, and your timeline.",
+      bullets: [
+        "Leaks, frozen pipes, and basement water can be reviewed as-is",
+        "Insurance claim timing can be part of the conversation",
+        "Mold or cleanup bids can be compared against a direct sale",
+        "Vacant-house risk and carrying costs should be included",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Source matters",
+        title: "The cause of the water damage changes the decision",
+        body:
+          "A one-time plumbing leak is different from ongoing roof leaks, grading problems, basement seepage, or a vacant house with utilities left on. Sellers should understand the source before spending money on repairs that may not improve their final net.",
+        bullets: [
+          "Roof leak, storm damage, or missing shingles",
+          "Frozen pipe or plumbing supply break",
+          "Basement water, failed sump pump, or grading issue",
+          "Vacant property damage discovered late",
+        ],
+      },
+      {
+        eyebrow: "Insurance",
+        title: "Insurance claims can help, but they can also slow the sale",
+        body:
+          "If there is an open claim, deductible, denied claim, or incomplete repair scope, the sale path needs to account for paperwork and timing. A direct as-is offer gives you a comparison point while you decide whether to finish the claim or move on.",
+        bullets: [
+          "Claim status and deductible",
+          "Contractor estimate or adjuster scope",
+          "Whether repairs are complete or unfinished",
+          "Whether the house is occupied, vacant, or unsafe to show",
+        ],
+      },
+      {
+        eyebrow: "As-is path",
+        title: "Selling as-is may be cleaner when the cleanup is uncertain",
+        body:
+          "When water damage overlaps with mold concerns, clean-out, foundation issues, code notices, or a vacant property, the project can become bigger than the seller wants to manage. Selling as-is can shift cleanup, repair coordination, and resale risk to the buyer after closing.",
+      },
+    ],
+    comparison: {
+      heading: "Repair water damage vs selling as-is",
+      intro:
+        "The best decision is usually the one that gives you the clearest net number, timeline, and risk level.",
+      items: [
+        {
+          title: "Repair first",
+          body:
+            "May fit when the damage is contained, insurance is paying, contractors are available, and repairs are likely to raise your net more than they cost.",
+        },
+        {
+          title: "Sell as-is",
+          body:
+            "May fit when the scope is uncertain, mold is possible, the house is vacant, you need speed, or you do not want to manage remediation.",
+        },
+        {
+          title: "Compare both",
+          body:
+            "A cleanup bid, insurance scope, and as-is offer let you compare the real choices instead of guessing what a retail buyer might accept later.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details for a water damage review",
+      items: [
+        "Photos or video of the damaged rooms, ceilings, basement, or flooring",
+        "What caused the leak or water entry if known",
+        "Any insurance claim, adjuster scope, denial, or contractor bid",
+        "Whether utilities are on and whether the home is vacant",
+        "Mortgage payoff, taxes, insurance, and timing pressure if known",
+      ],
+    },
+    storySlug: "inherited-original-condition-house",
+    decisionVariant: "repairs",
+    offerBlock: {
+      badge: "Water damage review",
+      title: "Want the water damage reviewed before you repair it?",
+      body:
+        "Send the address and what happened. ACE can compare an as-is option against cleanup, insurance timing, and listing so you can make a practical decision.",
+      points: [
+        "No cleanup required to start",
+        "Insurance and repair details can be reviewed",
+        "As-is cash and flexible options compared",
+        "Closing through title with payoff review",
+      ],
+      formHeading: "Review my water damage issue",
+      defaultSituation: "needs repairs",
+    },
+    faqs: [
+      {
+        question: "Can I sell a house with water damage in Kansas City?",
+        answer:
+          "Yes. Many water-damaged houses can be sold as-is. A direct buyer can review leaks, basement water, mold concerns, insurance details, and repair bids before making an offer.",
+      },
+      {
+        question: "Do I need to fix mold or water damage before asking for an offer?",
+        answer:
+          "No. If you already have remediation bids or insurance documents, those help. If not, you can still start with photos, the address, and what you know about the damage.",
+      },
+      {
+        question: "What if I have an open insurance claim?",
+        answer:
+          "An open claim does not automatically stop a sale, but it needs to be reviewed carefully. Claim status, deductible, repair scope, and title timing can all affect the best path.",
+      },
+      {
+        question: "Can ACE buy a vacant house with frozen-pipe damage?",
+        answer:
+          "Yes. Frozen-pipe damage is common in vacant Kansas City houses. ACE can review the property as-is and help compare cleanup costs against selling directly.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
