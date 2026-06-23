@@ -213,7 +213,7 @@ export const expansionAreas: ExpansionArea[] = [
       "Kansas City, Kansas home buyers for as-is sales, repairs, code issues, inherited homes, tenants, back taxes, and distressed properties.",
     body:
       "Kansas City, Kansas sellers may be dealing with repairs, code notices, liens, taxes, tenants, or inherited property. We review the situation as-is and explain whether a direct sale can simplify the next step.",
-    neighborhoodFocus: ["Rosedale", "Armourdale", "Piper and western KCK"],
+    neighborhoodFocus: ["Rosedale", "Armourdale", "Piper and western KCK", "ZIP 66109"],
     sellerSituations: [
       "Distressed properties with code or repair concerns",
       "Back taxes, liens, or payment pressure",
@@ -223,6 +223,7 @@ export const expansionAreas: ExpansionArea[] = [
     titleNotes:
       "Wyandotte County files may involve taxes, utility balances, liens, code items, leases, or estate documents. We help sellers get a clear title checklist.",
     nearbyLinks: [
+      { label: "66109", href: "/areas/66109/" },
       { label: "Wyandotte County distressed guide", href: "/resources/wyandotte-county-distressed-property-sale/" },
       { label: "Mission", href: "/areas/mission-ks/" },
       { label: "Kansas City, MO", href: "/areas/kansas-city-mo/" },
@@ -393,6 +394,31 @@ export const expansionAreas: ExpansionArea[] = [
     nearbyLinks: [
       { label: "Prairie Village", href: "/areas/prairie-village-ks/" },
       { label: "Roeland Park", href: "/areas/roeland-park-ks/" },
+      { label: "Investor offer vs MLS net sheet", href: "/resources/investor-offer-vs-mls-net-sheet-kansas-city/" },
+    ],
+  },
+  {
+    slug: "westwood-ks",
+    city: "Westwood",
+    state: "KS",
+    county: "Johnson County",
+    description:
+      "Westwood, Kansas home buyers for as-is sales, inherited houses, older homes, repairs, downsizing, and private cash-offer comparisons.",
+    body:
+      "Westwood sellers often have strong location value, but older condition, family timing, repairs, privacy, or inherited-property decisions can still make a normal listing feel heavy. We help compare a direct as-is offer against the MLS path so you can decide with clear numbers.",
+    neighborhoodFocus: ["Westwood city core", "Westwood Hills area", "State Line and Rainbow Boulevard corridors"],
+    sellerSituations: [
+      "Inherited or trust-owned homes where family needs one clear option",
+      "Older homes needing updates before retail buyers compete",
+      "Downsizing moves where privacy and possession timing matter",
+      "Sellers who want to compare a cash buyer with listing prep and commissions",
+    ],
+    titleNotes:
+      "Westwood sales may involve Johnson County title work, trust documents, payoff statements, tax prorations, and any municipal or estate paperwork. We keep those items visible before closing.",
+    nearbyLinks: [
+      { label: "Fairway", href: "/areas/fairway-ks/" },
+      { label: "Roeland Park", href: "/areas/roeland-park-ks/" },
+      { label: "Prairie Village", href: "/areas/prairie-village-ks/" },
       { label: "Investor offer vs MLS net sheet", href: "/resources/investor-offer-vs-mls-net-sheet-kansas-city/" },
     ],
   },

@@ -49,6 +49,24 @@ const overlandParkFastSaleProof = [
   },
 ];
 
+const overlandParkCashBuyerSignals = [
+  {
+    title: "Cash offer before repairs",
+    body:
+      "Useful when the house needs roof, foundation, HVAC, cosmetic, accessibility, or clean-out work before a retail buyer would feel comfortable.",
+  },
+  {
+    title: "Johnson County title and HOA timing",
+    body:
+      "Overland Park closings can involve HOA resale packets, payoff timing, title review, and possession plans. We flag those early so the cash offer is tied to a real path.",
+  },
+  {
+    title: "Compare cash buyer vs listing",
+    body:
+      "If the house is market-ready, listing may deserve a look. If speed, privacy, no showings, or no repairs matter more, a direct buyer can be the cleaner option.",
+  },
+];
+
 const steps = [
   {
     title: "Set expectations",
@@ -111,7 +129,7 @@ const jsonLd = [
 
 <Layout
   title="Sell My House Fast Overland Park KS | Cash Offer"
-  description="Need to sell your Overland Park KS house fast? Compare an as-is cash offer with no repairs, no showings, no commissions, and clear Johnson County timing."
+  description="Need to sell your Overland Park KS house fast? Compare cash home buyers, an as-is offer, no repairs, no showings, and clear Johnson County timing."
   canonicalPath="/areas/overland-park-ks/"
   jsonLd={jsonLd}
 >
@@ -153,6 +171,28 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Overland Park cash buyer review</p>
+      <h2 class="text-3xl font-semibold text-primary">Cash Home Buyers in Overland Park, KS</h2>
+      <p class="text-muted">
+        If you are comparing cash home buyers in Overland Park, the right question is not just who can close fast. It is who can explain repairs, HOA details, Johnson County title timing, closing costs, and your net without pushing you into a decision.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {overlandParkCashBuyerSignals.map((item) => (
+        <article class="card h-full">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="/resources/johnson-county-cash-home-buyers/" class="btn btn-ghost text-base">Johnson County cash buyer guide</a>
+      <a href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/" class="btn btn-outline text-base">Cash buyer vs agent</a>
+    </div>
+  </section>
+
   <section class="section">
     <div class="card space-y-4">
       <h2 class="text-2xl font-semibold text-primary">Common Overland Park seller goals</h2>
@@ -181,7 +221,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Focused on Johnson County logistics</h2>
       <p class="text-muted">
-        From county inspections to HOA transfer certificates, Overland Park sales have specific steps. We coordinate those details, provide checklists, and keep everyone updated so you are not surprised during escrow.
+        From county inspections to HOA transfer certificates, Overland Park sales have specific steps. We coordinate those details, provide checklists, and keep everyone updated so you are not surprised during escrow. If you are also comparing nearby sellers and smaller Johnson County cities, see our pages for <a href="/areas/leawood-ks/" class="text-secondary underline">Leawood</a>, <a href="/areas/mission-ks/" class="text-secondary underline">Mission</a>, <a href="/areas/fairway-ks/" class="text-secondary underline">Fairway</a>, and <a href="/areas/westwood-ks/" class="text-secondary underline">Westwood</a>.
       </p>
     </article>
   </section>

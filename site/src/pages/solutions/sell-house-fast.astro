@@ -95,6 +95,24 @@ const searchIntentPoints = [
   "Close around relocation, probate, tenants, late payments, or a vacant house",
 ];
 
+const exactMatchTrustPoints = [
+  {
+    title: "Sell your house fast in Kansas City without repair prep",
+    body:
+      "The offer conversation can start before you clean out the garage, replace the roof, finish the basement, or line up contractors. We price the house as-is and explain what we are assuming.",
+  },
+  {
+    title: "Cash home buyer review with a title-first timeline",
+    body:
+      "Speed depends on title, payoffs, liens, seller authority, access, and occupancy. We would rather explain the real timeline than promise a date before the file is ready.",
+  },
+  {
+    title: "We buy houses across the Kansas City metro",
+    body:
+      "Kansas City, Overland Park, Olathe, Shawnee, Lenexa, Mission, Fairway, Westwood, Kansas City, KS, 64131, and 66109 each have different local details. The page cluster helps route sellers to the closest local context.",
+  },
+];
+
 const comparisonRows = [
   {
     path: "Direct cash sale",
@@ -244,6 +262,24 @@ const jsonLd = [
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section space-y-5">
+    <div class="max-w-4xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Search intent match</p>
+      <h2 class="text-3xl font-semibold text-primary">Sell Your House Fast in Kansas City: What Actually Matters</h2>
+      <p class="text-muted">
+        Most sellers searching for "sell your house fast Kansas City" are not looking for a slogan. They need to know whether someone can buy the house as-is, handle title and payoff details, respect the timeline, and explain the tradeoff against listing.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {exactMatchTrustPoints.map((item) => (
+        <article class="card h-full">
+          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm text-muted">{item.body}</p>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -401,8 +437,8 @@ const jsonLd = [
       <p class="text-muted">
         Kansas City's real estate market moves quickly, but traditional listings still take months. We understand local market conditions across Missouri and Kansas, from <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City proper</a> to <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, and surrounding suburbs.
       </p>
-      <p class="text-muted">
-        Whether you're selling in <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a>, <a href="/areas/lees-summit-mo/" class="text-secondary underline">Lee's Summit</a>, or other metro areas due to relocation, inheritance, or simply wanting a straightforward sale, we provide offers that reflect current market values while eliminating traditional selling delays.
+        <p class="text-muted">
+        Whether you're selling in <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a>, <a href="/areas/lees-summit-mo/" class="text-secondary underline">Lee's Summit</a>, <a href="/areas/64131/" class="text-secondary underline">64131 near Red Bridge and Minor Park</a>, or <a href="/areas/66109/" class="text-secondary underline">66109 in western Kansas City, KS</a>, we provide offers that reflect current market conditions while reducing traditional selling delays.
       </p>
     </article>
     <article class="card space-y-3">

@@ -1,0 +1,153 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
+import OfferForm from "../../../components/OfferForm.astro";
+import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
+import { buildBreadcrumbList, faqJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../../lib/seo";
+
+const faqs = [
+  {
+    question: "Do you buy houses in ZIP 66109?",
+    answer:
+      "Yes. We review houses in the 66109 ZIP code and nearby western Kansas City, Kansas neighborhoods when the property fits our Kansas City metro service area.",
+  },
+  {
+    question: "Can I sell a 66109 house as-is?",
+    answer:
+      "Yes. Repairs, clean-out, older systems, vacant-house concerns, acreage, and inherited-property issues can often be handled as part of a direct as-is offer.",
+  },
+  {
+    question: "What makes 66109 different from central KCK?",
+    answer:
+      "66109 often includes western KCK, Piper-area homes, newer subdivisions, rural-edge properties, and houses with different acreage, access, or commute considerations than older central KCK neighborhoods.",
+  },
+  {
+    question: "Can you help if taxes, liens, or title issues are part of the sale?",
+    answer:
+      "We can help organize the sale-side checklist with title, including payoff questions, Wyandotte County taxes, liens, estate documents, or other items that may affect closing. This is not legal or tax advice.",
+  },
+];
+
+const localFactors = [
+  {
+    title: "Western KCK and Piper-area context",
+    body:
+      "Homes near western Kansas City, Kansas and the Piper area can have a different buyer pool than older urban-core properties. We compare timing, condition, access, and likely retail prep before suggesting a direct-sale path.",
+  },
+  {
+    title: "Vacant, inherited, or repair-heavy houses",
+    body:
+      "If the house is sitting vacant, needs clean-out, has deferred maintenance, or came through family ownership, a written as-is option can help you compare certainty against months of prep.",
+  },
+  {
+    title: "Wyandotte County title items",
+    body:
+      "Taxes, liens, payoffs, code items, leases, estate documents, and seller authority can all affect closing. We try to identify those questions early instead of promising a date before title is ready.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Areas", item: "/areas/" },
+    { name: "66109", item: "/areas/66109/" },
+  ]),
+];
+---
+
+<Layout
+  title="Sell Your 66109 House As-Is | Kansas City KS Cash Buyers"
+  description="Sell a house in Kansas City KS ZIP 66109 as-is. Local cash and flexible options for Piper-area homes, repairs, inherited property, taxes, and title timing."
+  canonicalPath="/areas/66109/"
+  jsonLd={jsonLd}
+>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-5">
+      <p class="badge">Kansas City, KS 66109</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+        Sell Your House As-Is in 66109, Kansas City, KS
+      </h1>
+      <p class="text-lg leading-8 text-muted">
+        If you own a house in 66109 near western Kansas City, Kansas, Piper, or nearby Wyandotte County neighborhoods, you may be comparing a cash buyer against repairs, listing prep, taxes, title issues, or a vacant-house timeline. We review the property as-is and explain whether a direct offer, flexible timing, or another route makes sense.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Get a 66109 offer</a>
+        <a href="/areas/kansas-city-ks/" class="btn btn-ghost text-base">Kansas City KS area page</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="66109-offer-form"
+      heading="Request a 66109 offer"
+      subheading="Start with the property address and the best way to reach you."
+      defaultSituation="as-is cash"
+      pageContext="66109 area page"
+    />
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Local selling context</p>
+      <h2 class="text-3xl font-semibold text-primary">Cash home buyers in 66109 should understand more than the ZIP code.</h2>
+      <p class="text-muted">
+        The right path depends on condition, title, county items, access, occupancy, and whether the home is a standard subdivision house, rural-edge property, inherited house, or vacant property.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {localFactors.map((item) => (
+        <article class="card bg-white">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <SellerSituationLinks
+    city="66109 in Kansas City, KS"
+    countyGuide={{ label: "Wyandotte County foreclosure options", href: "/resources/wyandotte-county-foreclosure-options/" }}
+    heading="Match your 66109 situation to the right selling path"
+    intro="Use this ZIP page for western KCK context, then compare the guide that matches your repairs, taxes, title pressure, vacant-house risk, or family timeline."
+  />
+
+  <AreaPropertyProof city="ZIP 66109" county="Wyandotte County" />
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Common 66109 situations we review</h2>
+      <ul class="space-y-3 text-sm text-primary">
+        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span><span>Vacant houses where utilities, mowing, security, and insurance keep adding up.</span></li>
+        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span><span>Inherited homes where family members need one written option before deciding.</span></li>
+        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span><span>Properties with repairs, clean-out, old systems, roof concerns, or acreage questions.</span></li>
+        <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span><span>Taxes, liens, payment pressure, or title items that need early review with the closing team.</span></li>
+      </ul>
+    </article>
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">Nearby pages and guides</h2>
+      <p class="text-muted">
+        If the property is outside 66109 but still in Wyandotte County or the Kansas City, Kansas area, these pages may be a better fit.
+      </p>
+      <ul class="space-y-3 text-sm text-primary">
+        <li><a href="/areas/kansas-city-ks/" class="text-secondary underline">Kansas City, KS home buyers</a></li>
+        <li><a href="/areas/bonner-springs-ks/" class="text-secondary underline">Bonner Springs home buyers</a></li>
+        <li><a href="/resources/wyandotte-county-distressed-property-sale/" class="text-secondary underline">Wyandotte County distressed property guide</a></li>
+        <li><a href="/resources/vacant-house-carrying-cost-calculator/" class="text-secondary underline">Vacant house carrying cost calculator</a></li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-semibold text-primary">66109 FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>
