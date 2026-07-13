@@ -38,6 +38,14 @@ export default defineConfig({
       status: 301,
       destination: "/resources/",
     },
+    "/resources/kansas-city-distressed-seller-zip-codes/": {
+      status: 301,
+      destination: "/resources/kansas-city-as-is-seller-zip-codes/",
+    },
+    "/resources/kansas-city-quality-equity-seller-zip-codes/": {
+      status: 301,
+      destination: "/resources/kansas-city-higher-equity-home-sale-options/",
+    },
   },
   vite: {
     plugins: [tailwindcss()],

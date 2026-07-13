@@ -1,4 +1,4 @@
-﻿import type { ExpansionArea } from "./areaExpansion";
+import type { ExpansionArea } from "./areaExpansion";
 
 type ZipClusterAreaInput = Omit<ExpansionArea, "city">;
 
@@ -28,7 +28,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
     titleNotes:
       "64124 closings often need Jackson County tax review, payoff statements, code or lien checks, lease details, and estate documents if heirs are involved.",
     nearbyLinks: [
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
       { label: "64127", href: "/areas/64127/" },
       { label: "64128", href: "/areas/64128/" },
       { label: "Sell with code violations", href: "/resources/sell-house-with-code-violations-kansas-city/" },
@@ -52,7 +52,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
     titleNotes:
       "Jackson County title may need taxes, liens, code items, payoffs, estate authority, or tenant documents reviewed before a reliable closing date can be set.",
     nearbyLinks: [
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
       { label: "64130", href: "/areas/64130/" },
       { label: "64127", href: "/areas/64127/" },
       { label: "Back taxes guide", href: "/resources/sell-house-with-back-taxes-kansas-city/" },
@@ -79,7 +79,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
       { label: "64124", href: "/areas/64124/" },
       { label: "64128", href: "/areas/64128/" },
       { label: "Sell vacant house guide", href: "/resources/sell-vacant-house-kansas-city/" },
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
     ],
   }),
   zipArea({
@@ -103,7 +103,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
       { label: "64132", href: "/areas/64132/" },
       { label: "64128", href: "/areas/64128/" },
       { label: "Sell house before auction", href: "/resources/sell-house-before-foreclosure-auction-kansas-city/" },
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
     ],
   }),
   zipArea({
@@ -127,7 +127,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
       { label: "64130", href: "/areas/64130/" },
       { label: "64131", href: "/areas/64131/" },
       { label: "Vacant house calculator", href: "/resources/vacant-house-carrying-cost-calculator/" },
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
     ],
   }),
   zipArea({
@@ -151,7 +151,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
       { label: "Kansas City, KS", href: "/areas/kansas-city-ks/" },
       { label: "66104", href: "/areas/66104/" },
       { label: "Wyandotte County distressed guide", href: "/resources/wyandotte-county-distressed-property-sale/" },
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
     ],
   }),
   zipArea({
@@ -175,7 +175,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
       { label: "66102", href: "/areas/66102/" },
       { label: "66106", href: "/areas/66106/" },
       { label: "Wyandotte County foreclosure options", href: "/resources/wyandotte-county-foreclosure-options/" },
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
     ],
   }),
   zipArea({
@@ -199,7 +199,7 @@ export const distressedSellerZipAreas: ExpansionArea[] = [
       { label: "Kansas City, KS", href: "/areas/kansas-city-ks/" },
       { label: "66109", href: "/areas/66109/" },
       { label: "Sell as-is guide", href: "/resources/sell-house-as-is-kansas-city/" },
-      { label: "Distressed seller ZIP cluster", href: "/resources/kansas-city-distressed-seller-zip-codes/" },
+      { label: "As-is seller ZIP guide", href: "/resources/kansas-city-as-is-seller-zip-codes/" },
     ],
   }),
 ];
@@ -212,7 +212,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     description:
       "Sell a high-equity 64114 Kansas City house as-is. Helpful for Waldo, Ward Parkway, inherited homes, dated houses, repairs, and quiet sale timelines.",
     body:
-      "ZIP 64114 is more of a quality-equity area than a pure distress area. Sellers may have strong location value, but still need help with dated condition, inherited property, downsizing, repairs, or a quiet sale without listing prep.",
+      "ZIP 64114 is more of a higher-equity area than a pure distress area. Sellers may have strong location value, but still need help with dated condition, inherited property, downsizing, repairs, or a quiet sale without listing prep.",
     neighborhoodFocus: ["Waldo", "Ward Parkway corridor", "South Kansas City established neighborhoods"],
     sellerSituations: [
       "High-equity homes that are dated or need major updates",
@@ -223,7 +223,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     titleNotes:
       "64114 closings may involve Jackson County title, trust or estate documents, payoff statements, taxes, and municipal or HOA details.",
     nearbyLinks: [
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
       { label: "64131", href: "/areas/64131/" },
       { label: "Investor offer vs MLS net sheet", href: "/resources/investor-offer-vs-mls-net-sheet-kansas-city/" },
     ],
@@ -247,7 +247,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
       "64113 files may involve Jackson County title, estate or trust authority, payoff statements, tax prorations, and seller possession timing.",
     nearbyLinks: [
       { label: "64114", href: "/areas/64114/" },
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
       { label: "Dated house as-is guide", href: "/resources/sell-dated-house-as-is-kansas-city/" },
     ],
   }),
@@ -258,7 +258,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     description:
       "Sell a 64145 South Kansas City house as-is when equity, downsizing, inherited property, repairs, or privacy matters more than a public listing.",
     body:
-      "ZIP 64145 is a quality-equity page for South Kansas City sellers. A normal listing may work well, but a direct offer is still worth comparing when repairs, estate timing, possession, or privacy matter.",
+      "ZIP 64145 is a higher-equity page for South Kansas City sellers. A normal listing may work well, but a direct offer is still worth comparing when repairs, estate timing, possession, or privacy matter.",
     neighborhoodFocus: ["South Kansas City", "Verona Hills area", "State Line and Red Bridge connections"],
     sellerSituations: [
       "High-equity homes where the seller wants a clean net comparison",
@@ -271,7 +271,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     nearbyLinks: [
       { label: "64131", href: "/areas/64131/" },
       { label: "Leawood", href: "/areas/leawood-ks/" },
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
     ],
   }),
   zipArea({
@@ -281,7 +281,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     description:
       "Sell a 66205 Johnson County house as-is. Mission, Fairway, Westwood, and Prairie Village options for inherited, dated, high-equity, or private sales.",
     body:
-      "ZIP 66205 is a quality-equity target because location demand can be strong even when the house needs updates. We help sellers compare the MLS path against a direct offer when privacy, estate timing, or repair scope matters.",
+      "ZIP 66205 is a higher-equity target area because location demand can be strong even when the house needs updates. We help sellers compare the MLS path against a direct offer when privacy, estate timing, or repair scope matters.",
     neighborhoodFocus: ["Mission", "Fairway", "Westwood", "Prairie Village edge"],
     sellerSituations: [
       "Older Johnson County homes needing updates before listing",
@@ -294,7 +294,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     nearbyLinks: [
       { label: "Mission", href: "/areas/mission-ks/" },
       { label: "Fairway", href: "/areas/fairway-ks/" },
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
     ],
   }),
   zipArea({
@@ -317,7 +317,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     nearbyLinks: [
       { label: "Prairie Village", href: "/areas/prairie-village-ks/" },
       { label: "Leawood", href: "/areas/leawood-ks/" },
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
     ],
   }),
   zipArea({
@@ -327,7 +327,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     description:
       "Sell a 66212 Overland Park house as-is. Compare direct offers for dated homes, inherited property, repairs, downsizing, and equity-rich sale decisions.",
     body:
-      "ZIP 66212 is a good quality cluster page because many homes have strong Johnson County demand but may still need updates, clean-out, estate coordination, or a faster/private path than a normal listing.",
+      "ZIP 66212 is a good higher-equity page because many homes have strong Johnson County demand but may still need updates, clean-out, estate coordination, or a faster/private path than a normal listing.",
     neighborhoodFocus: ["Central Overland Park", "Metcalf corridor", "Established Johnson County neighborhoods"],
     sellerSituations: [
       "Dated homes needing kitchen, bath, flooring, or system updates",
@@ -340,7 +340,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     nearbyLinks: [
       { label: "Overland Park", href: "/areas/overland-park-ks/" },
       { label: "66205", href: "/areas/66205/" },
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
     ],
   }),
   zipArea({
@@ -363,7 +363,7 @@ export const qualityEquityZipAreas: ExpansionArea[] = [
     nearbyLinks: [
       { label: "Overland Park", href: "/areas/overland-park-ks/" },
       { label: "Mission", href: "/areas/mission-ks/" },
-      { label: "Quality equity ZIP cluster", href: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+      { label: "Higher-equity home sale guide", href: "/resources/kansas-city-higher-equity-home-sale-options/" },
     ],
   }),
 ];

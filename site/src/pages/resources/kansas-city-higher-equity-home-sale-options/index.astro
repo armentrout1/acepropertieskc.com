@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import { buildBreadcrumbList, faqJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../../lib/seo";
@@ -15,9 +15,9 @@ const zipLinks = [
 
 const faqs = [
   {
-    question: "What makes this different from the distressed ZIP cluster?",
+    question: "What makes this different from the as-is ZIP guide?",
     answer:
-      "The quality cluster is about fewer but stronger opportunities. These sellers may have equity and good locations, but they still need help with repairs, inheritance, privacy, timing, or a quiet comparison before listing.",
+      "This guide is about fewer but stronger opportunities. These sellers may have equity and good locations, but still need help with repairs, inheritance, privacy, timing, or a quiet comparison before listing.",
   },
   {
     question: "Should sellers in these ZIPs always sell directly?",
@@ -38,32 +38,32 @@ const jsonLd = [
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Resources", item: "/resources/" },
-    { name: "Quality equity ZIP codes", item: "/resources/kansas-city-quality-equity-seller-zip-codes/" },
+    { name: "Higher-equity home sale options", item: "/resources/kansas-city-higher-equity-home-sale-options/" },
   ]),
 ];
 ---
 
 <Layout
-  title="Kansas City Quality Equity ZIP Codes | ACE Properties KC"
+  title="Kansas City Higher-Equity Home Sale Options | ACE Properties KC"
   description="Kansas City higher-equity ZIP guide for inherited homes, dated houses, repairs, privacy, and flexible sale timelines."
-  canonicalPath="/resources/kansas-city-quality-equity-seller-zip-codes/"
+  canonicalPath="/resources/kansas-city-higher-equity-home-sale-options/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-start">
     <div class="space-y-5">
-      <p class="badge">Quality equity ZIP cluster</p>
-      <h1 class="text-4xl font-black leading-tight text-primary md:text-5xl">Kansas City ZIPs Where Quality Beats Quantity</h1>
+      <p class="badge">Higher-equity home sale guide</p>
+      <h1 class="text-4xl font-black leading-tight text-primary md:text-5xl">Kansas City ZIPs Where a Private Sale May Still Make Sense</h1>
       <p class="text-lg leading-8 text-muted">
-        This is the higher-equity lane: fewer sellers, but better locations, stronger upside, and situations where a direct buyer can help with privacy, estate timing, dated condition, clean-out, repairs, or flexible possession.
+        This guide is for higher-equity sellers: fewer sellers, but better locations, stronger upside, and situations where a direct buyer can help with privacy, estate timing, dated condition, clean-out, repairs, or flexible possession.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Compare my net</a>
-        <a href="/resources/kansas-city-distressed-seller-zip-codes/" class="btn btn-ghost text-base">See distressed cluster</a>
+        <a href="/resources/kansas-city-as-is-seller-zip-codes/" class="btn btn-ghost text-base">See as-is ZIP guide</a>
       </div>
     </div>
     <OfferForm
       compact
-      formId="quality-equity-zip-cluster-form"
+      formId="higher-equity-zip-guide-form"
       heading="Review a high-equity property"
       subheading="Send the address and whether privacy, repairs, inheritance, or timing is the main issue."
     />
@@ -71,7 +71,7 @@ const jsonLd = [
 
   <section class="section section-alt space-y-6">
     <div class="max-w-3xl space-y-3">
-      <p class="badge">Quality ZIPs</p>
+      <p class="badge">Higher-equity ZIPs</p>
       <h2 class="text-3xl font-black text-primary">Where one good lead can matter more</h2>
       <p class="text-muted">
         These pages should rank for sellers who are not necessarily distressed, but who still need a practical as-is option because listing prep, estate decisions, privacy, or possession timing is the real friction.
@@ -80,7 +80,7 @@ const jsonLd = [
     <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
       {zipLinks.map((zip) => (
         <a href={zip.href} class="rounded-[1.25rem] border border-border bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Quality ZIP</p>
+          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Higher-equity ZIP</p>
           <h2 class="mt-2 text-3xl font-black text-primary">{zip.label}</h2>
           <p class="mt-2 text-sm leading-6 text-muted">{zip.note}</p>
           <span class="mt-4 inline-flex text-sm font-bold text-secondary">Open area page</span>
@@ -108,7 +108,7 @@ const jsonLd = [
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-black text-primary">Quality ZIP FAQ</h2>
+    <h2 class="text-2xl font-black text-primary">Higher-equity ZIP FAQ</h2>
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">

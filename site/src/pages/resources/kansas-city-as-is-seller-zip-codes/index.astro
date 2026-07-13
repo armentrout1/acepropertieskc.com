@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import { buildBreadcrumbList, faqJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../../lib/seo";
@@ -21,9 +21,9 @@ const faqs = [
       "These ZIPs tend to line up with older housing, vacancy, repair scope, tax/title friction, or sellers who may not fit a normal retail listing timeline.",
   },
   {
-    question: "Does ACE only buy distressed houses?",
+    question: "Does ACE only buy repair-heavy houses?",
     answer:
-      "No. ACE also compares quality and higher-equity properties. This cluster is simply the volume lane for sellers who need an as-is or urgent solution.",
+      "No. ACE also compares higher-equity homes and clean properties. This guide is for sellers who need an as-is or urgent solution without repairs, clean-out, or months of listing prep.",
   },
   {
     question: "Can a seller still list instead of selling directly?",
@@ -39,33 +39,33 @@ const jsonLd = [
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Resources", item: "/resources/" },
-    { name: "Distressed seller ZIP codes", item: "/resources/kansas-city-distressed-seller-zip-codes/" },
+    { name: "As-is seller ZIP codes", item: "/resources/kansas-city-as-is-seller-zip-codes/" },
   ]),
 ];
 ---
 
 <Layout
-  title="Kansas City Distressed Seller ZIP Codes | ACE Properties KC"
+  title="Kansas City As-Is Seller ZIP Codes | ACE Properties KC"
   description="A Kansas City seller guide to ZIP codes where repairs, vacancy, back taxes, inherited property, code issues, and urgent as-is sales are common."
-  canonicalPath="/resources/kansas-city-distressed-seller-zip-codes/"
+  canonicalPath="/resources/kansas-city-as-is-seller-zip-codes/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-start">
     <div class="space-y-5">
-      <p class="badge">Distressed seller ZIP cluster</p>
-      <h1 class="text-4xl font-black leading-tight text-primary md:text-5xl">Kansas City ZIPs Where As-Is Seller Need Is Highest</h1>
+      <p class="badge">As-is seller ZIP guide</p>
+      <h1 class="text-4xl font-black leading-tight text-primary md:text-5xl">Kansas City ZIPs Where Selling As-Is Often Makes Sense</h1>
       <p class="text-lg leading-8 text-muted">
-        This is the volume lane: older housing stock, vacancy risk, repairs, title pressure, code items, taxes, tenants, inherited homes, and sellers who may need a clean direct option instead of months of listing prep.
+        This guide is for sellers who need a practical as-is path: older housing stock, vacancy risk, repairs, title pressure, code items, taxes, tenants, inherited homes, and sellers who may need a clean direct option instead of months of listing prep.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="/get-offer/" class="btn btn-primary text-base">Check my property</a>
-        <a href="/resources/kansas-city-quality-equity-seller-zip-codes/" class="btn btn-ghost text-base">See quality cluster</a>
+        <a href="/resources/kansas-city-higher-equity-home-sale-options/" class="btn btn-ghost text-base">See higher-equity options</a>
       </div>
     </div>
     <OfferForm
       compact
-      formId="distressed-zip-cluster-form"
-      heading="Review a KC distressed property"
+      formId="as-is-zip-guide-form"
+      heading="Review a KC as-is property"
       subheading="Send the address, condition, and what deadline or title issue you are trying to solve."
     />
   </section>
@@ -109,7 +109,7 @@ const jsonLd = [
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-black text-primary">Distressed ZIP FAQ</h2>
+    <h2 class="text-2xl font-black text-primary">As-Is ZIP FAQ</h2>
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">
