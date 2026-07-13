@@ -1,4 +1,4 @@
-﻿# ACE Properties KC SEO Audit and Roadmap
+# ACE Properties KC SEO Audit and Roadmap
 
 Audit date: May 11, 2026  
 Latest generated-output audit: June 21, 2026
@@ -405,13 +405,23 @@ Target query clusters:
   - [x] Confirm the QA lead email arrived in the destination inbox.
 - [x] Create `/get-offer/`.
 - [x] Add landing-page/referrer/UTM capture to the form.
-- [x] Build the Kansas City distressed seller ZIP cluster.
+- [x] Build the Kansas City as-is seller ZIP guide.
   - [x] Added ZIP pages for 64124, 64128, 64127, 64130, 64132, 66102, 66104, and 66106.
-  - [x] Added the distressed ZIP cluster resource hub.
-- [x] Build the Kansas City quality-equity ZIP cluster.
+  - [x] Added the as-is seller ZIP resource hub.
+- [x] Build the Kansas City higher-equity home sale guide.
   - [x] Added ZIP pages for 64113, 64114, 64145, 66204, 66205, 66206, and 66212.
-  - [x] Added the quality-equity ZIP cluster resource hub.
-- [ ] After the next GSC export, compare impressions for distressed ZIP terms vs quality ZIP terms and decide which cluster gets the next content expansion.- [ ] Build the first Search Console query-to-page map once GSC data is exported.
+  - [x] Added the higher-equity home sale resource hub.
+- [ ] Search Console indexing follow-up for new ZIP guide pages.
+  - [x] Sitemap is submitted and currently discovers the new URL set.
+  - [x] Aaron requested indexing for `/areas/66104/`.
+  - [ ] Confirm the other requested 6610x URL from Aaron's notes, then mark it complete if Google accepted it.
+  - [ ] Re-check/request indexing for `/resources/kansas-city-as-is-seller-zip-codes/`.
+  - [ ] Re-check/request indexing for `/resources/kansas-city-higher-equity-home-sale-options/`.
+  - [ ] Re-check/request indexing for `/areas/64124/`, `/areas/64128/`, `/areas/64127/`, `/areas/64130/`, and `/areas/64132/`.
+  - [ ] Re-check/request indexing for `/areas/66102/`, `/areas/66106/`, and any other 6610x page not already accepted.
+  - [ ] Re-check/request indexing for `/areas/64113/`, `/areas/64114/`, `/areas/64145/`, `/areas/66204/`, `/areas/66205/`, `/areas/66206/`, and `/areas/66212/`.
+- [ ] After the next GSC export, compare impressions for as-is ZIP terms vs higher-equity ZIP terms and decide which guide gets the next content expansion.
+- [ ] Build the first Search Console query-to-page map once GSC data is exported.
 - [x] Create the Search Console query-map template.
 - [ ] Start reviews and Google Business Profile optimization.
 - [x] Create local SEO trust playbook.
