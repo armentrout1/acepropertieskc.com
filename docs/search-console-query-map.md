@@ -1,49 +1,72 @@
-# Search Console Query Map
+# Search Console Query-to-Page Map
 
-Use this after exporting Google Search Console performance data. The goal is to turn search data into page-level actions.
+Use this monthly after exporting Google Search Console performance data. The goal is to stop guessing and turn search data into page-level actions: which page should own each query, what is close to page one, what needs a title/meta rewrite, and where Google may be splitting the same query across multiple pages.
 
-## Export Inputs
+## Monthly Workflow
 
-Export the last 3 months from Search Console:
+1. In Google Search Console, open Performance > Search results.
+2. Export the last 3 months, plus the current month-to-date when doing a mid-month check.
+3. Save each useful sheet as CSV or TSV.
+4. Put the files in:
+
+```text
+site/seo-inputs/search-console/
+```
+
+5. From the `site` folder, run:
+
+```bash
+npm run seo:gsc-map
+```
+
+6. Open the generated report:
+
+```text
+site/seo-reports/search-console-query-map.md
+```
+
+## Best Export Inputs
+
+Export these from Search Console when available:
 
 - Queries
 - Pages
-- Queries by page when possible
+- Queries by page, if you filter a page and export its queries
 - Devices
 - Countries
-- Indexing report
+- Indexing report examples
 
-## Priority Buckets
+The strongest report comes from a CSV that includes both `Query` and `Page` columns. If Search Console only gives separate Queries and Pages sheets, the report still works for CTR and near-win analysis, but page ownership and cannibalization are less complete.
 
-### Fix CTR First
+## What The Script Flags
 
-Look for pages with impressions and weak CTR.
+### Query/Page Ownership Mismatches
 
-| Page | Top query | Impressions | CTR | Avg position | Action |
-| --- | --- | ---: | ---: | ---: | --- |
-| `/` | `we buy houses kansas city` |  |  |  | Rewrite title/meta for intent |
-| `/areas/kansas-city-mo/` | `cash home buyers kansas city mo` |  |  |  | Add stronger local proof |
-| `/solutions/sell-house-fast/` | `sell my house fast kansas city` |  |  |  | Tighten title and first CTA |
+These happen when Google shows one page for a query, but another page should probably own that search intent. Example: a ZIP query should usually map to a ZIP or area page, while `take over payments` should map to the payment-takeover page.
 
-### Expand Positions 8-30
+### Low CTR Opportunities
 
-These pages are close enough to improve with better copy, FAQs, internal links, or local proof.
+Pages with impressions, decent position, and weak CTR should get title/meta rewrites first. This is often the fastest improvement because Google is already showing the page.
 
-| Query | Current page | Avg position | Missing intent | Action |
-| --- | --- | ---: | --- | --- |
-| `sell inherited house kansas city` | `/solutions/inherited-house/` |  | probate/title/family concerns | Add proof or FAQ |
-| `sell house as is kansas city` | `/resources/sell-house-as-is-kansas-city/` |  | repair examples | Add local examples |
-| `pre foreclosure kansas city` | `/solutions/pre-foreclosure/` |  | deadlines/payoff | Add county timeline notes |
+### Positions 8-30 Near Wins
 
-### Build New Pages Only From Evidence
+These pages are close enough to improve with stronger copy, FAQs, proof, internal links, or a more exact first-screen promise.
 
-Create new location or ZIP pages when Search Console shows impressions or real business focus.
+### Possible Cannibalization
 
-| Query cluster | Candidate page | Evidence needed | Status |
-| --- | --- | --- | --- |
-| `sell house fast raytown mo` | `/areas/raytown-mo/` | impressions or lead history | waiting |
-| `we buy houses kansas city ks` | `/areas/kansas-city-ks/` | impressions or lead history | waiting |
-| `cash home buyers blue springs mo` | `/areas/blue-springs-mo/` | impressions or lead history | waiting |
+If one query appears across several pages, we need to decide which page owns it, then point internal links toward that page.
+
+### New Page Evidence
+
+New pages should only be added when Search Console shows impressions, the market is a real target, or the business has a strong reason to own the area/situation.
+
+## Monthly Decision Rules
+
+- If a page has impressions but CTR under 1%, rewrite the title and meta description before adding more content.
+- If a page ranks 8-30, expand the page and add internal links from related pages.
+- If the wrong page ranks, strengthen the correct page and link to it from the wrong page.
+- If multiple pages rank for the same query, pick one owner and reduce mixed signals.
+- If a page gets clicks but no leads, improve CTA placement and trust copy.
 
 ## Lead Quality Map
 

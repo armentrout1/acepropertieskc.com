@@ -421,7 +421,8 @@ Target query clusters:
   - [ ] Re-check/request indexing for `/areas/66102/`, `/areas/66106/`, and any other 6610x page not already accepted.
   - [ ] Re-check/request indexing for `/areas/64113/`, `/areas/64114/`, `/areas/64145/`, `/areas/66204/`, `/areas/66205/`, `/areas/66206/`, and `/areas/66212/`.
 - [ ] After the next GSC export, compare impressions for as-is ZIP terms vs higher-equity ZIP terms and decide which guide gets the next content expansion.
-- [ ] Build the first Search Console query-to-page map once GSC data is exported.
+- [x] Build the Search Console query-to-page map workflow and report generator.
+- [ ] Populate the first Search Console query-to-page map once CSV exports are added.
 - [x] Create the Search Console query-map template.
 - [ ] Start reviews and Google Business Profile optimization.
 - [x] Create local SEO trust playbook.

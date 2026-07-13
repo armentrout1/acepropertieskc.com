@@ -44,6 +44,8 @@
 - [x] Add seller-situation authority pages for foreclosure timing, back taxes, probate, vacant-house risk, and low-equity/payment-pressure searches.
 - [x] Inspect July coverage export issue counts. Export did not include example URLs, so exact 404/soft-404 cleanup needs the Pages report examples from Search Console.
 - [ ] Request indexing in Search Console for the edited pages after deploy.
+- [x] Build the Search Console query-to-page map workflow for monthly optimization.
+- [ ] Add July/August Search Console CSV exports and generate the first real query-to-page report.
 - [ ] Track July 13 to August 13 against: clicks, impressions, CTR, average position, top city-page movement, and form starts.
 
 ## Verification Notes
