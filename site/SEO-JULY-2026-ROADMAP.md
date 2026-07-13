@@ -41,6 +41,7 @@
 - [x] Add exact-intent sections to Olathe, Shawnee, and 66109.
 - [x] Add Kansas City metro priority links to the sell-house-fast page.
 - [x] Reposition Overland Park and Independence around cash-home-buyer intent.
+- [x] Add seller-situation authority pages for foreclosure timing, back taxes, probate, vacant-house risk, and low-equity/payment-pressure searches.
 - [x] Inspect July coverage export issue counts. Export did not include example URLs, so exact 404/soft-404 cleanup needs the Pages report examples from Search Console.
 - [ ] Request indexing in Search Console for the edited pages after deploy.
 - [ ] Track July 13 to August 13 against: clicks, impressions, CTR, average position, top city-page movement, and form starts.

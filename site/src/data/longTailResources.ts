@@ -1604,6 +1604,626 @@ export const longTailResourcePages: LongTailResourcePage[] = [
       },
     ],
   },
+  {
+    slug: "sell-house-before-foreclosure-auction-kansas-city",
+    title: "Sell House Before Foreclosure Auction Kansas City | ACE",
+    description:
+      "Kansas City foreclosure auction timing guide for sellers comparing lender options, cash payoff, payment takeover review, and urgent as-is sale paths.",
+    category: "Foreclosure timing",
+    badge: "Auction timeline",
+    headline: "Sell a House Before Foreclosure Auction in Kansas City",
+    intro:
+      "A foreclosure auction date changes the whole conversation. The seller needs to know whether there is still time for title, payoff figures, signatures, and a closing before the deadline.",
+    primaryCta: {
+      label: "Review my auction timeline",
+      href: "#sell-house-before-foreclosure-auction-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Foreclosure solution page",
+      href: "/solutions/facing-foreclosure/",
+    },
+    quickAnswer: {
+      title: "A sale may still be possible, but title and payoff timing control the answer",
+      body:
+        "If the auction date is close, the first question is not just property value. It is whether title can verify ownership, liens, payoff amounts, required signatures, and lender deadlines in time for a real closing.",
+      bullets: [
+        "Gather the latest lender notice and any sale date information",
+        "Ask title to confirm payoff, liens, taxes, and required signatures early",
+        "Compare lender workout options with a written cash sale backup",
+        "Use payment takeover only after seller risk is reviewed carefully",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Urgency",
+        title: "Auction dates make guessing dangerous",
+        body:
+          "Sellers often wait because they are hoping a loan modification, refinance, family payoff, or listing will work. Those may still be worth pursuing, but a direct-sale backup can show whether there is a practical exit before the date gets too close.",
+        bullets: [
+        "Notice of default or sale date letters",
+        "Any reinstatement or payoff quote from the lender",
+        "County, trustee, attorney, or servicer contact information",
+      ],
+      },
+      {
+        eyebrow: "Closing reality",
+        title: "Fast still has to be title-ready",
+        body:
+          "Cash can remove financing delays, but it does not remove title work. Mortgages, tax liens, judgments, probate authority, HOA balances, and missing signatures can all affect whether a sale closes before an auction.",
+        bullets: [
+        "Mortgage payoff and arrears",
+        "County taxes, HOA, utilities, and recorded liens",
+        "Owner authority, estate documents, or divorce orders",
+      ],
+      },
+      {
+        eyebrow: "Seller protection",
+        title: "Compare the cash path against keeping the house",
+        body:
+          "If keeping the house is still realistic, sellers should compare lender options and qualified counseling along with any sale. ACE can give a written as-is option so the seller has a backup number, not just pressure.",
+      },
+    ],
+    comparison: {
+      heading: "Compare your paths",
+      intro:
+        "The right answer depends on title, payoff, condition, timing, seller risk, and whether keeping the house is still realistic.",
+      items: [
+        {
+          title: "Lender workout",
+          body:
+            "May fit if the seller can catch up, modify the loan, or pause the process with enough documentation and lender approval.",
+        },
+        {
+          title: "Direct cash sale",
+          body:
+            "May fit if the seller needs payoff-at-closing, no repairs, no showings, and a known title timeline before the auction.",
+        },
+        {
+          title: "Payment takeover review",
+          body:
+            "May be discussed when payoff is tight, but seller risk, payment proof, insurance, taxes, and loan terms must be reviewed first.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details to gather",
+      items: [
+        "Foreclosure sale date, trustee notice, or lender letter",
+        "Mortgage balance, arrears, reinstatement quote, or recent statement",
+        "Tax, HOA, code, or utility balances if known",
+        "Names of everyone on title and whether they can sign quickly",
+      ],
+    },
+    storySlug: "river-market-condo-payment-takeover",
+    decisionVariant: "payment",
+    offerBlock: {
+      badge: "Foreclosure timeline review",
+      title: "Need to know if a sale can close before the auction?",
+      body:
+        "Send the address, sale date if you know it, and the latest lender notice. ACE can review title timing, cash payoff, and whether a written backup option makes sense.",
+      points: [
+        "Local title and payoff timing reviewed",
+        "As-is condition included from the start",
+        "Cash and flexible options compared",
+        "No repairs or public listing required to begin",
+      ],
+      formHeading: "Review my foreclosure auction timeline",
+      defaultSituation: "facing foreclosure",
+    },
+    faqs: [
+      {
+        question: "Can I sell my house before a foreclosure auction in Kansas City?",
+        answer:
+          "It may be possible if title, payoff figures, signatures, and the buyer's funds can be ready before the deadline.",
+      },
+      {
+        question: "Should I still talk to my lender?",
+        answer:
+          "Yes. Keep communicating with the lender or servicer and consider qualified housing counseling or legal advice while comparing sale options.",
+      },
+      {
+        question: "Can ACE guarantee the auction will stop?",
+        answer:
+          "No. ACE can review a possible sale path and coordinate through title, but only the lender, trustee, court, or applicable process controls whether an auction is paused or canceled.",
+      },
+    ],
+  },
+  {
+    slug: "sell-house-with-back-taxes-kansas-city",
+    title: "Sell House With Back Taxes Kansas City | ACE",
+    description:
+      "Kansas City guide to selling a house with back property taxes, county balances, tax sale pressure, liens, payoff-at-closing, and as-is cash options.",
+    category: "Back taxes",
+    badge: "Back taxes",
+    headline: "Sell a House With Back Taxes in Kansas City",
+    intro:
+      "Back property taxes can turn a normal sale into a deadline problem. The question is whether the taxes can be paid at closing, whether other liens are stacked behind them, and whether selling as-is gives the owner a cleaner path than waiting for penalties to grow.",
+    primaryCta: {
+      label: "Review back-tax options",
+      href: "#sell-house-with-back-taxes-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Tax lien solution page",
+      href: "/solutions/tax-lien/",
+    },
+    quickAnswer: {
+      title: "Back taxes are usually handled through title when there is enough sale value",
+      body:
+        "A title company can confirm tax balances, liens, mortgage payoff, HOA balances, and other recorded items. Those amounts are commonly paid from sale proceeds at closing before the seller receives the remaining net.",
+      bullets: [
+        "County tax balances and penalties should be verified early",
+        "Tax sale, redemption, or auction dates change the urgency",
+        "Mortgage, HOA, code, utility, and judgment liens may also appear",
+        "A direct as-is offer can show whether selling clears the problem",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "County timing",
+        title: "Back taxes grow differently by county and status",
+        body:
+          "Jackson, Johnson, Wyandotte, Clay, Platte, and Cass County files can involve different notices, payoff timing, and tax sale processes. The owner needs the current balance and the deadline, not a guess from last year's bill.",
+        bullets: [
+        "Current and prior-year tax balance",
+        "Penalty, interest, or sale costs",
+        "Any redemption or tax sale notice",
+      ],
+      },
+      {
+        eyebrow: "As-is sale",
+        title: "Repairs can make the tax problem harder to solve",
+        body:
+          "If the house needs a roof, clean-out, code work, foundation repairs, or updates, waiting to list may mean more tax penalties and more carrying costs.",
+        bullets: [
+        "No repair project before the first review",
+        "Tax payoff shown on the settlement statement",
+        "Clean-out, vacancy, or tenant issues included",
+      ],
+      },
+      {
+        eyebrow: "Decision point",
+        title: "Look at the net after taxes, not only the offer price",
+        body:
+          "The useful number is what remains after taxes, liens, payoff, closing costs, repairs, commissions, concessions, and holding time.",
+      },
+    ],
+    comparison: {
+      heading: "Compare your paths",
+      intro:
+        "The right answer depends on title, payoff, condition, timing, seller risk, and whether keeping the house is still realistic.",
+      items: [
+        {
+          title: "Pay taxes first",
+          body:
+            "May fit when the owner has cash available, the house is easy to list, and waiting is likely to create a higher net.",
+        },
+        {
+          title: "Sell with taxes paid at closing",
+          body:
+            "May fit when cash is tight, repairs are heavy, or the owner wants the tax balance cleared from proceeds.",
+        },
+        {
+          title: "Request a backup offer",
+          body:
+            "May help if a refinance, listing, family payoff, or payment plan is being attempted but a fallback is needed.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details to gather",
+      items: [
+        "County and parcel number if available",
+        "Latest tax bill, tax sale notice, or redemption letter",
+        "Mortgage payoff and whether payments are current",
+        "Known repair, code, tenant, vacancy, or clean-out issues",
+      ],
+    },
+    storySlug: "out-of-state-creative-solution",
+    decisionVariant: "payment",
+    offerBlock: {
+      badge: "Back-tax review",
+      title: "Want to know if a sale can clear the taxes?",
+      body:
+        "Send the address and any tax letter you have. ACE can review the property as-is, coordinate title questions, and estimate whether a sale could clear the back taxes at closing.",
+      points: [
+        "Local title and payoff timing reviewed",
+        "As-is condition included from the start",
+        "Cash and flexible options compared",
+        "No repairs or public listing required to begin",
+      ],
+      formHeading: "Review my back-tax situation",
+      defaultSituation: "tax lien",
+    },
+    faqs: [
+      {
+        question: "Can I sell a house with back property taxes in Kansas City?",
+        answer:
+          "Yes, if title can close and the sale proceeds can satisfy required taxes and liens.",
+      },
+      {
+        question: "Do I have to pay the taxes before selling?",
+        answer:
+          "Not always. Back taxes are often paid from proceeds at closing, but title must verify the amounts and confirm the sale can clear them.",
+      },
+      {
+        question: "What if the house is already headed to tax sale?",
+        answer:
+          "Timing becomes urgent. Share the notice date and county information so the sale timeline can be compared against the tax deadline.",
+      },
+    ],
+  },
+  {
+    slug: "sell-house-with-little-equity-kansas-city",
+    title: "Sell House With Little Equity Kansas City | ACE",
+    description:
+      "Kansas City guide for sellers with little equity, tight payoff, late payments, or repair-heavy houses comparing cash, listing, and payment takeover options.",
+    category: "Little equity",
+    badge: "Low equity sale",
+    headline: "Sell a House With Little Equity in Kansas City",
+    intro:
+      "When payoff, repairs, commissions, and closing costs leave little room, a normal cash offer may not be enough. That is when the seller should compare cash, listing math, lender options, and carefully documented payment takeover questions before choosing a path.",
+    primaryCta: {
+      label: "Compare low-equity options",
+      href: "#sell-house-with-little-equity-kansas-city-form",
+    },
+    secondaryCta: {
+      label: "Payment takeover guide",
+      href: "/resources/take-over-payments-house-kansas-city/",
+    },
+    quickAnswer: {
+      title: "Low equity means the structure matters as much as the price",
+      body:
+        "If the payoff is close to the property's as-is value, the seller needs to understand net proceeds, repairs, commissions, arrears, and whether a payment-based solution creates too much ongoing risk.",
+      bullets: [
+        "Compare the estimated listing net against an as-is offer",
+        "Check payoff, arrears, taxes, HOA, and liens before deciding",
+        "Payment takeover may help in some cases but leaves seller risk",
+        "Cash payoff is cleaner when the numbers allow it",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Payoff pressure",
+        title: "Why low-equity sellers feel stuck",
+        body:
+          "The owner may have a decent house but not enough equity to pay repairs, commissions, concessions, and moving costs. If payments are also late, the timeline gets tighter and every month matters.",
+        bullets: [
+        "Mortgage balance is close to the value",
+        "Repairs are too expensive to complete before listing",
+        "Late payments, taxes, or HOA balances reduce the net",
+      ],
+      },
+      {
+        eyebrow: "Creative review",
+        title: "Payment takeover should be explained plainly",
+        body:
+          "A payment takeover or subject-to structure may sound attractive because it can solve payoff friction, but it must be documented clearly.",
+        bullets: [
+        "Who pays the loan, taxes, insurance, and HOA after closing",
+        "How the seller verifies payment activity",
+        "What happens if the buyer misses a payment",
+      ],
+      },
+      {
+        eyebrow: "Clear comparison",
+        title: "The right answer may still be listing or lender help",
+        body:
+          "If the house can sell retail without too much cost, listing may be better. If the owner wants to keep the house, lender options may be better.",
+      },
+    ],
+    comparison: {
+      heading: "Compare your paths",
+      intro:
+        "The right answer depends on title, payoff, condition, timing, seller risk, and whether keeping the house is still realistic.",
+      items: [
+        {
+          title: "Cash sale",
+          body:
+            "Cleanest when the offer can pay off the loan and required balances while still solving the seller's timeline.",
+        },
+        {
+          title: "Traditional listing",
+          body:
+            "May fit if retail value is high enough to cover repairs, commissions, buyer credits, and carrying costs.",
+        },
+        {
+          title: "Payment takeover",
+          body:
+            "May fit when cash payoff is tight, but the seller needs advisor review and clear payment protections before signing.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details to gather",
+      items: [
+        "Current mortgage balance, monthly payment, and arrears if any",
+        "Taxes, HOA dues, insurance, utilities, liens, or judgments",
+        "Known repair needs and whether the house is occupied or vacant",
+        "Ideal move date and whether a short post-closing stay is needed",
+      ],
+    },
+    storySlug: "subject-to-payment-help-2017",
+    decisionVariant: "payment",
+    offerBlock: {
+      badge: "Low-equity review",
+      title: "Need cash and payment options compared?",
+      body:
+        "Send the address and what you know about the mortgage. ACE can compare cash, listing math, lender options, and whether a payment takeover conversation is worth reviewing.",
+      points: [
+        "Local title and payoff timing reviewed",
+        "As-is condition included from the start",
+        "Cash and flexible options compared",
+        "No repairs or public listing required to begin",
+      ],
+      formHeading: "Compare low-equity options",
+      defaultSituation: "behind on payments",
+    },
+    faqs: [
+      {
+        question: "Can I sell if I have little equity?",
+        answer:
+          "Yes, but the path depends on payoff, repairs, costs, and timing.",
+      },
+      {
+        question: "Can ACE take over payments if the payoff is too high?",
+        answer:
+          "ACE can review whether a payment takeover discussion makes sense, but the seller must understand the risk and should involve qualified advisors before signing.",
+      },
+      {
+        question: "What if I would owe money at closing?",
+        answer:
+          "Then the seller needs to compare options carefully. Sometimes listing, lender help, or a payment-based structure may be more realistic than a standard cash payoff.",
+      },
+    ],
+  },
+  {
+    slug: "selling-house-in-probate-overland-park-olathe",
+    title: "Selling a House in Probate Overland Park or Olathe | ACE",
+    description:
+      "Johnson County probate house guide for Overland Park and Olathe heirs comparing title authority, clean-out, repairs, court timing, and as-is sale options.",
+    category: "Probate",
+    badge: "Johnson County probate",
+    headline: "Selling a House in Probate in Overland Park or Olathe",
+    intro:
+      "Probate can make an already emotional house sale feel slower and heavier. In Overland Park, Olathe, Shawnee, Lenexa, and nearby Johnson County communities, heirs need to understand authority, title documents, belongings, repairs, taxes, and whether an as-is sale fits the family timeline.",
+    primaryCta: {
+      label: "Review probate sale options",
+      href: "#selling-house-in-probate-overland-park-olathe-form",
+    },
+    secondaryCta: {
+      label: "Johnson County inherited guide",
+      href: "/resources/johnson-county-inherited-house-sale/",
+    },
+    quickAnswer: {
+      title: "Probate sale timing depends on authority before condition",
+      body:
+        "A buyer can review the property early, but closing needs the right person or estate representative authorized to sign.",
+      bullets: [
+        "Confirm personal representative, trustee, or court authority",
+        "Gather death certificate, probate orders, deed, mortgage, and tax details",
+        "Decide what belongings must be removed and what can stay",
+        "Compare repair costs and carrying time against an as-is offer",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Johnson County timing",
+        title: "Overland Park and Olathe probate sales often involve family coordination",
+        body:
+          "The house may be in a good location but still need original-condition updates, clean-out, estate paperwork, HOA details, or family approval.",
+        bullets: [
+        "Out-of-town heirs who need written updates",
+        "Original-condition houses that need updates before listing",
+        "HOA, utilities, insurance, taxes, or mortgage balances",
+      ],
+      },
+      {
+        eyebrow: "As-is path",
+        title: "The family does not have to remodel before comparing options",
+        body:
+          "Many probate houses have years of deferred updates. Retail prep may still work, but the family should compare contractor cost, carrying costs, clean-out, commissions, and buyer concessions against one clean as-is number.",
+        bullets: [
+        "Dated kitchens, baths, carpet, wallpaper, or paneling",
+        "Roof, foundation, HVAC, electrical, or plumbing concerns",
+        "Vacancy risk while heirs wait for court and title steps",
+      ],
+      },
+      {
+        eyebrow: "Trust",
+        title: "Keep the probate conversation written and calm",
+        body:
+          "Heirs need shared numbers, not phone-tag confusion. ACE can summarize the offer, assumptions, clean-out expectations, and next title steps in writing.",
+      },
+    ],
+    comparison: {
+      heading: "Compare your paths",
+      intro:
+        "The right answer depends on title, payoff, condition, timing, seller risk, and whether keeping the house is still realistic.",
+      items: [
+        {
+          title: "List after probate steps",
+          body:
+            "May fit if the house is updated, easy to show, and the family has time and agreement to prepare it for retail buyers.",
+        },
+        {
+          title: "Sell as-is",
+          body:
+            "May fit if the family wants fewer repairs, no clean-out project, no showings, and a clearer title-based closing path.",
+        },
+        {
+          title: "Hold temporarily",
+          body:
+            "May be needed while authority is resolved, but utilities, insurance, taxes, lawn care, and vacancy risk should be tracked.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details to gather",
+      items: [
+        "Probate case status, personal representative, trustee, or attorney contact",
+        "Death certificate, deed, mortgage, tax, insurance, and HOA information",
+        "Photos or notes about condition, belongings, clean-out, and repairs",
+        "Family decision timeline and whether heirs are local or out of state",
+      ],
+    },
+    storySlug: "inherited-original-condition-house",
+    decisionVariant: "estate",
+    offerBlock: {
+      badge: "Probate house review",
+      title: "Need a calm as-is review for a Johnson County probate house?",
+      body:
+        "Send the address, city, and what you know about the estate authority. ACE can review the house as-is and explain what title or family decisions may need to happen before closing.",
+      points: [
+        "Local title and payoff timing reviewed",
+        "As-is condition included from the start",
+        "Cash and flexible options compared",
+        "No repairs or public listing required to begin",
+      ],
+      formHeading: "Review my probate house",
+      defaultSituation: "inherited house",
+    },
+    faqs: [
+      {
+        question: "Can a probate house in Overland Park or Olathe be sold as-is?",
+        answer:
+          "Yes, if the estate has the authority required to sell and title can close.",
+      },
+      {
+        question: "Do all heirs have to agree?",
+        answer:
+          "That depends on the estate documents and legal authority. Families should confirm signing authority with their attorney, court, or title company.",
+      },
+      {
+        question: "Can ACE review the house before probate is finished?",
+        answer:
+          "Yes. ACE can review the property and provide a written option early, but closing depends on the right authority and title requirements being satisfied.",
+      },
+    ],
+  },
+  {
+    slug: "vacant-house-risks-64131-66109",
+    title: "Vacant House Risks in 64131 and 66109 | ACE",
+    description:
+      "Kansas City vacant house risk guide for 64131 and 66109 owners comparing break-ins, squatters, code notices, insurance, utilities, and as-is sale options.",
+    category: "Vacant house",
+    badge: "64131 and 66109 vacancy risk",
+    headline: "Vacant House Risks in 64131 and 66109",
+    intro:
+      "A vacant house in south Kansas City, Red Bridge, Minor Park, western Kansas City, KS, Piper, or nearby 66109 areas can start costing money long before it sells. The risk is not only monthly bills; it is break-ins, weather, code notices, insurance problems, and a property that gets harder to manage from a distance.",
+    primaryCta: {
+      label: "Review my vacant house",
+      href: "#vacant-house-risks-64131-66109-form",
+    },
+    secondaryCta: {
+      label: "Vacant house calculator",
+      href: "/resources/vacant-house-carrying-cost-calculator/",
+    },
+    quickAnswer: {
+      title: "Vacant houses can lose value while the owner waits",
+      body:
+        "A vacant property may attract break-ins, copper theft, code complaints, tall-grass notices, water damage, squatters, or insurance limitations.",
+      bullets: [
+        "Track mortgage, taxes, utilities, insurance, lawn care, and security",
+        "Check whether vacancy changes insurance coverage",
+        "Document code notices, break-ins, water, mold, or storm damage",
+        "Compare waiting to list against an as-is cash sale timeline",
+      ],
+    },
+    sections: [
+      {
+        eyebrow: "Local risk",
+        title: "Vacancy problems can show up differently by neighborhood",
+        body:
+          "In 64131 and nearby south Kansas City areas, owners may be dealing with older systems, wooded lots, storm damage, or maintenance notices. In 66109 and western KCK, acreage, outbuildings, distance, taxes, or repair scope may be part of the decision.",
+        bullets: [
+        "Red Bridge, Minor Park, Waldo-adjacent, and south KC houses",
+        "Western KCK, Piper, and 66109 properties",
+        "Remote owners who cannot check the house often",
+      ],
+      },
+      {
+        eyebrow: "Security",
+        title: "Break-ins and squatter concerns are not just annoyances",
+        body:
+          "Once a house looks empty, a small issue can become expensive quickly. Broken windows, missing copper, water left running, vandalism, trash dumping, and unauthorized occupancy can create repair and legal headaches.",
+        bullets: [
+        "Copper, HVAC, appliances, or fixtures removed",
+        "Broken windows, doors, garage entries, or board-up needs",
+        "Squatter or unauthorized occupancy concerns",
+      ],
+      },
+      {
+        eyebrow: "As-is option",
+        title: "Selling as-is can stop the risk meter",
+        body:
+          "If the house is already vacant, a direct sale can move repairs, cleanup, code work, and security responsibility to the buyer after closing.",
+      },
+    ],
+    comparison: {
+      heading: "Compare your paths",
+      intro:
+        "The right answer depends on title, payoff, condition, timing, seller risk, and whether keeping the house is still realistic.",
+      items: [
+        {
+          title: "Hold and repair",
+          body:
+            "May fit when the owner has reliable local help, good insurance coverage, and enough time to manage repairs and showings.",
+        },
+        {
+          title: "Sell as-is",
+          body:
+            "May fit when vacancy risk, code notices, utilities, taxes, or remote ownership are becoming the bigger problem.",
+        },
+        {
+          title: "Compare both",
+          body:
+            "Use the carrying-cost calculator and an as-is offer to see whether waiting is actually adding value.",
+        },
+      ],
+    },
+    checklist: {
+      heading: "Helpful details to gather",
+      items: [
+        "How long the house has been vacant and whether utilities are on",
+        "Monthly mortgage, taxes, insurance, utilities, lawn care, and security costs",
+        "Any break-ins, squatters, vandalism, copper theft, water damage, or code notices",
+        "Photos, access instructions, keys, lockbox, or local contact information",
+      ],
+    },
+    storySlug: "out-of-state-creative-solution",
+    decisionVariant: "vacant",
+    offerBlock: {
+      badge: "Vacant-house risk review",
+      title: "Want to compare holding the vacant house against selling now?",
+      body:
+        "Send the address, how long it has been vacant, and any security, utility, code, or repair concerns. ACE can review an as-is option and show what waiting may cost.",
+      points: [
+        "Local title and payoff timing reviewed",
+        "As-is condition included from the start",
+        "Cash and flexible options compared",
+        "No repairs or public listing required to begin",
+      ],
+      formHeading: "Review my vacant-house risk",
+      defaultSituation: "vacant",
+    },
+    faqs: [
+      {
+        question: "Can I sell a vacant house in 64131 or 66109 as-is?",
+        answer:
+          "Yes. ACE can review vacant houses as-is, including repairs, belongings, code notices, utility issues, break-ins, or clean-out needs.",
+      },
+      {
+        question: "What is the issue with squatters or unauthorized occupants?",
+        answer:
+          "Unauthorized occupancy can complicate access, safety, insurance, legal timing, and repairs. If you suspect someone is inside, document what you know and talk with local authorities or qualified advisors.",
+      },
+      {
+        question: "Do I need to clean out a vacant house before asking for an offer?",
+        answer:
+          "No. Personal and sentimental items should be removed if possible, but remaining furniture, garage items, trash, or clean-out can be included in an as-is review.",
+      },
+    ],
+  },
 ];
 
 export const longTailResourceCards = longTailResourcePages.map((page) => ({
