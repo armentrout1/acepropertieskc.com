@@ -64,8 +64,28 @@ const steps = [
 const commonSellerGoals = [
   "Sell my house fast in Shawnee KS without repairs or open houses",
   "Talk with we-buy-houses Shawnee buyers before listing",
+  "Compare cash home buyers in Shawnee with agent fees and repair bids",
+  "Sell my house as-is in Shawnee before spending another month on upkeep",
   "Compare a cash offer with agent fees, repair costs, and holding time",
   "Handle inherited, vacant, divorce, relocation, or major-repair situations",
+];
+
+const shawneeSearchSignals = [
+  {
+    title: "We buy houses in Shawnee, KS",
+    body:
+      "ACE reviews Shawnee houses directly, including dated interiors, major repairs, vacant homes, inherited properties, and timelines that do not fit a public listing.",
+  },
+  {
+    title: "Sell my house as-is in Shawnee",
+    body:
+      "You can compare an as-is cash offer before cleaning everything out, cutting repair checks, or scheduling showings around family and work.",
+  },
+  {
+    title: "Cash home buyers in Shawnee",
+    body:
+      "A real offer should explain the price, title timing, closing costs, repair assumptions, and how the sale compares with listing.",
+  },
 ];
 
 const faqs = [
@@ -104,15 +124,15 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Shawnee KS | Cash Offer"
-  description="Need to sell your Shawnee KS house fast? Compare an as-is cash offer with no repairs, no showings, no commissions, and a clear local closing plan."
+  title="We Buy Houses Shawnee KS | Sell As-Is Fast"
+  description="We buy houses in Shawnee KS as-is. Compare a local cash offer, no repairs, no showings, Johnson County title timing, and flexible closing dates."
   canonicalPath="/areas/shawnee-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Sell fast in Shawnee, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Shawnee, KS Without Repairs or Showings</h1>
+      <p class="badge">We buy houses in Shawnee, Kansas</p>
+      <h1 class="text-4xl font-semibold text-primary">We Buy Houses in Shawnee, KS Without Repairs or Showings</h1>
       <p class="text-lg leading-8 text-muted">
         If you need to sell a Shawnee house fast, you should be able to compare a real local offer before paying for repairs, cleaning out the property, or scheduling public showings. ACE Properties KC reviews inherited houses, vacant homes, repair-heavy properties, divorce situations, and relocation timelines across Shawnee and Johnson County.
       </p>
@@ -155,6 +175,25 @@ const jsonLd = [
           <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
         ))}
       </div>
+    </div>
+  </section>
+
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Shawnee search match</p>
+      <h2 class="text-3xl font-semibold text-primary">Shawnee sellers need a buyer who can explain the tradeoff clearly.</h2>
+      <p class="text-muted">
+        When a house needs work, has family timing, or needs a quieter sale, the right next step is a written as-is option that can be compared against listing.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {shawneeSearchSignals.map((item) => (
+        <article class="card bg-white">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
     </div>
   </section>
 

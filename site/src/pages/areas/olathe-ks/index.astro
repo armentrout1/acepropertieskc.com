@@ -63,9 +63,29 @@ const steps = [
 
 const commonSellerGoals = [
   "Sell my house fast in Olathe KS without repairs or showings",
+  "Talk with cash home buyers in Olathe before spending money on contractors",
+  "Compare we buy houses Olathe buyers with a traditional Johnson County listing",
   "Compare an Olathe cash offer with listing on the MLS",
   "Work around Johnson County title, HOA, school, or relocation timing",
   "Sell an inherited, vacant, tenant-occupied, or repair-heavy Olathe house",
+];
+
+const olatheSearchSignals = [
+  {
+    title: "Cash home buyers in Olathe",
+    body:
+      "A useful cash buyer should explain the as-is price, closing date, title requirements, and what repairs or clean-out they are assuming.",
+  },
+  {
+    title: "We buy houses in Olathe as-is",
+    body:
+      "You can ask for an offer before replacing systems, updating finishes, cleaning out contents, or preparing the property for public showings.",
+  },
+  {
+    title: "Sell my house as-is in Olathe",
+    body:
+      "This path is strongest when repairs, inherited-property decisions, relocation timing, or holding costs make the normal listing process too slow.",
+  },
 ];
 
 const faqs = [
@@ -104,15 +124,15 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Olathe KS | Cash Offer"
-  description="Need to sell your Olathe KS house fast? Compare an as-is cash offer with no repairs, no showings, no commissions, and flexible Johnson County timing."
+  title="Sell My House Fast Olathe KS | Cash Home Buyers"
+  description="Sell your Olathe KS house fast as-is. Compare local cash home buyers, no repairs, no showings, Johnson County title timing, and flexible closing dates."
   canonicalPath="/areas/olathe-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Sell fast in Olathe, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Olathe, KS Without Repairs or Showings</h1>
+      <p class="badge">Cash home buyers in Olathe, Kansas</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Olathe, KS With Local Cash Home Buyers</h1>
       <p class="text-lg leading-8 text-muted">
         If your Olathe house needs repairs, a fast relocation plan, estate coordination, or a clean backup option before listing, we can review it as-is and give you a written local offer. You choose the timeline, and we explain the Johnson County title, HOA, payoff, and closing details before anything is signed.
       </p>
@@ -155,6 +175,25 @@ const jsonLd = [
           <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
         ))}
       </div>
+    </div>
+  </section>
+
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Olathe search match</p>
+      <h2 class="text-3xl font-semibold text-primary">When Olathe sellers search for cash home buyers, they usually need certainty.</h2>
+      <p class="text-muted">
+        The goal is not just speed. It is knowing who buys as-is, who can close, what happens with repairs and title, and whether the net is worth avoiding another month of ownership.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {olatheSearchSignals.map((item) => (
+        <article class="card bg-white">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
     </div>
   </section>
 

@@ -46,6 +46,24 @@ const localFactors = [
   },
 ];
 
+const zipSearchSignals = [
+  {
+    title: "We buy houses in 66109",
+    body:
+      "A ZIP-specific review helps when the property is in western KCK, near Piper, or has acreage, access, repair, or title details that change the sale plan.",
+  },
+  {
+    title: "Sell a 66109 house as-is",
+    body:
+      "You do not have to clean out the house, start repairs, or wait for a retail buyer before asking whether a direct sale makes sense.",
+  },
+  {
+    title: "Kansas City KS cash home buyer",
+    body:
+      "We compare condition, Wyandotte County title items, taxes, liens, occupancy, and closing timing before putting an offer path in writing.",
+  },
+];
+
 const jsonLd = [
   webSiteJsonLd(),
   localBusinessJsonLd(),
@@ -59,16 +77,16 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell Your 66109 House As-Is | Kansas City KS Cash Buyers"
-  description="Sell a house in Kansas City KS ZIP 66109 as-is. Local cash and flexible options for Piper-area homes, repairs, inherited property, taxes, and title timing."
+  title="We Buy Houses 66109 Kansas City KS | Sell As-Is"
+  description="We buy houses in 66109 Kansas City KS as-is. Local cash buyer for Piper-area homes, repairs, inherited property, taxes, liens, and title timing."
   canonicalPath="/areas/66109/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-5">
-      <p class="badge">Kansas City, KS 66109</p>
+      <p class="badge">We buy houses in Kansas City, KS 66109</p>
       <h1 class="text-4xl font-semibold text-primary md:text-5xl">
-        Sell Your House As-Is in 66109, Kansas City, KS
+        We Buy Houses in 66109, Kansas City, KS As-Is
       </h1>
       <p class="text-lg leading-8 text-muted">
         If you own a house in 66109 near western Kansas City, Kansas, Piper, or nearby Wyandotte County neighborhoods, you may be comparing a cash buyer against repairs, listing prep, taxes, title issues, or a vacant-house timeline. We review the property as-is and explain whether a direct offer, flexible timing, or another route makes sense.
@@ -99,6 +117,25 @@ const jsonLd = [
     <div class="grid gap-4 md:grid-cols-3">
       {localFactors.map((item) => (
         <article class="card bg-white">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+
+  <section class="section space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">66109 search match</p>
+      <h2 class="text-3xl font-semibold text-primary">A western KCK cash buyer page should answer the ZIP-specific questions.</h2>
+      <p class="text-muted">
+        Sellers in 66109 are often comparing more than price: title, taxes, vacant-house risk, repairs, access, payoff timing, and whether the property is easier to sell direct than list publicly.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {zipSearchSignals.map((item) => (
+        <article class="card">
           <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
           <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
         </article>
