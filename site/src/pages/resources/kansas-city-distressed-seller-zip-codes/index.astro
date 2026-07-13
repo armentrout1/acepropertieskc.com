@@ -1,0 +1,122 @@
+﻿---
+import Layout from "../../../layouts/Layout.astro";
+import OfferForm from "../../../components/OfferForm.astro";
+import { buildBreadcrumbList, faqJsonLd, localBusinessJsonLd, webSiteJsonLd } from "../../../lib/seo";
+
+const zipLinks = [
+  { label: "64124", href: "/areas/64124/", note: "Historic Northeast, older homes, rentals, code and title friction" },
+  { label: "64128", href: "/areas/64128/", note: "East KC vacancy, repairs, taxes, inherited-property needs" },
+  { label: "64127", href: "/areas/64127/", note: "East of downtown, code items, tenants, older stock" },
+  { label: "64130", href: "/areas/64130/", note: "Blue Hills and east-side repair, vacancy, and payment-pressure searches" },
+  { label: "64132", href: "/areas/64132/", note: "Southeast KC, vacant homes, inherited houses, repairs" },
+  { label: "66102", href: "/areas/66102/", note: "Central KCK, taxes, liens, code, older homes" },
+  { label: "66104", href: "/areas/66104/", note: "North KCK, long-held homes, tax and title questions" },
+  { label: "66106", href: "/areas/66106/", note: "Turner and older KCK homes with repair or tenant issues" },
+];
+
+const faqs = [
+  {
+    question: "Why focus on these Kansas City ZIP codes?",
+    answer:
+      "These ZIPs tend to line up with older housing, vacancy, repair scope, tax/title friction, or sellers who may not fit a normal retail listing timeline.",
+  },
+  {
+    question: "Does ACE only buy distressed houses?",
+    answer:
+      "No. ACE also compares quality and higher-equity properties. This cluster is simply the volume lane for sellers who need an as-is or urgent solution.",
+  },
+  {
+    question: "Can a seller still list instead of selling directly?",
+    answer:
+      "Yes. If the house is updated, easy to show, and the seller has time, listing may be worth comparing. ACE focuses on clear net numbers and timelines.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  faqJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Distressed seller ZIP codes", item: "/resources/kansas-city-distressed-seller-zip-codes/" },
+  ]),
+];
+---
+
+<Layout
+  title="Kansas City Distressed Seller ZIP Codes | ACE Properties KC"
+  description="A Kansas City seller guide to ZIP codes where repairs, vacancy, back taxes, inherited property, code issues, and urgent as-is sales are common."
+  canonicalPath="/resources/kansas-city-distressed-seller-zip-codes/"
+  jsonLd={jsonLd}
+>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-start">
+    <div class="space-y-5">
+      <p class="badge">Distressed seller ZIP cluster</p>
+      <h1 class="text-4xl font-black leading-tight text-primary md:text-5xl">Kansas City ZIPs Where As-Is Seller Need Is Highest</h1>
+      <p class="text-lg leading-8 text-muted">
+        This is the volume lane: older housing stock, vacancy risk, repairs, title pressure, code items, taxes, tenants, inherited homes, and sellers who may need a clean direct option instead of months of listing prep.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Check my property</a>
+        <a href="/resources/kansas-city-quality-equity-seller-zip-codes/" class="btn btn-ghost text-base">See quality cluster</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="distressed-zip-cluster-form"
+      heading="Review a KC distressed property"
+      subheading="Send the address, condition, and what deadline or title issue you are trying to solve."
+    />
+  </section>
+
+  <section class="section section-alt space-y-6">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Target ZIPs</p>
+      <h2 class="text-3xl font-black text-primary">Start with these areas first</h2>
+      <p class="text-muted">
+        These pages should pull searches from people looking for cash buyers, as-is sales, code violation help, tax problems, inherited houses, vacant property, and fast closings in Kansas City.
+      </p>
+    </div>
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {zipLinks.map((zip) => (
+        <a href={zip.href} class="rounded-[1.25rem] border border-border bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
+          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Priority ZIP</p>
+          <h2 class="mt-2 text-3xl font-black text-primary">{zip.label}</h2>
+          <p class="mt-2 text-sm leading-6 text-muted">{zip.note}</p>
+          <span class="mt-4 inline-flex text-sm font-bold text-secondary">Open area page</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section grid gap-6 lg:grid-cols-3">
+    <article class="card">
+      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Best search intent</p>
+      <h2 class="mt-2 text-2xl font-black text-primary">Problems that trigger action</h2>
+      <p class="mt-3 text-muted">Back taxes, code violations, foreclosure timing, vacant houses, inherited homes, major repairs, tenant issues, and clean-out problems.</p>
+    </article>
+    <article class="card">
+      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Best offer angle</p>
+      <h2 class="mt-2 text-2xl font-black text-primary">Certainty over polish</h2>
+      <p class="mt-3 text-muted">The page should make it clear that sellers can start without repairs, cleaning, open houses, or perfect paperwork.</p>
+    </article>
+    <article class="card">
+      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Best internal links</p>
+      <h2 class="mt-2 text-2xl font-black text-primary">Connect ZIP to situation</h2>
+      <p class="mt-3 text-muted">Each ZIP page should point into foreclosure, back taxes, vacant house, inherited, code violation, tenant, and repair guides.</p>
+    </article>
+  </section>
+
+  <section class="section space-y-4">
+    <h2 class="text-2xl font-black text-primary">Distressed ZIP FAQ</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="card">
+          <summary class="cursor-pointer text-base font-black text-primary">{faq.question}</summary>
+          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>

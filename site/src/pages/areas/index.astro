@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from "../../layouts/Layout.astro";
 import SellerSituationLinks from "../../components/SellerSituationLinks.astro";
 import { expansionAreas } from "../../data/areaExpansion";
@@ -70,6 +70,23 @@ const nearbyAreaGroups = [
     items: nearbyAreaLinks.filter((area) => area.title.endsWith(", KS")),
   },
 ].filter((group) => group.items.length > 0);
+
+const areaClusterLinks = [
+  {
+    eyebrow: "Volume cluster",
+    title: "Distressed seller ZIPs",
+    body: "Older housing, repair-heavy homes, vacancy, taxes, liens, code items, tenants, inherited property, and urgent as-is sale needs.",
+    href: "/resources/kansas-city-distressed-seller-zip-codes/",
+    zips: ["64124", "64128", "64127", "64130", "64132", "66102", "66104", "66106"],
+  },
+  {
+    eyebrow: "Quality cluster",
+    title: "Higher-equity ZIPs",
+    body: "Fewer leads, but better upside: Brookside, Waldo, South KC, older Overland Park, Prairie Village, Leawood, Mission, Fairway, and Westwood style opportunities.",
+    href: "/resources/kansas-city-quality-equity-seller-zip-codes/",
+    zips: ["64113", "64114", "64145", "66204", "66205", "66206", "66212"],
+  },
+];
 
 const faqs = [
   {
@@ -247,3 +264,4 @@ const jsonLd = [
     <a href="/contact/" class="btn btn-ghost text-base">Talk with the team</a>
   </section>
 </Layout>
+

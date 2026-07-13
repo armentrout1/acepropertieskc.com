@@ -1,10 +1,24 @@
----
+﻿---
 import Layout from "../../layouts/Layout.astro";
 import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
 import { longTailResourceCards } from "../../data/longTailResources";
 import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
 const resources = [
+  {
+    title: "Kansas City Distressed Seller ZIP Codes",
+    description:
+      "The priority ZIP cluster for as-is seller volume: repairs, vacancy, back taxes, code issues, tenants, inherited property, and urgent timelines.",
+    href: "/resources/kansas-city-distressed-seller-zip-codes/",
+    category: "Location strategy",
+  },
+  {
+    title: "Kansas City Quality Equity ZIP Codes",
+    description:
+      "The higher-equity ZIP cluster for dated homes, inherited houses, privacy, downsizing, and stronger net-sheet comparisons.",
+    href: "/resources/kansas-city-quality-equity-seller-zip-codes/",
+    category: "Location strategy",
+  },
   {
     title: "How to Sell Your House Fast in Kansas City",
     description:
@@ -311,3 +325,4 @@ const jsonLd = [
     </div>
   </section>
 </Layout>
+

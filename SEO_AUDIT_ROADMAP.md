@@ -1,4 +1,4 @@
-# ACE Properties KC SEO Audit and Roadmap
+﻿# ACE Properties KC SEO Audit and Roadmap
 
 Audit date: May 11, 2026  
 Latest generated-output audit: June 21, 2026
@@ -405,9 +405,16 @@ Target query clusters:
   - [x] Confirm the QA lead email arrived in the destination inbox.
 - [x] Create `/get-offer/`.
 - [x] Add landing-page/referrer/UTM capture to the form.
-- [ ] Build the first Search Console query-to-page map once GSC data is exported.
+- [x] Build the Kansas City distressed seller ZIP cluster.
+  - [x] Added ZIP pages for 64124, 64128, 64127, 64130, 64132, 66102, 66104, and 66106.
+  - [x] Added the distressed ZIP cluster resource hub.
+- [x] Build the Kansas City quality-equity ZIP cluster.
+  - [x] Added ZIP pages for 64113, 64114, 64145, 66204, 66205, 66206, and 66212.
+  - [x] Added the quality-equity ZIP cluster resource hub.
+- [ ] After the next GSC export, compare impressions for distressed ZIP terms vs quality ZIP terms and decide which cluster gets the next content expansion.- [ ] Build the first Search Console query-to-page map once GSC data is exported.
 - [x] Create the Search Console query-map template.
 - [ ] Start reviews and Google Business Profile optimization.
 - [x] Create local SEO trust playbook.
 - [x] Publish the first resource article: "How to sell a house as-is in Kansas City."
 - [x] Publish the first wave of seller-intent resource guides.
+

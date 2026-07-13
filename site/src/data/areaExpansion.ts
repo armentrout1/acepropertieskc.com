@@ -1,3 +1,5 @@
+﻿import { distressedSellerZipAreas, qualityEquityZipAreas } from "./zipClusters";
+
 export type ExpansionArea = {
   slug: string;
   city: string;
@@ -686,4 +688,7 @@ export const expansionAreas: ExpansionArea[] = [
       { label: "Relocation solutions", href: "/solutions/relocating/" },
     ],
   },
+  ...distressedSellerZipAreas,
+  ...qualityEquityZipAreas,
 ];
+
