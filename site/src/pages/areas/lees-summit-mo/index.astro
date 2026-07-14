@@ -1,67 +1,87 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
+import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
 
 const neighborhoods = [
   {
     title: "Downtown Lee's Summit",
-    body: "Historic district with renovated homes and new developments. Popular with families who appreciate walkable amenities and small-town charm.",
+    body: "Older homes, inherited properties, dated interiors, and walkable-area houses where families may need a clean as-is option before listing.",
   },
   {
-    title: "Longview",
-    body: "Established neighborhoods near Longview Lake and golf course. Popular with empty nesters and families who have owned homes for 15+ years and need major updates.",
+    title: "Longview and south Lee's Summit",
+    body: "Established neighborhoods near Longview Lake where roof age, mechanical updates, basements, or large clean-outs can affect a retail sale.",
   },
   {
-    title: "Raintree Lake",
-    body: "Master-planned community with lakefront properties and newer subdivisions. Popular with relocating families and growing households.",
+    title: "Raintree Lake and newer subdivisions",
+    body: "Relocation, HOA timing, family moves, and larger homes where a written cash offer can help compare certainty against listing prep.",
   },
 ];
 
 const situations = [
-  "Inherited homes that have been in Lee's Summit families for generations",
-  "Homes needing major repairs—roofs, foundations, or outdated systems",
-  "Divorce settlements requiring neutral, written agreements",
-  "Corporate relocations to Kansas City needing quick closings",
-  "Rental properties with long-term tenants requiring transition",
+  "Sell my house fast Lee's Summit searches where timing is the main pressure",
+  "Inherited homes that have been in Lee's Summit families for years",
+  "Homes needing major repairs like roofs, foundations, or outdated systems",
+  "Divorce or family settlements requiring neutral written numbers",
+  "Corporate relocations or move deadlines that need a dependable closing",
+  "Rental properties with long-term tenants requiring a careful transition",
+];
+
+const countyDetails = [
+  {
+    title: "Jackson County title work",
+    body:
+      "Payoffs, liens, taxes, estate documents, and owner signatures need to be clear before a closing date is real. We help identify those items early.",
+  },
+  {
+    title: "As-is repair decisions",
+    body:
+      "A direct offer can account for updates, clean-out, roof age, foundation concerns, or tenant coordination without asking you to spend money first.",
+  },
+  {
+    title: "Timing that respects your move",
+    body:
+      "Fast does not have to mean rushed. We can compare a quick cash closing with a later date, school-calendar move, or family transition plan.",
+  },
 ];
 
 const steps = [
   {
     title: "Share your Lee's Summit story",
-    body: "Tell us about your Lee's Summit property, any repair concerns, and timing pressures from inheritance, divorce, or relocation.",
+    body: "Tell us about the property, repair concerns, occupancy, title questions, and the timing pressure you are trying to solve.",
   },
   {
-    title: "Property walkthrough",
-    body: "We schedule a walkthrough (or video) to note repairs, access issues, and any Jackson County-specific requirements.",
+    title: "Review the house and county details",
+    body: "We schedule a walkthrough or video review, then look at repairs, access issues, payoffs, taxes, and Jackson County requirements.",
   },
   {
     title: "Choose your solution",
-    body: "Receive a written comparison of a straightforward cash offer and any flexible options that work with your timeline and financial goals.",
+    body: "You receive a written comparison of a straightforward cash offer and any flexible options that match your timeline and financial goals.",
   },
 ];
 
 const faqs = [
   {
+    question: "Do you buy houses fast in Lee's Summit?",
+    answer: "Yes. ACE Properties KC reviews Lee's Summit houses for as-is cash offers and flexible options. A fast closing depends on title, payoffs, occupancy, and seller readiness.",
+  },
+  {
     question: "Do you buy homes near Longview Lake?",
-    answer: "Yes. We're familiar with lakefront properties and any specific requirements for homes near water features, including floodplain considerations and boat dock permits.",
+    answer: "Yes. We review Lee's Summit properties near Longview, Raintree Lake, Downtown Lee's Summit, and nearby Jackson County neighborhoods.",
   },
   {
     question: "How quickly can you close on Lee's Summit properties?",
-    answer: "Cash offers can close in as little as two weeks once Jackson County title work is complete. We can accommodate longer timelines for family transitions.",
+    answer: "Cash offers can close in as little as two weeks once Jackson County title work is complete. We can also accommodate longer timelines for family transitions.",
   },
   {
     question: "Will you buy houses needing major renovations?",
-    answer: "Absolutely. Lee's Summit has many 1990s-era homes needing significant updates. We evaluate properties as-is and factor renovation costs into our offer, including common issues like outdated kitchens and bathrooms.",
+    answer: "Yes. We evaluate properties as-is and factor renovation costs into our offer, including common issues like outdated kitchens, bathrooms, roofs, basements, and mechanical systems.",
   },
   {
-    question: "Can you help with divorce settlements?",
-    answer: "Yes. We coordinate with both parties and attorneys to provide neutral, written offers that help divorce proceedings move forward smoothly. We're experienced with Missouri's marital property division requirements.",
-  },
-  {
-    question: "What about Lee's Summit school district timing?",
-    answer: "Many families prefer closing during summer breaks to minimize school disruptions. We can schedule around the Lee's Summit R-7 calendar or structure flexible closing dates.",
+    question: "Can you help with divorce or family settlements?",
+    answer: "Yes. We can provide neutral, written numbers that attorneys, spouses, heirs, or family decision-makers can review before anyone signs.",
   },
 ];
 
@@ -78,17 +98,41 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell House Fast Lee's Summit MO | ACE Properties"
-  description="Fast home sales in Lee's Summit. Cash offers for lakefront properties, divorce settlements, and relocations. Close on your schedule."
+  title="Sell My House Fast Lee's Summit MO | Cash Offer"
+  description="Sell my house fast in Lee's Summit MO. Local as-is cash offers for repairs, inherited homes, relocation, tenants, and Jackson County title timing."
   canonicalPath="/areas/lees-summit-mo/"
   jsonLd={jsonLd}
 >
   <section class="section space-y-4">
     <p class="badge">Lee's Summit, Missouri</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Lee's Summit, Missouri</h1>
-    <p class="text-muted">
-      Lee's Summit homeowners value straightforward solutions when property decisions become complex. Whether you're managing an inherited family home in Downtown Lee's Summit, coordinating a job relocation from Raintree Lake, or facing repairs that feel overwhelming in Longview, we provide clear options without pressure. Our local team understands Jackson County processes and keeps every step transparent.
+    <h1 class="text-4xl font-black text-primary md:text-5xl">Sell My House Fast in Lee's Summit, MO</h1>
+    <p class="max-w-3xl text-lg leading-8 text-muted">
+      Lee's Summit sellers usually need more than a quick number. They need to know whether repairs, Jackson County title work, tenants, relocation timing, or family decisions can be handled without a drawn-out listing process.
     </p>
+    <p class="max-w-3xl text-muted">
+      ACE reviews Lee's Summit houses as-is and gives you written cash and flexible options so you can compare certainty, timing, and net proceeds before deciding.
+    </p>
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-black text-primary">Need a Lee's Summit offer?</h2>
+      <p class="text-muted">
+        Send the address and the situation. We will review condition, timing, Jackson County title items, and whether a direct as-is sale is worth comparing.
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a href="/resources/jackson-county-cash-home-buyers/" class="btn btn-outline text-base">Jackson County cash buyer guide</a>
+        <a href="/resources/sell-house-fast-kansas-city-guide/" class="btn btn-ghost text-base">Fast-sale guide</a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="lees-summit-mo-offer-form"
+      heading="Request a Lee's Summit offer"
+      subheading="Start with the address and the best way to reach you."
+      defaultSituation="sell house fast"
+      pageContext="lees-summit-mo"
+    />
   </section>
 
   <SellerSituationLinks
@@ -98,42 +142,36 @@ const jsonLd = [
 
   <AreaPropertyProof city="Lee's Summit, MO" county="Jackson County" />
 
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Why Lee's Summit sellers reach out</h2>
-      <p class="text-muted">
-        Most Lee's Summit homeowners we work with are managing multiple priorities—family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
-      </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
-      <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted Jackson County title partners, and outlines both cash and flexible pathways. No aggressive tactics - just honest answers about value, timelines, and paperwork requirements.
-      </p>
-    </article>
+  <section class="section grid gap-5 md:grid-cols-3">
+    {countyDetails.map((item) => (
+      <article class="card space-y-3">
+        <h2 class="text-xl font-black text-primary">{item.title}</h2>
+        <p class="text-sm leading-6 text-muted">{item.body}</p>
+      </article>
+    ))}
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Lee's Summit market context</h2>
+      <h2 class="text-2xl font-black text-primary">Why Lee's Summit sellers reach out</h2>
       <p class="text-muted">
-        From historic Downtown Lee's Summit properties to established Longview neighborhoods and newer Raintree Lake developments, each area moves differently. We track local market conditions, understand school district timing impacts, and know how Jackson County requirements affect your options.
+        Most Lee's Summit homeowners we work with are managing more than price: family relocations, inherited estates, divorce settlements, tenants, or repair costs that keep growing.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
+      <h2 class="text-2xl font-black text-primary">A local, service-first approach</h2>
       <p class="text-muted">
-        Selling a home in Lee's Summit often involves coordinating with schools, employers, and extended family across different timelines. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+        We meet in person when possible, coordinate with trusted Jackson County title partners, and outline both cash and flexible pathways. No aggressive tactics - just honest answers about value, timelines, and paperwork.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
-      <ul class="mt-4 space-y-3 text-sm text-primary">
+      <h2 class="text-2xl font-black text-primary">Common situations we solve</h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
         {situations.map((item) => (
-          <li class="flex items-start gap-3">
+          <li class="flex items-start gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
             <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
             <span>{item}</span>
           </li>
@@ -146,27 +184,27 @@ const jsonLd = [
     <div class="grid gap-6 md:grid-cols-3">
       {neighborhoods.map((spot) => (
         <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
-          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm text-muted">{spot.body}</p>
+          <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Neighborhood focus</p>
+          <h3 class="text-xl font-black text-primary">{spot.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
         </div>
       ))}
     </div>
   </section>
 
   <section class="section space-y-6">
-    <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How it works in Lee's Summit</h2>
+    <div class="max-w-3xl space-y-3">
+      <h2 class="text-2xl font-black text-primary">How it works in Lee's Summit</h2>
       <p class="text-muted">
-        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and review flexible options when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and review flexible options when they better serve your situation.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
       {steps.map((step, index) => (
         <div class="card">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
+          <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Step {index + 1}</p>
+          <h3 class="text-lg font-black text-primary">{step.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{step.body}</p>
         </div>
       ))}
     </div>
@@ -174,34 +212,31 @@ const jsonLd = [
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+      <h2 class="text-2xl font-black text-primary">Documents and timelines</h2>
       <p class="text-muted">
-        Jackson County title companies typically need payoff statements, utility clearances, and any settlement documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every requirement is met before closing.
+        Jackson County title companies typically need payoff statements, utility clearances, owner signatures, and any settlement documentation. We gather that list early so the closing date is based on facts.
       </p>
       <p class="text-muted">
-        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements. Those options are detailed in writing alongside your cash offer.
+        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements in writing.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
+      <h2 class="text-2xl font-black text-primary">Stay connected with local support</h2>
       <p class="text-muted">
-        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns. Explore other Jackson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/divorce/" class="text-secondary underline">divorce settlement process</a>.
+        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns.
       </p>
       <p class="text-muted">
-        If the sale is tied to late payments, lender notices, or payoff deadlines, compare the <a href="/resources/jackson-county-foreclosure-options/" class="text-secondary underline">Jackson County foreclosure options guide</a>.
-      </p>
-      <p class="text-muted">
-        When questions pop up about your Lee's Summit property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
+        If the sale is tied to late payments, lender notices, or payoff deadlines, compare the <a href="/resources/jackson-county-foreclosure-options/" class="text-secondary underline">Jackson County foreclosure options guide</a> and the <a href="/resources/jackson-county-cash-home-buyers/" class="text-secondary underline">Jackson County cash home buyers guide</a>.
       </p>
     </article>
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-semibold text-primary">Lee's Summit FAQ</h2>
+    <h2 class="text-2xl font-black text-primary">Lee's Summit FAQ</h2>
     <div class="space-y-3">
       {faqs.map((faq) => (
         <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+          <summary class="cursor-pointer text-base font-black text-primary">{faq.question}</summary>
           <p class="mt-2 text-sm text-muted">{faq.answer}</p>
         </details>
       ))}

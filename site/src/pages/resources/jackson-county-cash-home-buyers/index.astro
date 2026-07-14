@@ -1,0 +1,225 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
+import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import {
+  articleJsonLd,
+  buildBreadcrumbList,
+  buildFaqPageJsonLd,
+  localBusinessJsonLd,
+  webSiteJsonLd,
+} from "../../../lib/seo";
+
+const title = "Jackson County Cash Home Buyers: Kansas City, Lee's Summit";
+const description =
+  "Jackson County MO cash home buyers guide for Kansas City, Independence, Lee's Summit, Blue Springs, repairs, inherited homes, tenants, and fast as-is closings.";
+
+const cityLinks = [
+  {
+    name: "Kansas City, MO",
+    href: "/areas/kansas-city-mo/",
+    body:
+      "Best fit for sellers comparing a fast as-is offer with repairs, taxes, code items, tenants, or inherited property around the city.",
+  },
+  {
+    name: "Independence",
+    href: "/areas/independence-mo/",
+    body:
+      "Useful for older homes, inherited houses, city notices, tenant issues, and sellers who need Jackson County title timing explained clearly.",
+  },
+  {
+    name: "Lee's Summit",
+    href: "/areas/lees-summit-mo/",
+    body:
+      "Helpful for relocation, family transitions, dated homes, larger repair budgets, and sellers comparing certainty against listing prep.",
+  },
+  {
+    name: "Blue Springs",
+    href: "/areas/blue-springs-mo/",
+    body:
+      "A practical route for estate homes, repairs, move deadlines, and Eastern Jackson County sellers who want a direct offer before listing.",
+  },
+  {
+    name: "Raytown and Grandview",
+    href: "/areas/raytown-mo/",
+    body:
+      "Good for owners dealing with deferred maintenance, clean-out, payment pressure, taxes, or vacant-house risk.",
+  },
+  {
+    name: "64131 and South KC",
+    href: "/areas/64131/",
+    body:
+      "Local support for Red Bridge, Minor Park, and nearby sellers comparing repairs, fast timing, and as-is sale certainty.",
+  },
+];
+
+const documents = [
+  "Mortgage payoff or lender contact if payments are current or behind",
+  "Tax bill, lien notices, code letters, or utility balances if you have them",
+  "Names of all owners, heirs, spouses, trustees, or decision-makers who may need to sign",
+  "Tenant lease details, access rules, or move-out timing if the house is occupied",
+  "Known repair issues, clean-out needs, photos, or contractor estimates",
+  "Preferred closing date and whether you need extra time after closing",
+];
+
+const reasons = [
+  {
+    title: "Repairs are bigger than the budget",
+    body:
+      "Roof age, foundation cracks, plumbing, electrical, HVAC, fire damage, clean-out, and dated interiors can make listing expensive before you know the final net.",
+  },
+  {
+    title: "The timeline is getting tight",
+    body:
+      "Late payments, taxes, relocation, probate steps, tenant access, and family decisions can turn a normal listing into a problem if the deadline is close.",
+  },
+  {
+    title: "You need a private comparison",
+    body:
+      "A written cash offer lets you compare certainty, no repairs, no showings, and closing costs against a traditional listing without going public first.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do cash home buyers work across Jackson County, Missouri?",
+    answer:
+      "Yes. ACE Properties KC reviews houses in Kansas City, Independence, Lee's Summit, Blue Springs, Raytown, Grandview, Grain Valley, Oak Grove, and nearby Jackson County communities.",
+  },
+  {
+    question: "Can I sell a Jackson County house as-is?",
+    answer:
+      "Yes. A direct offer can account for repairs, clean-out, dated finishes, code items, tenants, tax issues, title questions, or inherited property without requiring you to fix the house first.",
+  },
+  {
+    question: "How fast can a Jackson County cash closing happen?",
+    answer:
+      "A clean cash closing can sometimes happen in about two weeks after title is ready. Payoffs, liens, probate authority, tenant timing, or missing owner signatures can add time.",
+  },
+  {
+    question: "Should I compare a cash offer with listing?",
+    answer:
+      "Usually, yes. Listing may be better if the house is market-ready and you have time. A cash offer is strongest when certainty, privacy, fewer repairs, or speed matter more.",
+  },
+  {
+    question: "Can ACE help if I am behind on payments or taxes?",
+    answer:
+      "We can help you compare payoff-at-closing, direct sale timing, and backup options. This is not legal or financial advice, but it can help you see the practical next steps before the timeline gets tighter.",
+  },
+];
+
+const jsonLd = [
+  webSiteJsonLd(),
+  localBusinessJsonLd(),
+  articleJsonLd({
+    title,
+    description,
+    path: "/resources/jackson-county-cash-home-buyers/",
+    datePublished: "2026-07-13",
+  }),
+  buildFaqPageJsonLd(faqs),
+  buildBreadcrumbList([
+    { name: "Home", item: "/" },
+    { name: "Resources", item: "/resources/" },
+    { name: "Jackson County Cash Home Buyers", item: "/resources/jackson-county-cash-home-buyers/" },
+  ]),
+];
+---
+
+<Layout
+  title="Jackson County Cash Home Buyers | Kansas City MO"
+  description={description}
+  canonicalPath="/resources/jackson-county-cash-home-buyers/"
+  jsonLd={jsonLd}
+>
+  <article class="section space-y-10">
+    <header class="space-y-5">
+      <p class="badge">Jackson County guide</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">{title}</h1>
+      <p class="max-w-3xl text-muted">
+        Jackson County sellers often look for cash home buyers when the house is not a clean retail listing. Repairs, inherited property, late payments, taxes, tenants, clean-out, or a tight deadline can all change what the best path looks like.
+      </p>
+      <p class="max-w-3xl text-muted">
+        This guide explains how a local as-is offer works in Kansas City, Independence, Lee's Summit, Blue Springs, Raytown, Grandview, and nearby Jackson County communities.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">Ask for a Jackson County offer</a>
+        <a href="/resources/jackson-county-foreclosure-options/" class="btn btn-ghost text-base">Payment pressure guide</a>
+      </div>
+    </header>
+
+    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {cityLinks.map((city) => (
+        <a href={city.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Jackson County</p>
+          <h2 class="text-2xl font-semibold text-primary">Cash home buyers in {city.name}</h2>
+          <p class="mt-3 text-sm leading-6 text-muted">{city.body}</p>
+          <span class="mt-5 inline-flex text-sm font-semibold text-secondary">View {city.name} options</span>
+        </a>
+      ))}
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-3">
+      {reasons.map((reason) => (
+        <article class="card space-y-3">
+          <h2 class="text-xl font-semibold text-primary">{reason.title}</h2>
+          <p class="text-sm leading-6 text-muted">{reason.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What makes Jackson County sales different?</h2>
+        <p class="text-muted">
+          Jackson County files can involve city notices, tax balances, lender payoffs, estate authority, tenant access, utility balances, and older-home repairs. A serious buyer should identify those items before promising a closing date.
+        </p>
+        <p class="text-muted">
+          If the pressure is tied to lender notices or missed payments, also read the <a href="/resources/jackson-county-foreclosure-options/" class="text-secondary underline">Jackson County foreclosure options guide</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">What to gather before asking for an offer</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {documents.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+  </article>
+
+  <HighIntentOfferBlock
+    badge="Jackson County offer"
+    title="Need a written number before deciding whether to list?"
+    body="Send the address, condition, and timeline. We will help you compare a direct offer with repairs, holding costs, title timing, and listing uncertainty."
+    formId="jackson-county-cash-buyer-form"
+    formHeading="Compare my Jackson County options"
+    defaultSituation="as-is cash"
+    pageContext="jackson-county-cash-home-buyers"
+    trackingLocation="jackson_county_cash_buyers"
+  />
+
+  <article class="section space-y-10">
+    <LocalDecisionMap
+      variant="fast"
+      heading="Connect Jackson County cash-offer questions to city pages"
+      intro="Cash offers depend on city, title timing, repairs, taxes, occupancy, and seller goals. Use these local routes to compare what happens next."
+    />
+
+    <section class="space-y-4">
+      <h2 class="text-3xl font-semibold text-primary">Jackson County cash buyer FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>

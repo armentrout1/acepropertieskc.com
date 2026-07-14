@@ -52,6 +52,14 @@ const slowdowns = [
   "Family decision-makers who need the same written numbers before moving forward",
 ];
 
+const quickSaleChecklist = [
+  "Ask whether the buyer can buy as-is without repair credits or inspection renegotiation",
+  "Confirm whether the buyer can close with cash after title is ready",
+  "Compare your net after repairs, commissions, concessions, holding costs, and utilities",
+  "Tell the buyer about tenants, clean-out, liens, taxes, or probate before choosing a date",
+  "Get the price, closing costs, possession, and clean-out agreement in writing",
+];
+
 const faqs = [
   {
     question: "What is the fastest way to sell a house in Kansas City?",
@@ -163,6 +171,29 @@ const jsonLd = [
       </article>
     </section>
 
+    <section class="grid gap-8 md:grid-cols-2">
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">How to sell your house quickly in Kansas City without guessing</h2>
+        <p class="text-muted">
+          A quick sale works best when the buyer is clear about title timing, repair assumptions, closing costs, and what happens if the house has tenants, belongings, taxes, or payoff pressure. Speed should make the decision simpler, not more confusing.
+        </p>
+        <p class="text-muted">
+          For Missouri-side homes, compare the <a href="/resources/jackson-county-cash-home-buyers/" class="text-secondary underline">Jackson County cash home buyers guide</a>. For city-specific next steps, start with <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City, MO</a> or <a href="/areas/lees-summit-mo/" class="text-secondary underline">Lee's Summit</a>.
+        </p>
+      </article>
+      <article class="card space-y-3">
+        <h2 class="text-2xl font-semibold text-primary">Quick-sale checklist</h2>
+        <ul class="space-y-3 text-sm text-primary">
+          {quickSaleChecklist.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </section>
+
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">City-specific fast-sale considerations</h2>
       <p class="text-muted">
@@ -175,6 +206,8 @@ const jsonLd = [
         <a href="/areas/independence-mo/" class="card transition hover:border-secondary/60">Sell fast in Independence, MO</a>
         <a href="/areas/kansas-city-ks/" class="card transition hover:border-secondary/60">Sell fast in Kansas City, KS</a>
         <a href="/areas/kansas-city-mo/" class="card transition hover:border-secondary/60">Sell fast in Kansas City, MO</a>
+        <a href="/areas/lees-summit-mo/" class="card transition hover:border-secondary/60">Sell fast in Lee's Summit, MO</a>
+        <a href="/resources/jackson-county-cash-home-buyers/" class="card transition hover:border-secondary/60">Jackson County cash buyer guide</a>
       </div>
     </section>
 

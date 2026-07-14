@@ -47,6 +47,16 @@
 - [x] Build the Search Console query-to-page map workflow for monthly optimization.
 - [x] Rebuild Shawnee, Olathe, Overland Park, and sell-house-fast from the July query-map priorities.
 - [x] Add July Search Console CSV exports and generate the first real query-to-page report.
+- [ ] Re-check/request indexing when GSC quota resets:
+  - [ ] `https://acepropertieskc.com/areas/shawnee-ks/`
+  - [ ] `https://acepropertieskc.com/areas/olathe-ks/`
+  - [ ] `https://acepropertieskc.com/areas/overland-park-ks/`
+  - [ ] `https://acepropertieskc.com/solutions/sell-house-fast/`
+- [x] Build the next Missouri-side content layer from July GSC signals:
+  - [x] Strengthen `/areas/kansas-city-mo/` for "sell my house fast Kansas City MO" and Jackson County cash-buyer searches.
+  - [x] Strengthen `/areas/lees-summit-mo/` for "sell my house fast Lee's Summit" and Jackson County timing.
+  - [x] Add a Jackson County cash home buyers guide and link it from KC/Lee's Summit/resource routes.
+  - [x] Add "sell your house quickly Kansas City" support to the fast-sale guide.
 - [ ] Track July 13 to August 13 against: clicks, impressions, CTR, average position, top city-page movement, and form starts.
 
 ## Verification Notes
