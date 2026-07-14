@@ -59,12 +59,33 @@
   - [x] Add "sell your house quickly Kansas City" support to the fast-sale guide.
 - [ ] Track July 13 to August 13 against: clicks, impressions, CTR, average position, top city-page movement, and form starts.
 
+
+## Google Quality Optimization Standard
+
+Google's current Search Central guidance points us away from simply publishing more pages and toward clearer people-first pages that help search engines understand the site. For ACE, that means every priority page should satisfy these checks before we add another URL:
+
+- Search intent match: title, H1, first paragraph, and CTA should match what the seller actually searches, such as "sell my house fast", "cash home buyers", "behind on payments", or "sell as-is".
+- Specific local usefulness: the page should mention the local county, title/payoff issues, repairs, taxes, HOA or code concerns, and practical next steps when those details matter.
+- Visible trust: keep adding real proof as it becomes available - real seller reviews, Google Business Profile, project photos, team/local photos, and transparent process details. Do not add fake review schema or fake profile links.
+- Snippet quality: each important page needs a unique, human-readable meta description that explains why a seller should click, not a keyword list.
+- Page experience: mobile layout, clear main content, fast forms, no intrusive popups, and tap targets that work on phones matter because most urgent sellers will be on mobile.
+- Measurement discipline: use Search Console query/page exports monthly, then optimize pages that already have impressions before adding new content.
+
+## August Position And Click Goals
+
+The current baseline is 32.57 average position. Because Google says SEO changes may take a few weeks to several months to fully show, the next-month target should be aggressive but believable:
+
+- Realistic August target: average position 28-30, 35-50 organic clicks, and 0.45%-0.70% CTR.
+- Stretch August target: average position 24-26 if Google recrawls the priority pages quickly and Shawnee/Olathe/Overland Park snippets start earning clicks.
+- Watch-out: average position can temporarily move worse when Google discovers new long-tail queries. If impressions and clicks rise while position fluctuates, that is still progress.
+- Priority scorecard: Shawnee stays top-10 and starts getting clicks, Olathe moves toward positions 12-18, Overland Park moves toward positions 18-25, and `/solutions/sell-house-fast/` moves from the 40s toward the 30s.
+
 ## Verification Notes
 
 - Production build passed on Node 24.
 - SEO preflight passed.
-- Generated SEO audit passed: 139 HTML pages, 137 indexable sitemap pages, sitemap files generated, and schema present.
-- Generated lead audit passed: 112 offer forms across 110 pages, with required form routes present.
+- Generated SEO audit passed: 140 HTML pages, 138 indexable sitemap pages, sitemap files generated, and schema present.
+- Generated lead audit passed: 114 offer forms across 112 pages, with required form routes present.
 
 ## August Review Targets
 
