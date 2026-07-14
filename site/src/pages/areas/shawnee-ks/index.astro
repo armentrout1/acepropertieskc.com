@@ -22,7 +22,7 @@ const neighborhoods = [
 
 const situations = [
   "Inherited homes that have been in Shawnee families for generations",
-  "Homes needing major repairs—roofs, foundations, or outdated systems",
+  "Homes needing major repairs - roofs, foundations, or outdated systems",
   "Divorce settlements requiring neutral, written agreements",
   "Corporate relocations to Kansas City needing quick closings",
   "Senior downsizing to retirement communities or assisted living",
@@ -72,22 +72,39 @@ const commonSellerGoals = [
 
 const shawneeSearchSignals = [
   {
-    title: "We buy houses in Shawnee, KS",
+    title: "We buy houses Shawnee KS",
     body:
       "ACE reviews Shawnee houses directly, including dated interiors, major repairs, vacant homes, inherited properties, and timelines that do not fit a public listing.",
   },
   {
-    title: "Sell my house as-is in Shawnee",
+    title: "Sell my house Shawnee KS without showings",
     body:
-      "You can compare an as-is cash offer before cleaning everything out, cutting repair checks, or scheduling showings around family and work.",
+      "You can compare a direct Shawnee offer before cleaning everything out, cutting repair checks, scheduling open houses, or waiting for buyer financing.",
   },
   {
-    title: "Cash home buyers in Shawnee",
+    title: "Sell my house as-is Shawnee Kansas",
     body:
-      "A real offer should explain the price, title timing, closing costs, repair assumptions, and how the sale compares with listing.",
+      "A real as-is offer should explain the price, title timing, closing costs, repair assumptions, and how the sale compares with listing.",
   },
 ];
 
+const shawneeIntentBlocks = [
+  {
+    title: "When a Shawnee cash offer is worth comparing",
+    body:
+      "A direct buyer can make sense when the house needs repairs, the family needs privacy, you are coordinating an inherited property, or you would rather know the net number before committing to contractors and showings.",
+  },
+  {
+    title: "What makes Shawnee different",
+    body:
+      "Older homes around central Shawnee, Monticello, and established Johnson County neighborhoods often need system updates, clean-out help, or estate coordination. We price those realities instead of asking you to fix them first.",
+  },
+  {
+    title: "How we protect your decision",
+    body:
+      "You get the offer, estimated closing timeline, payoff assumptions, and repair assumptions in writing, then you decide whether a fast as-is sale or a traditional listing is better.",
+  },
+];
 const faqs = [
   {
     question: "Do you buy homes in Shawnee's historic districts?",
@@ -124,15 +141,15 @@ const jsonLd = [
 ---
 
 <Layout
-  title="We Buy Houses Shawnee KS | Sell As-Is Fast"
-  description="We buy houses in Shawnee KS as-is. Compare a local cash offer, no repairs, no showings, Johnson County title timing, and flexible closing dates."
+  title="We Buy Houses Shawnee KS | Sell My House Fast"
+  description="We buy houses Shawnee KS. Sell your Shawnee house fast as-is with no repairs, no showings, local cash offer review, and flexible closing dates."
   canonicalPath="/areas/shawnee-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">We buy houses in Shawnee, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">We Buy Houses in Shawnee, KS Without Repairs or Showings</h1>
+      <p class="badge">We buy houses Shawnee KS</p>
+      <h1 class="text-4xl font-semibold text-primary">We Buy Houses Shawnee KS - Sell Fast As-Is</h1>
       <p class="text-lg leading-8 text-muted">
         If you need to sell a Shawnee house fast, you should be able to compare a real local offer before paying for repairs, cleaning out the property, or scheduling public showings. ACE Properties KC reviews inherited houses, vacant homes, repair-heavy properties, divorce situations, and relocation timelines across Shawnee and Johnson County.
       </p>
@@ -197,6 +214,23 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Shawnee seller intent</p>
+      <h2 class="text-3xl font-semibold text-primary">If you searched "we buy houses Shawnee," compare the whole net, not just the headline price.</h2>
+      <p class="text-muted">
+        The best next step is a clear written option: what we can pay, what repairs stay with us, what closing costs look like, and how fast Johnson County title can realistically move.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {shawneeIntentBlocks.map((item) => (
+        <article class="card h-full">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
   <SellerSituationLinks
     city="Shawnee, KS"
     countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
@@ -208,7 +242,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why Shawnee sellers reach out</h2>
       <p class="text-muted">
-        Most Shawnee homeowners we work with are managing multiple priorities—family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
+        Most Shawnee homeowners we work with are managing multiple priorities - family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
       </p>
     </article>
     <article class="card space-y-3">

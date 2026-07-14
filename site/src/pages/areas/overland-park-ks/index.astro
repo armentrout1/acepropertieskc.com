@@ -25,7 +25,7 @@ const neighborhoods = [
 
 const situations = [
   "Inherited homes that sat while families coordinated across states",
-  "Deferred maintenance—roofs, foundations, or HVAC needing cash to fix",
+  "Deferred maintenance - roofs, foundations, or HVAC needing cash to fix",
   "Rental portfolios with long-term tenants you would like to transition smoothly",
   "Payment pressure from job changes or medical expenses",
   "Divorce settlements that need neutral, written timelines",
@@ -67,6 +67,23 @@ const overlandParkCashBuyerSignals = [
   },
 ];
 
+const overlandParkIntentBlocks = [
+  {
+    title: "Sell my house fast Overland Park",
+    body:
+      "A direct offer can make sense when speed, privacy, repairs, HOA documents, or possession timing matter more than running a full public listing process.",
+  },
+  {
+    title: "Cash home buyers in Overland Park",
+    body:
+      "The offer should explain repair assumptions, payoff timing, HOA resale items, closing costs, and what you net after the title company balances the file.",
+  },
+  {
+    title: "Sell my house as-is Overland Park Kansas",
+    body:
+      "You can ask for an as-is review before replacing systems, updating finishes, clearing everything out, or coordinating repeated showings.",
+  },
+];
 const steps = [
   {
     title: "Set expectations",
@@ -128,15 +145,15 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Cash Home Buyers Overland Park KS | Sell As-Is"
-  description="Compare cash home buyers in Overland Park KS. Sell as-is with no repairs, no showings, Johnson County HOA/title timing, and flexible closing dates."
+  title="Cash Home Buyers Overland Park KS | Sell Fast"
+  description="Cash home buyers in Overland Park KS. Sell your Overland Park house fast as-is with no repairs, no showings, HOA/title help, and flexible closing."
   canonicalPath="/areas/overland-park-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Cash home buyers in Overland Park, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">Cash Home Buyers in Overland Park, KS for As-Is Houses</h1>
+      <p class="badge">Cash home buyers in Overland Park KS</p>
+      <h1 class="text-4xl font-semibold text-primary">Cash Home Buyers Overland Park KS - Sell Fast As-Is</h1>
       <p class="text-lg leading-8 text-muted">
         If you need to sell an Overland Park house fast, you should not have to start with repairs, staging, public showings, or months of uncertainty. We review the property as-is, explain Johnson County title and HOA details, and give you a written cash or flexible option you can compare against listing.
       </p>
@@ -204,6 +221,23 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Overland Park seller intent</p>
+      <h2 class="text-3xl font-semibold text-primary">If you searched "cash home buyers in Overland Park," compare certainty, title timing, and net proceeds.</h2>
+      <p class="text-muted">
+        Overland Park sellers often have equity, but that does not mean they want months of repairs, showings, inspection asks, or HOA surprises. We put the direct-sale math in writing so you can compare it with the MLS path.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {overlandParkIntentBlocks.map((item) => (
+        <article class="card bg-white h-full">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
   <SellerSituationLinks
     city="Overland Park, KS"
     countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}

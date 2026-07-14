@@ -45,15 +45,16 @@
 - [x] Inspect July coverage export issue counts. Export did not include example URLs, so exact 404/soft-404 cleanup needs the Pages report examples from Search Console.
 - [ ] Request indexing in Search Console for the edited pages after deploy.
 - [x] Build the Search Console query-to-page map workflow for monthly optimization.
-- [ ] Add July/August Search Console CSV exports and generate the first real query-to-page report.
+- [x] Rebuild Shawnee, Olathe, Overland Park, and sell-house-fast from the July query-map priorities.
+- [x] Add July Search Console CSV exports and generate the first real query-to-page report.
 - [ ] Track July 13 to August 13 against: clicks, impressions, CTR, average position, top city-page movement, and form starts.
 
 ## Verification Notes
 
 - Production build passed on Node 24.
 - SEO preflight passed.
-- Generated SEO audit passed: 117 HTML pages, 115 indexable sitemap pages, sitemap files generated, and schema present.
-- Generated lead audit passed: 90 offer forms across 88 pages, with required form routes present.
+- Generated SEO audit passed: 139 HTML pages, 137 indexable sitemap pages, sitemap files generated, and schema present.
+- Generated lead audit passed: 112 offer forms across 110 pages, with required form routes present.
 
 ## August Review Targets
 

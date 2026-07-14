@@ -22,7 +22,7 @@ const neighborhoods = [
 
 const situations = [
   "Inherited homes that have been in Olathe families for decades",
-  "Homes needing major repairs—roofs, foundations, or outdated systems",
+  "Homes needing major repairs - roofs, foundations, or outdated systems",
   "Corporate relocations requiring quick, dependable closings",
   "Divorce settlements that need neutral, written agreements",
   "Rental properties where tenant coordination adds complexity",
@@ -72,22 +72,39 @@ const commonSellerGoals = [
 
 const olatheSearchSignals = [
   {
-    title: "Cash home buyers in Olathe",
+    title: "Sell my house fast Olathe",
     body:
       "A useful cash buyer should explain the as-is price, closing date, title requirements, and what repairs or clean-out they are assuming.",
   },
   {
-    title: "We buy houses in Olathe as-is",
+    title: "We buy houses Olathe KS",
     body:
       "You can ask for an offer before replacing systems, updating finishes, cleaning out contents, or preparing the property for public showings.",
   },
   {
-    title: "Sell my house as-is in Olathe",
+    title: "Sell my house as-is Olathe Kansas",
     body:
       "This path is strongest when repairs, inherited-property decisions, relocation timing, or holding costs make the normal listing process too slow.",
   },
 ];
 
+const olatheIntentBlocks = [
+  {
+    title: "Fast Olathe sale without repair delays",
+    body:
+      "If contractors, foundation concerns, outdated systems, or clean-out work are slowing you down, we can price the house as-is and show the net compared with listing.",
+  },
+  {
+    title: "Johnson County timing before you commit",
+    body:
+      "We review HOA items, title timing, payoff statements, possession needs, and school-calendar moves before asking you to choose a closing date.",
+  },
+  {
+    title: "A direct buyer for inherited or move-driven sales",
+    body:
+      "Olathe sellers often need a clean plan for family estates, job transfers, tenant situations, or a house that needs more work than they want to manage.",
+  },
+];
 const faqs = [
   {
     question: "Do you work with Olathe HOAs?",
@@ -124,15 +141,15 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Olathe KS | Cash Home Buyers"
-  description="Sell your Olathe KS house fast as-is. Compare local cash home buyers, no repairs, no showings, Johnson County title timing, and flexible closing dates."
+  title="Sell My House Fast Olathe KS | We Buy Houses"
+  description="Sell my house fast Olathe KS. We buy houses in Olathe as-is with no repairs, no showings, local cash offers, and flexible closing dates."
   canonicalPath="/areas/olathe-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Cash home buyers in Olathe, Kansas</p>
-      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast in Olathe, KS With Local Cash Home Buyers</h1>
+      <p class="badge">Sell my house fast Olathe KS</p>
+      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast Olathe KS - We Buy Houses As-Is</h1>
       <p class="text-lg leading-8 text-muted">
         If your Olathe house needs repairs, a fast relocation plan, estate coordination, or a clean backup option before listing, we can review it as-is and give you a written local offer. You choose the timeline, and we explain the Johnson County title, HOA, payoff, and closing details before anything is signed.
       </p>
@@ -197,6 +214,23 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Olathe seller intent</p>
+      <h2 class="text-3xl font-semibold text-primary">If you searched "sell my house fast Olathe," the real question is what you keep after repairs, time, and fees.</h2>
+      <p class="text-muted">
+        We help you compare a direct Olathe cash offer against the cost of repairs, agent commissions, inspection concessions, holding costs, and a longer Johnson County listing timeline.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {olatheIntentBlocks.map((item) => (
+        <article class="card h-full">
+          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
   <SellerSituationLinks
     city="Olathe, KS"
     countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
@@ -208,7 +242,7 @@ const jsonLd = [
     <article class="card space-y-3">
       <h2 class="text-2xl font-semibold text-primary">Why Olathe sellers reach out</h2>
       <p class="text-muted">
-        Most Olathe homeowners we work with are juggling more than just a property sale—family relocations, inherited estates, or repair costs that keep adding up. We keep the process simple, provide same-day updates, and respect the timeline you need.
+        Most Olathe homeowners we work with are juggling more than just a property sale - family relocations, inherited estates, or repair costs that keep adding up. We keep the process simple, provide same-day updates, and respect the timeline you need.
       </p>
     </article>
     <article class="card space-y-3">

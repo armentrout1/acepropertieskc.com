@@ -144,6 +144,35 @@ const priorityMetroTargets = [
   },
 ];
 
+const kcFastSaleSituations = [
+  {
+    title: "Behind on payments or running out of time",
+    body:
+      "A fast sale may help when lender deadlines, late payments, tax balances, or payoff timing are starting to control the decision.",
+  },
+  {
+    title: "Repairs are bigger than the budget",
+    body:
+      "Roof, foundation, HVAC, electrical, plumbing, clean-out, or code issues can make a traditional listing slower and less predictable.",
+  },
+  {
+    title: "Inherited, vacant, or full-of-stuff house",
+    body:
+      "We can review the house as-is, including contents, deferred maintenance, utilities, insurance, taxes, and family decision timing.",
+  },
+  {
+    title: "Tenant or privacy concerns",
+    body:
+      "A direct sale can reduce repeated showings, tenant disruption, public listing pressure, and the uncertainty of buyer financing.",
+  },
+];
+
+const kcFastSaleProofPoints = [
+  "Written cash offer or flexible option before you spend on repairs",
+  "Clear explanation of title, payoffs, liens, taxes, and closing costs",
+  "No open houses, public listing prep, or repeated buyer walkthroughs",
+  "City-specific next steps for Kansas City, Olathe, Overland Park, and Shawnee",
+];
 const comparisonRows = [
   {
     path: "Direct cash sale",
@@ -256,8 +285,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City | Cash Home Buyers"
-  description="Sell your Kansas City house fast as-is. Local cash home buyer for repairs, inherited homes, tenants, late payments, and flexible closing dates."
+  title="Sell My House Fast Kansas City MO | Cash Home Buyers"
+  description="Sell my house fast Kansas City MO. Local cash home buyers for as-is houses, repairs, inherited homes, tenants, late payments, and fast closings."
   canonicalPath="/solutions/sell-house-fast/"
   jsonLd={jsonLd}
 >
@@ -272,10 +301,10 @@ const jsonLd = [
         <div class="space-y-4">
           <p class="text-sm font-black uppercase tracking-[0.1em] text-accent">Sell fast without repairs</p>
           <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
-            Sell My House Fast in Kansas City With a Local Cash Buyer
+            Sell My House Fast Kansas City MO With a Local Cash Buyer
           </h1>
           <p class="max-w-3xl text-lg leading-8 text-white/82">
-            A fast sale still needs clear title timing, repair assumptions, closing costs, occupancy, and net numbers. ACE helps you compare an as-is cash offer against listing without turning the house into another project.
+            A fast sale still needs clear title timing, repair assumptions, closing costs, occupancy, and net numbers. ACE helps Kansas City MO sellers compare an as-is cash offer against listing without turning the house into another project.
           </p>
           <p class="max-w-3xl text-sm leading-6 text-white/70">
             Serving Kansas City, Olathe, Overland Park, Shawnee, Independence, Lee's Summit, and the surrounding metro.
@@ -316,7 +345,7 @@ const jsonLd = [
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Search intent match</p>
       <h2 class="text-3xl font-semibold text-primary">Sell Your House Fast in Kansas City: What Actually Matters</h2>
       <p class="text-muted">
-        Most sellers searching for "sell your house fast Kansas City" are not looking for a slogan. They need to know whether someone can buy the house as-is, handle title and payoff details, respect the timeline, and explain the tradeoff against listing.
+        Most sellers searching for "sell my house fast Kansas City" or "sell house fast Kansas City MO" are not looking for a slogan. They need to know whether someone can buy the house as-is, handle title and payoff details, respect the timeline, and explain the tradeoff against listing.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
@@ -333,9 +362,9 @@ const jsonLd = [
   <section class="section section-alt space-y-5">
     <div class="max-w-4xl space-y-3">
       <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Kansas City metro search paths</p>
-      <h2 class="text-3xl font-semibold text-primary">Local cash buyer pages for the cities Google is already testing</h2>
+      <h2 class="text-3xl font-semibold text-primary">Local fast-sale pages for Kansas City metro sellers</h2>
       <p class="text-muted">
-        Sellers search by city when the pressure is local: repairs, HOA timing, taxes, title work, school calendars, and neighborhood-specific buyer demand. These pages give each seller a closer next step before they ask for an offer.
+        Sellers search by city when the pressure is local: repairs, HOA timing, taxes, title work, school calendars, and neighborhood-specific buyer demand. These local pages give each seller a closer answer based on the city, county, and closing details that matter most.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-2">
@@ -350,6 +379,31 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section space-y-5">
+    <div class="max-w-4xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Urgent seller situations</p>
+      <h2 class="text-3xl font-semibold text-primary">Kansas City sellers usually need more than speed. They need a buyer who can solve the actual problem.</h2>
+      <p class="text-muted">
+        A fast closing only helps if the buyer can handle the reason you need speed in the first place. We look at the property, title, payoff pressure, repair risk, occupancy, and timing together so the offer is tied to a real closing path.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {kcFastSaleSituations.map((item) => (
+        <article class="card h-full">
+          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))}
+    </div>
+    <div class="card bg-soft/70">
+      <h3 class="text-xl font-semibold text-primary">What you should expect before choosing a fast-sale buyer</h3>
+      <div class="mt-4 grid gap-3 md:grid-cols-2">
+        {kcFastSaleProofPoints.map((point) => (
+          <div class="rounded-md border border-border bg-white p-3 text-sm text-primary">{point}</div>
+        ))}
+      </div>
+    </div>
+  </section>
   <HighIntentOfferBlock
     badge="Fast offer path"
     title="Need a fast number without listing first?"
