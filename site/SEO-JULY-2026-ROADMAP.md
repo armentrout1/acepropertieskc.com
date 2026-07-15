@@ -47,11 +47,24 @@
 - [x] Build the Search Console query-to-page map workflow for monthly optimization.
 - [x] Rebuild Shawnee, Olathe, Overland Park, and sell-house-fast from the July query-map priorities.
 - [x] Add July Search Console CSV exports and generate the first real query-to-page report.
-- [ ] Re-check/request indexing when GSC quota resets:
-  - [ ] `https://acepropertieskc.com/areas/shawnee-ks/`
-  - [ ] `https://acepropertieskc.com/areas/olathe-ks/`
-  - [ ] `https://acepropertieskc.com/areas/overland-park-ks/`
-  - [ ] `https://acepropertieskc.com/solutions/sell-house-fast/`
+- [x] Re-check/request indexing for July priority edits:
+  - [x] `https://acepropertieskc.com/areas/shawnee-ks/`
+  - [x] `https://acepropertieskc.com/areas/olathe-ks/`
+  - [x] `https://acepropertieskc.com/areas/overland-park-ks/`
+  - [x] `https://acepropertieskc.com/solutions/sell-house-fast/`
+- [ ] Not indexed yet / submit when GSC quota resets:
+  - [ ] `https://acepropertieskc.com/areas/64124/`
+  - [ ] `https://acepropertieskc.com/areas/64128/`
+  - [ ] `https://acepropertieskc.com/areas/64127/`
+  - [ ] `https://acepropertieskc.com/areas/64130/`
+  - [ ] `https://acepropertieskc.com/resources/kansas-city-higher-equity-home-sale-options/`
+  - [ ] `https://acepropertieskc.com/areas/64113/`
+  - [ ] `https://acepropertieskc.com/areas/64114/`
+  - [ ] `https://acepropertieskc.com/areas/64145/`
+  - [ ] `https://acepropertieskc.com/areas/66204/`
+  - [ ] `https://acepropertieskc.com/areas/66205/`
+  - [ ] `https://acepropertieskc.com/areas/66206/`
+  - [ ] `https://acepropertieskc.com/areas/66212/`
 - [x] Build the next Missouri-side content layer from July GSC signals:
   - [x] Strengthen `/areas/kansas-city-mo/` for "sell my house fast Kansas City MO" and Jackson County cash-buyer searches.
   - [x] Strengthen `/areas/lees-summit-mo/` for "sell my house fast Lee's Summit" and Jackson County timing.
