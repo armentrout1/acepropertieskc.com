@@ -1,63 +1,66 @@
----
+﻿---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
-const neighborhoods = [
+const neighborhoodPatterns = [
   {
-    title: "Old Olathe",
-    body: "Historic neighborhoods with mature trees and established homes. Many properties need updates or have been in families for generations.",
+    title: "Old Olathe and long-held family homes",
+    body: "Older homes near central Olathe can carry real equity, but updates, clean-out, estate decisions, and repair bids can make a normal listing feel heavy before it even starts.",
   },
   {
-    title: "Cedar Creek",
-    body: "Family-friendly subdivisions near Olathe Medical Center. Popular with relocating families who need quick closing timelines.",
+    title: "Western Olathe and newer subdivision timing",
+    body: "Homes around western Olathe, K-7 access, and growing subdivision areas often involve HOA items, relocation timing, school-calendar moves, and sellers comparing speed against a retail listing.",
   },
   {
-    title: "Stonebridge & Western Olathe",
-    body: "Newer developments and suburban homes where job transfers or growing families create timing pressure.",
+    title: "Rental, vacant, and move-driven Olathe sales",
+    body: "Olathe sellers often reach out when a rental is no longer worth managing, a house is sitting vacant, or a job move requires a clean closing plan before the next purchase or relocation.",
   },
 ];
 
 const situations = [
-  "Inherited homes that have been in Olathe families for decades",
-  "Homes needing major repairs - roofs, foundations, or outdated systems",
-  "Corporate relocations requiring quick, dependable closings",
-  "Divorce settlements that need neutral, written agreements",
-  "Rental properties where tenant coordination adds complexity",
+  "Inherited Olathe houses where family members need one written option",
+  "As-is homes with foundation, roof, HVAC, window, deck, or cosmetic repair needs",
+  "Relocation or job-change timing where the seller cannot wait through a long listing",
+  "Vacant houses where utilities, insurance, lawn care, and security are becoming expensive",
+  "Tenant-occupied rentals where access, lease timing, deposits, or turnover are creating friction",
+  "Behind-on-payments, HOA balances, title questions, or payoff timing that needs a calm plan",
 ];
 
 const olatheFastSaleProof = [
   {
-    title: "Skip repair bids and showings",
-    body:
-      "We review Olathe homes as-is, including older systems, foundation concerns, clean-out needs, and unfinished updates.",
+    title: "Price the house before repair bids",
+    body: "We review Olathe houses as-is, including dated interiors, foundation concerns, roof issues, clean-out needs, and repairs that would normally delay listing photos.",
+  },
+  {
+    title: "Compare the actual net",
+    body: "You see how a direct offer compares with commissions, repair checks, inspection concessions, seller-paid closing costs, utilities, insurance, and another month of holding the property.",
   },
   {
     title: "Plan around Johnson County details",
-    body:
-      "HOA packets, payoff statements, title timing, and school-calendar moves are discussed before you make a decision.",
-  },
-  {
-    title: "Compare cash with listing",
-    body:
-      "You get a written comparison so you can weigh speed, certainty, repairs, commissions, concessions, and another month of holding costs.",
+    body: "HOA documents, payoff statements, title work, possession timing, family signatures, and move-out dates are reviewed before you choose a closing path.",
   },
 ];
 
 const steps = [
   {
-    title: "Share your timeline",
-    body: "Tell us about your Olathe property, what repairs are needed, and any timing pressures from work moves or family decisions.",
+    title: "Share the Olathe situation",
+    body: "Tell us the address, what is pushing the timeline, and whether repairs, estate paperwork, tenants, HOA details, or a move are part of the decision.",
   },
   {
-    title: "Property walkthrough",
-    body: "We schedule a quick visit (or video) to note repairs, access needs, and any Olathe-specific considerations like HOA requirements.",
+    title: "Review the house as-is",
+    body: "We can walk the property in person or by video, noting condition, contents, utilities, access, title questions, and the likely resale or rental path.",
   },
   {
-    title: "Choose your path",
-    body: "Receive a written comparison of a straightforward cash offer and any flexible options that work with your timeline and goals.",
+    title: "Compare the written options",
+    body: "You get a direct offer, closing timeline, repair assumptions, and a plain comparison against listing so you can decide without pressure.",
   },
 ];
 
@@ -65,66 +68,102 @@ const commonSellerGoals = [
   "Sell my house fast in Olathe KS without repairs or showings",
   "Talk with cash home buyers in Olathe before spending money on contractors",
   "Compare we buy houses Olathe buyers with a traditional Johnson County listing",
-  "Compare an Olathe cash offer with listing on the MLS",
-  "Work around Johnson County title, HOA, school, or relocation timing",
-  "Sell an inherited, vacant, tenant-occupied, or repair-heavy Olathe house",
+  "Sell my house as-is in Olathe before cleaning everything out",
+  "Get a written Olathe offer before a job move, estate deadline, or school-year transition",
+  "Understand whether a cash offer or listing produces the better net after repairs and fees",
 ];
 
 const olatheSearchSignals = [
   {
     title: "Sell my house fast Olathe",
-    body:
-      "A useful cash buyer should explain the as-is price, closing date, title requirements, and what repairs or clean-out they are assuming.",
+    body: "A fast Olathe sale depends on title, payoff, condition, HOA items, access, seller authority, and whether the buyer can close without lender delays.",
   },
   {
     title: "We buy houses Olathe KS",
-    body:
-      "You can ask for an offer before replacing systems, updating finishes, cleaning out contents, or preparing the property for public showings.",
+    body: "ACE reviews Olathe homes directly, including inherited houses, vacant properties, rentals, dated homes, and repair-heavy situations that do not fit a clean MLS launch.",
   },
   {
     title: "Sell my house as-is Olathe Kansas",
-    body:
-      "This path is strongest when repairs, inherited-property decisions, relocation timing, or holding costs make the normal listing process too slow.",
+    body: "A useful as-is option explains the offer, what repairs stay with the buyer, what closing costs look like, and how the net compares with listing.",
   },
 ];
 
-const olatheIntentBlocks = [
+const listingComparison = [
   {
-    title: "Fast Olathe sale without repair delays",
-    body:
-      "If contractors, foundation concerns, outdated systems, or clean-out work are slowing you down, we can price the house as-is and show the net compared with listing.",
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is simple, you can wait for buyer financing, and you are comfortable handling inspection repairs, commissions, concessions, and showings.",
   },
   {
-    title: "Johnson County timing before you commit",
-    body:
-      "We review HOA items, title timing, payoff statements, possession needs, and school-calendar moves before asking you to choose a closing date.",
+    title: "A direct sale may be better when",
+    body: "The house needs repairs, has contents left inside, is vacant, involves heirs or tenants, or the seller needs a known closing date before spending more money.",
   },
   {
-    title: "A direct buyer for inherited or move-driven sales",
-    body:
-      "Olathe sellers often need a clean plan for family estates, job transfers, tenant situations, or a house that needs more work than they want to manage.",
+    title: "A flexible option may be better when",
+    body: "There is little equity, payment pressure, a low-interest loan, or a situation where taking over payments may protect credit and still create a clean exit.",
   },
 ];
+
+const netSheetItems = [
+  "Agent commissions and buyer concessions on a traditional listing",
+  "Foundation, roof, HVAC, flooring, paint, windows, deck, and clean-out costs",
+  "HOA resale documents, payoff statements, taxes, utilities, and title work",
+  "Another month of mortgage, insurance, utilities, lawn care, and vacant-house risk",
+  "Possession timing, move-out needs, and whether the seller needs extra days after closing",
+];
+
+const internalGuides = [
+  {
+    label: "Johnson County cash home buyers guide",
+    href: "/resources/johnson-county-cash-home-buyers/",
+    body: "County-wide context for Olathe, Overland Park, Shawnee, Lenexa, and nearby Johnson County sellers.",
+  },
+  {
+    label: "As-is sale net sheet template",
+    href: "/resources/as-is-sale-net-sheet-template/",
+    body: "A simple way to compare an Olathe cash offer against listing costs, repairs, concessions, and holding time.",
+  },
+  {
+    label: "Johnson County inherited house sale",
+    href: "/resources/johnson-county-inherited-house-sale/",
+    body: "Useful when Olathe heirs need to compare clean-out, repairs, title authority, and a direct written offer.",
+  },
+  {
+    label: "Major repairs vs selling as-is",
+    href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    body: "Compare the cost and delay of repairs before choosing whether to list or sell the house as-is.",
+  },
+];
+
 const faqs = [
   {
-    question: "Do you work with Olathe HOAs?",
-    answer: "Yes. We review HOA resale packets, transfer requirements, and any outstanding dues. Everything is documented in your settlement statement.",
+    question: "Can I sell my Olathe house as-is?",
+    answer:
+      "Yes. ACE Properties KC reviews Olathe houses as-is, including homes with foundation issues, roof concerns, outdated systems, contents left behind, tenant access, or repairs the owner does not want to manage before selling.",
   },
   {
-    question: "How do Olathe school year timelines affect closing?",
-    answer: "Many Olathe families prefer closing during summer breaks to avoid school disruptions. We can schedule around the Olathe School District calendar or structure post-closing occupancy if needed."
+    question: "How fast can an Olathe cash offer close?",
+    answer:
+      "A cash sale can often close quickly once Johnson County title work, payoff statements, HOA items, and seller authority are clear. We explain the realistic timeline before you sign anything.",
   },
   {
-    question: "Will you buy homes needing major repairs in Olathe?",
-    answer: "Absolutely. Olathe's established neighborhoods often have older homes needing significant updates. We evaluate properties as-is and factor repair costs into our offer, including foundation work common in some areas."
+    question: "Should I repair before listing in Olathe?",
+    answer:
+      "Sometimes, yes. If the house is easy to show and repairs are manageable, listing may produce a higher price. If repairs, clean-out, timing, tenants, or carrying costs are the problem, a direct as-is offer may be worth comparing first.",
   },
   {
-    question: "Can you handle quick corporate relocations from Olathe?",
-    answer: "Yes. We work with many Olathe families relocating for jobs at Garmin, Olathe Medical Center, or nearby corporate campuses. Cash offers can close in as little as two weeks once title is clear."
+    question: "Do you buy inherited houses in Olathe?",
+    answer:
+      "Yes. We can review inherited Olathe houses where heirs need a written offer, clean-out help, repair assumptions, and a closing plan that works around estate, trust, or family paperwork.",
   },
   {
-    question: "What about Johnson County requirements?",
-    answer: "We're familiar with Johnson County processes, from transfer taxes to required disclosures. No surprises during closing.",
+    question: "Do you buy Olathe rentals or tenant-occupied houses?",
+    answer:
+      "Yes. We can review tenant-occupied rentals, vacant rentals, and small investment properties. Lease details, deposits, access, utilities, and closing possession are discussed before an offer is finalized.",
+  },
+  {
+    question: "How do Olathe cash home buyers handle closing costs?",
+    answer:
+      "The written offer explains what ACE pays, what normal seller-side items may still apply, and how the net compares with listing costs such as commissions, repairs, concessions, and another month of carrying the house.",
   },
 ];
 
@@ -141,21 +180,38 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Olathe KS | We Buy Houses"
-  description="Sell my house fast Olathe KS. We buy houses in Olathe as-is with no repairs, no showings, local cash offers, and flexible closing dates."
+  title="Sell My House Fast Olathe KS | We Buy Houses As-Is"
+  description="Sell my house fast Olathe KS. Compare a local cash offer before repairs, clean-out, HOA items, tenants, relocation timing, or Johnson County title work slow you down."
   canonicalPath="/areas/olathe-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
       <p class="badge">Sell my house fast Olathe KS</p>
-      <h1 class="text-4xl font-semibold text-primary">Sell My House Fast Olathe KS - We Buy Houses As-Is</h1>
+      <h1 class="text-4xl font-semibold text-primary">
+        Sell Your Olathe House Fast, As-Is, With a Clear Net Comparison
+      </h1>
       <p class="text-lg leading-8 text-muted">
-        If your Olathe house needs repairs, a fast relocation plan, estate coordination, or a clean backup option before listing, we can review it as-is and give you a written local offer. You choose the timeline, and we explain the Johnson County title, HOA, payoff, and closing details before anything is signed.
+        If your Olathe house needs repairs, clean-out, tenant coordination,
+        estate decisions, or a fast relocation plan, you should be able to
+        compare a real local offer before spending money on the house. ACE
+        Properties KC reviews Olathe properties as-is and explains the cash
+        offer, closing timeline, and Johnson County details in writing.
+      </p>
+      <p class="leading-7 text-muted">
+        This page is for Olathe owners who want to know whether a direct sale, a
+        traditional listing, or a flexible payment solution makes the most
+        sense. If listing is likely better, we will tell you that too.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">Get a fast Olathe offer</a>
-        <a href="tel:+18167287548" class="btn btn-ghost text-base" data-phone-link="olathe_hero">Call 816-728-7548</a>
+        <a href="/get-offer/" class="btn btn-primary text-base"
+          >Get a fast Olathe offer</a
+        >
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="olathe_hero">Call 816-728-7548</a
+        >
       </div>
     </div>
     <OfferForm
@@ -163,196 +219,305 @@ const jsonLd = [
       formId="olathe-ks-offer-form"
       heading="Request an Olathe offer"
       subheading="Start with the address and the best way to reach you."
+      defaultSituation="Sell house fast"
+      pageContext="olathe-ks"
     />
   </section>
 
   <section class="section section-alt space-y-5">
     <div class="max-w-3xl space-y-3">
       <p class="badge">Quick answer</p>
-      <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for an Olathe cash offer before fixing the house.</h2>
+      <h2 class="text-3xl font-semibold text-primary">
+        Yes, you can ask for an Olathe cash offer before fixing the house.
+      </h2>
       <p class="text-muted">
-        A direct sale is useful when repairs, relocation, family timing, or lender pressure make a normal listing feel risky. We give you a plain comparison so you can decide whether speed, certainty, or the open market makes the most sense.
+        The real question is what you keep after repairs, commissions, buyer
+        concessions, HOA items, title timing, utilities, insurance, lawn care,
+        and another month of ownership.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {olatheFastSaleProof.map((item) => (
-        <article class="card bg-white">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="card space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">Common Olathe seller goals</h2>
-      <div class="grid gap-3 md:grid-cols-2">
-        {commonSellerGoals.map((goal) => (
-          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section section-alt space-y-5">
-    <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Olathe search match</p>
-      <h2 class="text-3xl font-semibold text-primary">When Olathe sellers search for cash home buyers, they usually need certainty.</h2>
-      <p class="text-muted">
-        The goal is not just speed. It is knowing who buys as-is, who can close, what happens with repairs and title, and whether the net is worth avoiding another month of ownership.
-      </p>
-    </div>
-    <div class="grid gap-4 md:grid-cols-3">
-      {olatheSearchSignals.map((item) => (
-        <article class="card bg-white">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        olatheFastSaleProof.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-5">
     <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Olathe seller intent</p>
-      <h2 class="text-3xl font-semibold text-primary">If you searched "sell my house fast Olathe," the real question is what you keep after repairs, time, and fees.</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Olathe seller intent
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        If you searched "sell my house fast Olathe," compare speed, certainty,
+        and net.
+      </h2>
       <p class="text-muted">
-        We help you compare a direct Olathe cash offer against the cost of repairs, agent commissions, inspection concessions, holding costs, and a longer Johnson County listing timeline.
+        Many Olathe sellers are not just chasing speed. They are trying to avoid
+        repair bids, public showings, inspection surprises, tenant friction,
+        estate delays, or the cost of carrying a vacant property while waiting
+        for a retail buyer.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {olatheIntentBlocks.map((item) => (
-        <article class="card h-full">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        olatheSearchSignals.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
-  <SellerSituationLinks
-    city="Olathe, KS"
-    countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
-  />
 
-  <AreaPropertyProof city="Olathe, KS" county="Johnson County" />
-
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Why Olathe sellers reach out</h2>
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">What makes Olathe different</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Olathe sellers often have equity, but timing and prep work can still
+        become the problem.
+      </h2>
       <p class="text-muted">
-        Most Olathe homeowners we work with are juggling more than just a property sale - family relocations, inherited estates, or repair costs that keep adding up. We keep the process simple, provide same-day updates, and respect the timeline you need.
+        Olathe is not one simple market. A long-held Old Olathe home, a western
+        Olathe subdivision property, and a rental near commuter routes can all
+        need a different sale plan. We look at condition, HOA items, title,
+        payoff, seller timeline, and what kind of buyer the house would attract
+        if listed.
       </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
-      <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted Johnson County title partners, and outlines both cash and flexible pathways. No aggressive pitches - just clear answers about value, timelines, and paperwork.
-      </p>
-    </article>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        neighborhoodPatterns.map((spot) => (
+          <article
+            class="card bg-white/90"
+            aria-label={`Olathe property pattern: ${spot.title}`}
+          >
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Local pattern
+            </p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">
+              {spot.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">
+        Common Olathe seller goals
+      </h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {
+          commonSellerGoals.map((goal) => (
+            <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">
+              {goal}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        List or sell direct
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The best Olathe sale is the one that protects your net after repairs,
+        time, and fees.
+      </h2>
+      <p class="text-muted">
+        We are not trying to make every Olathe house a direct sale. Some should
+        be listed. Others need a buyer who can take on repairs, clean-out,
+        tenant issues, estate coordination, or timing pressure without turning
+        the sale into another project.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        listingComparison.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <SellerSituationLinks
+    city="Olathe, KS"
+    countyGuide={{
+      label: "Johnson County behind-on-payments guide",
+      href: "/resources/johnson-county-behind-on-payments/",
+    }}
+  />
+
+  <AreaPropertyProof
+    city="Olathe, KS"
+    county="Johnson County"
+    propertyTypes={[
+      {
+        title: "Old Olathe as-is houses",
+        body: "Older homes with dated finishes, foundation concerns, old systems, clean-out needs, or repairs that make MLS prep expensive.",
+      },
+      {
+        title: "Johnson County inherited homes",
+        body: "Family-owned houses where heirs need title clarity, repair assumptions, clean-out help, and a closing plan that respects everyone involved.",
+      },
+      {
+        title: "Olathe rentals and vacant houses",
+        body: "Rental, tenant-occupied, vacant, or partially cleaned-out properties where access, leases, utilities, and carrying costs need a practical plan.",
+      },
+    ]}
+  />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Olathe market context</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        What we review before making an Olathe offer
+      </h2>
       <p class="text-muted">
-        From established Old Olathe neighborhoods to newer Stonebridge developments, each area moves differently. We track local market activity, school district timing, and contractor availability so you understand how your property fits into the current Olathe market.
+        A real offer should not be a vague number. We look at condition, likely
+        resale path, title items, HOA or payoff details, the seller timeline,
+        and what costs stay with us after closing.
       </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {
+          netSheetItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Olathe sellers reach out
+      </h2>
       <p class="text-muted">
-        Selling a family home in Olathe often involves coordinating with schools, employers, and extended family. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+        The house may be valuable, but the next step can still feel heavy.
+        Repairs, family schedules, job moves, estate decisions, tenant
+        coordination, and another month of holding costs can make a clean
+        written offer worth comparing.
+      </p>
+      <p class="text-muted">
+        We keep the process direct: no pressure, no public listing requirement,
+        no repair demand before the walkthrough, and no surprise expectation
+        that the house must be empty before we review it.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
-      <ul class="mt-4 space-y-3 text-sm text-primary">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+      <h2 class="text-2xl font-semibold text-primary">
+        Common situations we solve in Olathe
+      </h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="grid gap-6 md:grid-cols-3">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
-          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm text-muted">{spot.body}</p>
-        </div>
-      ))}
     </div>
   </section>
 
   <section class="section space-y-6">
     <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How it works in Olathe</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Process
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Olathe
+      </h2>
       <p class="text-muted">
-        From first call to closing, you set the pace. We document property condition, confirm Johnson County requirements, and walk through flexible alternatives when that protects your equity. Expect regular updates so you're never guessing what comes next.
+        From first conversation to closing, the goal is clarity. We document
+        property condition, explain the offer assumptions, and help you
+        understand whether a fast as-is sale or a traditional listing is the
+        smarter next move.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </div>
+        ))
+      }
     </div>
   </section>
 
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Helpful next reads</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Compare the Olathe offer against the problem you are actually solving.
+      </h2>
       <p class="text-muted">
-        Johnson County title companies typically need payoff statements, utility confirmations, and any HOA documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every signature is timestamped so there are no surprises the week of closing.
+        Most sellers are not just trying to sell a house. They are trying to
+        avoid repair costs, protect credit, settle an estate, simplify a move,
+        stop carrying a vacant property, or get clarity before the next
+        deadline.
       </p>
-      <p class="text-muted">
-        If you need extra time due to school calendars or work schedules, we can structure a post-closing occupancy agreement or schedule closing to align with your next move. Those options are detailed in writing alongside your cash offer.
-      </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
-      <p class="text-muted">
-        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">repairs scenario</a> for detailed breakdowns. Explore other Johnson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/divorce/" class="text-secondary underline">divorce settlement options</a>.
-      </p>
-      <p class="text-muted">
-        Want the county-wide view first? Read our <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash home buyers guide</a> for Olathe, Overland Park, Shawnee, and Lenexa.
-      </p>
-      <p class="text-muted">
-        If the sale is tied to late payments, HOA balances, or lender timing, review the <a href="/resources/johnson-county-behind-on-payments/" class="text-secondary underline">Johnson County behind-on-payments guide</a>.
-      </p>
-      <p class="text-muted">
-        When questions pop up about your Olathe property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
-      </p>
-    </article>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        internalGuides.map((guide) => (
+          <a
+            href={guide.href}
+            class="card block bg-white transition hover:border-secondary/60"
+          >
+            <h3 class="text-lg font-semibold text-primary">{guide.label}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{guide.body}</p>
+          </a>
+        ))
+      }
+    </div>
   </section>
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Olathe FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base"
+      >Start the Olathe offer form</a
+    >
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>
