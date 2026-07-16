@@ -1,67 +1,176 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
+import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
-const neighborhoods = [
+const neighborhoodPatterns = [
   {
-    title: "Old Town Lenexa",
-    body: "Historic district with renovated homes and new mixed-use developments. Popular with families who appreciate small-town charm and community events.",
+    title: "Old Town Lenexa and long-held homes",
+    body: "Older Lenexa homes can have strong location value, but inherited contents, dated systems, sewer lines, foundations, windows, and clean-out decisions can make a normal listing feel heavy.",
   },
   {
-    title: "Falcon Valley",
-    body: "Established neighborhoods with mature landscaping and executive-style homes. Popular with long-time owners who have significant equity and need major system updates.",
+    title: "Falcon Valley and established equity neighborhoods",
+    body: "Larger homes and mature subdivisions often carry good equity, but owners may still need to compare roof age, basement issues, HVAC, decks, or big-ticket updates against a direct sale.",
   },
   {
-    title: "Canyon Creek",
-    body: "Planned community with newer subdivisions and amenities. Popular with relocating families and those seeking modern homes with good schools.",
+    title: "Canyon Creek, western Lenexa, and relocation timing",
+    body: "Newer subdivision sellers often care about move timing, HOA documents, job relocation, school-calendar deadlines, and whether they can avoid months of showings and repairs.",
   },
 ];
 
 const situations = [
-  "Inherited homes that have been in Lenexa families for generations",
-  "Homes needing major repairs—roofs, foundations, or outdated systems",
-  "Divorce settlements requiring neutral, written agreements",
-  "Job relocations within Kansas City metro needing quick closings",
-  "Downsizing to smaller homes or active adult communities",
+  "Sell my house fast Lenexa searches where timing, privacy, and certainty matter",
+  "Inherited Lenexa homes with belongings, family decision-makers, or title questions",
+  "Higher-equity houses where listing may be strong but a clean direct offer is worth comparing",
+  "Homes needing roof, foundation, basement, deck, window, HVAC, or cosmetic updates",
+  "Relocation, divorce, downsizing, or family settlements that need written numbers",
+  "Tenant-occupied rentals or vacant homes where access, utilities, HOA timing, and holding costs matter",
+];
+
+const lenexaSearchSignals = [
+  {
+    title: "We buy houses Lenexa KS",
+    body: "ACE reviews Lenexa houses directly, including inherited homes, relocation sales, dated but valuable properties, vacant houses, rentals, and repair-heavy situations.",
+  },
+  {
+    title: "Sell my house fast Lenexa KS",
+    body: "A fast Lenexa sale should still be clear. We explain the offer, title timing, repair assumptions, closing costs, HOA details, and whether listing could still net more.",
+  },
+  {
+    title: "Cash home buyers Lenexa KS",
+    body: "A useful cash buyer conversation helps you compare convenience against retail price, especially when the house has equity, strong school-area demand, or a realistic listing path.",
+  },
+];
+
+const countyDetails = [
+  {
+    title: "Johnson County title timing",
+    body: "Payoffs, taxes, HOA documents, estate authority, divorce paperwork, and seller signatures need to be clear before a closing date is real.",
+  },
+  {
+    title: "As-is repair decisions",
+    body: "A direct offer can account for updates, clean-out, roof age, foundation concerns, basement issues, tenant coordination, or move pressure before you spend money first.",
+  },
+  {
+    title: "A private comparison before listing",
+    body: "If listing is likely better, we will say that. If the certainty of an as-is sale matters more, you will have the written numbers to compare.",
+  },
+];
+
+const propertyTypes = [
+  {
+    title: "Lenexa equity homes",
+    body: "Well-located homes where sellers want to compare listing costs, repairs, concessions, and a direct as-is offer before choosing.",
+  },
+  {
+    title: "Inherited Johnson County houses",
+    body: "Family homes where heirs need help with title, belongings, repair assumptions, seller authority, and a written timeline everyone can review.",
+  },
+  {
+    title: "Vacant homes, rentals, and relocation sales",
+    body: "Properties where tenant access, utilities, lawn care, insurance, HOA expectations, or another mortgage payment make certainty valuable.",
+  },
+];
+
+const listingComparison = [
+  {
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is simple, you can wait for buyer financing, and repairs are small enough that retail exposure should protect more net proceeds.",
+  },
+  {
+    title: "A direct sale may be better when",
+    body: "The property needs repairs, has contents inside, has tenants, is vacant, involves heirs, or you want a private sale without repeated showings and inspection renegotiation.",
+  },
+  {
+    title: "A flexible option may be better when",
+    body: "There is payment pressure, a good existing loan, a tight move deadline, or a situation where taking over payments could protect credit while still creating an exit.",
+  },
+];
+
+const reviewItems = [
+  "Mortgage payoff, second liens, taxes, HOA resale details, or Johnson County title timing",
+  "Estate, trust, divorce, power-of-attorney, relocation, or multiple-owner signatures",
+  "Roof, foundation, basement, deck, windows, HVAC, electrical, plumbing, and clean-out needs",
+  "Vacancy, utilities, insurance, lawn care, HOA expectations, and security risk",
+  "Tenant access, lease terms, deposits, possession timing, and rental transition details",
+  "Whether listing, direct cash, or a flexible payment option protects the best net outcome",
 ];
 
 const steps = [
   {
-    title: "Share your Lenexa story",
-    body: "Tell us about your Lenexa property, any repair concerns, and timing pressures from inheritance, divorce, or relocation.",
+    title: "Share the Lenexa situation",
+    body: "Tell us the address, what is creating pressure, and whether repairs, HOA details, estate paperwork, tenants, relocation, or payments are part of the decision.",
   },
   {
-    title: "Property walkthrough",
-    body: "We schedule a walkthrough (or video) to note repairs, access issues, and any Johnson County-specific requirements.",
+    title: "Review the house as-is",
+    body: "We can walk the property in person or by video, then review condition, access, title questions, payoff items, and Johnson County closing details.",
   },
   {
-    title: "Choose your solution",
-    body: "Receive a written comparison of a straightforward cash offer and any flexible options that work with your timeline and financial goals.",
+    title: "Compare the written options",
+    body: "You receive a direct offer, realistic timeline, repair assumptions, and a plain comparison against listing so you can choose without guessing at the net.",
+  },
+];
+
+const internalGuides = [
+  {
+    label: "Johnson County cash home buyers",
+    href: "/resources/johnson-county-cash-home-buyers/",
+    body: "County-wide context for Lenexa, Olathe, Overland Park, Shawnee, Leawood, Mission, and nearby Johnson County sellers.",
+  },
+  {
+    label: "Johnson County inherited house sale",
+    href: "/resources/johnson-county-inherited-house-sale/",
+    body: "Useful when family members need to compare clean-out, repairs, title authority, and a direct written offer.",
+  },
+  {
+    label: "Cash buyer vs real estate agent",
+    href: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
+    body: "Helpful when a Lenexa house has equity and you need to decide whether convenience or retail exposure matters more.",
+  },
+  {
+    label: "As-is sale net sheet template",
+    href: "/resources/as-is-sale-net-sheet-template/",
+    body: "Compare a Lenexa cash offer against commissions, repairs, concessions, closing costs, and holding time.",
   },
 ];
 
 const faqs = [
   {
-    question: "Do you buy homes in Lenexa's historic districts?",
-    answer: "Yes. We're familiar with Old Town Lenexa's preservation guidelines and can work within requirements while providing as-is cash offers for historic properties near the community center.",
+    question: "Do you buy houses in Lenexa, KS as-is?",
+    answer:
+      "Yes. ACE Properties KC reviews Lenexa houses as-is, including homes with roof issues, foundation concerns, dated systems, belongings left behind, tenant access, or repairs the owner does not want to manage before selling.",
   },
   {
-    question: "How quickly can you close on Lenexa properties?",
-    answer: "Cash offers can close in as little as two weeks once Johnson County title work is complete. We can accommodate longer timelines for family transitions.",
+    question: "Should I list my Lenexa house or sell directly?",
+    answer:
+      "Listing may be better if the house is updated, easy to show, and you have time. A direct sale may be better when repairs, tenants, relocation, clean-out, family decisions, or privacy matter more than a public listing.",
   },
   {
-    question: "Will you buy houses needing major renovations?",
-    answer: "Absolutely. Lenexa has many 1990s and early 2000s homes needing significant updates, especially in established neighborhoods. We evaluate properties as-is and factor renovation costs into our offer.",
+    question: "How quickly can a Lenexa cash offer close?",
+    answer:
+      "A cash sale can often close quickly once Johnson County title work, payoff statements, HOA items, seller authority, and occupancy are clear. We explain the realistic timeline before you sign anything.",
   },
   {
-    question: "Can you help with divorce settlements?",
-    answer: "Yes. We coordinate with both parties and attorneys to provide neutral, written offers that help divorce proceedings move forward smoothly. We're experienced with Kansas marital property requirements.",
+    question: "Do you buy inherited homes in Lenexa?",
+    answer:
+      "Yes. We review inherited Lenexa homes where heirs need a written offer, clean-out help, repair assumptions, and a closing plan that works around estate, trust, or family paperwork.",
   },
   {
-    question: "What about Lenexa's community events and festivals?",
-    answer: "We're familiar with properties near Lenexa's community center and the annual Lenexa BBQ Battle grounds. These locations can affect timing and market considerations for sales.",
+    question: "Will you buy Lenexa rentals or tenant-occupied houses?",
+    answer:
+      "Yes. We can review tenant-occupied rentals, vacant rentals, and small investment properties. Lease details, deposits, access, utilities, and closing possession are discussed before an offer is finalized.",
+  },
+  {
+    question: "Can you help if I am relocating from Lenexa?",
+    answer:
+      "Yes. We can structure closing around a job move, school-calendar timing, another home purchase, or a delayed move-out when those details are agreed to in writing.",
   },
 ];
 
@@ -78,138 +187,327 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Lenexa KS | Cash Home Buyer"
-  description="Sell your Lenexa KS house fast as-is. Local cash home buyer for Old Town, Falcon Valley, Canyon Creek, inherited homes, repairs, and relocations."
+  title="We Buy Houses Lenexa KS | Sell As-Is Fast"
+  description="We buy houses Lenexa KS as-is. Compare a local cash offer for inherited homes, repairs, relocation, rentals, HOA items, or Johnson County timing."
   canonicalPath="/areas/lenexa-ks/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Lenexa, Kansas</p>
-    <h1 class="text-4xl font-semibold text-primary">Sell Your House As-Is in Lenexa, Kansas</h1>
-    <p class="text-muted">
-      Lenexa homeowners value straightforward solutions when property decisions become complex. Whether you're managing an inherited family home in Old Town Lenexa, coordinating a job relocation from Canyon Creek, or facing repairs that feel overwhelming in Falcon Valley, we provide clear options without pressure. Our local team understands Johnson County processes and keeps every step transparent.
-    </p>
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+    <div class="space-y-4">
+      <p class="badge">We buy houses Lenexa KS</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+        Sell Your Lenexa, KS House As-Is With a Written Local Offer
+      </h1>
+      <p class="text-lg leading-8 text-muted">
+        Lenexa sellers often have a valuable property, but that does not always
+        mean a normal listing is the easiest answer. Inherited homes, relocation
+        deadlines, HOA details, tenant access, dated systems, and large repairs
+        can make a direct as-is offer worth comparing before you spend money.
+      </p>
+      <p class="leading-7 text-muted">
+        ACE Properties KC reviews Lenexa houses as-is and gives you a written
+        comparison of cash, flexible options, repair assumptions, Johnson County
+        title items, and timing. If listing is likely better, we will say that
+        too.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">
+          Get a Lenexa offer
+        </a>
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="lenexa_ks_hero"
+        >
+          Call 816-728-7548
+        </a>
+      </div>
+    </div>
+    <OfferForm
+      compact
+      formId="lenexa-ks-offer-form"
+      heading="Request a Lenexa offer"
+      subheading="Start with the address and the best way to reach you."
+      defaultSituation="Sell house fast"
+      pageContext="lenexa-ks"
+    />
+  </section>
+
+  <section class="section grid gap-4 md:grid-cols-3">
+    {
+      lenexaSearchSignals.map((item) => (
+        <article class="card space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+            Search intent
+          </p>
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">
+        A better decision for Lenexa homeowners
+      </h2>
+      <p class="leading-7 text-muted">
+        Some Lenexa houses should be listed. Others have enough equity to make
+        the decision harder, but repairs, clean-out, tenant transition,
+        relocation timing, or family paperwork can still make certainty more
+        valuable than chasing the highest possible price.
+      </p>
+      <p class="leading-7 text-muted">
+        The goal is to compare the real net: cash offer, listing costs, repairs,
+        concessions, closing timing, HOA details, and another month of
+        ownership.
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a
+          href="/resources/johnson-county-cash-home-buyers/"
+          class="btn btn-outline text-base"
+        >
+          Johnson County cash buyer guide
+        </a>
+        <a
+          href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/"
+          class="btn btn-ghost text-base"
+        >
+          Cash buyer vs agent
+        </a>
+      </div>
+    </div>
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What we review first</h2>
+      <ul class="space-y-3 text-sm leading-6 text-primary">
+        {
+          reviewItems.map((item) => (
+            <li class="flex gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </section>
 
   <SellerSituationLinks
     city="Lenexa, KS"
-    countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
+    countyGuide={{
+      label: "Johnson County behind-on-payments guide",
+      href: "/resources/johnson-county-behind-on-payments/",
+    }}
   />
 
-  <AreaPropertyProof city="Lenexa, KS" county="Johnson County" />
+  <AreaPropertyProof
+    city="Lenexa, KS"
+    county="Johnson County"
+    propertyTypes={propertyTypes}
+  />
 
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Why Lenexa sellers reach out</h2>
-      <p class="text-muted">
-        Most Lenexa homeowners we work with are managing multiple priorities—family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
-      </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
-      <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted Johnson County title partners, and outlines both cash and flexible pathways. No aggressive tactics - just honest answers about value, timelines, and paperwork requirements.
-      </p>
-    </article>
+  <section class="section grid gap-5 md:grid-cols-3">
+    {
+      countyDetails.map((item) => (
+        <article class="card space-y-3">
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section section-alt">
+    <div class="space-y-5">
+      <div class="max-w-3xl space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+          Lenexa neighborhoods
+        </p>
+        <h2 class="text-3xl font-semibold text-primary">
+          Local context changes the sale plan
+        </h2>
+        <p class="text-muted">
+          Old Town Lenexa, Falcon Valley, Canyon Creek, western Lenexa, and
+          established Johnson County neighborhoods each have different buyer
+          expectations, HOA details, repair standards, and timing concerns.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          neighborhoodPatterns.map((spot) => (
+            <article
+              class="card bg-white/90"
+              aria-label={`Neighborhood focus: ${spot.title}`}
+            >
+              <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+                Neighborhood focus
+              </p>
+              <h3 class="mt-2 text-xl font-semibold text-primary">
+                {spot.title}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Lenexa market context</h2>
-      <p class="text-muted">
-        From historic Old Town Lenexa properties to established Falcon Valley neighborhoods and newer Canyon Creek developments, each area moves differently. We track local market conditions, understand suburban growth patterns, and know how Johnson County requirements affect your options.
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Lenexa sellers reach out
+      </h2>
+      <p class="leading-7 text-muted">
+        Most Lenexa homeowners we work with are managing more than price:
+        relocation, inherited estates, divorce settlements, rental transitions,
+        vacant property risk, or repair costs that keep growing.
+      </p>
+      <p class="leading-7 text-muted">
+        A direct sale can remove repairs, cleanup, repeated showings, buyer
+        financing, inspection renegotiations, and uncertainty. That does not
+        mean it is always the highest price. It means you get a real number to
+        compare.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
-      <p class="text-muted">
-        Selling a home in Lenexa often involves coordinating with schools, employers, and extended family across different timelines. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+      <h2 class="text-2xl font-semibold text-primary">
+        A local, service-first approach
+      </h2>
+      <p class="leading-7 text-muted">
+        We meet in person when possible, coordinate with trusted Johnson County
+        title partners, and outline both cash and flexible pathways. No
+        aggressive tactics - just honest answers about value, timelines, and
+        paperwork.
+      </p>
+      <p class="leading-7 text-muted">
+        If the home is too nice to discount heavily, we will talk through that.
+        If the convenience of a private as-is sale matters more, we can put that
+        option in writing.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
-      <ul class="mt-4 space-y-3 text-sm text-primary">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+      <h2 class="text-2xl font-semibold text-primary">
+        Common situations we solve in Lenexa
+      </h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="grid gap-6 md:grid-cols-3">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
-          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm text-muted">{spot.body}</p>
-        </div>
-      ))}
-    </div>
+  <section class="section grid gap-5 md:grid-cols-3">
+    {
+      listingComparison.map((item) => (
+        <article class="card space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+            Decision point
+          </p>
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))
+    }
   </section>
 
   <section class="section space-y-6">
-    <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How it works in Lenexa</h2>
+    <div class="max-w-3xl space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Lenexa
+      </h2>
       <p class="text-muted">
-        From first conversation to closing, you control the timeline. We document property condition, navigate Johnson County requirements, and review flexible options when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+        From first conversation to closing, you control the timeline. We
+        document property condition, navigate Johnson County requirements, and
+        review flexible options when they better serve your situation.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <article class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="mt-2 text-lg font-semibold text-primary">
+              {step.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{step.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Documents and timelines
+      </h2>
       <p class="text-muted">
-        Johnson County title companies typically need payoff statements, utility clearances, and any settlement documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every requirement is met before closing.
+        Johnson County title companies typically need payoff statements, utility
+        clearances, HOA details, owner signatures, and any settlement
+        documentation. We gather that list early so the closing date is based on
+        facts.
       </p>
       <p class="text-muted">
-        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements. Those options are detailed in writing alongside your cash offer.
+        If you need extra time due to school calendars, relocation, estate
+        coordination, or family decisions, we can structure flexible closing
+        dates or post-closing arrangements in writing.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
-      <p class="text-muted">
-        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns. Explore other Johnson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/divorce/" class="text-secondary underline">divorce settlement process</a>.
-      </p>
-      <p class="text-muted">
-        For county-wide cash-buyer context, read the <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash home buyers guide</a>. If lender or HOA pressure is involved, compare the <a href="/resources/johnson-county-behind-on-payments/" class="text-secondary underline">Johnson County behind-on-payments guide</a>.
-      </p>
-      <p class="text-muted">
-        When questions pop up about your Lenexa property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
-      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        Guides that match Lenexa seller decisions
+      </h2>
+      <div class="grid gap-3">
+        {
+          internalGuides.map((guide) => (
+            <a
+              href={guide.href}
+              class="rounded-[1rem] border border-border/70 bg-soft/60 p-4 transition hover:border-secondary/60"
+            >
+              <span class="font-semibold text-primary">{guide.label}</span>
+              <span class="mt-1 block text-sm leading-6 text-muted">
+                {guide.body}
+              </span>
+            </a>
+          ))
+        }
+      </div>
     </article>
   </section>
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Lenexa FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">
+      Start the offer form
+    </a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>
