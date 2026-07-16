@@ -19,6 +19,20 @@ export type PaidLandingPage = {
     title: string;
     body: string;
   }>;
+  deepDiveHeading?: string;
+  deepDiveIntro?: string;
+  deepDiveItems?: Array<{
+    title: string;
+    body: string;
+  }>;
+  localProofHeading?: string;
+  localProofIntro?: string;
+  localProofItems?: string[];
+  localGuideLinks?: Array<{
+    label: string;
+    href: string;
+    body: string;
+  }>;
   storySlug: string;
   relatedGuide: {
     label: string;
@@ -38,10 +52,10 @@ export const paidLandingPages: PaidLandingPage[] = [
       "Need to sell fast in Kansas City? Compare cash, as-is, and flexible sale options with ACE Properties KC.",
     eyebrow: "Sell my house fast Kansas City",
     headline: "Sell My House Fast in Kansas City",
-    lead:
-      "When timing matters, start with the address. ACE Properties KC can review the property, repairs, title questions, and your deadline so you can see a practical path without repairs, showings, or a long listing process.",
+    lead: "When timing matters, start with the address. ACE Properties KC can review the property, repairs, title questions, and your deadline so you can see a practical path without repairs, showings, or a long listing process.",
     formHeading: "Start a fast-sale review",
-    formSubheading: "Share the address and one way to reach you. We will review what can realistically happen quickly.",
+    formSubheading:
+      "Share the address and one way to reach you. We will review what can realistically happen quickly.",
     buttonLabel: "See fast-sale options",
     defaultSituation: "sell fast",
     proofPoints: [
@@ -106,10 +120,10 @@ export const paidLandingPages: PaidLandingPage[] = [
       "ACE Properties KC buys houses as-is across the Kansas City metro with cash and flexible sale options.",
     eyebrow: "We buy houses Kansas City",
     headline: "We Buy Houses in Kansas City",
-    lead:
-      "ACE Properties KC buys houses across the Kansas City metro when sellers need a direct as-is path. Start with the address and one way to reach you, then we can review cash, timing, repairs, and flexible options.",
+    lead: "ACE Properties KC buys houses across the Kansas City metro when sellers need a direct as-is path. Start with the address and one way to reach you, then we can review cash, timing, repairs, and flexible options.",
     formHeading: "See if ACE can buy your house",
-    formSubheading: "Send the address and best contact. We will review the property and your timeline.",
+    formSubheading:
+      "Send the address and best contact. We will review the property and your timeline.",
     buttonLabel: "Start my review",
     defaultSituation: "as-is cash",
     proofPoints: [
@@ -174,10 +188,10 @@ export const paidLandingPages: PaidLandingPage[] = [
       "Compare a Kansas City cash home buyer offer with as-is, payoff, and flexible sale options from ACE.",
     eyebrow: "Cash home buyers Kansas City",
     headline: "Cash Home Buyers in Kansas City",
-    lead:
-      "A cash buyer can make sense when you want fewer delays, fewer contingencies, and an as-is closing. ACE Properties KC can review the property and explain how a cash offer compares with other options.",
+    lead: "A cash buyer can make sense when you want fewer delays, fewer contingencies, and an as-is closing. ACE Properties KC can review the property and explain how a cash offer compares with other options.",
     formHeading: "Request a cash offer review",
-    formSubheading: "Start with the address and one way to reach you. We will review the basics first.",
+    formSubheading:
+      "Start with the address and one way to reach you. We will review the basics first.",
     buttonLabel: "Request cash review",
     defaultSituation: "as-is cash",
     proofPoints: [
@@ -237,47 +251,108 @@ export const paidLandingPages: PaidLandingPage[] = [
   },
   {
     slug: "sell-house-as-is-kansas-city",
-    title: "Sell House As-Is Kansas City | ACE Properties KC",
+    title: "Sell House As-Is Kansas City | No Repairs or Clean-Out",
     description:
-      "Sell a Kansas City house as-is with no repairs, clean-out, public showings, or agent listing required.",
+      "Sell a Kansas City house as-is. Compare a local cash offer before repairs, clean-out, code issues, tenants, inherited property, or listing.",
     eyebrow: "Sell house as-is Kansas City",
-    headline: "Sell Your House As-Is in Kansas City",
-    lead:
-      "You do not need to repair, clean out, or update the house before starting. ACE Properties KC can review the property in its current condition and explain what an as-is sale could look like.",
+    headline:
+      "Sell Your Kansas City House As-Is Without Repairs, Clean-Out, or Showings",
+    lead: "If the house needs repairs, has belongings inside, is vacant, has tenants, carries code issues, or simply feels like too much to prepare for the market, you can start with an as-is offer review. ACE Properties KC looks at the property in its current condition and explains the cash, timing, and flexible options before you decide.",
     formHeading: "Start an as-is offer review",
-    formSubheading: "Share the address and one way to reach you. Tell us what you know about the condition later.",
-    buttonLabel: "Get as-is options",
+    formSubheading:
+      "Share the address and one way to reach you. Repairs, clean-out, tenants, title, and timing can be discussed after we know the property.",
+    buttonLabel: "Compare as-is options",
     defaultSituation: "repairs",
     proofPoints: [
-      "Leave repairs, clean-out, and dated finishes for us to review",
-      "No public listing or open houses required",
-      "Useful for inherited, vacant, rental, and repair-heavy houses",
+      "No repairs required before asking",
+      "Clean-out and belongings can be reviewed",
+      "Private sale path without public showings",
       "Cash and flexible terms compared when needed",
     ],
-    situationHeading: "As-is means the current condition is part of the plan",
+    situationHeading: "As-is means the condition becomes part of the plan",
     situationBody:
-      "The offer math can include repairs, contents, trees, code items, old systems, and title questions instead of asking you to fix everything first.",
+      "A useful as-is offer should account for repairs, contents, code items, old systems, title questions, occupancy, and the real cost of waiting. You should not have to guess whether contractors, cleaning, listing prep, or another month of carrying costs are worth it.",
     situationBullets: [
-      "Roof, foundation, HVAC, plumbing, or electrical concerns",
-      "Furniture, belongings, debris, or estate clean-out",
-      "Original finishes, outdated kitchens, or dated bathrooms",
-      "Vacant houses, rentals, or homes that are hard to show",
+      "Roof, foundation, HVAC, sewer, plumbing, electrical, or water-damage concerns",
+      "Furniture, tools, trash, estate belongings, garage items, or full clean-out needs",
+      "Vacant houses, inherited homes, rental properties, or tenant-occupied houses",
+      "Code notices, mowing issues, utilities, back taxes, liens, or title questions",
     ],
-    comparisonHeading: "As-is sale vs repair-first listing",
+    comparisonHeading: "Compare selling as-is against repairing first",
     comparisonIntro:
-      "The right answer depends on repair cost, time, risk, seller energy, and expected net.",
+      "The best choice depends on equity, repair cost, timeline, buyer demand, title, and how much work you want to carry before closing.",
     comparisonItems: [
       {
-        title: "Sell as-is",
-        body: "Avoid contractor management, clean-out, showings, and buyer repair negotiations.",
+        title: "Sell as-is directly",
+        body: "Best when you want a private sale, clear closing path, fewer inspections, no repair project, and no need to clean everything out before an offer review.",
       },
       {
         title: "Repair then list",
-        body: "May make sense when repair costs are manageable and retail upside is worth the delay.",
+        body: "May be better when the house is easy to show, repairs are manageable, the title is simple, and the extra retail price is worth the time and risk.",
       },
       {
         title: "List as-is",
-        body: "Can work with the right agent and buyer pool, but may still involve showings and inspection renegotiation.",
+        body: "Can work with the right agent and buyer pool, but public showings, inspection renegotiation, buyer financing, and repair credits may still come up.",
+      },
+    ],
+    deepDiveHeading: "What an as-is Kansas City offer should actually explain",
+    deepDiveIntro:
+      "A real as-is conversation is not just a low number. It should explain what the buyer is taking on, what could delay closing, and how the net compares with a normal listing.",
+    deepDiveItems: [
+      {
+        title: "Repair assumptions",
+        body: "Roof age, foundation movement, sewer lines, HVAC, electrical, plumbing, water damage, flooring, paint, kitchens, bathrooms, decks, and clean-out all affect the offer math.",
+      },
+      {
+        title: "Seller net",
+        body: "Compare the offer against commissions, repair checks, buyer concessions, seller-paid closing costs, utilities, insurance, taxes, lawn care, and another month of ownership.",
+      },
+      {
+        title: "Closing certainty",
+        body: "The buyer should explain title timing, payoffs, liens, estate documents, tenant possession, clean-out responsibility, proof of funds, and whether they are the direct buyer.",
+      },
+    ],
+    localProofHeading: "Kansas City as-is sale situations we review",
+    localProofIntro:
+      "The location matters, but the real decision usually comes down to condition, title, occupancy, and timeline pressure. These are the details we look at first.",
+    localProofItems: [
+      "Older Kansas City houses with original finishes, old systems, roof issues, foundation concerns, or unfinished projects",
+      "Inherited houses where heirs need one written number, clean-out help, title clarity, and a simple decision path",
+      "Vacant houses where insurance, utilities, lawn care, break-in risk, code notices, and carrying costs keep stacking up",
+      "Rental or tenant-occupied houses where showings, deposits, access, lease timing, and repairs make listing harder",
+      "Code, tax, lien, or payment-pressure situations where a clean title plan matters as much as the offer price",
+      "Houses that may still be good listings, where the seller wants a direct offer to compare before spending money",
+    ],
+    localGuideLinks: [
+      {
+        label: "Major repairs vs selling as-is",
+        href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+        body: "Compare repair bids, delay, inspection risk, and as-is net proceeds before starting a project.",
+      },
+      {
+        label: "House full of stuff",
+        href: "/resources/sell-house-full-of-stuff-kansas-city/",
+        body: "Use this when belongings, trash, garage items, furniture, or estate clean-out are blocking the sale.",
+      },
+      {
+        label: "Vacant house carrying costs",
+        href: "/resources/vacant-house-carrying-cost-calculator/",
+        body: "Estimate mortgage, taxes, utilities, insurance, lawn care, security, and the monthly cost of waiting.",
+      },
+      {
+        label: "Sell with code violations",
+        href: "/resources/sell-house-with-code-violations-kansas-city/",
+        body: "Review city notices, repair orders, mowing issues, dangerous building items, and as-is timing.",
+      },
+      {
+        label: "Sell with tenants",
+        href: "/resources/sell-house-with-tenants-kansas-city/",
+        body: "Compare waiting for vacancy against selling with leases, deposits, access, and possession handled in writing.",
+      },
+      {
+        label: "As-is sale net sheet",
+        href: "/resources/as-is-sale-net-sheet-template/",
+        body: "Put cash offer, listing costs, repairs, concessions, and holding time into one comparison.",
       },
     ],
     storySlug: "inherited-original-condition-house",
@@ -287,87 +362,181 @@ export const paidLandingPages: PaidLandingPage[] = [
     },
     faqs: [
       {
-        question: "Can I sell as-is with belongings still inside?",
+        question:
+          "Can I sell a Kansas City house as-is with belongings still inside?",
         answer:
-          "Yes. Contents, furniture, tools, debris, and clean-out can be discussed as part of the offer.",
+          "Yes. Contents, furniture, tools, debris, garage items, and clean-out can be discussed as part of the offer. You do not need to empty the house before asking for a review.",
       },
       {
-        question: "Do I have to disclose known problems?",
+        question: "Do I need to repair the house before requesting an offer?",
         answer:
-          "As-is does not mean hiding known issues. You should answer disclosure questions honestly and ask qualified legal help if unsure.",
+          "No. ACE reviews houses in their current condition, including roof, foundation, HVAC, plumbing, electrical, water damage, outdated finishes, code items, and deferred maintenance.",
       },
       {
-        question: "Can ACE buy houses with major repairs?",
+        question: "Is selling as-is always better than listing?",
         answer:
-          "Yes. Major repairs can be part of the review, including roof, foundation, mechanical systems, water damage, or long-deferred maintenance.",
+          "No. Listing may be better when the house is updated, easy to show, and you have time. Selling as-is may be better when repairs, clean-out, tenants, title, privacy, or certainty matter more.",
+      },
+      {
+        question: "Do I still have to disclose known problems?",
+        answer:
+          "As-is does not mean hiding known issues. You should answer disclosure questions honestly and ask qualified legal help if you are unsure about a requirement.",
+      },
+      {
+        question: "Can ACE buy houses with code violations or back taxes?",
+        answer:
+          "Often, yes. Code items, taxes, liens, payoffs, and title questions need to be reviewed before closing, but they do not automatically stop an as-is sale.",
+      },
+      {
+        question: "How fast can an as-is sale close in Kansas City?",
+        answer:
+          "A cash sale can often close quickly once title, payoffs, seller authority, occupancy, and any lien or estate documents are clear. We explain the realistic timeline before you sign.",
       },
     ],
   },
   {
     slug: "behind-on-mortgage-kansas-city",
-    title: "Behind on Mortgage Kansas City | ACE Properties KC",
+    title: "Behind on Payments Kansas City | Sell Before Deadlines",
     description:
-      "Behind on mortgage payments in Kansas City? Compare cash sale, payoff, backup, and payment-takeover options.",
-    eyebrow: "Behind on mortgage Kansas City",
-    headline: "Behind on Mortgage Payments in Kansas City?",
-    lead:
-      "Mortgage pressure gets heavier when deadlines are unclear. ACE Properties KC can review a cash sale, payoff-at-closing, backup offer, or payment-takeover questions so you understand what may be realistic.",
-    formHeading: "Review mortgage-pressure options",
-    formSubheading: "Send the address, best contact, and any deadline you know. Estimates are okay.",
-    buttonLabel: "Review my options",
+      "Behind on house payments in Kansas City? Compare a local cash sale, payoff-at-closing, lender workout, backup offer, or payment-takeover review.",
+    eyebrow: "Behind on payments Kansas City",
+    headline:
+      "Behind on House Payments in Kansas City? Compare Your Exit Before the Deadline Gets Tighter",
+    lead: "Missed payments can turn confusing fast: lender letters, late fees, payoff numbers, tax balances, repairs, family stress, and deadlines that do not wait. ACE Properties KC can review a direct as-is sale, payoff-at-closing path, backup offer, or carefully documented payment-takeover question so you can see what may actually work.",
+    formHeading: "Review my payment-pressure options",
+    formSubheading:
+      "Send the address, best contact, and any deadline or lender notice you know about. Estimates are okay.",
+    buttonLabel: "Compare my options",
     defaultSituation: "behind",
     proofPoints: [
-      "Private review before the next deadline",
-      "Cash, payoff, and payment-takeover paths compared",
-      "Title, arrears, taxes, and insurance questions reviewed",
-      "Written summary for co-borrowers or advisors",
+      "Private review before the next payment or lender deadline",
+      "Cash sale, payoff-at-closing, and backup paths compared",
+      "Arrears, taxes, liens, repairs, and title timing organized early",
+      "Payment-takeover questions reviewed carefully when relevant",
     ],
-    situationHeading: "Know the options before fees and deadlines grow",
+    situationHeading:
+      "Know the realistic options before late fees, repairs, and deadlines stack up",
     situationBody:
-      "When payments are late, the right next step depends on lender status, arrears, title, equity, repairs, and whether you want to keep or sell the house.",
+      "When payments are late, the best next step depends on lender status, arrears, equity, payoff, repairs, title, tax balances, and whether your real goal is to keep the house or sell it cleanly.",
     situationBullets: [
-      "One or more missed mortgage payments",
-      "Foreclosure notices or lender deadlines",
-      "A refinance or modification that may not close in time",
-      "A house that needs repairs while payments keep coming due",
+      "One or more missed mortgage payments and growing late fees",
+      "Foreclosure notices, reinstatement letters, or lender deadlines",
+      "A refinance, modification, or listing plan that may not close in time",
+      "A repair-heavy house where more monthly payments reduce your net",
+      "Back taxes, HOA balances, liens, utilities, or insurance pressure",
     ],
-    comparisonHeading: "Mortgage-pressure paths",
+    comparisonHeading: "Behind-on-payments paths to compare",
     comparisonIntro:
-      "You should compare lender help, cash sale, payoff-at-closing, payment takeover, and backup plans before choosing.",
+      "You should compare lender help, selling as-is, payoff-at-closing, payment-takeover review, and backup plans before choosing.",
     comparisonItems: [
       {
         title: "Lender workout",
-        body: "May fit when you want to keep the house and can qualify for repayment, forbearance, or modification.",
+        body: "May fit when you want to keep the house and can qualify for repayment, forbearance, reinstatement, or modification before the deadline.",
       },
       {
-        title: "Cash sale",
-        body: "May fit when equity and title allow a clean payoff at closing.",
+        title: "Direct cash sale",
+        body: "May fit when equity and title allow the mortgage, arrears, taxes, and recorded liens to be paid through closing without repairs or showings.",
       },
       {
         title: "Payment takeover review",
-        body: "May fit only in careful situations where the existing loan staying in place is worth comparing.",
+        body: "May fit only in careful situations where the existing loan staying in place is worth comparing and the seller understands the credit, legal, insurance, and payment-tracking risk.",
+      },
+    ],
+    deepDiveHeading: "What matters most when payments are already late",
+    deepDiveIntro:
+      "A high offer number is not enough if it cannot close before the pressure point. The decision should be built around payoff math, deadline risk, and what the seller actually needs after closing.",
+    deepDiveItems: [
+      {
+        title: "Payoff and arrears math",
+        body: "The real question is not just what the house is worth. It is whether sale proceeds can cover the mortgage payoff, late payments, taxes, liens, closing costs, and still leave enough for the seller's next step.",
+      },
+      {
+        title: "Deadline certainty",
+        body: "If there is a court date, sale date, reinstatement deadline, or lender checkpoint, the offer needs to be judged by whether title can close in time. Waiting for a retail buyer can be risky when every week matters.",
+      },
+      {
+        title: "Repair and showing burden",
+        body: "A house can have equity and still be hard to list if it needs roof work, foundation work, clean-out, utilities, code repairs, tenant coordination, or privacy. An as-is review shows the tradeoff before spending money you may not want to spend.",
+      },
+    ],
+    localProofHeading: "Kansas City payment-pressure situations we can review",
+    localProofIntro:
+      "Behind-on-payments calls usually involve more than the loan. The house condition, county, title file, occupancy, and seller timeline all affect which option makes sense.",
+    localProofItems: [
+      "Jackson County, Wyandotte County, Johnson County, Clay County, and Cass County payoff or tax timing",
+      "Vacant houses where mortgage, insurance, utilities, mowing, and security keep adding up",
+      "Inherited houses where heirs need one written number before deciding",
+      "Rental houses with tenants, damage, nonpayment, or access problems",
+      "Repair-heavy houses where listing could require money before closing",
+      "Sellers who want to compare a lender workout against selling before the timeline tightens",
+    ],
+    localGuideLinks: [
+      {
+        label: "Sell when behind on payments",
+        href: "/resources/sell-house-behind-on-payments-kansas-city/",
+        body: "A deeper guide to payoff statements, arrears, title timing, sale proceeds, and lender conversations.",
+      },
+      {
+        label: "Mortgage options guide",
+        href: "/resources/behind-on-mortgage-options-kansas-city/",
+        body: "Compare lender workouts, repayment, modification, direct sale, payoff-at-closing, and payment-takeover questions.",
+      },
+      {
+        label: "Subject-to payment takeover",
+        href: "/resources/subject-to-real-estate-kansas-city/",
+        body: "Understand how payment-takeover conversations differ from a normal cash sale and why seller risk must be clear.",
+      },
+      {
+        label: "Sell as-is in Kansas City",
+        href: "/sell-house-as-is-kansas-city/",
+        body: "Review a no-repair, no-clean-out path when house condition is part of the payment pressure.",
+      },
+      {
+        label: "Vacant carrying cost calculator",
+        href: "/resources/vacant-house-carrying-cost-calculator/",
+        body: "Estimate how much another month of mortgage, taxes, utilities, insurance, lawn care, and repairs may cost.",
+      },
+      {
+        label: "Pre-foreclosure options",
+        href: "/solutions/pre-foreclosure/",
+        body: "Review what to organize quickly if lender notices or a formal foreclosure timeline has already started.",
       },
     ],
     storySlug: "out-of-state-creative-solution",
     relatedGuide: {
-      label: "Read mortgage options guide",
-      href: "/resources/behind-on-mortgage-options-kansas-city/",
+      label: "Read behind-on-payments guide",
+      href: "/resources/sell-house-behind-on-payments-kansas-city/",
     },
     faqs: [
       {
         question: "Can ACE help if I am already behind?",
         answer:
-          "ACE can review sale options, payoff-at-closing, backup plans, or payment-takeover questions. You should also stay in contact with your lender or housing counselor.",
+          "ACE can review sale options, payoff-at-closing, backup plans, or payment-takeover questions. You should also stay in contact with your lender, housing counselor, attorney, or other qualified advisor.",
       },
       {
-        question: "Can selling stop foreclosure?",
+        question: "Can selling help stop a foreclosure timeline?",
         answer:
-          "A sale may help if it closes before the required deadline and title can be cleared. Timing, lender status, and legal process matter.",
+          "A sale may help if it closes before the required deadline and title can be cleared. Timing, lender status, county process, payoff numbers, and legal requirements matter.",
       },
       {
-        question: "Will payment takeover fix my credit?",
+        question: "Will a payment takeover fix my credit?",
         answer:
-          "No structure erases past late payments. A carefully reviewed payment plan may help avoid more missed payments, but credit questions need qualified advice.",
+          "No structure erases past late payments. A carefully reviewed payment plan may help avoid more missed payments, but credit questions need qualified advice and the seller should understand any ongoing loan risk.",
+      },
+      {
+        question: "Can late payments be paid from closing?",
+        answer:
+          "Often, yes. In a sale, the title company usually requests payoff information and uses sale proceeds to pay the mortgage, arrears, taxes, and recorded liens before any seller net is released.",
+      },
+      {
+        question: "Should I talk to my lender before requesting an offer?",
+        answer:
+          "Yes. Ask your lender about reinstatement, repayment, forbearance, modification, or payoff options. A written offer can be compared against those choices, especially if you are unsure whether you can keep the house.",
+      },
+      {
+        question: "What if the house also needs major repairs?",
+        answer:
+          "That is common. ACE can review the property as-is and compare whether a direct sale may make more sense than catching up payments while also paying for repairs, clean-out, utilities, or listing prep.",
       },
     ],
   },
@@ -378,10 +547,10 @@ export const paidLandingPages: PaidLandingPage[] = [
       "Sell an inherited Kansas City house as-is with help reviewing family timing, clean-out, probate, and repairs.",
     eyebrow: "Sell inherited house Kansas City",
     headline: "Sell an Inherited House in Kansas City",
-    lead:
-      "Inherited houses often come with family coordination, repairs, contents, taxes, and decisions nobody planned for. ACE can review an as-is sale path and help you compare next steps before spending money on repairs.",
+    lead: "Inherited houses often come with family coordination, repairs, contents, taxes, and decisions nobody planned for. ACE can review an as-is sale path and help you compare next steps before spending money on repairs.",
     formHeading: "Start an inherited-house review",
-    formSubheading: "Share the address and one way to reach you. You do not need every document ready before starting.",
+    formSubheading:
+      "Share the address and one way to reach you. You do not need every document ready before starting.",
     buttonLabel: "Review inherited-house options",
     defaultSituation: "inherited",
     proofPoints: [
@@ -446,10 +615,10 @@ export const paidLandingPages: PaidLandingPage[] = [
       "Need someone to take over house payments in Kansas City? Compare cash, payoff, and subject-to options.",
     eyebrow: "Take over payments Kansas City",
     headline: "Can Someone Take Over Payments on Your Kansas City House?",
-    lead:
-      "If the monthly payment is the real pressure point, a simple cash offer may not be the only option to review. ACE can compare cash, payoff-at-closing, and payment-takeover structures when the numbers and risk make sense.",
+    lead: "If the monthly payment is the real pressure point, a simple cash offer may not be the only option to review. ACE can compare cash, payoff-at-closing, and payment-takeover structures when the numbers and risk make sense.",
     formHeading: "Compare payment options",
-    formSubheading: "Send the address and one way to reach you. Add payment details later if you have them.",
+    formSubheading:
+      "Send the address and one way to reach you. Add payment details later if you have them.",
     buttonLabel: "Compare payment paths",
     defaultSituation: "payment takeover",
     proofPoints: [
