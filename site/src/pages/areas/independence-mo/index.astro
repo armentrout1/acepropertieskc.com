@@ -1,80 +1,170 @@
----
+﻿---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
-const neighborhoods = [
+const neighborhoodPatterns = [
   {
-    title: "Independence Square",
-    body: "Historic homes, older systems, estate properties, and repair questions near the downtown core.",
+    title: "Independence Square and older historic homes",
+    body: "Historic and near-square homes can have character, but older roofs, plaster, sewer lines, electrical, foundations, inherited contents, and preservation questions can make listing prep expensive.",
   },
   {
-    title: "Western Independence",
-    body: "Mid-century homes where inherited property, dated finishes, roofs, and foundations often drive the decision.",
+    title: "Western Independence and mid-century houses",
+    body: "Many western Independence houses have solid location value but need updates, clean-out, foundation work, HVAC, plumbing, or roof repairs before retail buyers feel comfortable.",
   },
   {
-    title: "Little Blue Valley",
-    body: "Ranches, newer pockets, and family relocations where timing matters as much as the sale price.",
+    title: "Little Blue Valley, rentals, and move-driven sales",
+    body: "Ranches, rental houses, vacant properties, and family relocations often need a sale plan that balances speed, access, title work, and the cost of another month of ownership.",
   },
 ];
 
 const situations = [
-  "Inherited homes that have been in the family for years",
-  "Major repair items such as foundations, roofs, plumbing, or electrical",
-  "Pre-foreclosure or payoff pressure requiring a reliable buyer",
-  "Senior downsizing when upkeep has become too much",
-  "Rental properties with tenants that need a respectful transition",
+  "Sell my house fast Independence MO without repairs, cleanup, or open houses",
+  "Inherited Independence homes with belongings, tools, furniture, or paperwork still inside",
+  "Code violations, city notices, dangerous building concerns, mowing issues, or repair orders",
+  "Back taxes, late payments, liens, or foreclosure pressure that need Jackson County title review",
+  "Tenant-occupied rentals where access, deposits, lease timing, and possession need a careful plan",
+  "Vacant houses where utilities, insurance, break-in risk, vandalism, or lawn care are adding pressure",
+];
+
+const independenceFastSaleProof = [
+  {
+    title: "No repair bid required first",
+    body: "We review the Independence house as-is, including roof, foundation, sewer, HVAC, electrical, cleanup, tenant, and code items that may slow down a traditional listing.",
+  },
+  {
+    title: "A written net comparison",
+    body: "You see the offer, expected closing path, repair assumptions, and how a direct sale compares with agent fees, repairs, concessions, and holding costs.",
+  },
+  {
+    title: "Jackson County timing up front",
+    body: "Payoffs, taxes, liens, probate, seller authority, tenant possession, and city notices are discussed before you rely on a closing date.",
+  },
+];
+
+const searchSignals = [
+  {
+    title: "We buy houses Independence MO",
+    body: "ACE reviews Independence houses directly, including inherited homes, vacant properties, rentals, code issues, back taxes, and repair-heavy situations.",
+  },
+  {
+    title: "Sell my house fast Independence MO",
+    body: "A fast Independence sale depends on title, payoffs, taxes, access, occupancy, condition, and whether the buyer can close without lender delays.",
+  },
+  {
+    title: "Cash home buyers Independence MO",
+    body: "A useful cash offer should explain price, repairs, closing costs, clean-out, title timing, and what could delay the sale before you make a decision.",
+  },
+];
+
+const listingComparison = [
+  {
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is simple, repairs are manageable, and you can wait for inspections, appraisal, buyer financing, and normal market timing.",
+  },
+  {
+    title: "A direct sale may be better when",
+    body: "The house needs repairs, has contents left inside, is vacant, has tenants, involves heirs, has city notices, or you need certainty before spending more money.",
+  },
+  {
+    title: "A flexible option may be better when",
+    body: "There is little equity, payment pressure, a good existing loan, or a situation where taking over payments may help protect credit while creating an exit.",
+  },
+];
+
+const reviewItems = [
+  "Mortgage payoff, second liens, back taxes, or Jackson County tax timing",
+  "Probate, estate, trust, divorce, power-of-attorney, or multiple-owner authority",
+  "City notices, code violations, mowing, utilities, dangerous building items, or repair orders",
+  "Tenant access, lease terms, deposits, utilities, possession, or vacancy risk",
+  "Roof, foundation, sewer, HVAC, electrical, plumbing, clean-out, and contents",
+  "Your timeline, privacy needs, move-out plan, and whether listing could still net more",
 ];
 
 const steps = [
   {
-    title: "Share the situation",
-    body: "Tell us what is happening with the property, repairs, title, tenants, or family timeline.",
+    title: "Share the Independence situation",
+    body: "Tell us the address, what is creating pressure, and whether repairs, taxes, tenants, code notices, estate paperwork, or payments are part of the decision.",
   },
   {
-    title: "Review the house",
-    body: "We walk through in person or by video, then check Jackson County title and payoff items.",
+    title: "Review the house as-is",
+    body: "We can walk the property, review photos, or talk through the condition by phone, then consider title, payoffs, possession, and repair assumptions.",
   },
   {
-    title: "Compare written options",
-    body: "You receive a cash path and any flexible option that may fit your timeline better.",
+    title: "Compare the written options",
+    body: "You receive a direct offer, realistic timeline, and plain comparison against listing so you can choose without guessing at the net.",
   },
 ];
 
 const commonSellerGoals = [
-  "Sell without repairs or cleanup",
-  "Get cash before listing",
-  "Handle inherited property, code issues, back taxes, or urgent timing",
-  "Compare an as-is offer with agent fees, repairs, and holding costs",
+  "Sell my Independence house as-is before making repairs",
+  "Compare cash home buyers in Independence with agent fees and inspection repairs",
+  "Sell an inherited Independence property without managing every clean-out detail",
+  "Get a written offer before back taxes, payments, or code issues get tighter",
+  "Sell a rental or tenant-occupied house without a long public listing",
+  "Understand whether cash, listing, or a flexible payment option protects the most money",
+];
+
+const internalGuides = [
+  {
+    label: "Jackson County cash home buyers",
+    href: "/resources/jackson-county-cash-home-buyers/",
+    body: "County-wide context for Independence, Kansas City, Lee's Summit, Raytown, Grandview, and nearby Missouri-side sellers.",
+  },
+  {
+    label: "Jackson County foreclosure options",
+    href: "/resources/jackson-county-foreclosure-options/",
+    body: "Helpful when late payments, sale timing, payoff pressure, or foreclosure notices are part of the decision.",
+  },
+  {
+    label: "Sell with code violations",
+    href: "/resources/sell-house-with-code-violations-kansas-city/",
+    body: "Review what notices, repairs, city pressure, and inspection issues can mean before choosing a sale path.",
+  },
+  {
+    label: "Sell a vacant house in Kansas City",
+    href: "/resources/sell-vacant-house-kansas-city/",
+    body: "Compare utilities, insurance, mowing, security, break-in risk, cleanup, and carrying costs before another month passes.",
+  },
 ];
 
 const faqs = [
   {
-    question: "Do you buy homes in Independence's historic districts?",
+    question: "Do you buy houses in Independence, MO as-is?",
     answer:
-      "Yes. We can review historic-district requirements and still make an as-is offer when the numbers and title work make sense.",
+      "Yes. ACE Properties KC reviews Independence houses as-is, including properties with roof issues, foundation concerns, old systems, cleanup needs, tenant access, inherited contents, or code violations.",
   },
   {
-    question: "How quickly can you close on Independence properties?",
+    question: "Can I sell an Independence house with city code violations?",
     answer:
-      "Cash offers can often close in about two weeks once Jackson County title work is complete. We can also accommodate longer timelines.",
+      "Yes. We review the notices, repair assumptions, and timing before putting an offer in writing. Code items can affect the offer, but they do not automatically stop a direct sale.",
   },
   {
-    question: "Will you buy houses with major code violations?",
+    question: "How fast can a cash buyer close in Independence?",
     answer:
-      "Yes. We review notices, repairs, and compliance costs before putting the offer in writing.",
+      "A cash sale can often close quickly once Jackson County title work, payoffs, seller authority, taxes, and occupancy are clear. We explain the realistic timeline before you sign.",
   },
   {
-    question: "Can you help with inherited estate properties?",
+    question: "Do I need to clean everything out first?",
     answer:
-      "Yes. We coordinate with heirs, probate attorneys, and title partners so the family can make a decision from the same written information.",
+      "No. Many Independence houses we review still have furniture, tools, trash, files, or belongings inside. If clean-out stays with us, that can be discussed in the written offer.",
   },
   {
-    question: "What about Jackson County property taxes?",
+    question: "Can you buy inherited property in Independence?",
     answer:
-      "Outstanding taxes and liens are handled through the settlement statement so you can see the net proceeds before closing.",
+      "Yes. We can review inherited houses where heirs need title clarity, clean-out help, repair assumptions, and a closing plan that works around estate or family paperwork.",
+  },
+  {
+    question: "Should I list my Independence house or sell it direct?",
+    answer:
+      "Listing may be better if the house is updated, easy to show, and you have time. A direct sale may be better when repairs, tenants, clean-out, title issues, city notices, or a deadline make listing risky.",
   },
 ];
 
@@ -91,21 +181,40 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Cash Home Buyers Independence MO | Sell As-Is"
-  description="Sell your Independence MO house as-is for cash. Help with inherited homes, code issues, repairs, back taxes, tenants, and Jackson County title timing."
+  title="We Buy Houses Independence MO | Sell As-Is Fast"
+  description="We buy houses Independence MO as-is. Compare a local cash offer before repairs, code violations, back taxes, tenants, inherited homes, or cleanup."
   canonicalPath="/areas/independence-mo/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Cash home buyers in Independence, Missouri</p>
-      <h1 class="text-4xl font-black text-primary md:text-5xl">Cash Home Buyers in Independence, MO for As-Is Houses</h1>
-      <p class="max-w-3xl text-lg leading-8 text-muted">
-        If the house is inherited, dated, tenant-occupied, behind on payments, or too much to repair, ACE can review the address and compare a direct cash purchase with flexible options.
+      <p class="badge">We buy houses Independence MO</p>
+      <h1 class="text-4xl font-semibold text-primary">
+        Sell Your Independence, MO House Fast, As-Is, With a Written Local Offer
+      </h1>
+      <p class="text-lg leading-8 text-muted">
+        If your Independence house is inherited, dated, vacant, tenant-occupied,
+        behind on payments, facing code pressure, or too much to repair, you
+        should be able to compare a direct offer before spending money on the
+        property.
+      </p>
+      <p class="leading-7 text-muted">
+        ACE Properties KC reviews Independence houses as-is and explains the
+        cash offer, closing timeline, repair assumptions, and Jackson County
+        title items in writing. If listing is likely better, we will say that
+        too.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">Get an Independence offer</a>
-        <a href="/options/" class="btn btn-ghost text-base">Compare options</a>
+        <a href="/get-offer/" class="btn btn-primary text-base">
+          Get an Independence offer
+        </a>
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="independence_mo_hero"
+        >
+          Call 816-728-7548
+        </a>
       </div>
     </div>
     <OfferForm
@@ -113,100 +222,305 @@ const jsonLd = [
       formId="independence-mo-offer-form"
       heading="Request an Independence offer"
       subheading="Start with the address and the best way to reach you."
+      defaultSituation="Sell house fast"
+      pageContext="independence-mo"
     />
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Quick answer</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Yes, you can compare an Independence cash offer before fixing, cleaning,
+        or listing the house.
+      </h2>
+      <p class="text-muted">
+        The useful question is what you keep after repairs, commissions,
+        concessions, back taxes, clean-out, utilities, insurance, city notices,
+        and another month of ownership.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        independenceFastSaleProof.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Independence seller intent
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        If you searched "cash home buyers Independence MO," compare the whole
+        path.
+      </h2>
+      <p class="text-muted">
+        Many Independence sellers are solving more than a sale. They need to
+        avoid repair bids, settle an estate, handle code notices, protect
+        credit, stop carrying a vacant house, or move on from a rental without
+        months of showings and inspections.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        searchSignals.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">What makes Independence different</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Independence has historic homes, mid-century houses, rentals, and code
+        issues that need practical sale math.
+      </h2>
+      <p class="text-muted">
+        A house near the Square, a western Independence ranch, and a Little Blue
+        Valley rental can all require a different path. We look at condition,
+        title, taxes, occupancy, city pressure, clean-out, and what a retail
+        buyer would likely ask for after inspection.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        neighborhoodPatterns.map((spot) => (
+          <article
+            class="card bg-white/90"
+            aria-label={`Independence property pattern: ${spot.title}`}
+          >
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Local pattern
+            </p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">
+              {spot.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   <section class="section">
     <div class="card space-y-4">
-      <h2 class="text-2xl font-black text-primary">Common Independence seller goals</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common Independence seller goals
+      </h2>
       <div class="grid gap-3 md:grid-cols-2">
-        {commonSellerGoals.map((goal) => (
-          <div class="rounded-[1rem] border border-border bg-soft/60 p-3 text-sm font-semibold text-primary">{goal}</div>
-        ))}
+        {
+          commonSellerGoals.map((goal) => (
+            <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">
+              {goal}
+            </div>
+          ))
+        }
       </div>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        List or sell direct
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The best Independence sale is the one that protects your net after
+        repairs, time, and risk.
+      </h2>
+      <p class="text-muted">
+        Some Independence houses should be listed. Others need a buyer who can
+        take on repairs, contents, taxes, tenants, code items, or timing
+        pressure without making the seller carry the problem longer.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        listingComparison.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <SellerSituationLinks
     city="Independence, MO"
-    countyGuide={{ label: "Jackson County foreclosure options", href: "/resources/jackson-county-foreclosure-options/" }}
+    countyGuide={{
+      label: "Jackson County foreclosure options",
+      href: "/resources/jackson-county-foreclosure-options/",
+    }}
   />
 
-  <AreaPropertyProof city="Independence, MO" county="Jackson County" />
+  <AreaPropertyProof
+    city="Independence, MO"
+    county="Jackson County"
+    propertyTypes={[
+      {
+        title: "Historic and older Independence houses",
+        body: "Homes with old systems, dated finishes, foundation concerns, sewer questions, inherited contents, or repairs that make MLS prep expensive.",
+      },
+      {
+        title: "Jackson County inherited homes",
+        body: "Family-owned houses where heirs need title clarity, clean-out help, repair assumptions, and a closing plan that respects everyone involved.",
+      },
+      {
+        title: "Rentals, vacant houses, and code issues",
+        body: "Tenant-occupied, vacant, cited, or partially cleaned-out properties where access, utilities, city notices, and carrying costs need a practical plan.",
+      },
+    ]}
+  />
 
-  <section class="section grid gap-6 md:grid-cols-2">
+  <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Why Independence sellers reach out</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        What we review before making an Independence offer
+      </h2>
       <p class="text-muted">
-        Most sellers are dealing with repair costs, estate questions, late payments, tenants, or a timing problem that does not fit a normal listing.
+        A real offer should not be a vague number. We look at the property
+        condition, title path, payoffs, city items, occupancy, and what costs
+        stay with us after closing.
       </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {
+          reviewItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">A local, service-first approach</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Independence sellers reach out
+      </h2>
       <p class="text-muted">
-        We coordinate with Jackson County title partners, put the numbers in writing, and explain when listing may be better than selling directly.
+        The house may have equity, but the next step can still feel heavy.
+        Repairs, estate decisions, title questions, tenants, code notices, tax
+        timing, and another month of carrying costs can make a clean written
+        offer worth comparing.
+      </p>
+      <p class="text-muted">
+        We keep the process direct: no public listing requirement, no repair
+        demand before review, no pressure to empty the house first, and no
+        promise that ignores real title or city timing.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-black text-primary">Common situations we solve</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common situations we solve in Independence
+      </h2>
       <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="grid gap-5 md:grid-cols-3">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Neighborhood focus</p>
-          <h3 class="mt-2 text-xl font-black text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
   <section class="section space-y-6">
-    <div class="max-w-3xl space-y-3">
-      <h2 class="text-2xl font-black text-primary">How it works in Independence</h2>
+    <div class="space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Process
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Independence
+      </h2>
       <p class="text-muted">
-        From first conversation to closing, you control the pace. We document condition, review Jackson County requirements, and show the practical paths in writing.
+        From first conversation to closing, the goal is clarity. We document
+        condition, review Jackson County title and payoff items, explain the
+        offer assumptions, and help you compare a fast as-is sale against a
+        traditional listing.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Step {index + 1}</p>
-          <h3 class="mt-2 text-lg font-black text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Helpful next reads</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Compare the Independence offer against the issue you are actually
+        solving.
+      </h2>
+      <p class="text-muted">
+        Most sellers are not just trying to sell a house. They are trying to
+        settle an estate, avoid repairs, protect credit, solve back taxes, deal
+        with code pressure, or stop carrying a vacant or tenant-occupied
+        property.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        internalGuides.map((guide) => (
+          <a
+            href={guide.href}
+            class="card block bg-white transition hover:border-secondary/60"
+          >
+            <h3 class="text-lg font-semibold text-primary">{guide.label}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{guide.body}</p>
+          </a>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-black text-primary">Independence FAQ</h2>
+    <h2 class="text-2xl font-semibold text-primary">Independence FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-black text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">
+      Start the Independence offer form
+    </a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>
