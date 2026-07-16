@@ -3,48 +3,104 @@ import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
 const neighborhoods = [
   {
     title: "Downtown Lee's Summit",
-    body: "Older homes, inherited properties, dated interiors, and walkable-area houses where families may need a clean as-is option before listing.",
+    body: "Walkable-area homes can have strong buyer demand, but older systems, inherited belongings, foundation questions, sewer lines, and dated interiors can make listing prep feel bigger than expected.",
   },
   {
     title: "Longview and south Lee's Summit",
-    body: "Established neighborhoods near Longview Lake where roof age, mechanical updates, basements, or large clean-outs can affect a retail sale.",
+    body: "Homes near Longview, south Lee's Summit, and larger suburban lots may carry more equity, but roof age, basements, deferred maintenance, or acreage cleanup can complicate a traditional sale.",
   },
   {
     title: "Raintree Lake and newer subdivisions",
-    body: "Relocation, HOA timing, family moves, and larger homes where a written cash offer can help compare certainty against listing prep.",
+    body: "Lake-area and newer subdivision sellers often need certainty around relocation, HOA timing, move-out dates, estate decisions, or whether a direct offer beats months of prep and showings.",
   },
 ];
 
 const situations = [
-  "Sell my house fast Lee's Summit searches where timing is the main pressure",
-  "Inherited homes that have been in Lee's Summit families for years",
-  "Homes needing major repairs like roofs, foundations, or outdated systems",
-  "Divorce or family settlements requiring neutral written numbers",
-  "Corporate relocations or move deadlines that need a dependable closing",
-  "Rental properties with long-term tenants requiring a careful transition",
+  "Sell my house fast Lee's Summit searches where timing, privacy, and certainty matter",
+  "Inherited Lee's Summit homes with belongings, estate paperwork, or family decision-makers",
+  "Higher-equity houses where you want to compare listing, cash, and flexible options before choosing",
+  "Homes needing roof, foundation, sewer, deck, basement, or mechanical updates before a retail buyer feels comfortable",
+  "Divorce, relocation, or family settlements requiring neutral written numbers and a dependable closing plan",
+  "Tenant-occupied rentals, vacant homes, or houses with access issues requiring a careful transition",
 ];
 
 const countyDetails = [
   {
     title: "Jackson County title work",
-    body:
-      "Payoffs, liens, taxes, estate documents, and owner signatures need to be clear before a closing date is real. We help identify those items early.",
+    body: "Payoffs, liens, taxes, estate documents, and owner signatures need to be clear before a closing date is real. We help identify those items early.",
   },
   {
     title: "As-is repair decisions",
-    body:
-      "A direct offer can account for updates, clean-out, roof age, foundation concerns, or tenant coordination without asking you to spend money first.",
+    body: "A direct offer can account for updates, clean-out, roof age, foundation concerns, tenant coordination, HOA timing, or move pressure without asking you to spend money first.",
   },
   {
     title: "Timing that respects your move",
-    body:
-      "Fast does not have to mean rushed. We can compare a quick cash closing with a later date, school-calendar move, or family transition plan.",
+    body: "Fast does not have to mean rushed. We can compare a quick cash closing with a later date, school-calendar move, relocation deadline, or family transition plan.",
   },
+];
+
+const leeSummitSearchSignals = [
+  {
+    title: "We buy houses Lee's Summit MO",
+    body: "ACE reviews Lee's Summit houses directly, including inherited properties, relocation sales, repair-heavy homes, vacant houses, rentals, and high-equity homes where certainty matters.",
+  },
+  {
+    title: "Sell my house fast Lee's Summit MO",
+    body: "A fast sale should still be clear. We explain the offer, title timing, repair assumptions, closing costs, clean-out expectations, and whether listing could still net more.",
+  },
+  {
+    title: "Cash home buyers Lee's Summit MO",
+    body: "A useful cash buyer conversation should help you compare convenience against price, especially when the home has equity, strong location value, or a realistic retail path.",
+  },
+];
+
+const propertyTypes = [
+  {
+    title: "Lee's Summit equity homes",
+    body: "Well-located houses where the owner wants a clean comparison between listing, repairs, concessions, and a direct as-is sale.",
+  },
+  {
+    title: "Inherited Jackson County houses",
+    body: "Family homes where heirs need help with contents, title questions, seller authority, repair assumptions, and a timeline everyone can review.",
+  },
+  {
+    title: "Vacant homes, rentals, and relocation sales",
+    body: "Properties where carrying costs, tenant access, utilities, HOA timing, insurance, or another mortgage payment make certainty valuable.",
+  },
+];
+
+const listingComparison = [
+  {
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is simple, you can wait through buyer financing, and repairs are small enough that retail exposure should protect more net proceeds.",
+  },
+  {
+    title: "A direct sale may be better when",
+    body: "The property needs repairs, has contents inside, has tenants, is vacant, involves heirs, or you want a private sale without months of prep, showings, inspections, and renegotiation.",
+  },
+  {
+    title: "A flexible option may be better when",
+    body: "There is a good existing loan, payment pressure, a tight move deadline, or a situation where taking over payments could protect credit while still creating an exit.",
+  },
+];
+
+const reviewItems = [
+  "Mortgage payoff, second liens, taxes, HOA details, or Jackson County title timing",
+  "Estate, trust, divorce, power-of-attorney, relocation, or multiple-owner signatures",
+  "Roof, foundation, basement, sewer, deck, HVAC, electrical, plumbing, and clean-out needs",
+  "Vacancy, utilities, insurance, lawn care, HOA expectations, and security risk",
+  "Tenant access, lease terms, deposits, possession timing, and rental transition details",
+  "Whether an agent listing, direct cash sale, or flexible payment option protects the best net outcome",
 ];
 
 const steps = [
@@ -54,34 +110,67 @@ const steps = [
   },
   {
     title: "Review the house and county details",
-    body: "We schedule a walkthrough or video review, then look at repairs, access issues, payoffs, taxes, and Jackson County requirements.",
+    body: "We schedule a walkthrough or video review, then look at repairs, access issues, payoffs, taxes, HOA items, and Jackson County requirements.",
   },
   {
     title: "Choose your solution",
-    body: "You receive a written comparison of a straightforward cash offer and any flexible options that match your timeline and financial goals.",
+    body: "You receive a written comparison of a straightforward cash offer, listing considerations, and any flexible options that match your timeline and financial goals.",
+  },
+];
+
+const internalGuides = [
+  {
+    label: "Jackson County cash home buyers",
+    href: "/resources/jackson-county-cash-home-buyers/",
+    body: "County-wide context for Lee's Summit, Independence, Kansas City, Raytown, Grandview, and nearby Missouri-side sellers.",
+  },
+  {
+    label: "Cash buyer vs real estate agent",
+    href: "/resources/cash-buyer-vs-real-estate-agent-kansas-city/",
+    body: "Useful when a Lee's Summit house has equity and you need to decide whether convenience or retail exposure matters more.",
+  },
+  {
+    label: "Inherited house checklist",
+    href: "/resources/kansas-city-inherited-house-checklist/",
+    body: "A practical checklist for family homes, clean-out decisions, title questions, repairs, and heir coordination.",
+  },
+  {
+    label: "Vacant house carrying costs",
+    href: "/resources/vacant-house-carrying-cost-calculator/",
+    body: "Compare mortgage, taxes, utilities, lawn care, insurance, break-in risk, and another month of holding costs.",
   },
 ];
 
 const faqs = [
   {
     question: "Do you buy houses fast in Lee's Summit?",
-    answer: "Yes. ACE Properties KC reviews Lee's Summit houses for as-is cash offers and flexible options. A fast closing depends on title, payoffs, occupancy, and seller readiness.",
+    answer:
+      "Yes. ACE Properties KC reviews Lee's Summit houses for as-is cash offers and flexible options. A fast closing depends on title, payoffs, occupancy, HOA items, and seller readiness.",
   },
   {
-    question: "Do you buy homes near Longview Lake?",
-    answer: "Yes. We review Lee's Summit properties near Longview, Raintree Lake, Downtown Lee's Summit, and nearby Jackson County neighborhoods.",
+    question: "Do you buy homes near Longview Lake or Raintree Lake?",
+    answer:
+      "Yes. We review Lee's Summit properties near Longview, Raintree Lake, Downtown Lee's Summit, and nearby Jackson County neighborhoods.",
+  },
+  {
+    question: "Should I list my Lee's Summit house or sell it directly?",
+    answer:
+      "Listing may be better if the home is updated, easy to show, and you have time. A direct sale may be better when repairs, tenants, family decisions, relocation timing, or privacy matter more than a public listing.",
   },
   {
     question: "How quickly can you close on Lee's Summit properties?",
-    answer: "Cash offers can close in as little as two weeks once Jackson County title work is complete. We can also accommodate longer timelines for family transitions.",
+    answer:
+      "Cash offers can close in as little as two weeks once Jackson County title work is complete. We can also accommodate longer timelines for family transitions, relocations, or school-calendar moves.",
   },
   {
     question: "Will you buy houses needing major renovations?",
-    answer: "Yes. We evaluate properties as-is and factor renovation costs into our offer, including common issues like outdated kitchens, bathrooms, roofs, basements, and mechanical systems.",
+    answer:
+      "Yes. We evaluate properties as-is and factor renovation costs into our offer, including common issues like outdated kitchens, bathrooms, roofs, basements, foundations, decks, and mechanical systems.",
   },
   {
-    question: "Can you help with divorce or family settlements?",
-    answer: "Yes. We can provide neutral, written numbers that attorneys, spouses, heirs, or family decision-makers can review before anyone signs.",
+    question: "Can you help with divorce, probate, or family settlements?",
+    answer:
+      "Yes. We can provide neutral, written numbers that attorneys, spouses, heirs, or family decision-makers can review before anyone signs.",
   },
 ];
 
@@ -98,31 +187,41 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Lee's Summit MO | Cash Offer"
-  description="Sell my house fast in Lee's Summit MO. Local as-is cash offers for repairs, inherited homes, relocation, tenants, and Jackson County title timing."
+  title="We Buy Houses Lee's Summit MO | As-Is Cash Offer"
+  description="We buy houses Lee's Summit MO as-is. Compare a local cash offer for repairs, inherited homes, relocation, tenants, or Jackson County timing."
   canonicalPath="/areas/lees-summit-mo/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Lee's Summit, Missouri</p>
-    <h1 class="text-4xl font-black text-primary md:text-5xl">Sell My House Fast in Lee's Summit, MO</h1>
-    <p class="max-w-3xl text-lg leading-8 text-muted">
-      Lee's Summit sellers usually need more than a quick number. They need to know whether repairs, Jackson County title work, tenants, relocation timing, or family decisions can be handled without a drawn-out listing process.
-    </p>
-    <p class="max-w-3xl text-muted">
-      ACE reviews Lee's Summit houses as-is and gives you written cash and flexible options so you can compare certainty, timing, and net proceeds before deciding.
-    </p>
-  </section>
-
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
-    <div class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Need a Lee's Summit offer?</h2>
-      <p class="text-muted">
-        Send the address and the situation. We will review condition, timing, Jackson County title items, and whether a direct as-is sale is worth comparing.
+    <div class="space-y-4">
+      <p class="badge">We buy houses Lee's Summit MO</p>
+      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+        Sell Your Lee's Summit, MO House As-Is With a Clear Local Offer
+      </h1>
+      <p class="text-lg leading-8 text-muted">
+        Lee's Summit sellers often have a different decision than a repair-heavy
+        distressed sale. The house may have equity, a good neighborhood, and a
+        realistic retail path, but timing, relocation, estate coordination,
+        tenants, HOA details, or repairs can still make a direct offer worth
+        comparing.
       </p>
-      <div class="flex flex-wrap gap-3 pt-2">
-        <a href="/resources/jackson-county-cash-home-buyers/" class="btn btn-outline text-base">Jackson County cash buyer guide</a>
-        <a href="/resources/sell-house-fast-kansas-city-guide/" class="btn btn-ghost text-base">Fast-sale guide</a>
+      <p class="leading-7 text-muted">
+        ACE Properties KC reviews Lee's Summit houses as-is and gives you a
+        written comparison of cash, flexible options, timing, repair
+        assumptions, and Jackson County title items. If listing looks stronger,
+        we will say that too.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">
+          Get a Lee's Summit offer
+        </a>
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="lees_summit_mo_hero"
+        >
+          Call 816-728-7548
+        </a>
       </div>
     </div>
     <OfferForm
@@ -130,121 +229,286 @@ const jsonLd = [
       formId="lees-summit-mo-offer-form"
       heading="Request a Lee's Summit offer"
       subheading="Start with the address and the best way to reach you."
-      defaultSituation="sell house fast"
+      defaultSituation="Sell house fast"
       pageContext="lees-summit-mo"
     />
   </section>
 
+  <section class="section grid gap-4 md:grid-cols-3">
+    {
+      leeSummitSearchSignals.map((item) => (
+        <article class="card space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+            Search intent
+          </p>
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">
+        A better decision for Lee's Summit homeowners
+      </h2>
+      <p class="leading-7 text-muted">
+        Some Lee's Summit houses should be listed. Others look strong from the
+        street but need roof work, foundation repair, basement cleanup, estate
+        coordination, tenant transition, or a faster closing than the open
+        market can promise.
+      </p>
+      <p class="leading-7 text-muted">
+        The goal is not to force one answer. It is to show the numbers clearly:
+        cash offer, closing path, repair assumptions, title requirements, and
+        what you might net if you choose to list instead.
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a
+          href="/resources/jackson-county-cash-home-buyers/"
+          class="btn btn-outline text-base"
+        >
+          Jackson County cash buyer guide
+        </a>
+        <a
+          href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/"
+          class="btn btn-ghost text-base"
+        >
+          Cash buyer vs agent
+        </a>
+      </div>
+    </div>
+    <div class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">What we review first</h2>
+      <ul class="space-y-3 text-sm leading-6 text-primary">
+        {
+          reviewItems.map((item) => (
+            <li class="flex gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
   <SellerSituationLinks
     city="Lee's Summit, MO"
-    countyGuide={{ label: "Jackson County foreclosure options", href: "/resources/jackson-county-foreclosure-options/" }}
+    countyGuide={{
+      label: "Jackson County foreclosure options",
+      href: "/resources/jackson-county-foreclosure-options/",
+    }}
   />
 
-  <AreaPropertyProof city="Lee's Summit, MO" county="Jackson County" />
+  <AreaPropertyProof
+    city="Lee's Summit, MO"
+    county="Jackson County"
+    propertyTypes={propertyTypes}
+  />
 
   <section class="section grid gap-5 md:grid-cols-3">
-    {countyDetails.map((item) => (
-      <article class="card space-y-3">
-        <h2 class="text-xl font-black text-primary">{item.title}</h2>
-        <p class="text-sm leading-6 text-muted">{item.body}</p>
-      </article>
-    ))}
+    {
+      countyDetails.map((item) => (
+        <article class="card space-y-3">
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section section-alt">
+    <div class="space-y-5">
+      <div class="max-w-3xl space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+          Lee's Summit neighborhoods
+        </p>
+        <h2 class="text-3xl font-semibold text-primary">
+          Local patterns that affect the sale plan
+        </h2>
+        <p class="text-muted">
+          A Lee's Summit offer should not treat every house the same. Downtown,
+          Longview, Raintree, and newer subdivisions can each have a different
+          mix of buyer demand, repairs, HOA details, clean-out needs, and timing
+          pressure.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          neighborhoods.map((spot) => (
+            <article
+              class="card bg-white/90"
+              aria-label={`Neighborhood focus: ${spot.title}`}
+            >
+              <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+                Neighborhood focus
+              </p>
+              <h3 class="mt-2 text-xl font-semibold text-primary">
+                {spot.title}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Why Lee's Summit sellers reach out</h2>
-      <p class="text-muted">
-        Most Lee's Summit homeowners we work with are managing more than price: family relocations, inherited estates, divorce settlements, tenants, or repair costs that keep growing.
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Lee's Summit sellers reach out
+      </h2>
+      <p class="leading-7 text-muted">
+        Most Lee's Summit homeowners we work with are managing more than price:
+        family relocation, inherited estates, divorce settlements, rental
+        transitions, vacant property risk, or repair costs that keep growing.
+      </p>
+      <p class="leading-7 text-muted">
+        A direct sale can remove repairs, cleanup, repeated showings, buyer
+        financing, inspection renegotiations, and uncertainty. That does not
+        mean it is always the highest price. It means you get a real number to
+        compare.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">A local, service-first approach</h2>
-      <p class="text-muted">
-        We meet in person when possible, coordinate with trusted Jackson County title partners, and outline both cash and flexible pathways. No aggressive tactics - just honest answers about value, timelines, and paperwork.
+      <h2 class="text-2xl font-semibold text-primary">
+        A local, service-first approach
+      </h2>
+      <p class="leading-7 text-muted">
+        We meet in person when possible, coordinate with trusted Jackson County
+        title partners, and outline both cash and flexible pathways. No
+        aggressive tactics - just honest answers about value, timelines, and
+        paperwork.
+      </p>
+      <p class="leading-7 text-muted">
+        If the home is too nice to discount heavily, we will talk through that.
+        If the convenience of a private as-is sale matters more, we can put that
+        option in writing.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-black text-primary">Common situations we solve</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common situations we solve in Lee's Summit
+      </h2>
       <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="grid gap-6 md:grid-cols-3">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Neighborhood focus</p>
-          <h3 class="text-xl font-black text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
-        </div>
-      ))}
-    </div>
+  <section class="section grid gap-5 md:grid-cols-3">
+    {
+      listingComparison.map((item) => (
+        <article class="card space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+            Decision point
+          </p>
+          <h2 class="text-xl font-semibold text-primary">{item.title}</h2>
+          <p class="text-sm leading-6 text-muted">{item.body}</p>
+        </article>
+      ))
+    }
   </section>
 
   <section class="section space-y-6">
     <div class="max-w-3xl space-y-3">
-      <h2 class="text-2xl font-black text-primary">How it works in Lee's Summit</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Lee's Summit
+      </h2>
       <p class="text-muted">
-        From first conversation to closing, you control the timeline. We document property condition, navigate Jackson County requirements, and review flexible options when they better serve your situation.
+        From first conversation to closing, you control the timeline. We
+        document property condition, navigate Jackson County requirements, and
+        review flexible options when they better serve your situation.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-black text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <article class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="mt-2 text-lg font-semibold text-primary">
+              {step.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{step.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Documents and timelines</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Documents and timelines
+      </h2>
       <p class="text-muted">
-        Jackson County title companies typically need payoff statements, utility clearances, owner signatures, and any settlement documentation. We gather that list early so the closing date is based on facts.
+        Jackson County title companies typically need payoff statements, utility
+        clearances, owner signatures, and any settlement documentation. We
+        gather that list early so the closing date is based on facts.
       </p>
       <p class="text-muted">
-        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements in writing.
+        If you need extra time due to school calendars, relocation, estate
+        coordination, or family decisions, we can structure flexible closing
+        dates or post-closing arrangements in writing.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Stay connected with local support</h2>
-      <p class="text-muted">
-        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns.
-      </p>
-      <p class="text-muted">
-        If the sale is tied to late payments, lender notices, or payoff deadlines, compare the <a href="/resources/jackson-county-foreclosure-options/" class="text-secondary underline">Jackson County foreclosure options guide</a> and the <a href="/resources/jackson-county-cash-home-buyers/" class="text-secondary underline">Jackson County cash home buyers guide</a>.
-      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        Guides that match Lee's Summit seller decisions
+      </h2>
+      <div class="grid gap-3">
+        {
+          internalGuides.map((guide) => (
+            <a
+              href={guide.href}
+              class="rounded-[1rem] border border-border/70 bg-soft/60 p-4 transition hover:border-secondary/60"
+            >
+              <span class="font-semibold text-primary">{guide.label}</span>
+              <span class="mt-1 block text-sm leading-6 text-muted">
+                {guide.body}
+              </span>
+            </a>
+          ))
+        }
+      </div>
     </article>
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-black text-primary">Lee's Summit FAQ</h2>
+    <h2 class="text-2xl font-semibold text-primary">Lee's Summit FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-black text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">
+      Start the offer form
+    </a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>
