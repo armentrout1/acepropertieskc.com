@@ -3,132 +3,167 @@ import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
-const neighborhoods = [
+const neighborhoodPatterns = [
   {
-    title: "Central Overland Park",
-    body:
-      "Classic Johnson County split-levels and ranch homes near historic downtown. Many need cosmetic updates or better accessibility. We handle both.",
+    title: "Northern Overland Park and older Johnson County homes",
+    body: "Homes near downtown Overland Park, Milburn, Nall, Antioch, and the I-35 corridor can have strong location value while still needing updates, foundation work, old-system repairs, accessibility changes, or clean-out help.",
   },
   {
-    title: "Blue Valley & South OP",
-    body:
-      "Larger homes where timing is tied to work relocations, school calendars, or coordinating a new build. We tailor closing dates to your next move.",
+    title: "Central Overland Park ranches, split-levels, and long-held homes",
+    body: "Many central Overland Park sellers have equity but do not want to manage contractors, inspection repairs, public showings, or the pressure of getting every room photo-ready before selling.",
   },
   {
-    title: "North OP & I-35 Corridor",
-    body:
-      "Townhomes and rentals with HOA considerations plus tenants who need respectful communication. We keep notices documented and clear.",
+    title: "South Overland Park and Blue Valley timing",
+    body: "Larger homes farther south often involve relocation, school-year timing, HOA documents, move-up purchases, estate decisions, or sellers comparing a clean direct offer against a higher but slower retail listing.",
   },
 ];
 
 const situations = [
-  "Inherited homes that sat while families coordinated across states",
-  "Deferred maintenance - roofs, foundations, or HVAC needing cash to fix",
-  "Rental portfolios with long-term tenants you would like to transition smoothly",
-  "Payment pressure from job changes or medical expenses",
-  "Divorce settlements that need neutral, written timelines",
+  "Inherited Overland Park houses where heirs need one clear written option",
+  "Older Johnson County homes with roof, foundation, HVAC, window, sewer, deck, or cosmetic repair needs",
+  "Relocation, job-change, or school-calendar timing where a known closing date matters",
+  "Vacant houses where utilities, insurance, lawn care, security, or another mortgage payment are adding pressure",
+  "Tenant-occupied rentals where access, lease timing, deposits, or turnover make listing harder",
+  "HOA balances, title questions, payoff timing, divorce terms, trust documents, or estate authority that need calm review",
 ];
 
 const overlandParkFastSaleProof = [
   {
-    title: "No prep work first",
-    body:
-      "We review Overland Park homes as-is, including dated interiors, accessibility issues, foundation work, roof concerns, and clean-out needs.",
+    title: "Compare before repairs",
+    body: "We review Overland Park houses as-is, including dated interiors, foundation concerns, roof issues, old mechanicals, contents left behind, and repairs that would normally slow down listing photos.",
   },
   {
-    title: "HOA and title clarity",
-    body:
-      "We discuss resale packets, dues, payoff timing, tenant status, and Johnson County title items before you decide.",
+    title: "Protect the actual net",
+    body: "You see how a direct offer compares with commissions, repair checks, buyer concessions, seller-paid closing costs, utilities, insurance, HOA items, and another month of holding the house.",
   },
   {
-    title: "Written net comparison",
-    body:
-      "Compare a direct offer with listing prep, commissions, inspection concessions, buyer financing delays, and another month of ownership.",
+    title: "Plan Johnson County details early",
+    body: "HOA documents, payoff statements, title work, possession timing, family signatures, and move-out dates are discussed before you choose a closing path.",
   },
 ];
 
-const overlandParkCashBuyerSignals = [
-  {
-    title: "Cash offer before repairs",
-    body:
-      "Useful when the house needs roof, foundation, HVAC, cosmetic, accessibility, or clean-out work before a retail buyer would feel comfortable.",
-  },
-  {
-    title: "Johnson County title and HOA timing",
-    body:
-      "Overland Park closings can involve HOA resale packets, payoff timing, title review, and possession plans. We flag those early so the cash offer is tied to a real path.",
-  },
-  {
-    title: "Compare cash buyer vs listing",
-    body:
-      "If the house is market-ready, listing may deserve a look. If speed, privacy, no showings, or no repairs matter more, a direct buyer can be the cleaner option.",
-  },
-];
-
-const overlandParkIntentBlocks = [
-  {
-    title: "Sell my house fast Overland Park",
-    body:
-      "A direct offer can make sense when speed, privacy, repairs, HOA documents, or possession timing matter more than running a full public listing process.",
-  },
-  {
-    title: "Cash home buyers in Overland Park",
-    body:
-      "The offer should explain repair assumptions, payoff timing, HOA resale items, closing costs, and what you net after the title company balances the file.",
-  },
-  {
-    title: "Sell my house as-is Overland Park Kansas",
-    body:
-      "You can ask for an as-is review before replacing systems, updating finishes, clearing everything out, or coordinating repeated showings.",
-  },
-];
 const steps = [
   {
-    title: "Set expectations",
-    body:
-      "We discuss your timeline, decision-makers, HOA requirements, and whether cash or flexible terms sound best.",
+    title: "Tell us what is driving the sale",
+    body: "Share the address, timeline, repair concerns, estate details, tenant situation, HOA questions, payoff pressure, or move date you are trying to solve around.",
   },
   {
-    title: "On-site walkthrough",
-    body:
-      "A short visit (or video) to note repairs, tenant status, and any documents title will need. We keep it respectful and efficient.",
+    title: "Review the house as-is",
+    body: "We can walk the property in person or by video, noting condition, contents, utilities, access, title questions, and the likely resale or rental path.",
   },
   {
-    title: "Written offer choices",
-    body:
-      "You receive a side-by-side summary of a straightforward cash offer plus any flexible structure that protects equity or income.",
+    title: "Compare the written options",
+    body: "You get a direct offer, closing timeline, repair assumptions, and a plain comparison against listing so you can decide without pressure.",
   },
 ];
 
 const commonSellerGoals = [
-  "Sell my house fast in Overland Park without repairs or showings",
-  "Talk with cash home buyers in Overland Park before listing",
-  "Compare a direct offer with agent commissions, HOA items, and holding costs",
-  "Coordinate an inherited, vacant, tenant-occupied, or repair-heavy Johnson County sale",
+  "Sell my house fast in Overland Park KS without repairs or showings",
+  "Talk with cash home buyers in Overland Park before spending money on contractors",
+  "Compare we buy houses Overland Park buyers with a traditional Johnson County listing",
+  "Sell my house as-is in Overland Park before cleaning everything out",
+  "Get a written Overland Park offer before a relocation, estate deadline, or school-year transition",
+  "Understand whether a cash offer or listing produces the better net after repairs, fees, HOA items, and time",
+];
+
+const overlandParkSearchSignals = [
+  {
+    title: "Cash home buyers Overland Park KS",
+    body: "A good cash buyer should explain repair assumptions, title timing, HOA items, closing costs, possession, and the seller net instead of only giving a fast number.",
+  },
+  {
+    title: "Sell my house fast Overland Park",
+    body: "A fast Overland Park sale depends on title, payoff, condition, HOA documents, access, seller authority, and whether the buyer can close without lender delays.",
+  },
+  {
+    title: "Sell my house as-is Overland Park Kansas",
+    body: "A useful as-is option explains the offer, what repairs stay with the buyer, what closing costs look like, and how the net compares with listing.",
+  },
+];
+
+const listingComparison = [
+  {
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is simple, you can wait for buyer financing, and you are comfortable handling inspection repairs, commissions, concessions, HOA documents, and showings.",
+  },
+  {
+    title: "A direct sale may be better when",
+    body: "The house needs repairs, has contents left inside, is vacant, involves heirs or tenants, or the seller needs a known closing date before spending more money.",
+  },
+  {
+    title: "A flexible option may be better when",
+    body: "There is little equity, payment pressure, a low-interest loan, or a situation where taking over payments may protect credit and still create a clean exit.",
+  },
+];
+
+const netSheetItems = [
+  "Agent commissions, buyer concessions, and seller-paid closing costs on a traditional listing",
+  "Foundation, roof, HVAC, sewer, flooring, paint, windows, deck, and clean-out costs",
+  "HOA resale documents, payoff statements, taxes, utilities, title work, and possession timing",
+  "Another month of mortgage, insurance, utilities, lawn care, and vacant-house risk",
+  "Move-out needs, seller leaseback timing, and whether contents or unwanted items can stay",
+];
+
+const internalGuides = [
+  {
+    label: "Johnson County cash home buyers guide",
+    href: "/resources/johnson-county-cash-home-buyers/",
+    body: "County-wide context for Overland Park, Olathe, Shawnee, Lenexa, Leawood, and nearby Johnson County sellers.",
+  },
+  {
+    label: "As-is sale net sheet template",
+    href: "/resources/as-is-sale-net-sheet-template/",
+    body: "A simple way to compare an Overland Park cash offer against listing costs, repairs, concessions, and holding time.",
+  },
+  {
+    label: "Johnson County inherited house sale",
+    href: "/resources/johnson-county-inherited-house-sale/",
+    body: "Useful when Overland Park heirs need to compare clean-out, repairs, title authority, and a direct written offer.",
+  },
+  {
+    label: "Major repairs vs selling as-is",
+    href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    body: "Compare the cost and delay of repairs before choosing whether to list or sell the house as-is.",
+  },
 ];
 
 const faqs = [
   {
-    question: "Are your offers competitive with listing on the MLS?",
+    question: "Can I sell my Overland Park house as-is?",
     answer:
-      "We provide a net sheet comparing a quick, certainty-based sale with the timeline and costs of listing. Many homeowners choose us to avoid repairs, concessions, and double moves, but we will tell you if listing could put more in your pocket.",
+      "Yes. ACE Properties KC reviews Overland Park houses as-is, including homes with foundation issues, roof concerns, outdated systems, HOA items, contents left behind, tenant access, or repairs the owner does not want to manage before selling.",
   },
   {
-    question: "Do you work with HOAs?",
+    question: "How fast can an Overland Park cash offer close?",
     answer:
-      "Yes. We review HOA resale packets, dues, and transfer requirements early so nothing delays closing. Any outstanding balances are addressed in the settlement statement.",
+      "A cash sale can often close quickly once Johnson County title work, payoff statements, HOA items, and seller authority are clear. We explain the realistic timeline before you sign anything.",
   },
   {
-    question: "Can you accommodate school-year timelines?",
+    question: "Should I repair before listing in Overland Park?",
     answer:
-      "Absolutely. Families often want to remain in place through the semester. We can schedule closing after a specific date or lease the home back to you temporarily.",
+      "Sometimes, yes. If the house is updated, easy to show, and repairs are manageable, listing may produce a higher price. If repairs, clean-out, privacy, timing, tenants, or carrying costs are the problem, a direct as-is offer may be worth comparing first.",
   },
   {
-    question: "Will I pay for repairs or commissions?",
+    question: "Do you buy inherited houses in Overland Park?",
     answer:
-      "No repairs or commissions are required. Standard closing costs are outlined before you sign, and we cover what we commit to in writing.",
+      "Yes. We can review inherited Overland Park houses where heirs need a written offer, clean-out help, repair assumptions, and a closing plan that works around estate, trust, or family paperwork.",
+  },
+  {
+    question: "Do you buy Overland Park rentals or tenant-occupied houses?",
+    answer:
+      "Yes. We can review tenant-occupied rentals, vacant rentals, and small investment properties. Lease details, deposits, access, utilities, and closing possession are discussed before an offer is finalized.",
+  },
+  {
+    question: "How do Overland Park cash home buyers handle closing costs?",
+    answer:
+      "The written offer explains what ACE pays, what normal seller-side items may still apply, and how the net compares with listing costs such as commissions, repairs, concessions, HOA items, and another month of carrying the house.",
   },
 ];
 
@@ -145,21 +180,38 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Cash Home Buyers Overland Park KS | Sell Fast"
-  description="Cash home buyers in Overland Park KS. Sell your Overland Park house fast as-is with no repairs, no showings, HOA/title help, and flexible closing."
+  title="Sell My House Fast Overland Park KS | Cash Buyers"
+  description="Sell my house fast Overland Park KS. Compare a local cash offer before repairs, HOA docs, tenants, clean-out, relocation, or title timing."
   canonicalPath="/areas/overland-park-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Cash home buyers in Overland Park KS</p>
-      <h1 class="text-4xl font-semibold text-primary">Cash Home Buyers Overland Park KS - Sell Fast As-Is</h1>
+      <p class="badge">Cash home buyers Overland Park KS</p>
+      <h1 class="text-4xl font-semibold text-primary">
+        Sell Your Overland Park House Fast, As-Is, With a Clear Net Comparison
+      </h1>
       <p class="text-lg leading-8 text-muted">
-        If you need to sell an Overland Park house fast, you should not have to start with repairs, staging, public showings, or months of uncertainty. We review the property as-is, explain Johnson County title and HOA details, and give you a written cash or flexible option you can compare against listing.
+        If your Overland Park house has equity but the next step feels heavy,
+        you should be able to compare a real local offer before spending money
+        on repairs, clean-out, updates, or repeated showings. ACE Properties KC
+        reviews Overland Park homes as-is and explains the cash offer, closing
+        timeline, HOA items, and Johnson County title details in writing.
+      </p>
+      <p class="leading-7 text-muted">
+        This page is for Overland Park owners who want to know whether a direct
+        sale, a traditional listing, or a flexible payment solution makes the
+        most sense. If listing is likely better, we will tell you that too.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">Get a fast Overland Park offer</a>
-        <a href="tel:+18167287548" class="btn btn-ghost text-base" data-phone-link="overland_park_hero">Call 816-728-7548</a>
+        <a href="/get-offer/" class="btn btn-primary text-base"
+          >Get a fast Overland Park offer</a
+        >
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="overland_park_hero">Call 816-728-7548</a
+        >
       </div>
     </div>
     <OfferForm
@@ -167,179 +219,307 @@ const jsonLd = [
       formId="overland-park-ks-offer-form"
       heading="Request an Overland Park offer"
       subheading="Start with the address and the best way to reach you."
+      defaultSituation="Sell house fast"
+      pageContext="overland-park-ks"
     />
   </section>
 
   <section class="section section-alt space-y-5">
     <div class="max-w-3xl space-y-3">
       <p class="badge">Quick answer</p>
-      <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for an Overland Park cash offer before prepping the house.</h2>
+      <h2 class="text-3xl font-semibold text-primary">
+        Yes, you can ask for an Overland Park cash offer before fixing the
+        house.
+      </h2>
       <p class="text-muted">
-        A direct sale helps when repairs, HOA details, tenants, estate decisions, or relocation timing make a traditional listing hard to manage. We give you the numbers and the timeline in writing so you can make a practical decision.
+        The useful question is not just "what is the offer?" It is what you keep
+        after repairs, commissions, buyer concessions, HOA items, title timing,
+        utilities, insurance, lawn care, and another month of ownership.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {overlandParkFastSaleProof.map((item) => (
-        <article class="card bg-white">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        overlandParkFastSaleProof.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-5">
     <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Overland Park cash buyer review</p>
-      <h2 class="text-3xl font-semibold text-primary">Cash Home Buyers in Overland Park, KS</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Overland Park seller intent
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        If you searched "cash home buyers Overland Park," compare certainty,
+        title timing, and net proceeds.
+      </h2>
       <p class="text-muted">
-        If you are comparing cash home buyers in Overland Park, the right question is not just who can close fast. It is who can explain repairs, HOA details, Johnson County title timing, closing costs, and your net without pushing you into a decision.
+        Many Overland Park sellers have value in the property, but that does not
+        mean they want months of prep, showings, inspection asks, HOA surprises,
+        or a public listing while family, tenant, relocation, or estate details
+        are still being sorted out.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {overlandParkCashBuyerSignals.map((item) => (
-        <article class="card h-full">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        overlandParkSearchSignals.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
-    <div class="flex flex-wrap gap-3">
-      <a href="/resources/johnson-county-cash-home-buyers/" class="btn btn-ghost text-base">Johnson County cash buyer guide</a>
-      <a href="/resources/cash-buyer-vs-real-estate-agent-kansas-city/" class="btn btn-outline text-base">Cash buyer vs agent</a>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">What makes Overland Park different</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Overland Park has high-demand locations, older homes, HOA details, and
+        seller timelines that do not always fit the MLS path.
+      </h2>
+      <p class="text-muted">
+        A northern Overland Park ranch, a central OP split-level, and a South OP
+        family home can each need a different sale plan. We look at condition,
+        equity, title, HOA items, payoff, seller timeline, and what kind of
+        buyer the house would attract if listed.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        neighborhoodPatterns.map((spot) => (
+          <article
+            class="card bg-white/90"
+            aria-label={`Overland Park property pattern: ${spot.title}`}
+          >
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Local pattern
+            </p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">
+              {spot.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section">
     <div class="card space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">Common Overland Park seller goals</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common Overland Park seller goals
+      </h2>
       <div class="grid gap-3 md:grid-cols-2">
-        {commonSellerGoals.map((goal) => (
-          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
-        ))}
+        {
+          commonSellerGoals.map((goal) => (
+            <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">
+              {goal}
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <section class="section section-alt space-y-5">
     <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Overland Park seller intent</p>
-      <h2 class="text-3xl font-semibold text-primary">If you searched "cash home buyers in Overland Park," compare certainty, title timing, and net proceeds.</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        List or sell direct
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The best Overland Park sale is the one that protects your net after
+        repairs, time, and fees.
+      </h2>
       <p class="text-muted">
-        Overland Park sellers often have equity, but that does not mean they want months of repairs, showings, inspection asks, or HOA surprises. We put the direct-sale math in writing so you can compare it with the MLS path.
+        We are not trying to make every Overland Park house a direct sale. Some
+        should be listed. Others need a buyer who can take on repairs,
+        clean-out, tenant issues, HOA details, estate coordination, or timing
+        pressure without turning the sale into another project.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {overlandParkIntentBlocks.map((item) => (
-        <article class="card bg-white h-full">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        listingComparison.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
+
   <SellerSituationLinks
     city="Overland Park, KS"
-    countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
+    countyGuide={{
+      label: "Johnson County behind-on-payments guide",
+      href: "/resources/johnson-county-behind-on-payments/",
+    }}
   />
 
-  <AreaPropertyProof city="Overland Park, KS" county="Johnson County" />
+  <AreaPropertyProof
+    city="Overland Park, KS"
+    county="Johnson County"
+    propertyTypes={[
+      {
+        title: "Older Overland Park as-is houses",
+        body: "Ranches, split-levels, and long-held homes with dated finishes, old systems, clean-out needs, or repairs that make MLS prep expensive.",
+      },
+      {
+        title: "Johnson County inherited homes",
+        body: "Family-owned houses where heirs need title clarity, repair assumptions, clean-out help, and a closing plan that respects everyone involved.",
+      },
+      {
+        title: "Overland Park rentals and vacant houses",
+        body: "Rental, tenant-occupied, vacant, or partially cleaned-out properties where access, leases, utilities, and carrying costs need a practical plan.",
+      },
+    ]}
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Balanced offers, not pressure</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        What we review before making an Overland Park offer
+      </h2>
       <p class="text-muted">
-        Expect a calm phone call, respect for your schedule, and written estimates that spell out closing costs, payoff amounts, and any post-closing arrangements. Whether you need to <a href="/solutions/sell-house-fast/" class="text-secondary underline">sell your Overland Park house fast</a>, handle an <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property</a>, or deal with a <a href="/solutions/needs-repairs/" class="text-secondary underline">house needing major repairs</a>, you will never be rushed to sign paperwork.
+        A real offer should not be a vague number. We look at condition, likely
+        resale path, title items, HOA or payoff details, the seller timeline,
+        and what costs stay with us after closing.
       </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {
+          netSheetItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Focused on Johnson County logistics</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Overland Park sellers reach out
+      </h2>
       <p class="text-muted">
-        From county inspections to HOA transfer certificates, Overland Park sales have specific steps. We coordinate those details, provide checklists, and keep everyone updated so you are not surprised during escrow. If you are also comparing nearby sellers and smaller Johnson County cities, see our pages for <a href="/areas/leawood-ks/" class="text-secondary underline">Leawood</a>, <a href="/areas/mission-ks/" class="text-secondary underline">Mission</a>, <a href="/areas/fairway-ks/" class="text-secondary underline">Fairway</a>, and <a href="/areas/westwood-ks/" class="text-secondary underline">Westwood</a>.
+        The house may be valuable, but the next step can still feel heavy.
+        Repairs, family schedules, job moves, estate decisions, tenant
+        coordination, HOA items, and another month of holding costs can make a
+        clean written offer worth comparing.
+      </p>
+      <p class="text-muted">
+        We keep the process direct: no pressure, no public listing requirement,
+        no repair demand before the walkthrough, and no surprise expectation
+        that the house must be empty before we review it.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Common situations we help with</h2>
-      <ul class="mt-4 space-y-3 text-sm text-primary">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+      <h2 class="text-2xl font-semibold text-primary">
+        Common situations we solve in Overland Park
+      </h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="grid gap-6 md:grid-cols-3">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
-          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm text-muted">{spot.body}</p>
-        </div>
-      ))}
     </div>
   </section>
 
   <section class="section space-y-6">
     <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How a sale works in Overland Park</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Process
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Overland Park
+      </h2>
       <p class="text-muted">
-        You decide whether we move quickly or take time to coordinate with tenants, families, or lenders. Our process is transparent: one point of contact, written updates, and a closing team that understands Johnson County requirements.
+        From first conversation to closing, the goal is clarity. We document
+        property condition, explain the offer assumptions, and help you
+        understand whether a fast as-is sale or a traditional listing is the
+        smarter next move.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Helpful next reads</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Compare the Overland Park offer against the issue you are actually
+        solving.
+      </h2>
+      <p class="text-muted">
+        Most sellers are not just trying to sell a house. They are trying to
+        avoid repair costs, protect credit, settle an estate, simplify a move,
+        stop carrying a vacant property, or get clarity before the next
+        deadline.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        internalGuides.map((guide) => (
+          <a
+            href={guide.href}
+            class="card block bg-white transition hover:border-secondary/60"
+          >
+            <h3 class="text-lg font-semibold text-primary">{guide.label}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{guide.body}</p>
+          </a>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Overland Park FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Common Overland Park situations</h2>
-      <p class="text-muted">
-        Many Overland Park homeowners we work with are managing <a href="/solutions/relocating/" class="text-secondary underline">job relocations</a>, <a href="/solutions/inherited-house/" class="text-secondary underline">inherited estates</a>, or <a href="/solutions/vacant-house/" class="text-secondary underline">vacant properties</a> with ongoing carrying costs. We also help with <a href="/solutions/probate-house/" class="text-secondary underline">probate sales</a> requiring court coordination.
-      </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Explore nearby areas</h2>
-      <p class="text-muted">
-        Also buying in <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, <a href="/areas/lenexa-ks/" class="text-secondary underline">Lenexa</a>, <a href="/areas/shawnee-ks/" class="text-secondary underline">Shawnee</a>, and throughout Johnson County. Visit our <a href="/areas/" class="text-secondary underline">areas page</a> for complete coverage.
-      </p>
-      <p class="text-muted">
-        For a broader local checklist, read the <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash home buyers guide</a>.
-      </p>
-      <p class="text-muted">
-        If late payments, HOA balances, or lender deadlines are part of the decision, start with the <a href="/resources/johnson-county-behind-on-payments/" class="text-secondary underline">Johnson County behind-on-payments guide</a>.
-      </p>
-    </article>
-  </section>
-
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base"
+      >Start the Overland Park offer form</a
+    >
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
-    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
+    <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>
 </Layout>
