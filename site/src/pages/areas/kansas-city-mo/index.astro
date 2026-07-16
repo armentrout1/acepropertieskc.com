@@ -1,75 +1,128 @@
----
+﻿---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
-const neighborhoods = [
+const neighborhoodPatterns = [
   {
-    title: "Midtown, Brookside, and Waldo",
-    body:
-      "Older homes, long-held family properties, and dated houses where repairs, clean-out, and timing can matter more than open houses.",
+    title: "Midtown, Hyde Park, and older central KC houses",
+    body: "Central Kansas City homes can have strong character and location appeal, but knob-and-tube history, old sewer lines, roofs, foundations, plaster, windows, and clean-out work can make a retail listing expensive before it starts.",
   },
   {
-    title: "South KC, Red Bridge, and 64131",
-    body:
-      "Ranches and split-levels where roofs, mechanicals, trees, foundations, or contents can make a traditional listing harder.",
+    title: "Brookside, Waldo, Red Bridge, and South KC",
+    body: "South KC sellers often have equity but are weighing repairs, trees, basements, dated finishes, estate timing, and whether the house is worth preparing for weeks of showings.",
   },
   {
-    title: "East Side and historic neighborhoods",
-    body:
-      "Unique layouts, rental history, code items, and title questions that need a buyer who can slow down and review details.",
-  },
-  {
-    title: "Jackson County timing",
-    body:
-      "Payoffs, taxes, liens, probate authority, tenant access, and city notices can all affect how quickly a clean closing can happen.",
+    title: "East Side, Northeast, and rental-heavy neighborhoods",
+    body: "Rental history, vacant-house risk, code notices, title questions, inherited ownership, tenants, and repair-heavy properties need a buyer who can review the real details before promising a fast closing.",
   },
 ];
 
 const situations = [
-  "You searched for sell my house fast Kansas City MO and need a direct local answer",
-  "Inherited houses that still have furniture, files, or belongings inside",
-  "Repair or code items that make a traditional buyer nervous",
-  "Tenants on month-to-month leases where notice needs to be handled carefully",
-  "Late payments, back taxes, or payoff pressure that require a calm plan",
-  "Relocation timelines where you need a dependable buyer before listing",
+  "Sell my house fast Kansas City MO without repairs, cleaning, or open houses",
+  "Inherited Kansas City houses with furniture, files, tools, or belongings still inside",
+  "Vacant properties where utilities, insurance, mowing, break-in risk, or vandalism are adding pressure",
+  "Tenant-occupied rentals where access, lease timing, deposits, and possession need to be handled carefully",
+  "Back taxes, late payments, foreclosure timing, liens, or payoff pressure that require a title-aware plan",
+  "Code violations, dangerous building notices, fire damage, foundation problems, or repairs that scare retail buyers",
 ];
 
-const buyerQuestions = [
+const kcFastSaleProof = [
   {
-    title: "Can a cash buyer close quickly?",
-    body:
-      "Often, yes, but only after title, payoff, ownership, and occupancy details are clear. A real cash buyer should explain what can close fast and what could slow it down.",
+    title: "We review the house as-is",
+    body: "You do not need to fix the roof, empty the garage, update the kitchen, replace flooring, or clean out every room before we look at the property.",
   },
   {
-    title: "Do I need repairs first?",
-    body:
-      "No. A direct as-is offer can account for roof age, foundation concerns, outdated interiors, clean-out, code items, and other repair costs before closing.",
+    title: "We compare speed against net",
+    body: "A fast sale only helps if the numbers make sense. We explain repair assumptions, closing costs, timeline, and how the direct offer compares with listing.",
   },
   {
-    title: "What if listing might pay more?",
-    body:
-      "If the house is updated and you have time, listing may be better. We help compare the direct offer against repairs, commissions, holding costs, and delay risk.",
+    title: "We check the real closing blockers",
+    body: "Title, payoffs, taxes, seller authority, probate, tenants, city notices, and possession timing are discussed before you count on a closing date.",
   },
+];
+
+const searchSignals = [
+  {
+    title: "Sell my house fast Kansas City MO",
+    body: "This search usually means the seller needs certainty, not just a slogan. We focus on the deadline, condition, title, payoff, and what has to happen for a clean closing.",
+  },
+  {
+    title: "We buy houses Kansas City MO",
+    body: "ACE Properties KC reviews Kansas City houses directly, including inherited homes, rentals, vacant houses, repairs, code issues, and payment-pressure situations.",
+  },
+  {
+    title: "Cash home buyers Kansas City MO",
+    body: "A useful cash offer should spell out the purchase price, what repairs stay with us, what closing costs look like, and what could slow the sale down.",
+  },
+];
+
+const listingComparison = [
+  {
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is clean, repairs are manageable, and you can wait for inspections, appraisal, buyer financing, and normal closing delays.",
+  },
+  {
+    title: "A direct sale may be better when",
+    body: "The house needs major repairs, has contents left inside, is vacant, has tenants, involves heirs, or the seller needs certainty before spending more money.",
+  },
+  {
+    title: "A flexible option may be better when",
+    body: "There is little equity, a good existing loan, payment pressure, or a situation where taking over payments could protect credit and still create a cleaner exit.",
+  },
+];
+
+const kcReviewItems = [
+  "Mortgage payoff, second liens, back taxes, or Jackson County tax timing",
+  "Probate, estate, divorce, trust, power-of-attorney, or multiple-owner authority",
+  "Tenant access, leases, deposits, utilities, possession, or vacancy risk",
+  "Code notices, dangerous building items, trash, mowing, utilities, and city pressure",
+  "Roof, foundation, sewer, HVAC, electrical, plumbing, windows, clean-out, and contents",
+  "Your timeline, privacy needs, move-out plan, and whether listing could still be better",
 ];
 
 const steps = [
   {
-    title: "Share the address",
-    body:
-      "Tell us what is happening with the house, who needs to be involved, and what timeline would actually help.",
+    title: "Tell us what is happening",
+    body: "Share the Kansas City address, the deadline, the condition, and whether taxes, tenants, probate, repairs, code notices, or payments are part of the problem.",
   },
   {
-    title: "Review the facts",
-    body:
-      "We look at condition, title items, payoffs, occupancy, taxes, and whether a cash or flexible option fits better.",
+    title: "Review the property as-is",
+    body: "We can walk the house, review photos, or talk through details by phone. The goal is to understand the real cost, risk, and timing before numbers are discussed.",
   },
   {
-    title: "Compare the path",
-    body:
-      "You receive written numbers, a realistic timeline, and next steps before deciding whether to sell directly or list.",
+    title: "Compare the written options",
+    body: "You receive a direct offer, timeline, repair assumptions, and a plain comparison against listing so you can choose the path that protects your net and peace of mind.",
+  },
+];
+
+const internalGuides = [
+  {
+    label: "Jackson County cash home buyers",
+    href: "/resources/jackson-county-cash-home-buyers/",
+    body: "County-specific context for Kansas City, Independence, Lee's Summit, Raytown, Grandview, and other Missouri-side sellers.",
+  },
+  {
+    label: "Sell house fast Kansas City guide",
+    href: "/resources/sell-house-fast-kansas-city-guide/",
+    body: "A broader guide for sellers comparing speed, repairs, title, closing costs, and what a fast sale realistically depends on.",
+  },
+  {
+    label: "Sell with back taxes in Kansas City",
+    href: "/resources/sell-house-with-back-taxes-kansas-city/",
+    body: "Helpful when Jackson County taxes, liens, payoff pressure, or a short timeline are driving the decision.",
+  },
+  {
+    label: "Sell a vacant house in Kansas City",
+    href: "/resources/sell-vacant-house-kansas-city/",
+    body: "Review carrying costs, insurance, utilities, break-in risk, clean-out, and why vacant houses can get more expensive each month.",
   },
 ];
 
@@ -77,27 +130,32 @@ const faqs = [
   {
     question: "Do you buy houses fast in Kansas City, MO?",
     answer:
-      "Yes. ACE Properties KC reviews Kansas City, Missouri houses for direct as-is cash offers and flexible options. A fast closing depends on clear title, payoffs, occupancy, and seller readiness.",
+      "Yes. ACE Properties KC reviews Kansas City, Missouri houses for direct as-is cash offers and flexible options. A fast closing depends on clear title, payoffs, occupancy, seller authority, and whether any city or court items need to be resolved.",
   },
   {
-    question: "Do I need to clear everything out first?",
+    question: "Can I sell my Kansas City house as-is with repairs needed?",
     answer:
-      "No. Many Kansas City homes we buy still have furniture, files, tools, or belongings inside. Clean-out can be handled after closing when agreed to in writing.",
+      "Yes. We review houses with roof issues, foundation problems, old systems, code violations, fire or water damage, dated interiors, clean-out needs, and other repairs the owner does not want to complete before selling.",
   },
   {
-    question: "Will you still buy if there are city violations?",
+    question: "Do I need to clean everything out before selling?",
     answer:
-      "Yes. We review the notices, coordinate with title when needed, and explain how the required repairs or escrow affect the offer.",
+      "No. Many Kansas City homes we review still have furniture, tools, trash, files, or belongings inside. If a clean-out needs to stay with us, that can be discussed and written into the offer.",
   },
   {
-    question: "Can you work with my attorney or advisor?",
+    question: "Can you buy a Kansas City house with tenants?",
     answer:
-      "Absolutely. We encourage you to involve attorneys, CPAs, financial planners, or family advisors so everyone sees the same documents and closing timeline.",
+      "Yes. We review tenant-occupied houses, vacant rentals, and problem rentals. Lease terms, deposits, access, utilities, and possession timing should be discussed before an offer is finalized.",
   },
   {
-    question: "How soon could we close?",
+    question: "What if I owe back taxes or am behind on payments?",
     answer:
-      "Cash deals often close in about two weeks after title is clear. Flexible agreements depend on the structure, and we outline milestones in writing.",
+      "We can review payoff statements, Jackson County taxes, liens, and timing pressure with the title company. If there is still enough room to create a workable sale, we explain the path in writing.",
+  },
+  {
+    question: "Should I list my Kansas City house or sell direct?",
+    answer:
+      "Listing may be better if the house is updated, easy to show, and you have time. A direct sale may be better when repairs, tenants, clean-out, title issues, privacy, or a deadline make a traditional listing risky.",
   },
 ];
 
@@ -114,133 +172,330 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City MO | Cash Home Buyers"
-  description="Sell my house fast in Kansas City MO. Local cash home buyers for as-is houses, repairs, tenants, inherited property, back taxes, and quick closings."
+  title="Sell My House Fast Kansas City MO | We Buy As-Is"
+  description="Sell my house fast Kansas City MO. Compare a local as-is cash offer before repairs, tenants, back taxes, code issues, clean-out, or title timing slow you down."
   canonicalPath="/areas/kansas-city-mo/"
   jsonLd={jsonLd}
 >
-  <section class="section space-y-4">
-    <p class="badge">Kansas City, Missouri</p>
-    <h1 class="text-4xl font-black text-primary md:text-5xl">Sell My House Fast in Kansas City, MO</h1>
-    <p class="max-w-3xl text-lg leading-8 text-muted">
-      If you need to sell a Kansas City house quickly, the real question is not just price. It is whether the buyer can solve repairs, title items, taxes, clean-out, tenants, and timing without making the situation harder.
-    </p>
-    <p class="max-w-3xl text-muted">
-      ACE reviews Kansas City, Missouri houses as-is and explains direct cash offers, flexible payment options, and when listing may still be the better path.
-    </p>
-  </section>
-
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
-    <div class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Want a Kansas City offer?</h2>
-      <p class="text-muted">
-        Send the address and what you are trying to solve. We will review condition, timing, Jackson County title items, and whether an as-is sale makes sense.
+    <div class="space-y-4">
+      <p class="badge">Sell my house fast Kansas City MO</p>
+      <h1 class="text-4xl font-semibold text-primary">
+        Sell Your Kansas City, MO House Fast, As-Is, With a Clear Local Offer
+      </h1>
+      <p class="text-lg leading-8 text-muted">
+        If you need to sell a Kansas City house quickly, the real problem is
+        usually bigger than price. Repairs, back taxes, inherited ownership,
+        tenants, city notices, clean-out, title work, or payment pressure can
+        turn a normal listing into another project.
       </p>
-      <div class="flex flex-wrap gap-3 pt-2">
-        <a href="/resources/jackson-county-cash-home-buyers/" class="btn btn-outline text-base">Jackson County cash buyer guide</a>
-        <a href="/resources/sell-house-fast-kansas-city-guide/" class="btn btn-ghost text-base">Fast-sale guide</a>
+      <p class="leading-7 text-muted">
+        ACE Properties KC reviews Kansas City, Missouri houses as-is and gives
+        you a written option you can compare against listing. If a traditional
+        sale is likely better, we will say that too.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/get-offer/" class="btn btn-primary text-base">
+          Get a fast KC offer
+        </a>
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="kansas_city_mo_hero"
+        >
+          Call 816-728-7548
+        </a>
       </div>
     </div>
     <OfferForm
       compact
       formId="kansas-city-mo-offer-form"
-      heading="Get a local KC offer"
-      subheading="A short form is enough to start the conversation."
-      defaultSituation="sell house fast"
+      heading="Request a Kansas City offer"
+      subheading="Start with the address and the best way to reach you."
+      defaultSituation="Sell house fast"
       pageContext="kansas-city-mo"
     />
   </section>
 
-  <SellerSituationLinks
-    city="Kansas City, MO"
-    countyGuide={{ label: "Jackson County foreclosure options", href: "/resources/jackson-county-foreclosure-options/" }}
-  />
-
-  <AreaPropertyProof city="Kansas City, MO" county="Jackson County" />
-
-  <section class="section grid gap-5 md:grid-cols-3">
-    {buyerQuestions.map((item) => (
-      <article class="card space-y-3">
-        <h2 class="text-xl font-black text-primary">{item.title}</h2>
-        <p class="text-sm leading-6 text-muted">{item.body}</p>
-      </article>
-    ))}
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Quick answer</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Yes, you can ask for a Kansas City cash offer before fixing or cleaning
+        out the house.
+      </h2>
+      <p class="text-muted">
+        The useful question is not just what the offer is. It is what you keep
+        after repairs, commissions, concessions, taxes, clean-out, utilities,
+        insurance, title delays, and another month of ownership.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        kcFastSaleProof.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
-  <section class="section grid gap-6 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">Why Kansas City sellers reach out</h2>
-      <p class="text-muted">
-        Most people we meet are solving more than a sale: family decisions, estate paperwork, repairs, tenants, payoffs, taxes, or a deadline. We keep the conversation simple and put the options in writing.
+  <section class="section space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Kansas City seller intent
       </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        If you searched "we buy houses Kansas City," compare speed, certainty,
+        and the real net.
+      </h2>
+      <p class="text-muted">
+        Many Kansas City sellers are not simply looking for the highest headline
+        number. They need to solve a deadline, avoid repair spending, protect
+        credit, settle an estate, stop carrying a vacant house, or move on from
+        a rental that has become too much to manage.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        searchSignals.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">What makes Kansas City different</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Kansas City has older housing stock, rental pockets, estate homes, and
+        city-specific timing issues.
+      </h2>
+      <p class="text-muted">
+        A Midtown house, a South KC ranch, a Brookside estate property, and an
+        East Side rental all need different sale math. We review the condition,
+        neighborhood, title, taxes, access, occupancy, and what kind of buyer
+        the property would attract if listed.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        neighborhoodPatterns.map((spot) => (
+          <article
+            class="card bg-white/90"
+            aria-label={`Kansas City property pattern: ${spot.title}`}
+          >
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Local pattern
+            </p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">
+              {spot.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        List or sell direct
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The best Kansas City sale is the one that protects your money, credit,
+        privacy, and timeline.
+      </h2>
+      <p class="text-muted">
+        We are not trying to make every Kansas City house a direct sale. Some
+        should be listed. Others need a buyer who can take on repairs, contents,
+        taxes, tenants, city items, or timing pressure without making the seller
+        carry the problem longer.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        listingComparison.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <SellerSituationLinks
+    city="Kansas City, MO"
+    countyGuide={{
+      label: "Jackson County foreclosure options",
+      href: "/resources/jackson-county-foreclosure-options/",
+    }}
+  />
+
+  <AreaPropertyProof
+    city="Kansas City, MO"
+    county="Jackson County"
+    propertyTypes={[
+      {
+        title: "Older Kansas City as-is houses",
+        body: "Homes with roof, foundation, sewer, electrical, HVAC, plaster, window, clean-out, or cosmetic repair needs that make MLS prep expensive.",
+      },
+      {
+        title: "Inherited and estate properties",
+        body: "Family-owned houses where heirs need title clarity, clean-out help, repair assumptions, and a closing plan that respects everyone involved.",
+      },
+      {
+        title: "Rentals, vacant homes, and code issues",
+        body: "Tenant-occupied, vacant, partially cleaned-out, cited, or repair-heavy houses where access, utilities, city notices, and carrying costs need a practical plan.",
+      },
+    ]}
+  />
+
+  <section class="section grid gap-8 md:grid-cols-2">
+    <article class="card space-y-3">
+      <h2 class="text-2xl font-semibold text-primary">
+        What we review before making a Kansas City offer
+      </h2>
+      <p class="text-muted">
+        A real offer should not be a vague number. We look at the house, the
+        title path, the payoff pressure, the likely resale plan, and what costs
+        stay with us after closing.
+      </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {
+          kcReviewItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-black text-primary">When listing may still be better</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Kansas City sellers reach out
+      </h2>
       <p class="text-muted">
-        If the house is updated, easy to show, and you have time for retail buyers, a traditional listing may net more. We will say that plainly and can still help you compare the as-is numbers.
+        The house may have equity, but the next step can still feel heavy.
+        Family schedules, estate decisions, title questions, tenant problems,
+        code pressure, repairs, taxes, and another month of carrying costs can
+        make a clean written offer worth comparing.
+      </p>
+      <p class="text-muted">
+        We keep the process direct: no public listing requirement, no repair
+        demand before review, no pressure to empty the house first, and no
+        surprise claim that every property can close in a week.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-black text-primary">Common situations we solve</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common Kansas City situations we solve
+      </h2>
       <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3 rounded-[1rem] border border-border/70 bg-soft/60 p-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Local focus</p>
-          <h3 class="mt-2 text-xl font-black text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
   <section class="section space-y-6">
-    <div class="max-w-3xl space-y-3">
-      <h2 class="text-2xl font-black text-primary">How it works in Kansas City</h2>
+    <div class="space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Process
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Kansas City, MO
+      </h2>
       <p class="text-muted">
-        You choose the pace. We document condition, confirm title and payoff items, and compare practical options before you make a decision.
+        From first conversation to closing, the goal is clarity. We document the
+        condition, review title and payoff items, explain the offer assumptions,
+        and help you understand whether a fast as-is sale or a traditional
+        listing is the smarter next move.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Step {index + 1}</p>
-          <h3 class="mt-2 text-lg font-black text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Helpful next reads</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Compare the Kansas City offer against the issue you are actually
+        solving.
+      </h2>
+      <p class="text-muted">
+        Most sellers are not just trying to sell a house. They are trying to get
+        out of repair costs, protect credit, settle an estate, stop a tax or
+        payoff problem, simplify a rental situation, or stop carrying a vacant
+        property.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        internalGuides.map((guide) => (
+          <a
+            href={guide.href}
+            class="card block bg-white transition hover:border-secondary/60"
+          >
+            <h3 class="text-lg font-semibold text-primary">{guide.label}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{guide.body}</p>
+          </a>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-black text-primary">Kansas City FAQ</h2>
+    <h2 class="text-2xl font-semibold text-primary">Kansas City FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-black text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base">
+      Start the Kansas City offer form
+    </a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
-    <a href="/options/" class="btn btn-outline text-base">Compare options</a>
+    <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>
 </Layout>
