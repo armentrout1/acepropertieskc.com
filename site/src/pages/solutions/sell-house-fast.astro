@@ -2,7 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
-import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd, buildBreadcrumbList, serviceJsonLd } from "../../lib/seo";
+import {
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+  serviceJsonLd,
+} from "../../lib/seo";
 import { SITE } from "../../lib/siteConfig";
 
 const speedReasons = [
@@ -98,18 +104,15 @@ const searchIntentPoints = [
 const exactMatchTrustPoints = [
   {
     title: "Sell your house fast in Kansas City without repair prep",
-    body:
-      "The offer conversation can start before you clean out the garage, replace the roof, finish the basement, or line up contractors. We price the house as-is and explain what we are assuming.",
+    body: "The offer conversation can start before you clean out the garage, replace the roof, finish the basement, or line up contractors. We price the house as-is and explain what we are assuming.",
   },
   {
     title: "Cash home buyer review with a title-first timeline",
-    body:
-      "Speed depends on title, payoffs, liens, seller authority, access, and occupancy. We would rather explain the real timeline than promise a date before the file is ready.",
+    body: "Speed depends on title, payoffs, liens, seller authority, access, and occupancy. We would rather explain the real timeline than promise a date before the file is ready.",
   },
   {
     title: "We buy houses across the Kansas City metro",
-    body:
-      "Kansas City, Overland Park, Olathe, Shawnee, Lenexa, Mission, Fairway, Westwood, Kansas City, KS, 64131, and 66109 each have different local details. The page cluster helps route sellers to the closest local context.",
+    body: "Kansas City, Overland Park, Olathe, Shawnee, Lenexa, Mission, Fairway, Westwood, Kansas City, KS, 64131, and 66109 each have different local details. The page cluster helps route sellers to the closest local context.",
   },
 ];
 
@@ -118,52 +121,44 @@ const priorityMetroTargets = [
     city: "Olathe, KS",
     href: "/areas/olathe-ks/",
     phrase: "sell my house fast Olathe",
-    body:
-      "For sellers weighing an Olathe cash offer against repairs, school-year timing, HOA details, or Johnson County title work.",
+    body: "For sellers weighing an Olathe cash offer against repairs, school-year timing, HOA details, or Johnson County title work.",
   },
   {
     city: "Overland Park, KS",
     href: "/areas/overland-park-ks/",
     phrase: "cash home buyers Overland Park",
-    body:
-      "For Overland Park owners comparing cash home buyers, as-is sale timing, HOA packets, and repair-heavy listing prep.",
+    body: "For Overland Park owners comparing cash home buyers, as-is sale timing, HOA packets, and repair-heavy listing prep.",
   },
   {
     city: "Shawnee, KS",
     href: "/areas/shawnee-ks/",
     phrase: "we buy houses Shawnee",
-    body:
-      "For Shawnee sellers who want a direct buyer before fixing older systems, cleaning out the house, or scheduling showings.",
+    body: "For Shawnee sellers who want a direct buyer before fixing older systems, cleaning out the house, or scheduling showings.",
   },
   {
     city: "66109 / Western KCK",
     href: "/areas/66109/",
     phrase: "we buy houses 66109",
-    body:
-      "For western Kansas City, KS and Piper-area houses with repairs, taxes, vacant-house risk, acreage, or title questions.",
+    body: "For western Kansas City, KS and Piper-area houses with repairs, taxes, vacant-house risk, acreage, or title questions.",
   },
 ];
 
 const kcFastSaleSituations = [
   {
     title: "Behind on payments or running out of time",
-    body:
-      "A fast sale may help when lender deadlines, late payments, tax balances, or payoff timing are starting to control the decision.",
+    body: "A fast sale may help when lender deadlines, late payments, tax balances, or payoff timing are starting to control the decision.",
   },
   {
     title: "Repairs are bigger than the budget",
-    body:
-      "Roof, foundation, HVAC, electrical, plumbing, clean-out, or code issues can make a traditional listing slower and less predictable.",
+    body: "Roof, foundation, HVAC, electrical, plumbing, clean-out, or code issues can make a traditional listing slower and less predictable.",
   },
   {
     title: "Inherited, vacant, or full-of-stuff house",
-    body:
-      "We can review the house as-is, including contents, deferred maintenance, utilities, insurance, taxes, and family decision timing.",
+    body: "We can review the house as-is, including contents, deferred maintenance, utilities, insurance, taxes, and family decision timing.",
   },
   {
     title: "Tenant or privacy concerns",
-    body:
-      "A direct sale can reduce repeated showings, tenant disruption, public listing pressure, and the uncertainty of buyer financing.",
+    body: "A direct sale can reduce repeated showings, tenant disruption, public listing pressure, and the uncertainty of buyer financing.",
   },
 ];
 
@@ -173,21 +168,117 @@ const kcFastSaleProofPoints = [
   "No open houses, public listing prep, or repeated buyer walkthroughs",
   "City-specific next steps for Kansas City, Olathe, Overland Park, and Shawnee",
 ];
+
+const fastClosingFactors = [
+  {
+    title: "Title and seller authority",
+    body: "A fast closing depends on who can legally sign, whether the property is in an estate, trust, divorce, company, or multiple-owner situation, and whether title can confirm that authority quickly.",
+  },
+  {
+    title: "Payoffs, liens, taxes, and balances",
+    body: "Mortgage payoffs, back taxes, HOA balances, city liens, judgments, and utility issues can usually be handled, but they need to be found early so the settlement statement is accurate.",
+  },
+  {
+    title: "Access, occupancy, and possession",
+    body: "Vacant houses, tenant-occupied rentals, family members living in the home, contents left behind, or a seller who needs extra move-out time all affect how fast a clean closing can happen.",
+  },
+  {
+    title: "Condition and repair risk",
+    body: "Roof, foundation, sewer, HVAC, electrical, plumbing, fire, water, code, or clean-out issues do not automatically stop a direct sale. They just need to be priced into the written offer up front.",
+  },
+];
+
+const speedReasonRoutes = [
+  {
+    title: "Behind on payments",
+    href: "/solutions/behind-on-payments/",
+    body: "Compare a fast sale, payoff timing, credit protection, and whether a flexible option could help before payments get further behind.",
+  },
+  {
+    title: "Back taxes or tax lien",
+    href: "/resources/sell-house-with-back-taxes-kansas-city/",
+    body: "Understand how county balances, penalties, and tax liens can be paid through closing when there is enough equity.",
+  },
+  {
+    title: "Inherited or probate house",
+    href: "/solutions/probate-house/",
+    body: "Get a written as-is option when heirs, court timing, clean-out, repairs, or family decision-making are slowing everything down.",
+  },
+  {
+    title: "Vacant house",
+    href: "/solutions/vacant-house/",
+    body: "Stop guessing how long to carry utilities, insurance, lawn care, security risk, and repairs while the house sits empty.",
+  },
+  {
+    title: "Major repairs or code issues",
+    href: "/solutions/needs-repairs/",
+    body: "Compare a direct as-is sale before spending on roof, foundation, HVAC, sewer, electrical, plumbing, clean-out, or city-code work.",
+  },
+  {
+    title: "Tenant-occupied rental",
+    href: "/solutions/tenant-occupied/",
+    body: "Review a sale path that accounts for lease timing, access, deposits, tenant communication, and avoiding repeated public showings.",
+  },
+  {
+    title: "Little equity or payment pressure",
+    href: "/resources/sell-house-with-little-equity-kansas-city/",
+    body: "Compare cash, listing math, payoff pressure, and whether a payment-takeover review could protect credit or create a cleaner exit.",
+  },
+  {
+    title: "Need to move quickly",
+    href: "/solutions/relocating/",
+    body: "Coordinate a closing date around job transfer timing, school schedules, remote signing, possession needs, and the next place you are moving to.",
+  },
+];
+
+const twoWeekCloseChecks = [
+  "All owners, heirs, trustees, spouses, or authorized signers are known and available",
+  "Mortgage payoff, tax balances, liens, and HOA items can be ordered early",
+  "The house can be accessed for a quick walkthrough, photos, or video review",
+  "Tenant, seller, or occupant possession timing is clear before the title company prepares closing",
+  "The buyer has proof of funds and is not waiting on retail financing, appraisal, or inspection repair negotiations",
+  "The seller understands the tradeoff between speed, certainty, and possibly listing for a higher retail price",
+];
+
+const directBuyerTrustChecks = [
+  {
+    title: "Ask who is actually buying",
+    body: "A direct buyer should be clear about whether they plan to close, assign the contract, or bring in another end buyer before closing.",
+  },
+  {
+    title: "Ask what title company will handle the file",
+    body: "The title company should explain payoffs, liens, taxes, seller documents, wiring, and settlement numbers before closing.",
+  },
+  {
+    title: "Ask what repairs are assumed",
+    body: "A serious cash offer should spell out condition assumptions so you do not get surprised by a lower number after signing.",
+  },
+  {
+    title: "Ask what happens if listing is better",
+    body: "If the property is updated, easy to show, and time is not a problem, a trustworthy buyer should be willing to say that listing may net more.",
+  },
+];
 const comparisonRows = [
   {
     path: "Direct cash sale",
-    bestFor: "Speed, repairs, privacy, tenants, vacant houses, inherited homes, or uncertain timing",
-    tradeoff: "The offer may be lower than a polished retail listing, but it removes repairs, showings, commissions, and financing risk.",
+    bestFor:
+      "Speed, repairs, privacy, tenants, vacant houses, inherited homes, or uncertain timing",
+    tradeoff:
+      "The offer may be lower than a polished retail listing, but it removes repairs, showings, commissions, and financing risk.",
   },
   {
     path: "Traditional listing",
-    bestFor: "Updated homes, flexible timelines, easy showings, and sellers who can wait for the strongest retail buyer",
-    tradeoff: "You may need repairs, cleaning, buyer inspections, concessions, appraisal timing, and months of carrying costs.",
+    bestFor:
+      "Updated homes, flexible timelines, easy showings, and sellers who can wait for the strongest retail buyer",
+    tradeoff:
+      "You may need repairs, cleaning, buyer inspections, concessions, appraisal timing, and months of carrying costs.",
   },
   {
     path: "Flexible option",
-    bestFor: "Sellers who want to compare cash with terms that may protect equity or solve a payment/timing issue",
-    tradeoff: "The paperwork and risk profile need to be reviewed carefully with your own advisors before signing.",
+    bestFor:
+      "Sellers who want to compare cash with terms that may protect equity or solve a payment/timing issue",
+    tradeoff:
+      "The paperwork and risk profile need to be reviewed carefully with your own advisors before signing.",
   },
 ];
 
@@ -236,33 +327,40 @@ const faqs = [
       "Yes. We review Kansas City metro houses as-is, including dated interiors, roof issues, foundation concerns, clean-out needs, tenants, and other items that can slow down a traditional listing.",
   },
   {
-    question: "Do you make fast cash offers in Olathe, Overland Park, Shawnee, and Independence?",
+    question:
+      "Do you make fast cash offers in Olathe, Overland Park, Shawnee, and Independence?",
     answer:
       "Yes. We review homes across the Kansas City metro, including Olathe, Overland Park, Shawnee, Independence, Kansas City, KS, Lee's Summit, Lenexa, and nearby communities.",
   },
   {
     question: "What's the fastest closing timeline possible?",
-    answer: "Cash offers can close in as little as 10-14 days when title work is clear. We prioritize your timeline and can expedite every step of the process.",
+    answer:
+      "Cash offers can close in as little as 10-14 days when title work is clear. We prioritize your timeline and can expedite every step of the process.",
   },
   {
     question: "Do I need to make any repairs first?",
-    answer: "No. We buy houses as-is in any condition. You can avoid contractors, inspections, and repair costs entirely. Visit our <a href=\"/solutions/vacant-house/\" class=\"text-secondary underline\">vacant property guide</a> for common issues we handle.",
+    answer:
+      'No. We buy houses as-is in any condition. You can avoid contractors, inspections, and repair costs entirely. Visit our <a href="/solutions/vacant-house/" class="text-secondary underline">vacant property guide</a> for common issues we handle.',
   },
   {
     question: "Do you charge commissions or fees?",
-    answer: "No. We cover standard closing costs and don't charge commissions. The cash offer amount is what you receive at closing, minus any required mortgage payoffs.",
+    answer:
+      "No. We cover standard closing costs and don't charge commissions. The cash offer amount is what you receive at closing, minus any required mortgage payoffs.",
   },
   {
     question: "Will you buy a house with tenants?",
-    answer: "Yes. We can coordinate with existing tenants or handle lease termination. Many landlords choose this option to avoid ongoing management responsibilities.",
+    answer:
+      "Yes. We can coordinate with existing tenants or handle lease termination. Many landlords choose this option to avoid ongoing management responsibilities.",
   },
   {
     question: "What if I'm behind on payments or have liens?",
-    answer: "We work with title companies to resolve mortgages, tax liens, and other debts at closing. These are paid from proceeds, and we can coordinate with creditors when needed.",
+    answer:
+      "We work with title companies to resolve mortgages, tax liens, and other debts at closing. These are paid from proceeds, and we can coordinate with creditors when needed.",
   },
   {
     question: "Is this better than listing with an agent?",
-    answer: "For speed and certainty, often yes. Traditional listings can take months and require repairs, showings, and negotiations. Cash offers provide clear closing dates and as-is terms.",
+    answer:
+      "For speed and certainty, often yes. Traditional listings can take months and require repairs, showings, and negotiations. Cash offers provide clear closing dates and as-is terms.",
   },
 ];
 
@@ -275,11 +373,19 @@ const jsonLd = [
       "As-is cash and flexible home buying options for Kansas City metro sellers comparing cash home buyers, repairs, title timing, and no-showing sale paths.",
     path: "/solutions/sell-house-fast/",
   }),
-  buildFaqPageJsonLd(faqs.map((faq) => ({ question: faq.question.replace(/<[^>]+>/g, ""), answer: faq.answer.replace(/<[^>]+>/g, "") }))),
+  buildFaqPageJsonLd(
+    faqs.map((faq) => ({
+      question: faq.question.replace(/<[^>]+>/g, ""),
+      answer: faq.answer.replace(/<[^>]+>/g, ""),
+    })),
+  ),
   buildBreadcrumbList([
     { name: "Home", item: "/" },
     { name: "Solutions", item: "/solutions/" },
-    { name: "Sell Your House Fast in Kansas City", item: "/solutions/sell-house-fast/" },
+    {
+      name: "Sell Your House Fast in Kansas City",
+      item: "/solutions/sell-house-fast/",
+    },
   ]),
 ];
 ---
@@ -299,20 +405,34 @@ const jsonLd = [
           <span class="v3-pill">Buying direct since {SITE.buyerSince}</span>
         </div>
         <div class="space-y-4">
-          <p class="text-sm font-black uppercase tracking-[0.1em] text-accent">Sell fast without repairs</p>
+          <p class="text-sm font-black uppercase tracking-[0.1em] text-accent">
+            Sell fast without repairs
+          </p>
           <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
             Sell My House Fast Kansas City MO With a Local Cash Buyer
           </h1>
           <p class="max-w-3xl text-lg leading-8 text-white/82">
-            A fast sale still needs clear title timing, repair assumptions, closing costs, occupancy, and net numbers. ACE helps Kansas City MO sellers compare an as-is cash offer against listing without turning the house into another project.
+            A fast sale still needs clear title timing, repair assumptions,
+            closing costs, occupancy, and net numbers. ACE helps Kansas City MO
+            sellers compare an as-is cash offer against listing without turning
+            the house into another project.
           </p>
           <p class="max-w-3xl text-sm leading-6 text-white/70">
-            Serving Kansas City, Olathe, Overland Park, Shawnee, Independence, Lee's Summit, and the surrounding metro.
+            Serving Kansas City, Olathe, Overland Park, Shawnee, Independence,
+            Lee's Summit, and the surrounding metro.
           </p>
         </div>
         <div class="flex flex-wrap gap-3">
-          <a href="#sell-house-fast-offer-form" class="btn bg-white text-primary hover:bg-white/90">Get a fast local offer</a>
-          <a href={`tel:${SITE.phoneTel}`} class="btn border border-white/40 text-white hover:bg-white/10" data-phone-link="sell_fast_hero">
+          <a
+            href="#sell-house-fast-offer-form"
+            class="btn bg-white text-primary hover:bg-white/90"
+            >Get a fast local offer</a
+          >
+          <a
+            href={`tel:${SITE.phoneTel}`}
+            class="btn border border-white/40 text-white hover:bg-white/10"
+            data-phone-link="sell_fast_hero"
+          >
             Call {SITE.phoneDisplay}
           </a>
         </div>
@@ -323,85 +443,265 @@ const jsonLd = [
   <section class="section-alt rounded-3xl px-5 py-8 sm:px-8">
     <div class="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
       <div class="space-y-3">
-        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Quick answer</p>
-        <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for a fast Kansas City offer before fixing anything.</h2>
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+          Quick answer
+        </p>
+        <h2 class="text-3xl font-semibold text-primary">
+          Yes, you can ask for a fast Kansas City offer before fixing anything.
+        </h2>
         <p class="text-muted">
-          The first step is not a listing agreement or a repair bid. It is a plain comparison: what the house could sell for as-is, what waiting may cost, and what timeline actually solves the problem.
+          The first step is not a listing agreement or a repair bid. It is a
+          plain comparison: what the house could sell for as-is, what waiting
+          may cost, and what timeline actually solves the problem.
         </p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
-        {fastPathProof.map((item) => (
-          <article class="rounded-xl border border-border/80 bg-white p-4">
-            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-            <p class="mt-2 text-sm text-muted">{item.body}</p>
-          </article>
-        ))}
+        {
+          fastPathProof.map((item) => (
+            <article class="rounded-xl border border-border/80 bg-white p-4">
+              <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+              <p class="mt-2 text-sm text-muted">{item.body}</p>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <section class="section space-y-5">
     <div class="max-w-4xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Search intent match</p>
-      <h2 class="text-3xl font-semibold text-primary">Sell Your House Fast in Kansas City: What Actually Matters</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Search intent match
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Sell Your House Fast in Kansas City: What Actually Matters
+      </h2>
       <p class="text-muted">
-        Most sellers searching for "sell my house fast Kansas City" or "sell house fast Kansas City MO" are not looking for a slogan. They need to know whether someone can buy the house as-is, handle title and payoff details, respect the timeline, and explain the tradeoff against listing.
+        Most sellers searching for "sell my house fast Kansas City" or "sell
+        house fast Kansas City MO" are not looking for a slogan. They need to
+        know whether someone can buy the house as-is, handle title and payoff
+        details, respect the timeline, and explain the tradeoff against listing.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {exactMatchTrustPoints.map((item) => (
-        <article class="card h-full">
-          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        exactMatchTrustPoints.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
-
   <section class="section section-alt space-y-5">
     <div class="max-w-4xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Kansas City metro search paths</p>
-      <h2 class="text-3xl font-semibold text-primary">Local fast-sale pages for Kansas City metro sellers</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Kansas City metro search paths
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Local fast-sale pages for Kansas City metro sellers
+      </h2>
       <p class="text-muted">
-        Sellers search by city when the pressure is local: repairs, HOA timing, taxes, title work, school calendars, and neighborhood-specific buyer demand. These local pages give each seller a closer answer based on the city, county, and closing details that matter most.
+        Sellers search by city when the pressure is local: repairs, HOA timing,
+        taxes, title work, school calendars, and neighborhood-specific buyer
+        demand. These local pages give each seller a closer answer based on the
+        city, county, and closing details that matter most.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-2">
-      {priorityMetroTargets.map((target) => (
-        <a href={target.href} class="card h-full transition hover:-translate-y-0.5 hover:border-secondary/50 hover:shadow-md">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">{target.city}</p>
-          <h3 class="mt-2 text-xl font-semibold text-primary">{target.phrase}</h3>
-          <p class="mt-2 text-sm text-muted">{target.body}</p>
-          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Open local page -></span>
-        </a>
-      ))}
+      {
+        priorityMetroTargets.map((target) => (
+          <a
+            href={target.href}
+            class="card h-full transition hover:-translate-y-0.5 hover:border-secondary/50 hover:shadow-md"
+          >
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              {target.city}
+            </p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">
+              {target.phrase}
+            </h3>
+            <p class="mt-2 text-sm text-muted">{target.body}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-secondary">
+              Open local page &rarr;
+            </span>
+          </a>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-5">
     <div class="max-w-4xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Urgent seller situations</p>
-      <h2 class="text-3xl font-semibold text-primary">Kansas City sellers usually need more than speed. They need a buyer who can solve the actual problem.</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Urgent seller situations
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Kansas City sellers usually need more than speed. They need a buyer who
+        can solve the actual problem.
+      </h2>
       <p class="text-muted">
-        A fast closing only helps if the buyer can handle the reason you need speed in the first place. We look at the property, title, payoff pressure, repair risk, occupancy, and timing together so the offer is tied to a real closing path.
+        A fast closing only helps if the buyer can handle the reason you need
+        speed in the first place. We look at the property, title, payoff
+        pressure, repair risk, occupancy, and timing together so the offer is
+        tied to a real closing path.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-2">
-      {kcFastSaleSituations.map((item) => (
-        <article class="card h-full">
-          <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        kcFastSaleSituations.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
     <div class="card bg-soft/70">
-      <h3 class="text-xl font-semibold text-primary">What you should expect before choosing a fast-sale buyer</h3>
+      <h3 class="text-xl font-semibold text-primary">
+        What you should expect before choosing a fast-sale buyer
+      </h3>
       <div class="mt-4 grid gap-3 md:grid-cols-2">
-        {kcFastSaleProofPoints.map((point) => (
-          <div class="rounded-md border border-border bg-white p-3 text-sm text-primary">{point}</div>
-        ))}
+        {
+          kcFastSaleProofPoints.map((point) => (
+            <div class="rounded-md border border-border bg-white p-3 text-sm text-primary">
+              {point}
+            </div>
+          ))
+        }
       </div>
+    </div>
+  </section>
+  <section class="section section-alt space-y-5">
+    <div class="max-w-4xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        What fast really depends on
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        A fast Kansas City house sale is mostly about title, payoffs, access,
+        and a buyer who can actually close.
+      </h2>
+      <p class="text-muted">
+        The headline can say "close fast," but the closing table cares about
+        documents. We review the details that usually control the timeline so
+        the offer is tied to a real path, not just a promise.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        fastClosingFactors.map((item) => (
+          <article class="card bg-white h-full">
+            <h3 class="text-xl font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section space-y-5">
+    <div class="max-w-4xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Choose your reason for speed
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The best fast-sale plan depends on why you need to sell quickly.
+      </h2>
+      <p class="text-muted">
+        A seller behind on payments needs a different conversation than a seller
+        with an inherited house, a vacant house, a tenant problem, or major
+        repairs. Start with the issue that is creating pressure, then compare
+        cash, listing, and flexible options.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {
+        speedReasonRoutes.map((route) => (
+          <a
+            href={route.href}
+            class="card block h-full transition hover:-translate-y-0.5 hover:border-secondary/60 hover:shadow-md"
+          >
+            <h3 class="text-lg font-semibold text-primary">{route.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{route.body}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-secondary">
+              Review this path &rarr;
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <article class="card space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Two-week close realism
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        A two-week closing can happen, but only when the file is ready.
+      </h2>
+      <p class="text-muted">
+        We would rather tell you the real timeline than promise a magic date. If
+        the house has clear title, known payoffs, available signers, and a
+        realistic possession plan, a fast cash closing becomes much more
+        realistic.
+      </p>
+      <a
+        href="/resources/cash-home-buyers-close-in-two-weeks-kansas-city/"
+        class="btn btn-ghost text-base">Read the two-week closing guide</a
+      >
+    </article>
+    <article class="card space-y-4">
+      <h3 class="text-xl font-semibold text-primary">
+        What helps a fast closing move cleanly
+      </h3>
+      <ul class="grid gap-3 text-sm text-primary md:grid-cols-2">
+        {
+          twoWeekCloseChecks.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-4xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Direct buyer trust check
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Before you choose any Kansas City cash buyer, ask these questions.
+      </h2>
+      <p class="text-muted">
+        Speed matters, but trust matters more. A direct buyer should be willing
+        to explain who is closing, what title company is involved, what repairs
+        are assumed, and whether a traditional listing may be better for you.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {
+        directBuyerTrustChecks.map((item) => (
+          <article class="card bg-white h-full">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="/direct-buyer-vs-wholesaler/" class="btn btn-ghost text-base">
+        Direct buyer vs wholesaler
+      </a>
+      <a
+        href="/resources/investor-offer-vs-mls-net-sheet-kansas-city/"
+        class="btn btn-outline text-base">Investor offer vs MLS net sheet</a
+      >
     </div>
   </section>
   <HighIntentOfferBlock
@@ -421,99 +721,147 @@ const jsonLd = [
 
   <section class="section space-y-5">
     <div class="space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Compare before you decide</p>
-      <h2 class="text-3xl font-semibold text-primary">The fastest option is not always the best option</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Compare before you decide
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The fastest option is not always the best option
+      </h2>
       <p class="max-w-3xl text-muted">
-        A strong cash buyer should help you compare the direct-sale path against the open market. These are the three lanes we walk through with Kansas City sellers before they choose what fits.
+        A strong cash buyer should help you compare the direct-sale path against
+        the open market. These are the three lanes we walk through with Kansas
+        City sellers before they choose what fits.
       </p>
     </div>
     <div class="grid gap-4 lg:grid-cols-3">
-      {comparisonRows.map((row) => (
-        <article class="card h-full space-y-3">
-          <h3 class="text-xl font-semibold text-primary">{row.path}</h3>
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Best for</p>
-          <p class="text-sm text-primary">{row.bestFor}</p>
-          <p class="text-sm text-muted">{row.tradeoff}</p>
-        </article>
-      ))}
+      {
+        comparisonRows.map((row) => (
+          <article class="card h-full space-y-3">
+            <h3 class="text-xl font-semibold text-primary">{row.path}</h3>
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Best for
+            </p>
+            <p class="text-sm text-primary">{row.bestFor}</p>
+            <p class="text-sm text-muted">{row.tradeoff}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-[0.85fr_1.15fr]">
     <article class="card space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Fast-sale goals</p>
-      <h2 class="text-2xl font-semibold text-primary">Common Kansas City seller goals we can help with</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Fast-sale goals
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common Kansas City seller goals we can help with
+      </h2>
       <ul class="space-y-3 text-sm text-primary">
-        {searchIntentPoints.map((point) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{point}</span>
-          </li>
-        ))}
+        {
+          searchIntentPoints.map((point) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{point}</span>
+            </li>
+          ))
+        }
       </ul>
     </article>
     <article class="card space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Metro coverage</p>
-      <h2 class="text-2xl font-semibold text-primary">Fast house buyers across KC, Missouri and Kansas</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Metro coverage
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        Fast house buyers across KC, Missouri and Kansas
+      </h2>
       <p class="text-muted">
-        These local pages give homeowners a clearer path based on where the house sits, what county title work applies, and what kind of closing timeline is realistic.
+        These local pages give homeowners a clearer path based on where the
+        house sits, what county title work applies, and what kind of closing
+        timeline is realistic.
       </p>
       <div class="grid gap-3 sm:grid-cols-2">
-        {fastSaleCityLinks.map((city) => (
-          <a href={city.href} class="rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary/60 hover:bg-white">
-            <span class="text-sm font-semibold text-primary">Sell fast in {city.label}</span>
-            <span class="mt-1 block text-xs text-muted">{city.body}</span>
-          </a>
-        ))}
+        {
+          fastSaleCityLinks.map((city) => (
+            <a
+              href={city.href}
+              class="rounded-md border border-border bg-soft/60 p-3 transition hover:border-secondary/60 hover:bg-white"
+            >
+              <span class="text-sm font-semibold text-primary">
+                Sell fast in {city.label}
+              </span>
+              <span class="mt-1 block text-xs text-muted">{city.body}</span>
+            </a>
+          ))
+        }
       </div>
     </article>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Why homeowners choose fast sales</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why homeowners choose fast sales
+      </h2>
       <p class="text-muted">
-        Most homeowners who need speed are dealing with life changes: relocations, inherited properties, or situations requiring quick decisions. We eliminate traditional selling barriers so you can move forward with certainty.
+        Most homeowners who need speed are dealing with life changes:
+        relocations, inherited properties, or situations requiring quick
+        decisions. We eliminate traditional selling barriers so you can move
+        forward with certainty.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Speed without sacrificing value</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Speed without sacrificing value
+      </h2>
       <p class="text-muted">
-        Fast doesn't mean low offers. We provide fair cash offers based on current market conditions, eliminating months of holding costs, commissions, and repair expenses that eat into traditional sale profits.
+        Fast doesn't mean low offers. We provide fair cash offers based on
+        current market conditions, eliminating months of holding costs,
+        commissions, and repair expenses that eat into traditional sale profits.
       </p>
     </article>
   </section>
 
   <section class="section section-alt">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Why some sellers need speed and certainty</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why some sellers need speed and certainty
+      </h2>
       <div class="mt-4 grid gap-6 md:grid-cols-2">
         <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">Common Speed Triggers</h3>
+          <h3 class="text-lg font-semibold text-primary mb-2">
+            Common Speed Triggers
+          </h3>
           <ul class="space-y-2 text-sm text-muted">
-            {speedReasons.map((reason) => (
-              <li class="flex items-start gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
-                <span>{reason}</span>
-              </li>
-            ))}
+            {
+              speedReasons.map((reason) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-secondary" />
+                  <span>{reason}</span>
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-primary mb-2">Fast Sale Benefits</h3>
+          <h3 class="text-lg font-semibold text-primary mb-2">
+            Fast Sale Benefits
+          </h3>
           <ul class="space-y-2 text-sm text-muted">
-            {[
-              "Guaranteed closing dates",
-              "No repairs or renovations",
-              "Skip showings and open houses",
-              "Avoid listing uncertainties",
-              "Simplified moving logistics",
-            ].map((benefit) => (
-              <li class="flex items-start gap-2">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-secondary"></span>
-                <span>{benefit}</span>
-              </li>
-            ))}
+            {
+              [
+                "Guaranteed closing dates",
+                "No repairs or renovations",
+                "Skip showings and open houses",
+                "Avoid listing uncertainties",
+                "Simplified moving logistics",
+              ].map((benefit) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-secondary" />
+                  <span>{benefit}</span>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
@@ -522,96 +870,181 @@ const jsonLd = [
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Common fast-sale situations</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Common fast-sale situations
+      </h2>
       <ul class="mt-4 space-y-3 text-sm text-primary">
-        {situations.map((situation) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{situation}</span>
-          </li>
-        ))}
+        {
+          situations.map((situation) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{situation}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
 
   <section class="section space-y-6">
     <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How we help homeowners sell fast</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        How we help homeowners sell fast
+      </h2>
       <p class="text-muted">
-        From first call to closing, we focus on speed and simplicity. We evaluate properties as-is, provide clear cash offers, and coordinate closing dates that work with your timeline requirements.
+        From first call to closing, we focus on speed and simplicity. We
+        evaluate properties as-is, provide clear cash offers, and coordinate
+        closing dates that work with your timeline requirements.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </div>
+        ))
+      }
     </div>
   </section>
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Kansas City fast-sale market</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Kansas City fast-sale market
+      </h2>
       <p class="text-muted">
-        Kansas City's real estate market moves quickly, but traditional listings still take months. We understand local market conditions across Missouri and Kansas, from <a href="/areas/kansas-city-mo/" class="text-secondary underline">Kansas City proper</a> to <a href="/areas/overland-park-ks/" class="text-secondary underline">Overland Park</a>, <a href="/areas/olathe-ks/" class="text-secondary underline">Olathe</a>, and surrounding suburbs.
+        Kansas City's real estate market moves quickly, but traditional listings
+        still take months. We understand local market conditions across Missouri
+        and Kansas, from <a
+          href="/areas/kansas-city-mo/"
+          class="text-secondary underline">Kansas City proper</a
+        > to <a href="/areas/overland-park-ks/" class="text-secondary underline"
+          >Overland Park</a
+        >, <a href="/areas/olathe-ks/" class="text-secondary underline"
+          >Olathe</a
+        >, and surrounding suburbs.
       </p>
-        <p class="text-muted">
-        Whether you're selling in <a href="/areas/independence-mo/" class="text-secondary underline">Independence</a>, <a href="/areas/lees-summit-mo/" class="text-secondary underline">Lee's Summit</a>, <a href="/areas/64131/" class="text-secondary underline">64131 near Red Bridge and Minor Park</a>, or <a href="/areas/66109/" class="text-secondary underline">66109 in western Kansas City, KS</a>, we provide offers that reflect current market conditions while reducing traditional selling delays.
+      <p class="text-muted">
+        Whether you're selling in <a
+          href="/areas/independence-mo/"
+          class="text-secondary underline">Independence</a
+        >, <a href="/areas/lees-summit-mo/" class="text-secondary underline"
+          >Lee's Summit</a
+        >, <a href="/areas/64131/" class="text-secondary underline"
+          >64131 near Red Bridge and Minor Park</a
+        >, or <a href="/areas/66109/" class="text-secondary underline"
+          >66109 in western Kansas City, KS</a
+        >, we provide offers that reflect current market conditions while
+        reducing traditional selling delays.
       </p>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Find your specific solution</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Find your specific solution
+      </h2>
       <p class="text-muted">
-        Is your fast sale related to a job transfer? Visit our <a href="/solutions/relocating/" class="text-secondary underline">job transfer guide</a> for employer coordination, or check our <a href="/solutions/vacant-house/" class="text-secondary underline">vacant property solutions</a> if your house will sit empty.
+        Is your fast sale related to a job transfer? Visit our <a
+          href="/solutions/relocating/"
+          class="text-secondary underline">job transfer guide</a
+        > for employer coordination, or check our <a
+          href="/solutions/vacant-house/"
+          class="text-secondary underline">vacant property solutions</a
+        > if your house will sit empty.
       </p>
       <p class="text-muted">
-        Need more detail before asking for an offer? Read the <a href="/resources/sell-house-fast-kansas-city-guide/" class="text-secondary underline">Kansas City fast-sale guide</a> or the <a href="/resources/cash-home-buyers-close-in-two-weeks-kansas-city/" class="text-secondary underline">two-week cash closing guide</a>.
+        Need more detail before asking for an offer? Read the <a
+          href="/resources/sell-house-fast-kansas-city-guide/"
+          class="text-secondary underline">Kansas City fast-sale guide</a
+        > or the <a
+          href="/resources/cash-home-buyers-close-in-two-weeks-kansas-city/"
+          class="text-secondary underline">two-week cash closing guide</a
+        >.
       </p>
       <p class="text-muted">
-        Selling in Olathe, Overland Park, Shawnee, or Lenexa? The <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash home buyers guide</a> explains county-specific HOA, title, and timing questions.      </p>
-      <p class="text-muted">
-        Selling in Kansas City, Independence, Lee's Summit, Blue Springs, Raytown, or Grandview? The <a href="/resources/jackson-county-cash-home-buyers/" class="text-secondary underline">Jackson County cash home buyers guide</a> connects fast-sale timing with repairs, taxes, title, tenants, and as-is offer decisions.
+        Selling in Olathe, Overland Park, Shawnee, or Lenexa? The <a
+          href="/resources/johnson-county-cash-home-buyers/"
+          class="text-secondary underline"
+          >Johnson County cash home buyers guide</a
+        > explains county-specific HOA, title, and timing questions.
       </p>
       <p class="text-muted">
-        Dealing with estate or court requirements? Explore our <a href="/solutions/probate-house/" class="text-secondary underline">probate court process</a> for legal coordination, or review <a href="/areas/" class="text-secondary underline">Kansas City area market insights</a> for location-specific considerations.
+        Selling in Kansas City, Independence, Lee's Summit, Blue Springs,
+        Raytown, or Grandview? The <a
+          href="/resources/jackson-county-cash-home-buyers/"
+          class="text-secondary underline"
+          >Jackson County cash home buyers guide</a
+        > connects fast-sale timing with repairs, taxes, title, tenants, and as-is
+        offer decisions.
       </p>
       <p class="text-muted">
-        Ready for a fast, certain sale? <a href="/contact/" class="text-secondary underline">Contact us</a> for a cash offer and closing timeline that eliminates traditional selling delays.
+        Dealing with estate or court requirements? Explore our <a
+          href="/solutions/probate-house/"
+          class="text-secondary underline">probate court process</a
+        > for legal coordination, or review <a
+          href="/areas/"
+          class="text-secondary underline">Kansas City area market insights</a
+        > for location-specific considerations.
+      </p>
+      <p class="text-muted">
+        Ready for a fast, certain sale? <a
+          href="/contact/"
+          class="text-secondary underline">Contact us</a
+        > for a cash offer and closing timeline that eliminates traditional selling
+        delays.
       </p>
     </article>
   </section>
 
   <section class="section space-y-5">
     <div class="space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Fast-sale resources</p>
-      <h2 class="text-2xl font-semibold text-primary">Helpful guides before you request an offer</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Fast-sale resources
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        Helpful guides before you request an offer
+      </h2>
       <p class="max-w-3xl text-muted">
-        These support pages answer the questions sellers usually have right before they ask for a cash offer: timing, title, repairs, vacant-house costs, and whether listing might still be better.
+        These support pages answer the questions sellers usually have right
+        before they ask for a cash offer: timing, title, repairs, vacant-house
+        costs, and whether listing might still be better.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-2">
-      {relatedGuides.map((guide) => (
-        <a href={guide.href} class="card h-full transition hover:-translate-y-1 hover:border-secondary/60">
-          <h3 class="text-xl font-semibold text-primary">{guide.title}</h3>
-          <p class="mt-2 text-sm text-muted">{guide.body}</p>
-          <span class="mt-4 inline-flex text-sm font-semibold text-secondary">Read guide</span>
-        </a>
-      ))}
+      {
+        relatedGuides.map((guide) => (
+          <a
+            href={guide.href}
+            class="card h-full transition hover:-translate-y-1 hover:border-secondary/60"
+          >
+            <h3 class="text-xl font-semibold text-primary">{guide.title}</h3>
+            <p class="mt-2 text-sm text-muted">{guide.body}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-secondary">
+              Read guide
+            </span>
+          </a>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Sell House Fast FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted" set:html={faq.answer}></p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted" set:html={faq.answer} />
+          </details>
+        ))
+      }
     </div>
   </section>
 
@@ -622,8 +1055,11 @@ const jsonLd = [
   />
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Get fast cash offer</a>
+    <a href="/get-offer/" class="btn btn-primary text-base"
+      >Get fast cash offer</a
+    >
     <a href="/contact/" class="btn btn-ghost text-base">Talk with our team</a>
-    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a>
+    <a href="/solutions/" class="btn btn-outline text-base">See all solutions</a
+    >
   </section>
 </Layout>
