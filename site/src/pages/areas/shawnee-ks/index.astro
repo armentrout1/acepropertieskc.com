@@ -1,63 +1,66 @@
----
+﻿---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
-import { buildBreadcrumbList, webSiteJsonLd, localBusinessJsonLd, faqJsonLd } from "../../../lib/seo";
+import {
+  buildBreadcrumbList,
+  webSiteJsonLd,
+  localBusinessJsonLd,
+  faqJsonLd,
+} from "../../../lib/seo";
 
-const neighborhoods = [
+const neighborhoodPatterns = [
   {
-    title: "Downtown Shawnee",
-    body: "Historic district with renovated homes and new mixed-use developments. Popular with families who appreciate small-town charm with modern amenities.",
+    title: "Downtown Shawnee and Johnson Drive homes",
+    body: "Older homes near the historic core can have strong location appeal but still need roof, window, HVAC, electrical, foundation, or clean-out work before a normal listing feels realistic.",
   },
   {
-    title: "Monticello",
-    body: "Established neighborhoods with mature trees and larger lots. Popular with long-time owners who have 15-20 years of equity and need major home updates.",
+    title: "Monticello and western Shawnee equity",
+    body: "Long-time owners in western Shawnee may have equity but not the time, energy, or budget to prepare the house for retail buyers, inspection repairs, and repeated showings.",
   },
   {
-    title: "Woodland Hills",
-    body: "Golf course community with newer subdivisions and established properties. Popular with downsizing families and those needing quick relocations.",
+    title: "Shawnee Mission Parkway and I-435 access",
+    body: "Homes near commuter routes, parks, and established subdivisions can attract buyers, but timing still matters when the seller is relocating, settling an estate, or carrying a vacant property.",
   },
 ];
 
 const situations = [
-  "Inherited homes that have been in Shawnee families for generations",
-  "Homes needing major repairs - roofs, foundations, or outdated systems",
-  "Divorce settlements requiring neutral, written agreements",
-  "Corporate relocations to Kansas City needing quick closings",
-  "Senior downsizing to retirement communities or assisted living",
+  "Inherited Shawnee houses where heirs need one clear written option",
+  "As-is homes with roof, foundation, HVAC, window, or cosmetic repair needs",
+  "Vacant properties where utilities, insurance, lawn care, or break-in risk are adding pressure",
+  "Rental houses where tenant access, leases, deposits, or turnover create friction",
+  "Divorce, relocation, or family timing where privacy and certainty matter",
+  "Behind-on-payments, HOA, lien, or payoff questions that need title review before closing",
 ];
 
 const shawneeFastSaleProof = [
   {
-    title: "No repairs before the walkthrough",
-    body:
-      "Older Shawnee homes can need roofs, foundations, windows, HVAC, or cosmetic work. We review the property as-is so you do not have to spend money first.",
+    title: "No repair bid required first",
+    body: "We review the Shawnee house as-is, including deferred maintenance, contents left behind, outdated systems, and repairs that would normally slow down a public listing.",
   },
   {
-    title: "A written Shawnee net comparison",
-    body:
-      "See how a direct offer compares with listing costs, commissions, repairs, concessions, and another month of holding the house.",
+    title: "A written net comparison",
+    body: "You see the offer, estimated closing costs, repair assumptions, and timing so you can compare a direct sale against listing with an agent.",
   },
   {
-    title: "Local Johnson County title timing",
-    body:
-      "We plan around payoff statements, HOA items, estate paperwork, and family schedules so the closing path is clear before you decide.",
+    title: "Johnson County timing up front",
+    body: "Payoffs, HOA items, title work, family signatures, possession timing, and seller authority are discussed before you decide, not at the last minute.",
   },
 ];
 
 const steps = [
   {
-    title: "Share your Shawnee story",
-    body: "Tell us about your Shawnee property, any repair concerns, and timing pressures from inheritance, divorce, or relocation.",
+    title: "Tell us what is happening",
+    body: "Share the property address, repair concerns, payoff pressure, estate details, tenant situation, or timeline you are trying to solve.",
   },
   {
-    title: "Property walkthrough",
-    body: "We schedule a walkthrough (or video) to note repairs, access issues, and any Johnson County-specific requirements.",
+    title: "Walk the property as-is",
+    body: "We can review the house in person or by video, including contents, access, repairs, utilities, and any Shawnee or Johnson County details that affect timing.",
   },
   {
-    title: "Choose your solution",
-    body: "Receive a written comparison of a straightforward cash offer and any flexible options that work with your timeline and financial goals.",
+    title: "Compare the written options",
+    body: "You receive a direct offer and a plain explanation of what stays with us, what closing may look like, and whether listing may produce a better result.",
   },
 ];
 
@@ -66,65 +69,101 @@ const commonSellerGoals = [
   "Talk with we-buy-houses Shawnee buyers before listing",
   "Compare cash home buyers in Shawnee with agent fees and repair bids",
   "Sell my house as-is in Shawnee before spending another month on upkeep",
-  "Compare a cash offer with agent fees, repair costs, and holding time",
-  "Handle inherited, vacant, divorce, relocation, or major-repair situations",
+  "Sell an inherited Shawnee property without every heir managing repairs",
+  "Get a private offer before public photos, showings, and buyer inspection requests",
 ];
 
 const shawneeSearchSignals = [
   {
     title: "We buy houses Shawnee KS",
-    body:
-      "ACE reviews Shawnee houses directly, including dated interiors, major repairs, vacant homes, inherited properties, and timelines that do not fit a public listing.",
+    body: "ACE reviews Shawnee houses directly, including dated interiors, major repairs, vacant homes, inherited properties, and timelines that do not fit a public listing.",
   },
   {
-    title: "Sell my house Shawnee KS without showings",
-    body:
-      "You can compare a direct Shawnee offer before cleaning everything out, cutting repair checks, scheduling open houses, or waiting for buyer financing.",
+    title: "Sell my house fast Shawnee KS",
+    body: "A fast Shawnee sale usually comes down to title, payoff, repairs, clean-out, access, and whether the buyer can close without financing delays.",
   },
   {
     title: "Sell my house as-is Shawnee Kansas",
-    body:
-      "A real as-is offer should explain the price, title timing, closing costs, repair assumptions, and how the sale compares with listing.",
+    body: "A useful as-is offer should explain price, closing costs, repair assumptions, title timing, and how the net compares with listing the house.",
   },
 ];
 
-const shawneeIntentBlocks = [
+const listingComparison = [
   {
-    title: "When a Shawnee cash offer is worth comparing",
-    body:
-      "A direct buyer can make sense when the house needs repairs, the family needs privacy, you are coordinating an inherited property, or you would rather know the net number before committing to contractors and showings.",
+    title: "Listing may be better when",
+    body: "The house is updated, easy to show, title is simple, you can wait for the right buyer, and you are comfortable handling inspections, repairs, commissions, and buyer concessions.",
   },
   {
-    title: "What makes Shawnee different",
-    body:
-      "Older homes around central Shawnee, Monticello, and established Johnson County neighborhoods often need system updates, clean-out help, or estate coordination. We price those realities instead of asking you to fix them first.",
+    title: "A direct sale may be better when",
+    body: "The house needs repairs, is vacant, has contents left inside, involves heirs or tenants, or you need a known closing path before spending more money.",
   },
   {
-    title: "How we protect your decision",
-    body:
-      "You get the offer, estimated closing timeline, payoff assumptions, and repair assumptions in writing, then you decide whether a fast as-is sale or a traditional listing is better.",
+    title: "A flexible option may be better when",
+    body: "There is little equity, payment pressure, or a loan that needs a creative review. We can talk through cash and creative options without forcing one answer.",
   },
 ];
+
+const titleItems = [
+  "Mortgage payoff and any second lien or line of credit",
+  "HOA balances, resale documents, or subdivision transfer details",
+  "Estate, trust, divorce, or power-of-attorney authority",
+  "Property taxes, special assessments, utilities, and closing possession timing",
+  "Repair assumptions, contents left behind, and whether the seller needs extra move-out time",
+];
+
+const internalGuides = [
+  {
+    label: "Johnson County cash home buyers guide",
+    href: "/resources/johnson-county-cash-home-buyers/",
+    body: "County-wide context for Shawnee, Olathe, Overland Park, Lenexa, and nearby Johnson County sellers.",
+  },
+  {
+    label: "Major repairs vs selling as-is",
+    href: "/resources/major-repairs-vs-selling-as-is-kansas-city/",
+    body: "Compare roof, foundation, HVAC, window, and cosmetic repair costs before spending money.",
+  },
+  {
+    label: "Inherited house checklist",
+    href: "/resources/johnson-county-inherited-house-sale/",
+    body: "Useful when siblings, heirs, estate paperwork, clean-out, or title authority are part of the Shawnee sale.",
+  },
+  {
+    label: "Behind on payments in Johnson County",
+    href: "/resources/johnson-county-behind-on-payments/",
+    body: "Review payoff timing, HOA pressure, lender communication, and sale options before the situation gets tighter.",
+  },
+];
+
 const faqs = [
   {
-    question: "Do you buy homes in Shawnee's historic districts?",
-    answer: "Yes. We're familiar with Shawnee's historic preservation guidelines and can work within requirements while providing as-is cash offers for properties in the downtown historic core.",
+    question: "Do you buy houses in Shawnee as-is?",
+    answer:
+      "Yes. ACE Properties KC reviews Shawnee houses as-is, including properties with old systems, roof issues, foundation concerns, contents left behind, tenant access, or repairs the owner does not want to manage before selling.",
   },
   {
-    question: "How quickly can you close on Shawnee properties?",
-    answer: "Cash offers can close in as little as two weeks once Johnson County title work is complete. We can accommodate longer timelines for family transitions.",
+    question: "Can I sell my Shawnee house fast without making repairs?",
+    answer:
+      "Yes. If title is clear and the seller has authority to sign, a cash sale can often move much faster than a traditional listing. We explain the likely closing timeline, repair assumptions, and title items before you decide.",
   },
   {
-    question: "Will you buy houses needing major renovations?",
-    answer: "Absolutely. Shawnee has many 1980s and 1990s homes needing significant updates, especially in established neighborhoods. We evaluate properties as-is and factor renovation costs into our offer.",
+    question: "How do cash home buyers in Shawnee handle closing costs?",
+    answer:
+      "The written offer explains what ACE is paying, what normal seller-side items may still apply, and how the net compares with listing costs such as commissions, repairs, concessions, holding costs, and another month of utilities or insurance.",
   },
   {
-    question: "Can you help with divorce settlements?",
-    answer: "Yes. We coordinate with both parties and attorneys to provide neutral, written offers that help divorce proceedings move forward smoothly. We're experienced with Kansas marital property requirements.",
+    question: "Should I list my Shawnee house or sell it direct?",
+    answer:
+      "Listing may be better if the house is updated, easy to show, and you can wait. A direct sale may be better if repairs, privacy, family timing, tenants, vacant-house risk, or clean-out work make a public listing harder.",
   },
   {
-    question: "What about Shawnee's park system and trails?",
-    answer: "We're familiar with properties near Shawnee Mission Park and the extensive trail system. Homes with park access often have strong market appeal, which we factor into our offers.",
+    question: "Do you buy inherited houses in Shawnee?",
+    answer:
+      "Yes. We can review inherited Shawnee houses where heirs need a written offer, clean-out help, repair assumptions, and a closing plan that works around estate, trust, or family paperwork.",
+  },
+  {
+    question: "Can you buy a Shawnee rental or tenant-occupied house?",
+    answer:
+      "Yes. We can review tenant-occupied properties, vacant rentals, and small investment houses. Lease details, deposits, access, utilities, and closing possession are discussed before an offer is finalized.",
   },
 ];
 
@@ -141,21 +180,37 @@ const jsonLd = [
 ---
 
 <Layout
-  title="We Buy Houses Shawnee KS | Sell My House Fast"
-  description="We buy houses Shawnee KS. Sell your Shawnee house fast as-is with no repairs, no showings, local cash offer review, and flexible closing dates."
+  title="We Buy Houses Shawnee KS | Sell Fast As-Is"
+  description="We buy houses Shawnee KS as-is. Compare a local cash offer before repairs, showings, clean-out, tenant issues, or Johnson County title timing slow you down."
   canonicalPath="/areas/shawnee-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
       <p class="badge">We buy houses Shawnee KS</p>
-      <h1 class="text-4xl font-semibold text-primary">We Buy Houses Shawnee KS - Sell Fast As-Is</h1>
+      <h1 class="text-4xl font-semibold text-primary">
+        Sell Your Shawnee House Fast, As-Is, With a Written Local Offer
+      </h1>
       <p class="text-lg leading-8 text-muted">
-        If you need to sell a Shawnee house fast, you should be able to compare a real local offer before paying for repairs, cleaning out the property, or scheduling public showings. ACE Properties KC reviews inherited houses, vacant homes, repair-heavy properties, divorce situations, and relocation timelines across Shawnee and Johnson County.
+        If you need to sell a Shawnee house fast, you should not have to guess
+        whether repairs, clean-out, title, HOA items, tenants, or family timing
+        will eat up your equity. ACE Properties KC reviews Shawnee homes as-is
+        and gives you a written option you can compare against listing.
+      </p>
+      <p class="leading-7 text-muted">
+        This page is for Shawnee owners who want a direct buyer before spending
+        money on contractors, opening the house for showings, or waiting through
+        buyer financing. If listing is likely better, we will say that too.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">Get a fast Shawnee offer</a>
-        <a href="tel:+18167287548" class="btn btn-ghost text-base" data-phone-link="shawnee_hero">Call 816-728-7548</a>
+        <a href="/get-offer/" class="btn btn-primary text-base"
+          >Get a fast Shawnee offer</a
+        >
+        <a
+          href="tel:+18167287548"
+          class="btn btn-ghost text-base"
+          data-phone-link="shawnee_hero">Call 816-728-7548</a
+        >
       </div>
     </div>
     <OfferForm
@@ -163,196 +218,302 @@ const jsonLd = [
       formId="shawnee-ks-offer-form"
       heading="Request a Shawnee offer"
       subheading="Start with the address and the best way to reach you."
+      defaultSituation="Sell house fast"
+      pageContext="shawnee-ks"
     />
   </section>
 
   <section class="section section-alt space-y-5">
     <div class="max-w-3xl space-y-3">
       <p class="badge">Quick answer</p>
-      <h2 class="text-3xl font-semibold text-primary">Yes, you can ask for a Shawnee cash offer before fixing the house.</h2>
+      <h2 class="text-3xl font-semibold text-primary">
+        Yes, you can compare a Shawnee cash offer before fixing the house.
+      </h2>
       <p class="text-muted">
-        A fast sale is usually about certainty: what you net, who handles repairs, when closing can happen, and whether the buyer can follow through. We put those items in writing so you can compare the offer against listing on the MLS.
+        The useful question is not just "what is the offer?" It is what you keep
+        after repairs, commissions, concessions, holding costs, title timing,
+        clean-out, and another month of ownership.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {shawneeFastSaleProof.map((item) => (
-        <article class="card bg-white">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="card space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">Common Shawnee seller goals</h2>
-      <div class="grid gap-3 md:grid-cols-2">
-        {commonSellerGoals.map((goal) => (
-          <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">{goal}</div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section section-alt space-y-5">
-    <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Shawnee search match</p>
-      <h2 class="text-3xl font-semibold text-primary">Shawnee sellers need a buyer who can explain the tradeoff clearly.</h2>
-      <p class="text-muted">
-        When a house needs work, has family timing, or needs a quieter sale, the right next step is a written as-is option that can be compared against listing.
-      </p>
-    </div>
-    <div class="grid gap-4 md:grid-cols-3">
-      {shawneeSearchSignals.map((item) => (
-        <article class="card bg-white">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        shawneeFastSaleProof.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="section space-y-5">
     <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Shawnee seller intent</p>
-      <h2 class="text-3xl font-semibold text-primary">If you searched "we buy houses Shawnee," compare the whole net, not just the headline price.</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Shawnee seller intent
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        If you searched "we buy houses Shawnee," compare the full selling path.
+      </h2>
       <p class="text-muted">
-        The best next step is a clear written option: what we can pay, what repairs stay with us, what closing costs look like, and how fast Johnson County title can realistically move.
+        Many Shawnee sellers have a good property, but the normal listing
+        process creates problems: repairs before photos, public showings, family
+        clean-out, inspection requests, HOA paperwork, tenant access, or a
+        closing date that is too far away.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {shawneeIntentBlocks.map((item) => (
-        <article class="card h-full">
-          <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-        </article>
-      ))}
+      {
+        shawneeSearchSignals.map((item) => (
+          <article class="card h-full">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
-  <SellerSituationLinks
-    city="Shawnee, KS"
-    countyGuide={{ label: "Johnson County behind-on-payments guide", href: "/resources/johnson-county-behind-on-payments/" }}
-  />
 
-  <AreaPropertyProof city="Shawnee, KS" county="Johnson County" />
-
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Why Shawnee sellers reach out</h2>
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">What makes Shawnee different</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Shawnee has older central homes, western equity, and Johnson County
+        details that matter.
+      </h2>
       <p class="text-muted">
-        Most Shawnee homeowners we work with are managing multiple priorities - family relocations, inherited estates, divorce settlements, or repair costs that keep growing. We keep the process simple, provide clear documentation, and respect the timeline you need.
+        Shawnee is not one simple market. A house near Johnson Drive, a
+        long-held Monticello-area home, and a western Shawnee property can all
+        need a different sale plan. We look at condition, equity, access, title,
+        family timing, and what kind of buyer the house would attract if listed.
       </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">A local, service-first approach</h2>
-      <p class="text-muted">
-        Our team meets you in person when possible, collaborates with trusted Johnson County title partners, and outlines both cash and flexible pathways. No aggressive tactics - just honest answers about value, timelines, and paperwork requirements.
-      </p>
-    </article>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        neighborhoodPatterns.map((spot) => (
+          <article
+            class="card bg-white/90"
+            aria-label={`Shawnee property pattern: ${spot.title}`}
+          >
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Local pattern
+            </p>
+            <h3 class="mt-2 text-xl font-semibold text-primary">
+              {spot.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{spot.body}</p>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
+  <section class="section">
+    <div class="card space-y-4">
+      <h2 class="text-2xl font-semibold text-primary">
+        Common Shawnee seller goals
+      </h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {
+          commonSellerGoals.map((goal) => (
+            <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">
+              {goal}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        List or sell direct
+      </p>
+      <h2 class="text-3xl font-semibold text-primary">
+        The best Shawnee sale is the one that protects your net and your
+        timeline.
+      </h2>
+      <p class="text-muted">
+        We are not trying to make every house a direct sale. Some Shawnee homes
+        should be listed. Others need a buyer who can take on repairs, contents,
+        tenant issues, or timing pressure without turning the sale into another
+        project.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        listingComparison.map((item) => (
+          <article class="card bg-white">
+            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <SellerSituationLinks
+    city="Shawnee, KS"
+    countyGuide={{
+      label: "Johnson County behind-on-payments guide",
+      href: "/resources/johnson-county-behind-on-payments/",
+    }}
+  />
+
+  <AreaPropertyProof
+    city="Shawnee, KS"
+    county="Johnson County"
+    propertyTypes={[
+      {
+        title: "Central Shawnee as-is homes",
+        body: "Older homes with deferred maintenance, dated finishes, clean-out needs, or repairs that make MLS prep feel expensive.",
+      },
+      {
+        title: "Johnson County inherited houses",
+        body: "Family-owned houses where heirs need a written option, title clarity, repair assumptions, and a closing plan that respects everyone involved.",
+      },
+      {
+        title: "Shawnee rentals and vacant houses",
+        body: "Rental, tenant-occupied, vacant, or partially cleaned-out properties where access, leases, utilities, and carrying costs need a practical plan.",
+      },
+    ]}
+  />
+
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Shawnee market context</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        What we review before making a Shawnee offer
+      </h2>
       <p class="text-muted">
-        From historic Downtown Shawnee properties to established Monticello neighborhoods and newer Woodland Hills developments, each area moves differently. We track local market conditions, understand suburban growth patterns, and know how Johnson County requirements affect your options.
+        A real offer should not be a vague number. We look at the house
+        condition, likely resale path, title items, seller timeline, and what
+        costs stay with us after closing.
       </p>
+      <ul class="space-y-3 text-sm text-primary">
+        {
+          titleItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
     </article>
     <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Community-focused communication</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        Why Shawnee sellers reach out
+      </h2>
       <p class="text-muted">
-        Selling a home in Shawnee often involves coordinating with schools, employers, and extended family across different timelines. We provide clear documentation for all parties and keep everyone informed so decisions can be made confidently.
+        The house may be worth money, but the next step can still feel heavy.
+        Repairs, family schedules, job moves, estate decisions, tenant
+        coordination, and another month of carrying costs can make a clean
+        written offer worth comparing.
+      </p>
+      <p class="text-muted">
+        We keep the process direct: no pressure, no public listing requirement,
+        no repair demand before the walkthrough, and no surprise expectation
+        that the house must be empty before we review it.
       </p>
     </article>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2 class="text-2xl font-semibold text-primary">Common situations we solve</h2>
-      <ul class="mt-4 space-y-3 text-sm text-primary">
-        {situations.map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
-            <span>{item}</span>
-          </li>
-        ))}
+      <h2 class="text-2xl font-semibold text-primary">
+        Common situations we solve in Shawnee
+      </h2>
+      <ul class="mt-4 grid gap-3 text-sm text-primary md:grid-cols-2">
+        {
+          situations.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-secondary" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="grid gap-6 md:grid-cols-3">
-      {neighborhoods.map((spot) => (
-        <div class="card bg-white/90" aria-label={`Neighborhood focus: ${spot.title}`}>
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Neighborhood focus</p>
-          <h3 class="text-xl font-semibold text-primary">{spot.title}</h3>
-          <p class="mt-2 text-sm text-muted">{spot.body}</p>
-        </div>
-      ))}
     </div>
   </section>
 
   <section class="section space-y-6">
     <div class="space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">How it works in Shawnee</h2>
+      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+        Process
+      </p>
+      <h2 class="text-2xl font-semibold text-primary">
+        How it works in Shawnee
+      </h2>
       <p class="text-muted">
-        From first conversation to closing, you control the timeline. We document property condition, navigate Johnson County requirements, and review flexible options when they better serve your situation. Expect regular updates so you're never uncertain about next steps.
+        From first conversation to closing, the goal is clarity. We document
+        property condition, explain the offer assumptions, and help you
+        understand whether a fast as-is sale or a traditional listing is the
+        smarter next move.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
-      {steps.map((step, index) => (
-        <div class="card">
-          <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Step {index + 1}</p>
-          <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
-          <p class="mt-2 text-sm text-muted">{step.body}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="card">
+            <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
+              Step {index + 1}
+            </p>
+            <h3 class="text-lg font-semibold text-primary">{step.title}</h3>
+            <p class="mt-2 text-sm text-muted">{step.body}</p>
+          </div>
+        ))
+      }
     </div>
   </section>
 
-  <section class="section grid gap-8 md:grid-cols-2">
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Documents and timelines</h2>
+  <section class="section section-alt space-y-5">
+    <div class="max-w-3xl space-y-3">
+      <p class="badge">Helpful next reads</p>
+      <h2 class="text-3xl font-semibold text-primary">
+        Compare the Shawnee offer against the issue you are actually solving.
+      </h2>
       <p class="text-muted">
-        Johnson County title companies typically need payoff statements, utility clearances, and any settlement documentation. We gather that list for you, coordinate with your attorney if needed, and make sure every requirement is met before closing.
+        Most sellers are not just trying to sell a house. They are trying to get
+        out of repair costs, protect credit, settle an estate, stop carrying a
+        vacant property, or simplify a family decision.
       </p>
-      <p class="text-muted">
-        If you need extra time due to school calendars or family coordination, we can structure flexible closing dates or post-closing arrangements. Those options are detailed in writing alongside your cash offer.
-      </p>
-    </article>
-    <article class="card space-y-3">
-      <h2 class="text-2xl font-semibold text-primary">Stay connected with local support</h2>
-      <p class="text-muted">
-        Need to compare selling now versus holding as a rental? Visit our <a href="/solutions/inherited-house/" class="text-secondary underline">inherited property guide</a> or <a href="/solutions/needs-repairs/" class="text-secondary underline">major repairs scenario</a> for detailed breakdowns. Explore other Johnson County areas on the <a href="/areas/" class="text-secondary underline">areas page</a> or review <a href="/solutions/divorce/" class="text-secondary underline">divorce settlement process</a>.
-      </p>
-      <p class="text-muted">
-        Want the county-wide view first? Read our <a href="/resources/johnson-county-cash-home-buyers/" class="text-secondary underline">Johnson County cash home buyers guide</a> for Shawnee, Olathe, Overland Park, and Lenexa.
-      </p>
-      <p class="text-muted">
-        If payment pressure is part of the decision, use the <a href="/resources/johnson-county-behind-on-payments/" class="text-secondary underline">Johnson County behind-on-payments guide</a> to compare lender options, HOA items, and backup sale plans.
-      </p>
-      <p class="text-muted">
-        When questions pop up about your Shawnee property, call, text, or <a href="/contact/" class="text-secondary underline">contact us online</a>. Same-day responses are standard because we only work a handful of files at a time.
-      </p>
-    </article>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        internalGuides.map((guide) => (
+          <a
+            href={guide.href}
+            class="card block bg-white transition hover:border-secondary/60"
+          >
+            <h3 class="text-lg font-semibold text-primary">{guide.label}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{guide.body}</p>
+          </a>
+        ))
+      }
+    </div>
   </section>
 
   <section class="section space-y-4">
     <h2 class="text-2xl font-semibold text-primary">Shawnee FAQ</h2>
     <div class="space-y-3">
-      {faqs.map((faq) => (
-        <details class="card">
-          <summary class="cursor-pointer text-base font-semibold text-primary">{faq.question}</summary>
-          <p class="mt-2 text-sm text-muted">{faq.answer}</p>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="card">
+            <summary class="cursor-pointer text-base font-semibold text-primary">
+              {faq.question}
+            </summary>
+            <p class="mt-2 text-sm text-muted">{faq.answer}</p>
+          </details>
+        ))
+      }
     </div>
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">Start the offer form</a>
+    <a href="/get-offer/" class="btn btn-primary text-base"
+      >Start the Shawnee offer form</a
+    >
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>
     <a href="/areas/" class="btn btn-outline text-base">See all areas</a>
   </section>

@@ -84,6 +84,150 @@ Google's current Search Central guidance points us away from simply publishing m
 - Page experience: mobile layout, clear main content, fast forms, no intrusive popups, and tap targets that work on phones matter because most urgent sellers will be on mobile.
 - Measurement discipline: use Search Console query/page exports monthly, then optimize pages that already have impressions before adding new content.
 
+## Top 5 Page Uniqueness Roadmap
+
+Research basis:
+
+- Google quality target: priority pages should show original local usefulness, first-hand experience, trust, and clear answers instead of feeling mass-produced or search-engine-first.
+- Google spam guardrail: avoid substantially similar city pages that only exist to capture similar local queries and funnel users to the same final destination.
+- Technical guardrail: keep self-referential canonical tags, sitemap URLs, redirects, and visible FAQ content aligned with structured data.
+- Search Console signal: the July query map shows the highest immediate upside on `/solutions/sell-house-fast/`, `/areas/olathe-ks/`, `/areas/overland-park-ks/`, `/areas/shawnee-ks/`, and `/areas/kansas-city-mo/`.
+
+Build principle:
+
+- Do not add more pages for this phase.
+- Make the five best pages feel individually written, locally useful, and decision-ready.
+- Keep the offer form and phone/text CTAs simple, but make the surrounding copy answer the seller's specific fear: repairs, timing, payments, taxes, inherited property, tenants, title, clean-out, or credit protection.
+
+### 1. Shawnee, KS
+
+Why this page is first:
+
+- Current GSC signals show the best near-win: "we buy houses Shawnee" around position 7, "we buy houses Shawnee KS" around position 9.2, and "sell my house Shawnee KS" around position 10.7.
+- This page is closest to page-one clicks, so snippet and trust improvements should have the fastest payoff.
+
+Uniqueness build:
+
+- Reframe the top section around "We buy houses in Shawnee when repairs, clean-out, tenants, or timing make listing hard."
+- Add a Shawnee-specific seller decision block: older homes, suburban family moves, estate coordination, rental houses, and Johnson County title/HOA questions.
+- Add a "Should I list or sell direct in Shawnee?" comparison section with three paths: updated retail listing, as-is cash offer, and flexible timing.
+- Add FAQ questions from GSC language:
+  - "Do you buy houses in Shawnee as-is?"
+  - "Can I sell my Shawnee house fast without repairs?"
+  - "How do cash home buyers in Shawnee handle closing costs?"
+- Add stronger internal links to Johnson County cash buyers, behind-on-payments, inherited house, repairs, and get-offer.
+
+Success metric:
+
+- Keep Shawnee terms in top 10 and move CTR above 1%.
+
+### 2. Olathe, KS
+
+Why this page is second:
+
+- Olathe has strong impressions and near-win terms: "sell my house fast Olathe" around position 16, "sell my house as is Olathe Kansas" around position 18.5, and "we buy houses Olathe" around position 27.
+- The page needs more click-worthy Olathe-specific copy, not just generic Johnson County language.
+
+Uniqueness build:
+
+- Reframe around "Sell an Olathe house as-is before repairs, relocation, estate clean-out, or school-year timing becomes the problem."
+- Add a section for Olathe seller timelines: relocation, family moves, estate decisions, vacant-house carrying costs, and fast closings when title is ready.
+- Add an "Olathe net sheet" block that explains commissions, repair costs, holding costs, buyer concessions, and as-is certainty.
+- Add city-specific FAQ:
+  - "Can I sell my Olathe house as-is?"
+  - "How fast can an Olathe cash offer close?"
+  - "Should I repair before listing in Olathe?"
+- Add internal links to cash buyer vs agent, Johnson County cash buyers, repairs vs as-is, inherited house, and sell-house-fast.
+
+Success metric:
+
+- Move the main Olathe cluster from positions 16-31 toward positions 10-18 and earn first clicks.
+
+### 3. Overland Park, KS
+
+Why this page is third:
+
+- Overland Park is highly competitive but has large impression opportunity: "sell my house fast Overland Park", "cash home buyers in Overland Park", and "sell my house as-is Overland Park Kansas".
+- The seller is often higher equity, so the page must feel more advisory and less "generic cash buyer."
+
+Uniqueness build:
+
+- Reframe around "Compare a cash offer, as-is sale, and MLS net sheet before spending money on repairs or waiting through showings."
+- Add a higher-equity seller section: privacy, inherited homes, dated but valuable homes, HOA/title items, downsizing, and avoiding a public listing.
+- Add a "When listing may be better" block. This builds trust because it shows ACE is not forcing every seller into a direct offer.
+- Add a "cash buyer questions to ask in Overland Park" checklist: proof of funds, title company, closing costs, repair assumptions, HOA/resale packet, possession timing.
+- Add FAQ:
+  - "Are cash home buyers in Overland Park a good fit for higher-equity homes?"
+  - "Can I compare your offer against listing?"
+  - "Do I have to clean out or update the house first?"
+
+Success metric:
+
+- Move Overland Park from positions 20-35 toward 15-25 and improve CTR from 0%.
+
+### 4. Sell House Fast Kansas City
+
+Why this page is fourth:
+
+- This is the biggest impression pool: "sell my house fast Kansas City" has 725 impressions but sits around position 43.3.
+- The page is broad, so it needs authority, proof, and routing, not more generic fast-sale promises.
+
+Uniqueness build:
+
+- Turn this page into the master decision page for urgent KC sellers.
+- Add a "what fast actually depends on" section: title, payoff, liens, taxes, seller authority, tenant access, repairs, and occupancy.
+- Add a "choose your reason for speed" section that routes to:
+  - Behind on payments
+  - Tax lien/back taxes
+  - Inherited/probate
+  - Vacant house
+  - Repairs/code issues
+  - Tenant-occupied
+  - Low equity/payment takeover
+- Add a "two-week close realism" block: when it can happen, what delays it, and what documents help.
+- Add visible trust copy around direct buyer vs wholesaler, written offer assumptions, and no repairs/clean-out.
+
+Success metric:
+
+- Move broad fast-sale terms from the 40s/60s toward the 30s first, then toward page two over the following review cycle.
+
+### 5. Kansas City, MO
+
+Why this page is fifth:
+
+- GSC shows "sell my house fast Kansas City MO" around position 58.6, which should be supported by both the broad sell-house-fast page and the KC MO area page.
+- KC MO needs to feel like a local service-area page, not just a generic metro landing page.
+
+Uniqueness build:
+
+- Reframe around "Kansas City MO sellers dealing with repairs, vacant houses, inherited property, back taxes, code issues, tenants, or fast closing pressure."
+- Add neighborhood/zone context without overstuffing: south KC, Waldo/Brookside-adjacent, Red Bridge/Minor Park, east side, northeast, midtown, and Jackson County title/tax issues.
+- Add "KC MO property problems we can still review" section: code violations, roof/foundation/HVAC, trash-out, taxes/liens, vacant risk, tenant issues, inherited homes.
+- Add a Jackson County decision block linking to Jackson County cash buyers, probate, foreclosure, tax lien, and vacant-house resources.
+- Add FAQ:
+  - "Do you buy houses in Kansas City MO with code violations?"
+  - "Can I sell before fixing the roof or foundation?"
+  - "Can back taxes or liens be paid at closing?"
+
+Success metric:
+
+- Give Google a stronger KC MO owner page for city-specific terms and reduce reliance on the broad `/solutions/sell-house-fast/` page.
+
+## Five-Page Build Order
+
+1. Shawnee: fastest potential win because terms are already near page one.
+2. Olathe: strong impressions and fixable intent alignment.
+3. Overland Park: competitive but high-value, needs trust and higher-equity positioning.
+4. Sell House Fast: broad authority page that should route all urgent seller paths.
+5. Kansas City, MO: local city authority page for broad KC MO searches and Jackson County situations.
+
+## What We Will Not Do In This Phase
+
+- No new location pages.
+- No fake reviews, fake case studies, fake photos, or fake review schema.
+- No keyword stuffing blocks.
+- No city-list paragraphs that exist only to rank.
+- No duplicate FAQ answers across the five pages unless the question genuinely needs the same answer.
 ## August Position And Click Goals
 
 The current baseline is 32.57 average position. Because Google says SEO changes may take a few weeks to several months to fully show, the next-month target should be aggressive but believable:
