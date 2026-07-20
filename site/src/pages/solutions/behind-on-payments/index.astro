@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
+import SellerReviewStrip from "../../../components/SellerReviewStrip.astro";
 import { SITE } from "../../../lib/siteConfig";
 import {
   webSiteJsonLd,
@@ -145,6 +146,11 @@ const jsonLd = [
     primaryLabel="Review payment options"
     primaryHref="#behind-on-payments-offer-form"
     trackingLocation="behind_payments_creative_promise"
+  />
+
+  <SellerReviewStrip
+    heading="Proof that a flexible payment solution can matter"
+    intro="When a mortgage, payoff, or timeline is the problem, a real seller review can help explain why ACE compares more than one path."
   />
 
   <section class="section grid gap-8 md:grid-cols-2">

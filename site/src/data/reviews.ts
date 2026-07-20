@@ -10,7 +10,20 @@ export type SellerReview = {
   visible: boolean;
 };
 
-export const sellerReviews: SellerReview[] = [];
+export const sellerReviews: SellerReview[] = [
+  {
+    id: "melissa-google-creative-financing",
+    reviewer: "Melissa H.",
+    location: "Google review",
+    situation: "Creative financing after relocation",
+    text:
+      "ACE Property Solutions came to the rescue... allowing us to receive some cash upfront, monthly payments, and still retain equity in the house.",
+    sourceLabel: "Read on Google",
+    sourceUrl: "https://share.google/TOdN8UQfdu6N7gW5d",
+    permissionStatus: "approved",
+    visible: true,
+  },
+];
 
 export const approvedSellerReviews = sellerReviews.filter(
   (review) => review.visible && review.permissionStatus === "approved" && review.text.trim().length > 0,

@@ -1,5 +1,6 @@
 ---
 import { approvedSellerReviews } from "../data/reviews";
+import { SITE } from "../lib/siteConfig";
 
 type Props = {
   heading?: string;
@@ -14,22 +15,33 @@ const {
 
 {approvedSellerReviews.length > 0 && (
   <section class="section section-alt space-y-6">
-    <div class="max-w-3xl space-y-2">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller reviews</p>
-      <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
-      <p class="text-muted">{intro}</p>
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl space-y-2">
+        <p class="text-sm font-semibold uppercase tracking-wide text-secondary">Seller reviews</p>
+        <h2 class="text-3xl font-semibold text-primary">{heading}</h2>
+        <p class="text-muted">{intro}</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href={SITE.googleBusinessProfileUrl} class="btn btn-ghost" target="_blank" rel="noopener">
+          Read Google reviews
+        </a>
+        <a href={SITE.googleReviewUrl} class="btn btn-primary" target="_blank" rel="noopener">
+          Leave a Google review
+        </a>
+      </div>
     </div>
 
     <div class="grid gap-5 lg:grid-cols-3">
       {approvedSellerReviews.map((review) => (
         <figure class="card bg-white">
-          <blockquote class="text-sm leading-6 text-primary">"{review.text}"</blockquote>
+          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">5.0 / 5 Google review</p>
+          <blockquote class="mt-3 text-sm leading-6 text-primary">"{review.text}"</blockquote>
           <figcaption class="mt-4 border-t border-border pt-4">
             <p class="font-semibold text-primary">{review.reviewer}</p>
             <p class="text-sm text-muted">{review.location}</p>
             <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-secondary">{review.situation}</p>
             {review.sourceUrl && (
-              <a href={review.sourceUrl} class="mt-3 inline-flex text-sm font-semibold text-secondary underline">
+              <a href={review.sourceUrl} class="mt-3 inline-flex text-sm font-semibold text-secondary underline" target="_blank" rel="noopener">
                 {review.sourceLabel ?? "Review source"}
               </a>
             )}

@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import OfferForm from "../components/OfferForm.astro";
 import TrustProofStrip from "../components/TrustProofStrip.astro";
+import SellerReviewStrip from "../components/SellerReviewStrip.astro";
 import CreativeHomeBuyerSeal from "../components/CreativeHomeBuyerSeal.astro";
 import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
@@ -229,6 +230,11 @@ const jsonLd = [
   </section>
 
   <TrustProofStrip />
+
+  <SellerReviewStrip
+    heading="A real Google review from a seller ACE helped"
+    intro="Trust should come from real people and real situations, especially when a seller is comparing cash and creative options."
+  />
 
   <section class="full-bleed bg-white">
     <div class="container-shell grid gap-8 py-14 md:py-20 lg:grid-cols-[1fr_0.88fr] lg:items-start">

@@ -11,4 +11,6 @@ export const SITE = {
   defaultTitle: "ACE Properties KC | Cash & Flexible Home Buying Options",
   defaultDescription:
     "Local Kansas City metro home buyer. Sell as-is for cash or compare flexible options. No repairs, no pressure. Start with a quick conversation.",
+  googleBusinessProfileUrl: "https://share.google/TOdN8UQfdu6N7gW5d",
+  googleReviewUrl: "https://share.google/TOdN8UQfdu6N7gW5d",
 };

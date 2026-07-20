@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CreativePromisePanel from "../../components/CreativePromisePanel.astro";
 import OfferForm from "../../components/OfferForm.astro";
+import SellerReviewStrip from "../../components/SellerReviewStrip.astro";
 import { SITE } from "../../lib/siteConfig";
 import { webSiteJsonLd, localBusinessJsonLd, buildFaqPageJsonLd } from "../../lib/seo";
 
@@ -139,6 +140,11 @@ const jsonLd = [webSiteJsonLd(), localBusinessJsonLd(), buildFaqPageJsonLd(faqs)
     intro="A direct cash offer may be the right answer. If the mortgage, payoff, timing, or repair burden makes that hard, ACE can also review creative payment structures and explain the trade-offs before you sign."
     primaryLabel="Start my options review"
     trackingLocation="options_creative_promise"
+  />
+
+  <SellerReviewStrip
+    heading="A seller review about creative financing"
+    intro="Payment-takeover and creative-option conversations need extra trust. This real Google review explains how a flexible structure helped a seller avoid a worse outcome."
   />
 
   <section class="section space-y-6">
