@@ -251,3 +251,32 @@ The current baseline is 32.57 average position. Because Google says SEO changes 
 - Move Olathe and Overland Park terms from positions 20-35 toward the first two result pages.
 - Raise `/solutions/sell-house-fast/` CTR above 0.5% while improving average position.
 - Confirm indexed pages remain stable and coverage errors do not grow.
+
+## July 20 Click-Through And Reputation Pass
+
+Current GSC snapshot:
+
+- Google Search Console shows 9 clicks and about 1.9K impressions in the latest 28-day view.
+- The homepage is carrying most clicks, while Overland Park, Kansas City MO, 64113, and Options are starting to get small click signals.
+- The biggest no-click opportunities remain `/solutions/sell-house-fast/`, `/areas/olathe-ks/`, `/areas/overland-park-ks/`, `/areas/independence-mo/`, `/areas/66109/`, and `/areas/shawnee-ks/`.
+- Sitemap coverage is healthy at 138 discovered URLs, with the sitemap index and child sitemap both successful.
+
+Focused optimization roadmap:
+
+- [x] Separate the Google Business Profile link from the Google review request link in site config.
+- [x] Add the Google Business Profile as a `sameAs` trust signal in LocalBusiness schema.
+- [x] Add a reusable Google Business trust link using the square ACE profile logo.
+- [x] Place the Google trust link in the global footer.
+- [x] Add a separate footer Google review request link for past sellers.
+- [x] Add visible Google trust links to high-impression pages: sell-house-fast, Olathe, Overland Park, and 66109.
+- [x] Refresh the sell-house-fast title/description to better match the broad "sell my house fast Kansas City" query family.
+- [x] Refresh the Olathe title/description to better match the "sell my house as-is Olathe Kansas" query family.
+- [x] Refresh the Overland Park title/description to better match the "cash home buyers Overland Park" and "sell my house fast Overland Park" query family.
+- [x] Refresh the 66109 title wording to support "we buy houses 66109" and "cash buyer" intent.
+- [ ] Add real partner/team photos once available and place them on the homepage, About page, and best converting city pages.
+- [ ] Add 3-5 more real Google reviews over the next month and keep the website testimonial section synced only with approved public reviews.
+- [ ] Publish 2-4 Google Business Profile posts this month that point to the best matching site pages.
+
+Why this matters:
+
+Google is already showing the site, but the click rate is still thin. This pass focuses on better snippets, clearer local buyer intent, visible proof, and stronger entity consistency between the website and Google Business Profile.

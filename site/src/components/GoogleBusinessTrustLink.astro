@@ -1,0 +1,63 @@
+---
+import { SITE } from "../lib/siteConfig";
+
+type Props = {
+  class?: string;
+  variant?: "light" | "dark";
+};
+
+const { class: className = "", variant = "light" } = Astro.props as Props;
+
+const baseClass =
+  "flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition sm:w-auto";
+const variantClass =
+  variant === "dark"
+    ? "border-white/20 bg-white/10 text-white"
+    : "border-secondary/20 bg-soft text-primary";
+const labelClass =
+  variant === "dark"
+    ? "block text-sm font-black text-white"
+    : "block text-sm font-black text-primary";
+const subtextClass =
+  variant === "dark"
+    ? "block text-xs font-semibold text-white/72"
+    : "block text-xs font-semibold text-muted";
+const linkClass =
+  variant === "dark"
+    ? "rounded-full border border-white/25 px-3 py-1.5 text-xs font-black text-white transition hover:bg-white/12"
+    : "rounded-full border border-secondary/25 px-3 py-1.5 text-xs font-black text-secondary transition hover:bg-white";
+---
+
+<div class={`${baseClass} ${variantClass} ${className}`}>
+  <img
+    src="/brand/ace-google-business-square-logo.png"
+    alt=""
+    class="h-12 w-12 rounded-xl"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="min-w-0">
+    <span class={labelClass}>5.0 Google review</span>
+    <span class={subtextClass}>ACE Properties KC on Google</span>
+    <div class="mt-2 flex flex-wrap gap-2">
+      <a
+        href={SITE.googleBusinessProfileUrl}
+        class={linkClass}
+        target="_blank"
+        rel="noopener"
+        aria-label="View ACE Properties KC on Google"
+      >
+        View profile
+      </a>
+      <a
+        href={SITE.googleReviewUrl}
+        class={linkClass}
+        target="_blank"
+        rel="noopener"
+        aria-label="Leave a Google review for ACE Properties KC"
+      >
+        Leave review
+      </a>
+    </div>
+  </div>
+</div>

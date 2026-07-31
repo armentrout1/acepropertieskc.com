@@ -38,6 +38,7 @@ export function localBusinessJsonLd(): object {
     url: SITE.baseUrl,
     logo: `${SITE.baseUrl}/brand/ace-logo.svg`,
     image: `${SITE.baseUrl}/og-default.svg`,
+    sameAs: [SITE.googleBusinessProfileUrl],
     priceRange: "$$",
     foundingDate: SITE.buyerSince,
     description: SITE.defaultDescription,

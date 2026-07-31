@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
+import GoogleBusinessTrustLink from "../../components/GoogleBusinessTrustLink.astro";
 import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
 import {
   webSiteJsonLd,
@@ -391,8 +392,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Sell My House Fast Kansas City MO | Cash Home Buyers"
-  description="Sell my house fast Kansas City MO. Local cash home buyers for as-is houses, repairs, inherited homes, tenants, late payments, and fast closings."
+  title="Sell My House Fast Kansas City | Local Cash Buyer"
+  description="Need to sell your Kansas City house fast? Compare a local cash offer, as-is sale, payoff-at-closing, or payment takeover review before repairs."
   canonicalPath="/solutions/sell-house-fast/"
   jsonLd={jsonLd}
 >
@@ -409,7 +410,7 @@ const jsonLd = [
             Sell fast without repairs
           </p>
           <h1 class="text-4xl font-black leading-tight text-white md:text-6xl">
-            Sell My House Fast Kansas City MO With a Local Cash Buyer
+            Sell My House Fast in Kansas City With a Local Buyer
           </h1>
           <p class="max-w-3xl text-lg leading-8 text-white/82">
             A fast sale still needs clear title timing, repair assumptions,
@@ -436,6 +437,7 @@ const jsonLd = [
             Call {SITE.phoneDisplay}
           </a>
         </div>
+        <GoogleBusinessTrustLink variant="dark" class="max-w-xl" />
       </div>
     </div>
   </section>

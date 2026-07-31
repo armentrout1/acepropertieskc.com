@@ -1,5 +1,6 @@
 ---
 import { SITE } from "../lib/siteConfig";
+import GoogleBusinessTrustLink from "./GoogleBusinessTrustLink.astro";
 
 const startLinks = [
   { label: "Home", href: "/" },
@@ -13,6 +14,8 @@ const proofLinks = [
   { label: "Direct Buyer vs Wholesaler", href: "/direct-buyer-vs-wholesaler/" },
   { label: "Seller Stories", href: "/seller-stories/" },
   { label: "Seller Resources", href: "/resources/" },
+  { label: "Google Business Profile", href: SITE.googleBusinessProfileUrl, external: true },
+  { label: "Leave a Google Review", href: SITE.googleReviewUrl, external: true },
   { label: "About ACE", href: "/about/" },
   { label: "Contact", href: "/contact/" },
 ];
@@ -81,6 +84,7 @@ const trustChips = [
         <a href={`sms:${SITE.smsTel}`} class="mt-3 inline-flex w-full justify-center rounded-full border border-secondary/25 px-4 py-3 text-sm font-black text-secondary transition hover:bg-secondary/5" data-sms-link="footer_cta">
           Text ACE
         </a>
+        <GoogleBusinessTrustLink class="mt-4" />
       </div>
     </div>
 
@@ -100,7 +104,12 @@ const trustChips = [
         <p class="text-base font-black text-white">Trust & Proof</p>
         <div class="mt-4 flex flex-col gap-2">
           {proofLinks.map((link) => (
-            <a href={link.href} class="rounded-full px-3 py-2 font-bold text-white/75 transition hover:bg-white/10 hover:text-white">
+            <a
+              href={link.href}
+              class="rounded-full px-3 py-2 font-bold text-white/75 transition hover:bg-white/10 hover:text-white"
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener" : undefined}
+            >
               {link.label}
             </a>
           ))}

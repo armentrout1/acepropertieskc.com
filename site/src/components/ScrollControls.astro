@@ -1,0 +1,85 @@
+<div
+  class="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+5.75rem)] right-3 z-40 flex flex-col gap-2 md:bottom-24 md:right-5"
+  data-scroll-controls
+  aria-label="Page scroll controls"
+>
+  <button
+    type="button"
+    class="hidden h-11 w-11 items-center justify-center rounded-full border border-primary/15 bg-white/95 text-primary shadow-lg backdrop-blur transition hover:border-secondary/40 hover:text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+    data-scroll-up
+    aria-label="Scroll to top"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+  <button
+    type="button"
+    class="hidden h-11 w-11 items-center justify-center rounded-full border border-primary/15 bg-white/95 text-primary shadow-lg backdrop-blur transition hover:border-secondary/40 hover:text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+    data-scroll-down
+    aria-label="Scroll down"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  const scrollControls = document.querySelector('[data-scroll-controls]');
+  const scrollUp = scrollControls?.querySelector('[data-scroll-up]');
+  const scrollDown = scrollControls?.querySelector('[data-scroll-down]');
+
+  function setScrollButtonState() {
+    if (!scrollUp || !scrollDown) return;
+
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const canScroll = maxScroll > 180;
+    const nearTop = scrollTop < 240;
+    const nearBottom = maxScroll - scrollTop < 240;
+
+    scrollUp.classList.toggle('hidden', !canScroll || nearTop);
+    scrollUp.classList.toggle('flex', canScroll && !nearTop);
+    scrollDown.classList.toggle('hidden', !canScroll || nearBottom);
+    scrollDown.classList.toggle('flex', canScroll && !nearBottom);
+  }
+
+  scrollUp?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  scrollDown?.addEventListener('click', () => {
+    const target = Math.min(
+      window.scrollY + Math.round(window.innerHeight * 0.82),
+      document.documentElement.scrollHeight,
+    );
+    window.scrollTo({ top: target, behavior: 'smooth' });
+  });
+
+  setScrollButtonState();
+  window.addEventListener('scroll', setScrollButtonState, { passive: true });
+  window.addEventListener('resize', setScrollButtonState);
+</script>
