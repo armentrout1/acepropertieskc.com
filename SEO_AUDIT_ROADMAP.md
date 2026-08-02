@@ -91,7 +91,7 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up
   - indexing report
   - crawl stats
 - [x] Create Search Console query-map template.
-- [ ] Build a query-to-page map from GSC data.
+- [x] Build a query-to-page map from GSC data.
 - [ ] Find pages with impressions but low CTR and rewrite titles/descriptions first.
 - [ ] Find pages ranking positions 8-30 and expand content to win page-one movement.
 - [ ] Find pages with clicks but no leads and improve CTAs/form placement.
@@ -427,8 +427,32 @@ Target query clusters:
     - [ ] `https://acepropertieskc.com/solutions/sell-house-fast/`
 - [ ] After the next GSC export, compare impressions for as-is ZIP terms vs higher-equity ZIP terms and decide which guide gets the next content expansion.
 - [x] Build the Search Console query-to-page map workflow and report generator.
-- [ ] Populate the first Search Console query-to-page map once CSV exports are added.
+- [x] Populate the first Search Console query-to-page map once CSV exports are added.
 - [x] Create the Search Console query-map template.
+
+## Phase 2C: August 2026 Optimization From July 30 GSC Export
+
+Data source: Search Console exports dated July 30, 2026.
+
+Current search signal:
+
+- Latest 91-day export shows 23 clicks, 6,928 impressions, and the same pattern we expected: Google is testing many pages, but most high-impression pages still have low CTR.
+- Biggest page opportunity: `/solutions/sell-house-fast/` with 2,784 impressions, 0 clicks, and average position around 45.
+- Highest city opportunities: `/areas/olathe-ks/`, `/areas/overland-park-ks/`, `/areas/shawnee-ks/`, and `/areas/independence-mo/`.
+- New/important query signal: `sell my house as is independence missouri` is now visible and should be supported directly on the Independence page.
+- Coverage still needs Search Console example URLs: latest coverage export shows 4 not-found URLs, 1 blocked 4xx URL, and 1 soft 404, but the workbook does not include the specific URLs.
+
+Checklist:
+
+- [x] Import July 30 Search Console exports into `site/seo-inputs/search-console/`.
+- [x] Regenerate the query-to-page map from the July 30 exports.
+- [x] Add the Google Business trust strip to the Shawnee and Independence pages.
+- [x] Refresh Overland Park snippet around `cash home buyers in Overland Park`.
+- [x] Refresh Olathe snippet around `sell my house fast Olathe` plus as-is intent.
+- [x] Refresh Independence snippet around `sell my house as-is Independence Missouri`.
+- [ ] Pull example URLs from Search Console Pages report for the 404, blocked 4xx, and soft 404 issues.
+- [ ] Request indexing for the edited high-priority city pages after deployment.
+- [ ] Watch August movement: sell-house-fast average position, Overland Park CTR, Olathe first clicks, Shawnee top-10 retention, Independence as-is impressions.
 - [ ] Start reviews and Google Business Profile optimization.
 - [x] Create local SEO trust playbook.
 - [x] Publish the first resource article: "How to sell a house as-is in Kansas City."

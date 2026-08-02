@@ -1,6 +1,7 @@
 ﻿---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
+import GoogleBusinessTrustLink from "../../../components/GoogleBusinessTrustLink.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import {
@@ -51,8 +52,8 @@ const independenceFastSaleProof = [
 
 const searchSignals = [
   {
-    title: "We buy houses Independence MO",
-    body: "ACE reviews Independence houses directly, including inherited homes, vacant properties, rentals, code issues, back taxes, and repair-heavy situations.",
+    title: "Sell my house as-is Independence Missouri",
+    body: "ACE reviews Independence houses directly, including inherited homes, vacant properties, rentals, code issues, back taxes, clean-out, and repair-heavy situations.",
   },
   {
     title: "Sell my house fast Independence MO",
@@ -181,16 +182,16 @@ const jsonLd = [
 ---
 
 <Layout
-  title="We Buy Houses Independence MO | Sell As-Is Fast"
-  description="We buy houses Independence MO as-is. Compare a local cash offer before repairs, code violations, back taxes, tenants, inherited homes, or cleanup."
+  title="Sell My House As-Is Independence MO | Cash Buyer"
+  description="Sell my house as-is Independence Missouri. Compare a local cash offer before code violations, back taxes, tenants, inherited property, or cleanup."
   canonicalPath="/areas/independence-mo/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">We buy houses Independence MO</p>
+      <p class="badge">Sell my house as-is Independence MO</p>
       <h1 class="text-4xl font-semibold text-primary">
-        Sell Your Independence, MO House Fast, As-Is, With a Written Local Offer
+        Sell Your Independence, MO House As-Is With a Written Local Offer
       </h1>
       <p class="text-lg leading-8 text-muted">
         If your Independence house is inherited, dated, vacant, tenant-occupied,
@@ -216,6 +217,7 @@ const jsonLd = [
           Call 816-728-7548
         </a>
       </div>
+      <GoogleBusinessTrustLink class="max-w-xl" />
     </div>
     <OfferForm
       compact

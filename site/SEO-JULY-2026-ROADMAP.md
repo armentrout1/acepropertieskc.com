@@ -280,3 +280,38 @@ Focused optimization roadmap:
 Why this matters:
 
 Google is already showing the site, but the click rate is still thin. This pass focuses on better snippets, clearer local buyer intent, visible proof, and stronger entity consistency between the website and Google Business Profile.
+
+## July 30 GSC Export And August Execution Batch
+
+Current GSC snapshot from the July 30 export:
+
+- 23 organic clicks and 6,928 impressions across the exported 91-day range.
+- Homepage: 17 clicks, 739 impressions, 2.3% CTR, 12.96 average position.
+- `/solutions/sell-house-fast/`: 2,784 impressions, 0 clicks, 45.03 average position.
+- `/areas/olathe-ks/`: 751 impressions, 0 clicks, 27.95 average position.
+- `/areas/overland-park-ks/`: 738 impressions, 1 click, 32.05 average position.
+- `/areas/shawnee-ks/`: 575 impressions, 0 clicks, 21.72 average position.
+- `/areas/independence-mo/`: 572 impressions, 0 clicks, 32.42 average position.
+
+What this means:
+
+- Google is not ignoring the site. It is testing the right pages, but the city and solution snippets still need stronger click signals.
+- The next phase should optimize pages with impressions before adding more pages.
+- Johnson County remains the highest business-priority area, but Independence now has a clear as-is query signal worth tightening.
+
+August optimization checklist:
+
+- [x] Import July 30 GSC exports into the query-map workflow.
+- [x] Regenerate `site/seo-reports/search-console-query-map.md`.
+- [x] Add visible Google Business trust to Shawnee and Independence.
+- [x] Tighten Overland Park title/description around cash-home-buyer intent.
+- [x] Tighten Olathe title/description around fast-sale plus as-is intent.
+- [x] Tighten Independence title/description around as-is seller intent.
+- [ ] In GSC, request indexing for:
+  - [ ] `https://acepropertieskc.com/areas/shawnee-ks/`
+  - [ ] `https://acepropertieskc.com/areas/olathe-ks/`
+  - [ ] `https://acepropertieskc.com/areas/overland-park-ks/`
+  - [ ] `https://acepropertieskc.com/areas/independence-mo/`
+- [ ] In GSC Pages, export or screenshot example URLs for the 4 not-found URLs, 1 blocked 4xx URL, and 1 soft 404.
+- [ ] Add real partner/team photos when available to the homepage, About page, and top Johnson County city pages.
+- [ ] Publish one Google Business Profile post per week pointing to the most relevant page: Overland Park, Olathe, Shawnee, sell-house-fast, or options.
