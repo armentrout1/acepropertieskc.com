@@ -44,6 +44,20 @@ const mobileNavLinks = [
       />
     </a>
 
+    <div
+      class:list={[
+        "ml-3 min-w-0 flex-1 text-left leading-tight text-primary lg:hidden",
+        isLanding ? "sm:hidden" : "",
+      ]}
+    >
+      <p class="truncate text-[0.68rem] font-black uppercase tracking-[0.08em] text-secondary">
+        Kansas City house buyers
+      </p>
+      <p class="truncate text-[0.62rem] font-bold text-muted">
+        Cash or payment options
+      </p>
+    </div>
+
     {!isLanding && (
       <nav class="ml-10 mr-8 hidden min-w-0 flex-1 items-center justify-evenly text-[0.95rem] font-black text-primary lg:flex xl:ml-14 xl:mr-10 xl:text-base">
         {desktopNavLinks.map((link) => (
