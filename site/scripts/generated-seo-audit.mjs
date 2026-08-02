@@ -3,6 +3,21 @@ import path from "node:path";
 
 const root = path.join(process.cwd(), "dist", "client");
 const siteBase = "https://acepropertieskc.com";
+const redirectTargets = new Map([
+  ["/getoffer/", "/get-offer/"],
+  ["/services/", "/solutions/"],
+  ["/contact-local-home-buyers/", "/contact/"],
+  ["/about-us/", "/about/"],
+  ["/free-info/", "/resources/"],
+  [
+    "/resources/kansas-city-distressed-seller-zip-codes/",
+    "/resources/kansas-city-as-is-seller-zip-codes/",
+  ],
+  [
+    "/resources/kansas-city-quality-equity-seller-zip-codes/",
+    "/resources/kansas-city-higher-equity-home-sale-options/",
+  ],
+]);
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -36,6 +51,34 @@ function routeFromHtmlFile(file) {
   if (relative === "404.html") return "/404/";
 
   return `/${relative.replace(/index\.html$/, "")}`;
+}
+
+function routeFromAssetFile(file) {
+  return `/${path.relative(root, file).replaceAll(path.sep, "/")}`;
+}
+
+function normalizeInternalHref(href) {
+  const original = href;
+  const value = href.replace(/&amp;/g, "&").trim();
+
+  if (!value || value.startsWith("#")) return null;
+  if (/^(mailto|tel|sms|javascript|data):/i.test(value)) return null;
+
+  let parsed;
+  try {
+    parsed = new URL(value, siteBase);
+  } catch {
+    return { kind: "bad", href: original, path: value };
+  }
+
+  if (parsed.origin !== siteBase) return null;
+
+  let pathname = parsed.pathname;
+  if (pathname !== "/" && !pathname.endsWith("/") && !pathname.includes(".")) {
+    pathname += "/";
+  }
+
+  return { kind: "internal", href: original, path: pathname };
 }
 
 function isNoIndex(html) {
@@ -81,8 +124,16 @@ async function main() {
     offerLinks: [],
     contactLinks: [],
     areaProof: [],
+    internalLinks: [],
   };
   const schemaCounts = {};
+  const validRoutes = new Set(
+    htmlFiles.map((file) => routeFromHtmlFile(file)).concat(
+      files
+        .filter((file) => !file.endsWith(".html"))
+        .map((file) => routeFromAssetFile(file)),
+    ),
+  );
 
   for (const file of htmlFiles) {
     const html = await fs.readFile(file, "utf8");
@@ -96,6 +147,30 @@ async function main() {
     const h1s = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map((match) => stripTags(match[1]));
 
     recordSchemaTypes(html, schemaCounts, route, issues);
+
+    for (const match of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>/gi)) {
+      const link = normalizeInternalHref(match[1]);
+
+      if (!link) continue;
+
+      if (link.kind === "bad") {
+        issues.internalLinks.push({ route, href: match[1], issue: "invalid href" });
+        continue;
+      }
+
+      if (redirectTargets.has(link.path)) {
+        issues.internalLinks.push({
+          route,
+          href: match[1],
+          issue: `points to redirected URL; use ${redirectTargets.get(link.path)}`,
+        });
+        continue;
+      }
+
+      if (!validRoutes.has(link.path)) {
+        issues.internalLinks.push({ route, href: match[1], issue: "missing generated route" });
+      }
+    }
 
     if (noIndex) continue;
 

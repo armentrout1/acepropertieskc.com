@@ -68,6 +68,7 @@ Local checkout: `C:\Users\aaron\Documents\Codex\2026-06-19\i-need-you-to-look-up
   - `src/assets/background.svg`
 - [x] Add a CI check that runs build, SEO preflight, and audit.
 - [x] Add a generated lead audit to CI for key lead routes, form fields, UTM/GCLID capture, thank-you redirect, and tracking hooks.
+- [x] Extend generated SEO audit to fail on broken internal links or internal links pointing to legacy redirect URLs.
 
 ## Phase 2: Indexing and Search Console Cleanup
 

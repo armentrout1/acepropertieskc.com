@@ -307,6 +307,7 @@ August optimization checklist:
 - [x] Tighten Overland Park title/description around cash-home-buyer intent.
 - [x] Tighten Olathe title/description around fast-sale plus as-is intent.
 - [x] Tighten Independence title/description around as-is seller intent.
+- [x] Add generated internal-link and legacy-redirect audit guardrail to protect crawl hygiene on future pushes.
 - [ ] In GSC, request indexing for:
   - [ ] `https://acepropertieskc.com/areas/shawnee-ks/`
   - [ ] `https://acepropertieskc.com/areas/olathe-ks/`
