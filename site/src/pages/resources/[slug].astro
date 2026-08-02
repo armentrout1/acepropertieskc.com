@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CallAceCta from "../../components/CallAceCta.astro";
 import CreativePromisePanel from "../../components/CreativePromisePanel.astro";
 import HighIntentOfferBlock from "../../components/HighIntentOfferBlock.astro";
 import LocalDecisionMap from "../../components/LocalDecisionMap.astro";
@@ -74,6 +75,16 @@ const jsonLd = [
         ))}
       </ul>
     </section>
+
+    <CallAceCta
+      heading="Want ACE to make this easier?"
+      body="If this sounds like your property situation, call or text the address. We can review the timeline, title questions, repairs, clean-out, payoff pressure, and whether a cash or flexible option makes sense."
+      phoneLabel="Call ACE now"
+      smsLabel="Text the property address"
+      offerLabel={page.primaryCta.label}
+      offerHref={page.primaryCta.href}
+      trackingLocation={`${page.slug}_easy_button`}
+    />
 
     {page.storySlug && (
       <CreativePromisePanel

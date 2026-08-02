@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CallAceCta from "../../../components/CallAceCta.astro";
 import CreativePromisePanel from "../../../components/CreativePromisePanel.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
@@ -130,6 +131,16 @@ const jsonLd = [
         This does not erase past late payments, and it is not a promise to save credit. The value is that a properly reviewed structure may help prevent more missed payments, reduce foreclosure pressure, and give you a documented plan before the situation gets worse.
       </p>
     </section>
+
+    <CallAceCta
+      eyebrow="Payment pressure easy button"
+      heading="Want us to explain whether taking over payments could fit?"
+      body="Call or text the address and what you know about the loan. We can compare a clean cash payoff, payoff-at-closing, lender options, and payment takeover questions in plain English before anything is signed."
+      phoneLabel="Call about payment takeover"
+      smsLabel="Text payment details"
+      offerLabel="Compare cash and takeover"
+      trackingLocation="subject_to_easy_button"
+    />
 
     <CreativePromisePanel
       eyebrow="Careful creative structure"

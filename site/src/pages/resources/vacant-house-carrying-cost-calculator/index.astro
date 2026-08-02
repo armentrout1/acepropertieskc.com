@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CallAceCta from "../../../components/CallAceCta.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import {
@@ -254,6 +255,16 @@ const jsonLd = [
         </div>
       </aside>
     </section>
+
+    <CallAceCta
+      eyebrow="Want to stop the carrying cost?"
+      heading="Call ACE if the vacant house is costing more every month."
+      body="Tell us the address, how long it has been vacant, and what is costing you money. We can compare the holding cost against an as-is offer, clean-out help, flexible timing, or a faster title path."
+      phoneLabel="Call about vacant-house costs"
+      smsLabel="Text the vacant address"
+      offerLabel="Compare an as-is offer"
+      trackingLocation="vacant_calculator_easy_button"
+    />
 
     <section class="grid gap-5 md:grid-cols-3">
       {costCategories.map((item) => (

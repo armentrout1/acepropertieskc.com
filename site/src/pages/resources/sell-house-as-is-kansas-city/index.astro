@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CallAceCta from "../../../components/CallAceCta.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
@@ -111,6 +112,16 @@ const jsonLd = [
         ))}
       </ul>
     </section>
+
+    <CallAceCta
+      eyebrow="Want to skip the project?"
+      heading="Call ACE if repairs, clean-out, or showings are the problem."
+      body="Tell us what condition the house is in and what you do not want to fix. We can explain what an as-is offer could look like with no repair list, no clean-out requirement, and no public listing pressure."
+      phoneLabel="Call about an as-is offer"
+      smsLabel="Text the address"
+      offerLabel="Start an as-is review"
+      trackingLocation="as_is_resource_easy_button"
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">What "as-is" actually means</h2>

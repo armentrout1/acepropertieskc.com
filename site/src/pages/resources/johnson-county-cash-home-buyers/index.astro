@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CallAceCta from "../../../components/CallAceCta.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import {
   articleJsonLd,
@@ -119,6 +120,16 @@ const jsonLd = [
         </a>
       ))}
     </section>
+
+    <CallAceCta
+      eyebrow="Have a Johnson County house to sell?"
+      heading="Call ACE for a local cash or flexible option review."
+      body="Whether the house is in Olathe, Overland Park, Shawnee, Lenexa, Mission, or nearby Johnson County, send the address and timing. We can explain a direct as-is offer against repairs, HOA items, title timing, and listing prep."
+      phoneLabel="Call a local buyer"
+      smsLabel="Text the Johnson County address"
+      offerLabel="Start my Johnson County review"
+      trackingLocation="johnson_county_easy_button"
+    />
 
     <section class="grid gap-8 md:grid-cols-2">
       <article class="card space-y-3">

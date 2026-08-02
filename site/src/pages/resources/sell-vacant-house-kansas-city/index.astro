@@ -1,5 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import CallAceCta from "../../../components/CallAceCta.astro";
 import LocalDecisionMap from "../../../components/LocalDecisionMap.astro";
 import HighIntentOfferBlock from "../../../components/HighIntentOfferBlock.astro";
 import {
@@ -131,6 +132,16 @@ const jsonLd = [
         ))}
       </ul>
     </section>
+
+    <CallAceCta
+      eyebrow="Vacant-house easy button"
+      heading="Call ACE if the empty house is becoming a project."
+      body="Tell us the address, whether utilities are on, and what you are worried about. We can compare holding costs, repairs, code notices, clean-out, security risk, and a direct as-is offer."
+      phoneLabel="Call about a vacant house"
+      smsLabel="Text the vacant address"
+      offerLabel="Start a vacant-house review"
+      trackingLocation="sell_vacant_house_easy_button"
+    />
 
     <section class="space-y-4">
       <h2 class="text-3xl font-semibold text-primary">Why vacant homes create urgency</h2>
