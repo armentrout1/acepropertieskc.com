@@ -66,6 +66,49 @@ const {
 		<DesktopCtaBar />
 		<ScrollControls />
 		<ClickTracking />
+
+		<script is:inline>
+			(() => {
+				const findOfferTarget = () => {
+					const target =
+						document.querySelector('[data-offer-anchor][data-address-first-anchor="true"]') ||
+						document.querySelector('[data-offer-anchor]');
+					const input = target?.querySelector?.('input[name="address"]') || null;
+
+					return { target, input };
+				};
+
+				const scrollToOffer = (target, input) => {
+					const header = document.querySelector('header');
+					const headerHeight = header ? header.getBoundingClientRect().height : 0;
+					const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 14;
+					const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+					window.scrollTo({
+						top: Math.max(0, top),
+						behavior: reducedMotion ? 'auto' : 'smooth',
+					});
+
+					if (input) {
+						window.setTimeout(() => input.focus({ preventScroll: true }), reducedMotion ? 0 : 350);
+					}
+				};
+
+				document.querySelectorAll('[data-offer-jump]').forEach((link) => {
+					link.addEventListener('click', (event) => {
+						const { target, input } = findOfferTarget();
+
+						if (!target) {
+							return;
+						}
+
+						event.preventDefault();
+						history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${target.id}`);
+						scrollToOffer(target, input);
+					});
+				});
+			})();
+		</script>
 	</body>
 </html>
 

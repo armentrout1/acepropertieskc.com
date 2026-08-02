@@ -29,9 +29,16 @@ const showNotes = !addressFirst && !mini && (!compact || includeCompactNotes);
 const resolvedButtonLabel = buttonLabel ?? (addressFirst ? "See My Options" : mini ? "See my options" : "Start my offer conversation");
 const sectionPadding = addressFirst ? "p-3 sm:p-4" : mini || compact ? "p-5" : "p-6";
 const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 space-y-4" : "mt-6 space-y-5";
+const formElementId = `${formId}-fields`;
 ---
 
-<section class:list={["w-full bg-white shadow-sm", addressFirst ? "rounded-[2rem] border border-white/70 v3-soft-panel" : "rounded-2xl border border-border/70", sectionPadding]} aria-labelledby={`${formId}-title`}>
+<section
+  id={formId}
+  data-offer-anchor
+  data-address-first-anchor={addressFirst ? "true" : "false"}
+  class:list={["w-full scroll-mt-32 bg-white shadow-sm md:scroll-mt-28", addressFirst ? "rounded-[2rem] border border-white/70 v3-soft-panel" : "rounded-2xl border border-border/70", sectionPadding]}
+  aria-labelledby={`${formId}-title`}
+>
   <div class:list={["space-y-1", addressFirst && "px-2 pt-2 sm:px-3"]}>
     <p
       id={`${formId}-badge`}
@@ -44,7 +51,8 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
   </div>
 
   <form
-    id={formId}
+    id={formElementId}
+    data-form-tracking-id={formId}
     data-offer-form
     data-address-first={addressFirst ? "true" : "false"}
     data-implied-consent={addressFirst ? "true" : "false"}
@@ -313,6 +321,7 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
     }
     form.dataset.offerFormBound = 'true';
 
+    const trackingFormId = form.dataset.formTrackingId || form.id;
     const errorBanner = form.querySelector('[data-error]');
     const submitButton = form.querySelector('button[type="submit"]');
     const submitButtonText = submitButton ? submitButton.textContent : '';
@@ -360,7 +369,7 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
     const trackFormEvent = (eventName, payload = {}) => {
       if (typeof window.gtag === 'function') {
         window.gtag('event', eventName, {
-          form_id: form.id,
+          form_id: trackingFormId,
           page_path: window.location.pathname,
           page_title: document.title,
           ...payload
@@ -373,7 +382,7 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
         if (googleAdsSendTo) {
           window.gtag('event', 'conversion', {
             send_to: googleAdsSendTo,
-            form_id: form.id,
+            form_id: trackingFormId,
             page_path: window.location.pathname,
             lead_type: payload.lead_type || 'offer_form'
           });
@@ -382,7 +391,7 @@ const formSpacing = addressFirst ? "mt-4 space-y-4" : mini || compact ? "mt-5 sp
 
       if (typeof window.fbq === 'function') {
         const metaPayload = {
-          content_name: form.id,
+          content_name: trackingFormId,
           page_path: window.location.pathname,
           page_title: document.title,
           ...payload
