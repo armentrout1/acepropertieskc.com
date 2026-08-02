@@ -70,6 +70,7 @@
   - [x] Strengthen `/areas/lees-summit-mo/` for "sell my house fast Lee's Summit" and Jackson County timing.
   - [x] Add a Jackson County cash home buyers guide and link it from KC/Lee's Summit/resource routes.
   - [x] Add "sell your house quickly Kansas City" support to the fast-sale guide.
+- [x] Add duplicate-snippet, canonical-route, and sitemap-to-route generated audit guardrails so template-heavy pages and stale sitemap URLs cannot slip into future pushes.
 - [ ] Track July 13 to August 13 against: clicks, impressions, CTR, average position, top city-page movement, and form starts.
 
 

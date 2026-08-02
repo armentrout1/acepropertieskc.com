@@ -81,6 +81,47 @@ function normalizeInternalHref(href) {
   return { kind: "internal", href: original, path: pathname };
 }
 
+function routeFromSiteUrl(url) {
+  try {
+    const parsed = new URL(url);
+
+    if (parsed.origin !== siteBase) return null;
+
+    let pathname = parsed.pathname;
+    if (pathname !== "/" && !pathname.endsWith("/") && !pathname.includes(".")) {
+      pathname += "/";
+    }
+
+    return pathname;
+  } catch {
+    return null;
+  }
+}
+
+function findDuplicateValues(records, field) {
+  const groups = new Map();
+
+  for (const record of records) {
+    const value = record[field]?.replace(/\s+/g, " ").trim();
+    if (!value) continue;
+
+    const key = value.toLowerCase();
+    if (!groups.has(key)) {
+      groups.set(key, { value, routes: [] });
+    }
+
+    groups.get(key).routes.push(record.route);
+  }
+
+  return [...groups.values()]
+    .filter((group) => group.routes.length > 1)
+    .map((group) => ({
+      value: group.value,
+      routes: group.routes.sort(),
+    }))
+    .sort((a, b) => b.routes.length - a.routes.length);
+}
+
 function isNoIndex(html) {
   return /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html);
 }
@@ -125,6 +166,9 @@ async function main() {
     contactLinks: [],
     areaProof: [],
     internalLinks: [],
+    duplicateTitles: [],
+    duplicateMetaDescriptions: [],
+    sitemapRoutes: [],
   };
   const schemaCounts = {};
   const validRoutes = new Set(
@@ -134,6 +178,8 @@ async function main() {
         .map((file) => routeFromAssetFile(file)),
     ),
   );
+  const indexablePageRecords = [];
+  const noIndexRoutes = new Set();
 
   for (const file of htmlFiles) {
     const html = await fs.readFile(file, "utf8");
@@ -172,10 +218,21 @@ async function main() {
       }
     }
 
-    if (noIndex) continue;
+    if (noIndex) {
+      noIndexRoutes.add(route);
+      continue;
+    }
+
+    indexablePageRecords.push({ route, title, description, canonical });
 
     if (!canonical || !canonical.startsWith(siteBase)) {
       issues.canonicals.push({ route, canonical });
+    } else {
+      const canonicalRoute = routeFromSiteUrl(canonical);
+
+      if (canonicalRoute !== route) {
+        issues.canonicals.push({ route, canonical, issue: "canonical route mismatch" });
+      }
     }
 
     if (h1s.length !== 1) {
@@ -214,6 +271,33 @@ async function main() {
     sitemapLocations.push(...[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]));
   }
 
+  issues.duplicateTitles.push(...findDuplicateValues(indexablePageRecords, "title"));
+  issues.duplicateMetaDescriptions.push(...findDuplicateValues(indexablePageRecords, "description"));
+
+  const indexableRoutes = new Set(indexablePageRecords.map((record) => record.route));
+  const sitemapPageRoutes = new Set(
+    sitemapLocations
+      .map((url) => routeFromSiteUrl(url))
+      .filter(Boolean)
+      .filter((route) => !route.endsWith(".xml")),
+  );
+
+  for (const route of [...indexableRoutes].sort()) {
+    if (!sitemapPageRoutes.has(route)) {
+      issues.sitemapRoutes.push({ route, issue: "indexable route missing from sitemap" });
+    }
+  }
+
+  for (const route of [...sitemapPageRoutes].sort()) {
+    if (noIndexRoutes.has(route)) {
+      issues.sitemapRoutes.push({ route, issue: "noindex route appears in sitemap" });
+    }
+
+    if (!validRoutes.has(route)) {
+      issues.sitemapRoutes.push({ route, issue: "sitemap route missing generated HTML" });
+    }
+  }
+
   const sitemapPollution = {
     thankYou: sitemapLocations.some((url) => url.includes("/thank-you/")),
     notFound: sitemapLocations.some((url) => url.includes("/404/")),
@@ -230,7 +314,8 @@ async function main() {
     htmlPages: htmlFiles.length,
     sitemapFiles: xmlFiles.map((file) => path.basename(file)).sort(),
     sitemapLocations: sitemapLocations.length,
-    indexableSitemapPages: sitemapLocations.filter((url) => !url.endsWith("sitemap-0.xml")).length,
+    indexablePages: indexablePageRecords.length,
+    indexableSitemapPages: sitemapPageRoutes.size,
     schema: Object.fromEntries(Object.entries(schemaCounts).sort()),
   };
 
