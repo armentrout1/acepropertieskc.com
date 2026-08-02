@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
+import GoogleBusinessTrustLink from "../../../components/GoogleBusinessTrustLink.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
 import {
@@ -195,7 +196,7 @@ const jsonLd = [
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
       <p class="badge">We buy houses Lenexa KS</p>
-      <h1 class="text-4xl font-semibold text-primary md:text-5xl">
+      <h1 class="text-3xl font-semibold text-primary sm:text-4xl md:text-5xl">
         Sell Your Lenexa, KS House As-Is With a Written Local Offer
       </h1>
       <p class="text-lg leading-8 text-muted">
@@ -211,7 +212,7 @@ const jsonLd = [
         too.
       </p>
       <div class="flex flex-wrap gap-3">
-        <a href="/get-offer/" class="btn btn-primary text-base">
+        <a href="#lenexa-ks-offer-form" class="btn btn-primary text-base">
           Get a Lenexa offer
         </a>
         <a
@@ -222,6 +223,7 @@ const jsonLd = [
           Call 816-728-7548
         </a>
       </div>
+      <GoogleBusinessTrustLink class="max-w-xl" />
     </div>
     <OfferForm
       compact
@@ -505,7 +507,7 @@ const jsonLd = [
   </section>
 
   <section class="section flex flex-wrap gap-4">
-    <a href="/get-offer/" class="btn btn-primary text-base">
+    <a href="#lenexa-ks-offer-form" class="btn btn-primary text-base">
       Start the offer form
     </a>
     <a href="/contact/" class="btn btn-ghost text-base">Talk with us</a>

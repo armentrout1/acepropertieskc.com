@@ -58,7 +58,7 @@ const {
 	<body class="min-h-screen overflow-x-clip bg-cream text-base text-primary">
 		<MetaPixel />
 		<Header variant={headerVariant} />
-		<main class="container-shell flex-1 pb-20 md:pb-0">
+		<main class="container-shell flex-1 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] md:pb-0">
 			<slot />
 		</main>
 		<Footer />
