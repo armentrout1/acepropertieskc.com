@@ -37,6 +37,40 @@ const afterSubmitSteps = [
   "You decide with no pressure and no obligation from the first form.",
 ];
 
+const johnsonCountyPaths = [
+  {
+    city: "Overland Park",
+    href: "/areas/overland-park-ks/",
+    intent: "Cash home buyers Overland Park KS",
+    body: "Compare a direct cash offer before repairs, HOA items, clean-out, resale prep, or a public listing slows the decision down.",
+  },
+  {
+    city: "Olathe",
+    href: "/areas/olathe-ks/",
+    intent: "Sell my house fast Olathe KS",
+    body: "Review an as-is offer path when relocation, estate timing, vacant-house costs, or repairs make a normal sale harder.",
+  },
+  {
+    city: "Shawnee",
+    href: "/areas/shawnee-ks/",
+    intent: "We buy houses Shawnee KS",
+    body: "Get a local review when the house needs work, has tenants, needs a clean-out, or you want a simple sale without showings.",
+  },
+  {
+    city: "Lenexa",
+    href: "/areas/lenexa-ks/",
+    intent: "Sell a Lenexa house as-is",
+    body: "Talk through cash, payoff-at-closing, or flexible timing before spending money on updates or waiting out a traditional sale.",
+  },
+];
+
+const johnsonCountyDecisionPoints = [
+  "Repairs, updates, or clean-out are bigger than you want to manage.",
+  "You want a clear as-is net before listing in Johnson County.",
+  "HOA, title, trust, estate, payoff, or possession timing needs a practical review.",
+  "The property is vacant, inherited, tenant-occupied, behind on payments, or carrying monthly costs.",
+];
+
 const urgentSellerProblems = [
   {
     title: "Payment or tax pressure",
@@ -133,7 +167,7 @@ const jsonLd = [
 
 <Layout
   title="Sell My House Fast Kansas City | Cash & Payment Options"
-  description="Need to sell your Kansas City house fast or as-is? Compare a local cash offer, payment takeover options, repairs, payoffs, and timelines with no pressure."
+  description="Sell your Kansas City or Johnson County house fast or as-is. Compare a local cash offer, payment takeover options, repairs, payoffs, and timelines."
   canonicalPath="/"
   jsonLd={jsonLd}
 >
@@ -159,10 +193,10 @@ const jsonLd = [
         <div class="order-1 max-w-4xl space-y-3 md:space-y-5">
           <p class="text-sm font-black uppercase tracking-[0.1em] text-accent">Local Kansas City direct buyer</p>
           <h1 class="text-4xl font-black leading-[1.04] text-white md:text-6xl lg:text-7xl">
-            Sell Your Kansas City House As-Is
+            Sell Your Kansas City or Johnson County House As-Is
           </h1>
           <p class="max-w-3xl text-lg leading-7 text-white/88 md:text-2xl md:leading-9">
-            Get a cash offer or creative option from a local buyer who has been buying directly from sellers since {SITE.buyerSince}.
+            Get a cash offer or creative option from a local buyer who has been buying directly from sellers across the KC metro since {SITE.buyerSince}.
           </p>
         </div>
 
@@ -235,6 +269,42 @@ const jsonLd = [
     heading="A real Google review from a seller ACE helped"
     intro="Trust should come from real people and real situations, especially when a seller is comparing cash and creative options."
   />
+
+  <section class="section space-y-7">
+    <div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+      <div class="space-y-5">
+        <div class="max-w-3xl space-y-3">
+          <p class="badge">Johnson County seller paths</p>
+          <h2 class="text-3xl font-black text-primary md:text-4xl">Need to sell in Overland Park, Olathe, Shawnee, or Lenexa?</h2>
+          <p class="text-muted">
+            Johnson County sellers often have enough equity to compare more than one path. ACE can review a direct cash offer, a payoff-at-closing option, or a flexible structure before you spend money on repairs, showings, clean-out, or months of carrying costs.
+          </p>
+        </div>
+        <ul class="grid gap-3">
+          {johnsonCountyDecisionPoints.map((point) => (
+            <li class="rounded-[1.25rem] border border-border/60 bg-white p-4 text-sm font-semibold leading-6 text-primary shadow-sm">
+              {point}
+            </li>
+          ))}
+        </ul>
+        <div class="flex flex-wrap gap-3">
+          <a href="/resources/johnson-county-cash-home-buyers/" class="btn btn-primary">Read the Johnson County guide</a>
+          <a href="/get-offer/" class="btn btn-ghost">Start with my address</a>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {johnsonCountyPaths.map((path) => (
+          <a href={path.href} class="rounded-[1.5rem] border border-border/60 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-secondary/60">
+            <p class="text-xs font-black uppercase tracking-[0.08em] text-secondary">{path.intent}</p>
+            <h3 class="mt-3 text-2xl font-black text-primary">Sell in {path.city}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">{path.body}</p>
+            <span class="mt-4 inline-flex text-sm font-black text-secondary">Open {path.city} page</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <section class="full-bleed bg-white">
     <div class="container-shell grid gap-8 py-14 md:py-20 lg:grid-cols-[1fr_0.88fr] lg:items-start">

@@ -309,6 +309,7 @@ August optimization checklist:
 - [x] Tighten Olathe title/description around fast-sale plus as-is intent.
 - [x] Tighten Independence title/description around as-is seller intent.
 - [x] Add generated internal-link and legacy-redirect audit guardrail to protect crawl hygiene on future pushes.
+- [x] Add homepage Johnson County routing for Overland Park, Olathe, Shawnee, Lenexa, and the county cash-buyer guide.
 - [ ] In GSC, request indexing for:
   - [ ] `https://acepropertieskc.com/areas/shawnee-ks/`
   - [ ] `https://acepropertieskc.com/areas/olathe-ks/`
