@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import OfferForm from "../../components/OfferForm.astro";
+import RealPropertyProof from "../../components/RealPropertyProof.astro";
 import { SITE } from "../../lib/siteConfig";
 import { buildBreadcrumbList, localBusinessJsonLd, webSiteJsonLd } from "../../lib/seo";
 
@@ -74,6 +75,12 @@ const jsonLd = [
       subheading="Share the address and what you are trying to solve."
     />
   </section>
+
+  <RealPropertyProof
+    eyebrow="Proof from real property work"
+    heading="We have walked houses that needed repairs, cleanup, and a practical plan."
+    intro="That matters because most sellers who call ACE are not trying to stage a perfect listing. They need a calm review of the real condition, payoff, title, and timeline."
+  />
 
   <section class="section grid gap-8 md:grid-cols-2">
     <article class="card space-y-3">

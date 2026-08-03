@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import OfferForm from "../components/OfferForm.astro";
 import TrustProofStrip from "../components/TrustProofStrip.astro";
 import SellerReviewStrip from "../components/SellerReviewStrip.astro";
+import RealPropertyProof from "../components/RealPropertyProof.astro";
 import CreativeHomeBuyerSeal from "../components/CreativeHomeBuyerSeal.astro";
 import { sellerStories } from "../data/sellerStories";
 import { SITE } from "../lib/siteConfig";
@@ -264,6 +265,11 @@ const jsonLd = [
   </section>
 
   <TrustProofStrip />
+
+  <RealPropertyProof
+    heading="Real KC property situations do not have to be cleaned up before you call."
+    intro="If the house has repairs, belongings, old finishes, vacant-house risk, or unfinished work, ACE can still review the numbers and explain a direct as-is option."
+  />
 
   <SellerReviewStrip
     heading="A real Google review from a seller ACE helped"
