@@ -1129,7 +1129,7 @@ export const longTailResourcePages: LongTailResourcePage[] = [
         ],
       },
       {
-        eyebrow: "Respectful process",
+        eyebrow: "Seller-first process",
         title: "Keep what matters and leave what does not",
         body:
           "A practical as-is sale does not mean losing control. The seller can remove personal, private, and sentimental items first, then discuss what can remain after closing as part of the written offer.",
