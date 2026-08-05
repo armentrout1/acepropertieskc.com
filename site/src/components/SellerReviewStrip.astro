@@ -34,8 +34,19 @@ const {
     <div class="grid gap-5 lg:grid-cols-3">
       {approvedSellerReviews.map((review) => (
         <figure class="card bg-white">
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">5.0 / 5 Google review</p>
-          <blockquote class="mt-3 text-sm leading-6 text-primary">"{review.text}"</blockquote>
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-lg font-black text-primary shadow-sm ring-1 ring-border">
+              G
+            </span>
+            <div>
+              <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Reviewed on Google</p>
+              <p class="mt-1 flex items-center gap-2 text-sm font-black text-primary">
+                <span>5.0</span>
+                <span class="text-[#fbbc04]" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </p>
+            </div>
+          </div>
+          <blockquote class="mt-4 text-sm leading-6 text-primary">"{review.text}"</blockquote>
           <figcaption class="mt-4 border-t border-border pt-4">
             <p class="font-semibold text-primary">{review.reviewer}</p>
             <p class="text-sm text-muted">{review.location}</p>

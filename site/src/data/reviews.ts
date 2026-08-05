@@ -13,7 +13,7 @@ export type SellerReview = {
 export const sellerReviews: SellerReview[] = [
   {
     id: "google-creative-financing-2024",
-    reviewer: "M. H.",
+    reviewer: "Melissa H.",
     location: "Google review",
     situation: "Creative financing after relocation",
     text:
