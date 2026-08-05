@@ -11,6 +11,15 @@ const {
   heading = "What sellers say about ACE",
   intro = "Only approved, real seller reviews appear here.",
 } = Astro.props as Props;
+
+const googleLetters = [
+  { char: "G", color: "text-[#4285f4]" },
+  { char: "o", color: "text-[#ea4335]" },
+  { char: "o", color: "text-[#fbbc04]" },
+  { char: "g", color: "text-[#4285f4]" },
+  { char: "l", color: "text-[#34a853]" },
+  { char: "e", color: "text-[#ea4335]" },
+];
 ---
 
 {approvedSellerReviews.length > 0 && (
@@ -33,22 +42,34 @@ const {
 
     <div class="grid gap-5 lg:grid-cols-3">
       {approvedSellerReviews.map((review) => (
-        <figure class="card bg-white">
-          <div class="flex flex-wrap items-center gap-3">
-            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-lg font-black text-primary shadow-sm ring-1 ring-border">
-              G
-            </span>
-            <div>
-              <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Reviewed on Google</p>
-              <p class="mt-1 flex items-center gap-2 text-sm font-black text-primary">
-                <span>5.0</span>
-                <span class="text-[#fbbc04]" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              </p>
+        <figure class="overflow-hidden rounded-[24px] border border-border bg-white shadow-sm">
+          <div class="border-b border-border bg-white px-5 py-4">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl font-black shadow-sm ring-1 ring-border" aria-hidden="true">
+                  <span class="text-[#4285f4]">G</span>
+                </span>
+                <div>
+                  <p class="text-base font-black leading-none tracking-normal" aria-label="Google review">
+                    {googleLetters.map((letter) => (
+                      <span class={letter.color}>{letter.char}</span>
+                    ))}
+                    <span class="ml-1 text-primary">review</span>
+                  </p>
+                  <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">Verified seller feedback</p>
+                </div>
+              </div>
+              <span class="rounded-full bg-[#fef7e0] px-3 py-1 text-sm font-black text-primary">5.0</span>
+            </div>
+            <div class="mt-3 flex flex-wrap items-center gap-2">
+              <span class="text-lg leading-none text-[#fbbc04]" aria-label="5 out of 5 stars">
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </span>
+              <span class="text-sm font-semibold text-muted">{review.reviewer}</span>
             </div>
           </div>
-          <blockquote class="mt-4 text-sm leading-6 text-primary">"{review.text}"</blockquote>
-          <figcaption class="mt-4 border-t border-border pt-4">
-            <p class="font-semibold text-primary">{review.reviewer}</p>
+          <blockquote class="px-5 pt-5 text-sm leading-6 text-primary">"{review.text}"</blockquote>
+          <figcaption class="px-5 pb-5 pt-4">
             <p class="text-sm text-muted">{review.location}</p>
             <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-secondary">{review.situation}</p>
             {review.sourceUrl && (
