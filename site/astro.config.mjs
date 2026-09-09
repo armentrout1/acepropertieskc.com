@@ -52,6 +52,16 @@ export default defineConfig({
     },
   },
   vite: {
+    build: {
+      assetsInlineLimit: (filePath, content) => {
+        // Keep the small shared form script available with the first HTML response.
+        // Leave image, font, and unrelated script inlining at Vite's default.
+        if (filePath.includes('Layout.astro_astro_type_script_') && filePath.endsWith('.js')) {
+          return content.length < 12 * 1024;
+        }
+        return undefined;
+      },
+    },
     plugins: [tailwindcss()],
     optimizeDeps: {
       entries: [
