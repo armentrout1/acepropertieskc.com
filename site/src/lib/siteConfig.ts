@@ -1,5 +1,6 @@
 export const SITE = {
   name: "ACE Properties KC",
+  contactName: "Aaron",
   domain: "acepropertieskc.com",
   baseUrl: "https://acepropertieskc.com",
   phoneDisplay: "816-728-7548",

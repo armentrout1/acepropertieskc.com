@@ -22,6 +22,7 @@ const REQUIRED_HIDDEN_FIELDS = [
   "form_started_at",
   "page_context",
   "landing_page",
+  "submission_page",
   "referrer",
   "utm_source",
   "utm_medium",
@@ -34,7 +35,9 @@ const REQUIRED_HIDDEN_FIELDS = [
 ];
 
 const REQUIRED_TRACKING_STRINGS = [
-  "new URLSearchParams(window.location.search)",
+  "URLSearchParams",
+  "ace.attribution.v1",
+  "form_step_complete",
   "document.referrer",
   "form_start",
   "generate_lead",
@@ -45,7 +48,7 @@ const REQUIRED_TRACKING_STRINGS = [
   "sms_click",
   "email_click",
   "window.fbq",
-  "window.location.href = '/thank-you/'",
+  "/thank-you/",
 ];
 
 async function walk(dir) {

@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lead behavior tests
+        run: npm run test:leads
+
       - name: Build
         run: npm run build
 

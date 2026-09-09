@@ -72,16 +72,16 @@ const jsonLd = [
 
   <section class="section section-alt space-y-6">
     <div class="max-w-3xl space-y-3">
-      <p class="badge">Target ZIPs</p>
-      <h2 class="text-3xl font-black text-primary">Start with these areas first</h2>
+      <p class="badge">Explore your area</p>
+      <h2 class="text-3xl font-black text-primary">Find guidance for your area</h2>
       <p class="text-muted">
-        These pages should pull searches from people looking for cash buyers, as-is sales, code violation help, tax problems, inherited houses, vacant property, and fast closings in Kansas City.
+        Choose your area for local context, then review the guide that fits your situation: repairs, a vacant or inherited house, taxes, or a deadline. The condition and details of your own property matter more than its ZIP code.
       </p>
     </div>
     <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
       {zipLinks.map((zip) => (
         <a href={zip.href} class="rounded-[1.25rem] border border-border bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-secondary/60 hover:shadow-lg">
-          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Priority ZIP</p>
+          <p class="text-xs font-black uppercase tracking-[0.1em] text-secondary">Local ZIP guide</p>
           <h2 class="mt-2 text-3xl font-black text-primary">{zip.label}</h2>
           <p class="mt-2 text-sm leading-6 text-muted">{zip.note}</p>
           <span class="mt-4 inline-flex text-sm font-bold text-secondary">Open area page</span>
@@ -92,19 +92,19 @@ const jsonLd = [
 
   <section class="section grid gap-6 lg:grid-cols-3">
     <article class="card">
-      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Best search intent</p>
-      <h2 class="mt-2 text-2xl font-black text-primary">Problems that trigger action</h2>
+      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Your situation</p>
+      <h2 class="mt-2 text-2xl font-black text-primary">Start with what needs attention</h2>
       <p class="mt-3 text-muted">Back taxes, code violations, foreclosure timing, vacant houses, inherited homes, major repairs, tenant issues, and clean-out problems.</p>
     </article>
     <article class="card">
-      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Best offer angle</p>
+      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Selling as-is</p>
       <h2 class="mt-2 text-2xl font-black text-primary">Certainty over polish</h2>
-      <p class="mt-3 text-muted">The page should make it clear that sellers can start without repairs, cleaning, open houses, or perfect paperwork.</p>
+      <p class="mt-3 text-muted">You can start a conversation before making repairs, cleaning out the house, or gathering every document. Tell us what you know and what still needs to be sorted out.</p>
     </article>
     <article class="card">
-      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Best internal links</p>
-      <h2 class="mt-2 text-2xl font-black text-primary">Connect ZIP to situation</h2>
-      <p class="mt-3 text-muted">Each ZIP page should point into foreclosure, back taxes, vacant house, inherited, code violation, tenant, and repair guides.</p>
+      <p class="text-sm font-black uppercase tracking-[0.1em] text-secondary">Next steps</p>
+      <h2 class="mt-2 text-2xl font-black text-primary">Find a guide for your situation</h2>
+      <p class="mt-3 text-muted">Visit our <a href="/solutions/" class="text-secondary underline">seller situation guides</a> for questions about a vacant or inherited house, tenants, repairs, or payment pressure.</p>
     </article>
   </section>
 
