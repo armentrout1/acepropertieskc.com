@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import sgMail from "@sendgrid/mail";
 import { validateLeadContact } from "../../../lib/lead-contact.js";
+import { notificationContact } from "../../../lib/lead-notification.js";
 
 export const prerender = false;
 
@@ -67,7 +68,7 @@ function renderEmailRows(fields: Array<[string, string]>): string {
       ([label, value]) => `
         <tr>
           <td style="padding:10px 12px;border-bottom:1px solid #e6edf2;color:#5f6f80;font-size:13px;width:34%;vertical-align:top;">${escapeHtml(label)}</td>
-          <td style="padding:10px 12px;border-bottom:1px solid #e6edf2;color:#06213f;font-size:14px;font-weight:600;vertical-align:top;">${escapeHtml(value)}</td>
+          <td style="padding:10px 12px;border-bottom:1px solid #e6edf2;color:#06213f;font-size:14px;font-weight:600;vertical-align:top;word-break:break-word;overflow-wrap:anywhere;">${escapeHtml(value)}</td>
         </tr>
       `,
     )
@@ -199,9 +200,22 @@ export const POST: APIRoute = async ({ request }) => {
     return respondJson({ ok: false, error: "email_disabled" }, 500);
   }
 
+  const contactDetails = notificationContact({ phone, email, preference: contactPreference, fallbackReplyTo: REPLY_TO_EMAIL });
+  const replyNote = email
+    ? `Reply to this email to reach the seller at ${email}.`
+    : "The seller did not provide an email address. Use the phone contact above.";
+  const contactActionsHtml = contactDetails.actions.map(action =>
+    `<a href="${escapeHtml(action.href)}" style="display:inline-block;margin:8px 8px 0 0;padding:12px 18px;border-radius:24px;background:#087f78;color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;">${escapeHtml(action.label)}</a>`
+  ).join("");
   const submittedAt = new Date().toISOString();
   const subject = `New ACE Properties KC inquiry - ${address}`;
   const textLines = [
+    `Preferred contact: ${contactDetails.preferred}`,
+    `Phone: ${phone || "Not provided"}`,
+    `Email: ${email || "Not provided"}`,
+    replyNote,
+    ...contactDetails.actions.map(action => `${action.label}: ${action.href}`),
+    "",
     `Address: ${address}`,
     `Name: ${name}`,
     `Phone: ${phone || "Not provided"}`,
@@ -260,7 +274,7 @@ export const POST: APIRoute = async ({ request }) => {
   const message = {
     to: NOTIFICATION_EMAIL,
     from: SUPPORT_EMAIL,
-    replyTo: REPLY_TO_EMAIL,
+    replyTo: contactDetails.replyTo,
     subject,
     text: textLines.join("\n"),
     html: `
@@ -268,7 +282,7 @@ export const POST: APIRoute = async ({ request }) => {
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;background:#f4f7fa;">
           <tr>
             <td align="center" style="padding:28px 14px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;border-collapse:collapse;background:#ffffff;border:1px solid #dce5ec;border-radius:16px;overflow:hidden;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;table-layout:fixed;border-collapse:collapse;background:#ffffff;border:1px solid #dce5ec;border-radius:16px;overflow:hidden;">
                 <tr>
                   <td style="padding:22px 26px;background:#ffffff;border-bottom:1px solid #e6edf2;">
                     <img src="${SITE_URL}/brand/ace-logo.svg" width="190" alt="ACE Properties KC" style="display:block;max-width:190px;height:auto;margin-bottom:12px;" />
@@ -279,6 +293,17 @@ export const POST: APIRoute = async ({ request }) => {
                   <td style="padding:28px 26px 22px;background:#06213f;color:#ffffff;">
                     <h1 style="margin:0 0 10px;font-size:28px;line-height:1.2;font-weight:800;color:#ffffff;">New property inquiry received</h1>
                     <p style="margin:0;color:#d8e6ef;font-size:16px;line-height:1.55;">A Kansas City area seller submitted the offer form. Start with the property and contact details below.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:22px 26px;background:#e9f7f5;border-bottom:1px solid #dce5ec;">
+                    <p style="margin:0 0 8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#087f78;font-weight:800;">Start your follow-up</p>
+                    <p style="margin:0 0 6px;font-size:21px;font-weight:800;color:#06213f;">Preferred contact: ${escapeHtml(contactDetails.preferred)}</p>
+                    <p style="margin:0 0 4px;font-size:15px;color:#06213f;">${escapeHtml(name)}</p>
+                    ${phone ? `<p style="margin:0 0 4px;font-size:15px;color:#06213f;">Phone: ${escapeHtml(phone)}</p>` : ""}
+                    ${email ? `<p style="margin:0 0 4px;font-size:15px;color:#06213f;overflow-wrap:anywhere;">Email: ${escapeHtml(email)}</p>` : ""}
+                    <div>${contactActionsHtml}</div>
+                    <p style="margin:12px 0 0;font-size:13px;line-height:1.5;color:#425568;">${escapeHtml(replyNote)}</p>
                   </td>
                 </tr>
                 <tr>
@@ -315,7 +340,7 @@ export const POST: APIRoute = async ({ request }) => {
                 </tr>
                 <tr>
                   <td style="padding:18px 26px;background:#f8fafc;border-top:1px solid #e6edf2;color:#5f6f80;font-size:12px;line-height:1.5;">
-                    Sent by the ACE Properties KC website form. Reply-to is set to ${escapeHtml(REPLY_TO_EMAIL)}.
+                    Sent by the ACE Properties KC website form. ${escapeHtml(replyNote)}
                   </td>
                 </tr>
               </table>
@@ -327,7 +352,11 @@ export const POST: APIRoute = async ({ request }) => {
   };
 
   try {
-    await sgMail.send(message);
+    const [delivery] = await sgMail.send(message);
+    console.info("Lead email accepted", {
+      status: delivery.statusCode,
+      messageId: delivery.headers?.["x-message-id"] || null,
+    });
   } catch (error) {
     console.error("SendGrid error:", error);
     return respondJson({ ok: false, error: "email_failed" }, 502);

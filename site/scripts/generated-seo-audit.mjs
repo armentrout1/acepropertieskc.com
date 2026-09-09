@@ -259,7 +259,10 @@ async function main() {
       issues.contactLinks.push(route);
     }
 
-    if (/^\/areas\/[^/]+\/$/.test(route) && !/Property type/.test(html)) {
+    const hasSellerExperience = /id=["']seller-experience["']/.test(html)
+      && /href=["']\/seller-stories\/[^"']+/.test(html)
+      && /<blockquote/.test(html);
+    if (/^\/areas\/[^/]+\/$/.test(route) && !/Property type/.test(html) && !hasSellerExperience) {
       issues.areaProof.push(route);
     }
   }
