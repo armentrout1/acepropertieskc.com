@@ -1,11 +1,12 @@
 import type { APIRoute } from "astro";
 import sgMail from "@sendgrid/mail";
+import { validateLeadContact } from "../../../lib/lead-contact.js";
 
 export const prerender = false;
 
 const runtimeEnv =
   (globalThis as typeof globalThis & { process?: { env?: Record<string, string | undefined> } }).process?.env ?? {};
-const buildEnv = import.meta.env as Record<string, string | undefined>;
+const buildEnv = (import.meta.env ?? {}) as Record<string, string | undefined>;
 
 function getEnv(name: string): string {
   return runtimeEnv[name] ?? buildEnv[name] ?? "";
@@ -161,18 +162,8 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const contact = readString(body, "contact");
-  let phone = readString(body, "phone");
-  let email = readString(body, "email");
-  if (!phone && !email && contact) {
-    if (contact.includes("@")) {
-      email = contact;
-    } else {
-      phone = contact;
-    }
-  }
-  if (!phone && !email) {
-    fieldErrors.contact = "Provide a phone or email.";
-  }
+  const { phone, email, errors: contactErrors } = validateLeadContact(body);
+  Object.assign(fieldErrors, contactErrors);
 
   if (Object.keys(fieldErrors).length > 0) {
     return respondJson(
@@ -192,6 +183,7 @@ export const POST: APIRoute = async ({ request }) => {
   const pageContext = readString(body, "page_context");
   const notes = readString(body, "notes");
   const landingPage = readString(body, "landing_page", "Not captured");
+  const submissionPage = readString(body, "submission_page", "Not captured");
   const referrer = readString(body, "referrer", "Direct or not captured");
   const utmSource = readString(body, "utm_source");
   const utmMedium = readString(body, "utm_medium");
@@ -221,6 +213,7 @@ export const POST: APIRoute = async ({ request }) => {
     `Notes: ${notes || "None"}`,
     `Page context: ${pageContext || "None"}`,
     `Landing page: ${landingPage}`,
+    `Submitted from: ${submissionPage}`,
     `Referrer: ${referrer}`,
     `UTM source: ${utmSource || "None"}`,
     `UTM medium: ${utmMedium || "None"}`,
@@ -251,6 +244,7 @@ export const POST: APIRoute = async ({ request }) => {
   const sourceFields: Array<[string, string]> = [
     ["Page context", pageContext || "None"],
     ["Landing page", landingPage],
+    ["Submitted from", submissionPage],
     ["Referrer", referrer],
     ["UTM source", utmSource || "None"],
     ["UTM medium", utmMedium || "None"],
