@@ -14,6 +14,10 @@ export default defineConfig({
   site: "https://acepropertieskc.com",
   trailingSlash: "always",
   output: 'static',
+  build: {
+    // Prioritize the first visit by avoiding a blocking stylesheet round trip.
+    inlineStylesheets: 'always',
+  },
   devToolbar: {
     enabled: false,
   },
