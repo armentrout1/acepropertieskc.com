@@ -1,5 +1,9 @@
 ---
 import { SITE } from "../lib/siteConfig";
+import { Image } from "astro:assets";
+import walkthroughPhoto from "../../public/images/proof/kansas-city-home-buyer-property-walkthrough.jpg";
+import repairsPhoto from "../../public/images/proof/sell-house-as-is-kansas-city-repairs-ok.jpg";
+import exteriorPhoto from "../../public/images/proof/kansas-city-property-problem-before-after.jpg";
 
 type Props = {
   eyebrow?: string;
@@ -15,21 +19,21 @@ const {
 
 const proofPhotos = [
   {
-    src: "/images/proof/kansas-city-home-buyer-property-walkthrough.jpg",
+    src: walkthroughPhoto,
     alt: "ACE Properties KC reviewing an as-is Kansas City house interior",
     label: "Local walkthroughs",
     title: "Real people look at the property details.",
     body: "We can review condition, clean-out, repairs, payoff, and timing with a homeowner before they spend money getting a house ready.",
   },
   {
-    src: "/images/proof/sell-house-as-is-kansas-city-repairs-ok.jpg",
+    src: repairsPhoto,
     alt: "Kansas City house interior repairs before and after as-is sale review",
     label: "Sell as-is",
     title: "Unfinished projects do not have to stop the sale.",
     body: "You can ask for a direct review before replacing flooring, opening walls, finishing punch-list items, or trying to make the house listing-ready.",
   },
   {
-    src: "/images/proof/kansas-city-property-problem-before-after.jpg",
+    src: exteriorPhoto,
     alt: "Kansas City property exterior before and after improvement work",
     label: "Problem properties",
     title: "Deferred maintenance does not stop the conversation.",
@@ -62,8 +66,12 @@ const proofPhotos = [
     <div class="grid gap-4 md:grid-cols-3">
       {proofPhotos.map((photo) => (
         <article class="overflow-hidden rounded-[1.5rem] border border-border/60 bg-white shadow-sm">
-          <img
+          <Image
             src={photo.src}
+            format="webp"
+            widths={[320, 480, 768, 1080]}
+            sizes="(min-width: 1280px) 220px, (min-width: 1024px) 18vw, (min-width: 768px) 30vw, calc(100vw - 32px)"
+            quality={75}
             alt={photo.alt}
             class="aspect-[4/3] w-full object-cover"
             loading="lazy"

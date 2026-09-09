@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import heroImage from "../../public/images/kc-home-hero-v3.png";
 import OfferForm from "../components/OfferForm.astro";
 import TrustProofStrip from "../components/TrustProofStrip.astro";
 import SellerReviewStrip from "../components/SellerReviewStrip.astro";
@@ -173,8 +175,13 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <section class="full-bleed relative overflow-hidden bg-primary text-white">
-    <img
-      src="/images/kc-home-hero-v3.png"
+    <Picture
+      src={heroImage}
+      formats={["avif", "webp"]}
+      fallbackFormat="jpeg"
+      widths={[480, 768, 1080, 1440, 1920]}
+      sizes="100vw"
+      quality={75}
       alt=""
       class="absolute inset-0 h-full w-full object-cover object-center"
       loading="eager"
