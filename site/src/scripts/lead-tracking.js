@@ -1,5 +1,9 @@
 import { captureAttribution } from "../lib/lead-attribution.js";
 import { validateLeadContact } from "../lib/lead-contact.js";
+import {
+  saveLeadConversion,
+  consumeLeadConversion,
+} from "../lib/lead-conversion.js";
 
 let storage;
 try {
@@ -10,6 +14,62 @@ const attribution = captureAttribution({
   referrer: document.referrer,
   storage,
 });
+
+const trackEvent = (eventName, payload = {}, googleOptions = {}) => {
+  try {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, {
+        page_path: window.location.pathname,
+        page_title: document.title,
+        ...payload,
+        ...googleOptions,
+      });
+
+      const googleAdsSendTo =
+        eventName === "generate_lead"
+          ? window.__aceGoogleAdsConversions?.lead
+          : "";
+
+      if (googleAdsSendTo) {
+        window.gtag("event", "conversion", {
+          send_to: googleAdsSendTo,
+          form_id: payload.form_id,
+          page_path: payload.page_path || window.location.pathname,
+          lead_type: payload.lead_type || "offer_form",
+        });
+      }
+    }
+
+    if (typeof window.fbq === "function") {
+      const metaPayload = {
+        content_name: payload.form_id,
+        page_path: window.location.pathname,
+        page_title: document.title,
+        ...payload,
+      };
+
+      if (eventName === "generate_lead") {
+        window.fbq("track", "Lead", metaPayload);
+      } else if (eventName === "form_start") {
+        window.fbq("track", "Contact", {
+          contact_method: "form",
+          ...metaPayload,
+        });
+      } else {
+        window.fbq("trackCustom", `ace_${eventName}`, metaPayload);
+      }
+    }
+  } catch {
+    /* Analytics availability must not affect form submission. */
+  }
+};
+
+// The confirmation page stays loaded long enough for analytics to send its batch.
+// A plain visit or refresh has no stored successful inquiry to count.
+if (window.location.pathname.replace(/\/$/, "") === "/thank-you") {
+  const confirmedLead = consumeLeadConversion(storage);
+  if (confirmedLead) trackEvent("generate_lead", confirmedLead);
+}
 
 document.querySelectorAll("form[data-offer-form]").forEach(function (form) {
   if (form.dataset.offerFormBound === "true") {
@@ -44,55 +104,12 @@ document.querySelectorAll("form[data-offer-form]").forEach(function (form) {
   let submitInFlight = false;
   let submissionComplete = false;
   let formStartedTracked = false;
-  const trackFormEvent = (eventName, payload = {}, googleOptions = {}) => {
-    try {
-      if (typeof window.gtag === "function") {
-        window.gtag("event", eventName, {
-          form_id: trackingFormId,
-          page_path: window.location.pathname,
-          page_title: document.title,
-          ...payload,
-          ...googleOptions,
-        });
-
-        const googleAdsSendTo =
-          eventName === "generate_lead"
-            ? window.__aceGoogleAdsConversions?.lead
-            : "";
-
-        if (googleAdsSendTo) {
-          window.gtag("event", "conversion", {
-            send_to: googleAdsSendTo,
-            form_id: trackingFormId,
-            page_path: window.location.pathname,
-            lead_type: payload.lead_type || "offer_form",
-          });
-        }
-      }
-
-      if (typeof window.fbq === "function") {
-        const metaPayload = {
-          content_name: trackingFormId,
-          page_path: window.location.pathname,
-          page_title: document.title,
-          ...payload,
-        };
-
-        if (eventName === "generate_lead") {
-          window.fbq("track", "Lead", metaPayload);
-        } else if (eventName === "form_start") {
-          window.fbq("track", "Contact", {
-            contact_method: "form",
-            ...metaPayload,
-          });
-        } else {
-          window.fbq("trackCustom", `ace_${eventName}`, metaPayload);
-        }
-      }
-    } catch {
-      /* Analytics availability must not affect form submission. */
-    }
-  };
+  const trackFormEvent = (eventName, payload = {}, googleOptions = {}) =>
+    trackEvent(
+      eventName,
+      { form_id: trackingFormId, ...payload },
+      googleOptions,
+    );
 
   form.addEventListener("focusin", function () {
     if (formStartedTracked) {
@@ -268,22 +285,29 @@ document.querySelectorAll("form[data-offer-form]").forEach(function (form) {
       const result = await response.json().catch(() => null);
       if (response.ok && result?.ok === true) {
         submissionComplete = true;
-        // Let Google process the conversion before navigation unloads this page.
-        // The independent timeout also covers blocked or unavailable analytics.
-        await new Promise((resolve) => {
-          const timeoutId = window.setTimeout(resolve, 1500);
-          const finishTracking = () => {
-            window.clearTimeout(timeoutId);
-            resolve();
-          };
+        const conversion = {
+          form_id: trackingFormId,
+          page_path: window.location.pathname,
+          page_title: document.title,
+          lead_type: "offer_form",
+        };
+        if (!saveLeadConversion(storage, conversion)) {
+          // If session storage is unavailable, make a bounded attempt here.
+          await new Promise((resolve) => {
+            const timeoutId = window.setTimeout(resolve, 1500);
+            const finishTracking = () => {
+              window.clearTimeout(timeoutId);
+              resolve();
+            };
 
-          trackFormEvent(
-            "generate_lead",
-            { lead_type: "offer_form" },
-            { event_callback: finishTracking, event_timeout: 1500 },
-          );
-          if (typeof window.gtag !== "function") finishTracking();
-        });
+            trackFormEvent(
+              "generate_lead",
+              { lead_type: "offer_form" },
+              { event_callback: finishTracking, event_timeout: 1500 },
+            );
+            if (typeof window.gtag !== "function") finishTracking();
+          });
+        }
 
         // Success - redirect to thank you page
         window.location.href = "/thank-you/";
