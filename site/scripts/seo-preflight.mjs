@@ -417,7 +417,8 @@ async function assertHomepageImageAlt(distDir, errors) {
 
   const imgTagRegex = /<img\b[^>]*>/gi;
   const imgTags = html.match(imgTagRegex) ?? [];
-  const offending = imgTags.filter((tag) => !tag.toLowerCase().includes("alt="));
+  // Astro may serialize an empty alt attribute as bare `alt`, which is valid HTML.
+  const offending = imgTags.filter((tag) => !/\salt(?=\s|=|\/?>)/i.test(tag));
 
   if (offending.length > 0) {
     const messageLines = [
