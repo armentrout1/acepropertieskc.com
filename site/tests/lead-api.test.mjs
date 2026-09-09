@@ -39,6 +39,14 @@ test("successful inquiries include original source, submission page, and prefere
   assert.equal(messages.length, 1);
   const message = messages[0];
   assert.equal(message.to, "owner@example.com");
+  assert.equal(message.from, "site@example.com");
+  assert.equal(message.replyTo, "seller@example.com");
+  assert.match(message.html, /href="mailto:seller@example.com"/);
+  assert.match(message.html, /Preferred contact: Email first/);
+  assert.ok(
+    message.html.indexOf("Start your follow-up") <
+      message.html.indexOf("Property details"),
+  );
   assert.match(
     message.text,
     /Landing page: https:\/\/acepropertieskc.com\/resources\//,
@@ -72,6 +80,39 @@ test("fast submissions are rejected and GET cannot submit a lead", async () => {
   );
   assert.equal((await GET({})).status, 405);
 });
+test("phone-only inquiries retain the business reply address and put texting first when requested", async () => {
+  const response = await submit({
+    ...valid(),
+    contact: "816-555-0123",
+    contact_preference: "text",
+  });
+  assert.equal(response.status, 200);
+  const message = messages.at(-1);
+  assert.equal(message.replyTo, "reply@example.com");
+  assert.match(message.html, /href="tel:\+18165550123"/);
+  assert.match(message.html, /href="sms:\+18165550123"/);
+  assert.ok(
+    message.html.indexOf('href="sms:') < message.html.indexOf('href="tel:'),
+  );
+  assert.match(message.text, /seller did not provide an email address/);
+});
+
+test("contact links encode email tags and preserve phone extensions without offering extension texting", async () => {
+  const response = await submit({
+    ...valid(),
+    contact: "",
+    phone: "+1 (816) 555-0123 ext 45",
+    email: "seller+house@example.com",
+    contact_preference: "call",
+  });
+  assert.equal(response.status, 200);
+  const message = messages.at(-1);
+  assert.equal(message.replyTo, "seller+house@example.com");
+  assert.match(message.html, /href="mailto:seller%2Bhouse@example.com"/);
+  assert.match(message.html, /href="tel:\+18165550123;ext=45"/);
+  assert.doesNotMatch(message.html, /href="sms:/);
+});
+
 test("transport failure returns an error rather than a false success", async () => {
   sgMail.send = async () => {
     throw new Error("Simulated mail provider outage");

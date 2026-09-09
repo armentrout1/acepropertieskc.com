@@ -1,0 +1,66 @@
+---
+import { sellerStories } from "../data/sellerStories";
+import { approvedSellerReviews } from "../data/reviews";
+const rentalStory = sellerStories.find(
+  (story) => story.slug === "rental-house-cash-purchase",
+);
+const review = approvedSellerReviews[0];
+---
+
+<section id="seller-experience" class="section scroll-mt-32 space-y-5">
+  <div class="max-w-3xl space-y-3">
+    <p class="badge">Meet your buyer</p>
+    <h2 class="text-3xl font-semibold text-primary">
+      Experience helping Kansas City sellers
+    </h2>
+    <p class="text-muted">
+      You will talk with Aaron at ACE Properties KC about the house and what you
+      need from the sale. These existing seller stories and reviews give you a
+      closer look at how ACE works.
+    </p>
+  </div>
+  <div class="grid gap-5 md:grid-cols-2">
+    {
+      rentalStory && (
+        <article class="card space-y-3">
+          <p class="text-sm font-semibold text-secondary">
+            {rentalStory.location} · As-is cash purchase
+          </p>
+          <h3 class="text-xl font-semibold text-primary">
+            Selling a rental without another repair project
+          </h3>
+          <p class="text-muted">{rentalStory.summary}</p>
+          <a
+            href={`/seller-stories/${rentalStory.slug}/`}
+            class="inline-flex font-semibold text-secondary underline"
+          >
+            Read the rental-house seller story
+          </a>
+        </article>
+      )
+    }
+    {
+      review && (
+        <figure class="card space-y-3 bg-soft">
+          <p class="text-sm font-semibold text-secondary">{review.situation}</p>
+          <blockquote class="text-lg leading-8 text-primary">
+            “{review.text}”
+          </blockquote>
+          <figcaption class="text-sm text-muted">
+            {review.reviewer} · {review.location}
+          </figcaption>
+          {review.sourceUrl && (
+            <a
+              href={review.sourceUrl}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex font-semibold text-secondary underline"
+            >
+              Read the review on Google
+            </a>
+          )}
+        </figure>
+      )
+    }
+  </div>
+</section>

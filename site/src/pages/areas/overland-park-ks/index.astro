@@ -1,6 +1,6 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import AreaPropertyProof from "../../../components/AreaPropertyProof.astro";
+import CitySellerExperience from "../../../components/CitySellerExperience.astro";
 import GoogleBusinessTrustLink from "../../../components/GoogleBusinessTrustLink.astro";
 import OfferForm from "../../../components/OfferForm.astro";
 import SellerSituationLinks from "../../../components/SellerSituationLinks.astro";
@@ -37,16 +37,16 @@ const situations = [
 
 const overlandParkFastSaleProof = [
   {
-    title: "Compare before repairs",
-    body: "We review Overland Park houses as-is, including dated interiors, foundation concerns, roof issues, old mechanicals, contents left behind, and repairs that would normally slow down listing photos.",
+    title: "Do I need to make repairs first?",
+    body: "You can request an offer with the house as it is. Tell us about the roof, foundation, plumbing, or other work you know it needs; we account for the condition when reviewing the offer.",
   },
   {
-    title: "Protect the actual net",
-    body: "You see how a direct offer compares with commissions, repair checks, buyer concessions, seller-paid closing costs, utilities, insurance, HOA items, and another month of holding the house.",
+    title: "Does the house have to be empty?",
+    body: "Tell Aaron what you plan to take and what you would like to leave. Agree on the contents and clean-out arrangements in writing before closing.",
   },
   {
-    title: "Plan Johnson County details early",
-    body: "HOA documents, payoff statements, title work, possession timing, family signatures, and move-out dates are discussed before you choose a closing path.",
+    title: "What will I actually receive?",
+    body: "Compare the offer after your mortgage payoff and agreed selling costs. Ask for the price, closing costs, and possession arrangements in writing so you can compare your options.",
   },
 ];
 
@@ -62,45 +62,6 @@ const steps = [
   {
     title: "Compare the written options",
     body: "You get a direct offer, closing timeline, repair assumptions, and a plain comparison against listing so you can decide without pressure.",
-  },
-];
-
-const commonSellerGoals = [
-  "Sell my house fast in Overland Park KS without repairs or showings",
-  "Talk with cash home buyers in Overland Park before spending money on contractors",
-  "Compare we buy houses Overland Park buyers with a traditional Johnson County listing",
-  "Sell my house as-is in Overland Park before cleaning everything out",
-  "Get a written Overland Park offer before a relocation, estate deadline, or school-year transition",
-  "Understand whether a cash offer or listing produces the better net after repairs, fees, HOA items, and time",
-];
-
-const overlandParkSearchSignals = [
-  {
-    title: "Cash home buyers Overland Park KS",
-    body: "A good cash buyer should explain repair assumptions, title timing, HOA items, closing costs, possession, and the seller net instead of only giving a fast number.",
-  },
-  {
-    title: "Sell my house fast Overland Park",
-    body: "A fast Overland Park sale depends on title, payoff, condition, HOA documents, access, seller authority, and whether the buyer can close without lender delays.",
-  },
-  {
-    title: "Sell my house as-is Overland Park Kansas",
-    body: "A useful as-is option explains the offer, what repairs stay with the buyer, what closing costs look like, and how the net compares with listing.",
-  },
-];
-
-const listingComparison = [
-  {
-    title: "Listing may be better when",
-    body: "The house is updated, easy to show, title is simple, you can wait for buyer financing, and you are comfortable handling inspection repairs, commissions, concessions, HOA documents, and showings.",
-  },
-  {
-    title: "A direct sale may be better when",
-    body: "The house needs repairs, has contents left inside, is vacant, involves heirs or tenants, or the seller needs a known closing date before spending more money.",
-  },
-  {
-    title: "A flexible option may be better when",
-    body: "There is little equity, payment pressure, a low-interest loan, or a situation where taking over payments may protect credit and still create a clean exit.",
   },
 ];
 
@@ -124,8 +85,8 @@ const internalGuides = [
     body: "A simple way to compare an Overland Park cash offer against listing costs, repairs, concessions, and holding time.",
   },
   {
-    label: "Johnson County inherited house sale",
-    href: "/resources/johnson-county-inherited-house-sale/",
+    label: "Overland Park and Olathe probate guide",
+    href: "/resources/selling-house-in-probate-overland-park-olathe/",
     body: "Useful when Overland Park heirs need to compare clean-out, repairs, title authority, and a direct written offer.",
   },
   {
@@ -136,6 +97,16 @@ const internalGuides = [
 ];
 
 const faqs = [
+  {
+    question: "What should I have ready before I contact you?",
+    answer:
+      "Start with the property address and a phone number or email. If you know the repairs needed, whether anyone lives there, and your preferred move date, those details help. You can gather other documents as the conversation progresses.",
+  },
+  {
+    question: "Can I start if I live outside Overland Park?",
+    answer:
+      "Yes. Tell Aaron where the house is and who can provide access. We can discuss a property review and coordinate next steps around your location and availability.",
+  },
   {
     question: "Can I sell my Overland Park house as-is?",
     answer:
@@ -181,105 +152,99 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Cash Home Buyers Overland Park KS | Sell Fast"
-  description="Cash home buyers in Overland Park KS. Compare a local as-is offer before repairs, HOA docs, tenants, clean-out, relocation, or title timing."
+  title="Sell Your Overland Park House As-Is | ACE Properties KC"
+  description="Sell your Overland Park, KS house as-is. Get a local cash offer before repairs, clean-out, or showings. Talk with Aaron and compare your options."
   canonicalPath="/areas/overland-park-ks/"
   jsonLd={jsonLd}
 >
   <section class="section grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-start">
     <div class="space-y-4">
-      <p class="badge">Cash home buyers Overland Park KS</p>
+      <p class="badge">Overland Park, Kansas · Local cash buyer</p>
       <h1 class="text-3xl font-semibold text-primary sm:text-4xl">
-        Sell Your Overland Park House Fast, As-Is, With a Clear Net Comparison
+        Sell Your Overland Park House As-Is
       </h1>
       <p class="text-lg leading-8 text-muted">
-        If your Overland Park house has equity but the next step feels heavy,
-        you should be able to compare a real local offer before spending money
-        on repairs, clean-out, updates, or repeated showings. ACE Properties KC
-        reviews Overland Park homes as-is and explains the cash offer, closing
-        timeline, HOA items, and Johnson County title details in writing.
+        Get a written cash offer before paying for repairs, clearing out the
+        house, or scheduling showings. Compare what you would keep from a direct
+        sale with the costs and work of listing your Overland Park home.
       </p>
       <p class="leading-7 text-muted">
-        This page is for Overland Park owners who want to know whether a direct
-        sale, a traditional listing, or a flexible payment solution makes the
-        most sense. If listing is likely better, we will tell you that too.
+        Talk directly with Aaron about your move, inherited property, rental, or
+        unfinished repairs. You can review the numbers and ask questions before
+        deciding.
       </p>
       <div class="flex flex-wrap gap-3">
         <a href="#overland-park-ks-offer-form" class="btn btn-primary text-base"
-          >Get a fast Overland Park offer</a
+          >Get my as-is offer</a
         >
         <a
           href="tel:+18167287548"
           class="btn btn-ghost text-base"
-          data-phone-link="overland_park_hero">Call 816-728-7548</a
+          data-phone-link="overland-park-ks_hero">Call 816-728-7548</a
+        >
+        <a
+          href="sms:+18167287548"
+          class="btn btn-outline text-base"
+          data-sms-link="overland-park-ks_hero">Text Aaron</a
         >
       </div>
       <GoogleBusinessTrustLink class="max-w-xl" />
     </div>
     <OfferForm
       compact
+      addressFirst
       formId="overland-park-ks-offer-form"
-      heading="Request an Overland Park offer"
-      subheading="Start with the address and the best way to reach you."
-      defaultSituation="Sell house fast"
+      heading="Get an as-is offer in Overland Park"
+      subheading="Start with the address. Add your phone or email on the next step."
+      buttonLabel="See my as-is options"
+      defaultSituation="as-is cash"
       pageContext="overland-park-ks"
     />
   </section>
+  <nav
+    aria-label="On this page"
+    class="flex flex-wrap gap-x-6 gap-y-3 rounded-2xl border border-border bg-white p-4 text-sm font-semibold text-secondary"
+  >
+    <a href="#as-is-questions" class="underline">Repairs and clean-out</a>
+    <a href="#seller-experience" class="underline">Seller experience</a>
+    <a href="#sale-options" class="underline">Cash offer vs. listing</a>
+    <a href="#local-details" class="underline">Overland Park details</a>
+    <a href="#seller-faq" class="underline">Questions</a>
+  </nav>
 
-  <section class="section section-alt space-y-5">
+  <section
+    id="as-is-questions"
+    class="section section-alt scroll-mt-32 space-y-5"
+  >
     <div class="max-w-3xl space-y-3">
-      <p class="badge">Quick answer</p>
+      <p class="badge">Before you spend money on the house</p>
       <h2 class="text-3xl font-semibold text-primary">
-        Yes, you can ask for an Overland Park cash offer before fixing the
-        house.
+        What selling as-is means for your Overland Park house
       </h2>
       <p class="text-muted">
-        The useful question is not just "what is the offer?" It is what you keep
-        after repairs, commissions, buyer concessions, HOA items, title timing,
-        utilities, insurance, lawn care, and another month of ownership.
+        Start with the details you already know. You do not need contractor bids
+        or a finished clean-out to begin the conversation.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-3">
       {
         overlandParkFastSaleProof.map((item) => (
           <article class="card bg-white">
-            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+            <>
+              <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
+            </>
           </article>
         ))
       }
     </div>
   </section>
+  <CitySellerExperience />
 
-  <section class="section space-y-5">
-    <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
-        Overland Park seller intent
-      </p>
-      <h2 class="text-3xl font-semibold text-primary">
-        If you searched "cash home buyers Overland Park," compare certainty,
-        title timing, and net proceeds.
-      </h2>
-      <p class="text-muted">
-        Many Overland Park sellers have value in the property, but that does not
-        mean they want months of prep, showings, inspection asks, HOA surprises,
-        or a public listing while family, tenant, relocation, or estate details
-        are still being sorted out.
-      </p>
-    </div>
-    <div class="grid gap-4 md:grid-cols-3">
-      {
-        overlandParkSearchSignals.map((item) => (
-          <article class="card h-full">
-            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-          </article>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="section section-alt space-y-5">
+  <section
+    id="local-details"
+    class="section section-alt scroll-mt-32 space-y-5"
+  >
     <div class="max-w-3xl space-y-3">
       <p class="badge">What makes Overland Park different</p>
       <h2 class="text-3xl font-semibold text-primary">
@@ -313,49 +278,80 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="card space-y-4">
-      <h2 class="text-2xl font-semibold text-primary">
-        Common Overland Park seller goals
-      </h2>
-      <div class="grid gap-3 md:grid-cols-2">
-        {
-          commonSellerGoals.map((goal) => (
-            <div class="rounded-md border border-border bg-soft/60 p-3 text-sm text-primary">
-              {goal}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt space-y-5">
+  <section id="sale-options" class="section section-alt scroll-mt-32 space-y-5">
     <div class="max-w-3xl space-y-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-secondary">
-        List or sell direct
-      </p>
+      <p class="badge">Compare your options</p>
       <h2 class="text-3xl font-semibold text-primary">
-        The best Overland Park sale is the one that protects your net after
-        repairs, time, and fees.
+        An as-is cash offer or an Overland Park listing?
       </h2>
       <p class="text-muted">
-        We are not trying to make every Overland Park house a direct sale. Some
-        should be listed. Others need a buyer who can take on repairs,
-        clean-out, tenant issues, HOA details, estate coordination, or timing
-        pressure without turning the sale into another project.
+        Put the expected costs and work beside each price. If the house is ready
+        to show and your schedule is flexible, a listing is worth comparing with
+        the direct offer.
       </p>
     </div>
-    <div class="grid gap-4 md:grid-cols-3">
-      {
-        listingComparison.map((item) => (
-          <article class="card bg-white">
-            <h3 class="text-lg font-semibold text-primary">{item.title}</h3>
-            <p class="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-          </article>
-        ))
-      }
+    <div class="overflow-x-auto rounded-2xl border border-border bg-white">
+      <table class="w-full text-left text-sm">
+        <caption class="sr-only"
+          >Questions to compare a direct cash sale with listing your Overland
+          Park house</caption
+        >
+        <thead class="bg-primary text-white"
+          ><tr
+            ><th scope="col" class="p-4">Compare</th><th scope="col" class="p-4"
+              >ACE cash offer</th
+            ><th scope="col" class="p-4">Listing</th></tr
+          ></thead
+        >
+        <tbody class="divide-y divide-border">
+          <tr
+            ><th scope="row" class="p-4 align-top">Repairs and clean-out</th><td
+              class="p-4 align-top"
+              >Agree on the condition and belongings included in the sale.</td
+            ><td class="p-4 align-top"
+              >Decide which repairs, preparation, and clean-out you would pay
+              for.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row" class="p-4 align-top">Price and costs</th><td
+              class="p-4 align-top"
+              >Review the written offer, payoff, and any seller costs.</td
+            ><td class="p-4 align-top"
+              >Estimate the accepted price, agent fees, concessions, and
+              preparation costs.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row" class="p-4 align-top">Access and showings</th><td
+              class="p-4 align-top"
+              >Arrange access for ACE's property review.</td
+            ><td class="p-4 align-top"
+              >Plan for listing photos, buyer showings, and inspections.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row" class="p-4 align-top">Closing and move-out</th><td
+              class="p-4 align-top"
+              >Agree on dates after reviewing title, payoff, and possession
+              needs.</td
+            ><td class="p-4 align-top"
+              >Compare the buyer's financing, contingencies, and proposed dates.</td
+            ></tr
+          >
+        </tbody>
+      </table>
     </div>
+    <p class="text-muted">
+      Use the <a
+        href="/resources/as-is-sale-net-sheet-template/"
+        class="font-semibold text-secondary underline">sale net sheet</a
+      > to compare your own numbers, then <a
+        href="#overland-park-ks-offer-form"
+        class="font-semibold text-secondary underline"
+        >request an offer for your address</a
+      >.
+    </p>
   </section>
 
   <SellerSituationLinks
@@ -364,25 +360,6 @@ const jsonLd = [
       label: "Johnson County behind-on-payments guide",
       href: "/resources/johnson-county-behind-on-payments/",
     }}
-  />
-
-  <AreaPropertyProof
-    city="Overland Park, KS"
-    county="Johnson County"
-    propertyTypes={[
-      {
-        title: "Older Overland Park as-is houses",
-        body: "Ranches, split-levels, and long-held homes with dated finishes, old systems, clean-out needs, or repairs that make MLS prep expensive.",
-      },
-      {
-        title: "Johnson County inherited homes",
-        body: "Family-owned houses where heirs need title clarity, repair assumptions, clean-out help, and a closing plan that respects everyone involved.",
-      },
-      {
-        title: "Overland Park rentals and vacant houses",
-        body: "Rental, tenant-occupied, vacant, or partially cleaned-out properties where access, leases, utilities, and carrying costs need a practical plan.",
-      },
-    ]}
   />
 
   <section class="section grid gap-8 md:grid-cols-2">
@@ -502,7 +479,12 @@ const jsonLd = [
   </section>
 
   <section class="section space-y-4">
-    <h2 class="text-2xl font-semibold text-primary">Overland Park FAQ</h2>
+    <h2
+      id="seller-faq"
+      class="scroll-mt-32 text-2xl font-semibold text-primary"
+    >
+      Overland Park seller questions
+    </h2>
     <div class="space-y-3">
       {
         faqs.map((faq) => (
