@@ -44,7 +44,7 @@ document.querySelectorAll("form[data-offer-form]").forEach(function (form) {
   let submitInFlight = false;
   let submissionComplete = false;
   let formStartedTracked = false;
-  const trackFormEvent = (eventName, payload = {}) => {
+  const trackFormEvent = (eventName, payload = {}, googleOptions = {}) => {
     try {
       if (typeof window.gtag === "function") {
         window.gtag("event", eventName, {
@@ -52,6 +52,7 @@ document.querySelectorAll("form[data-offer-form]").forEach(function (form) {
           page_path: window.location.pathname,
           page_title: document.title,
           ...payload,
+          ...googleOptions,
         });
 
         const googleAdsSendTo =
@@ -267,9 +268,21 @@ document.querySelectorAll("form[data-offer-form]").forEach(function (form) {
       const result = await response.json().catch(() => null);
       if (response.ok && result?.ok === true) {
         submissionComplete = true;
-        // Track successful form submission
-        trackFormEvent("generate_lead", {
-          lead_type: "offer_form",
+        // Let Google process the conversion before navigation unloads this page.
+        // The independent timeout also covers blocked or unavailable analytics.
+        await new Promise((resolve) => {
+          const timeoutId = window.setTimeout(resolve, 1500);
+          const finishTracking = () => {
+            window.clearTimeout(timeoutId);
+            resolve();
+          };
+
+          trackFormEvent(
+            "generate_lead",
+            { lead_type: "offer_form" },
+            { event_callback: finishTracking, event_timeout: 1500 },
+          );
+          if (typeof window.gtag !== "function") finishTracking();
         });
 
         // Success - redirect to thank you page
